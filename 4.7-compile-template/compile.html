@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='tt'></div>
+    <script>
+    let cg = console.log;
+    let template = `
+    <ul>
+        var index = -1,
+            length = data == null ? 0 : data.length;
+        while(++index < length) {
+            <li>{{data[index]}}</li>
+        }
+    </ul>
+    <ul>
+        var index = -1,
+            length = data == null ? 0 : data.length;
+        while(++index < length) {
+            <li>{{1+data[index]}}</li>
+        }
+    </ul>
+    `;
+    template = template.replace(/\n/g,'');
+    function compiles(template) {
+        let exHead = /(<\w+?>)/g
+        let exContent = /{{(.*?)}}/g
+        let exTail = /(<\/\w+?>)/g
+        let tplt = template.replace(exHead,'addEle(`$1`);\n')
+        tplt = tplt.replace(exTail,'addEle(`$1`);\n')
+        tplt = tplt.replace(exContent,'addEle($1);\n')
+        let src = `(function(data) {
+            let tmp = ''
+            function addEle(tag) {
+                tmp += tag
+            }
+            ${tplt}
+            return tmp
+        })`;
+        return src
+    }
+    var Vue = {
+        _aa: [],
+        get aa() { return this._aa },
+        set aa(val) { this._aa = val;render() }
+    }
+    
+    let t =compiles(template);
+    cg(t)
+    var parse1 = eval(t);
+    Vue.aa = [1,2,3]
+    function render() {
+        tt.innerHTML = parse1(Vue.aa)
+    }
+    Vue.aa = [4,5,6]
+    </script>
+</body>
+</html>

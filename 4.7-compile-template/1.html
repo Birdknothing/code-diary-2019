@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='test'></div>
+    <script>
+        var template = `<ul>
+            <% for(let i=0;i<3;i++) { %>
+            <li><%= i %></li>
+            <% } %>
+            </ul>`;
+        var template1 = `<ul>
+            ${ ((function(){for(var i=0,o='';i<3;i++) { 
+               o += `<li>${i}</li>`
+            }return o
+            })())
+            }
+            </ul>`;
+            // console.log(i)
+        let evalExpr = /<%=(.+?)%>/g
+        let expr = /<%(.+?)%>/g
+        var a = 1
+        var b;
+        let c =`function m(){
+        ${ (()=>{for(let j=0;j<2;j++)
+          a+= j  
+        })() }
+        }`
+        console.log(typeof `abc`)
+        console.log(`abcd`.slice(1,-1))
+        console.log('abc'.slice(1,-1))
+
+        test.innerHTML = template1
+        </script>
+</body>
+</html>
