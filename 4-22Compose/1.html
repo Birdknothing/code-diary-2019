@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    input {
+      /* display: none; */
+      visibility: hidden;
+      height: 0;
+    }
+    input + div{
+      display: none;
+    }
+    input:checked + div{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="f1()">1</button>
+  <button onclick="f2()">2</button>
+  <button onclick="f3()">3</button>
+  <input class="input" type="radio" name="haha">
+    <div class="test">1</div>
+    <input class="input" type="radio" name="haha">
+    <div class="test">2</div>
+    <input class="input" type="radio" name="haha">
+    <div class="test">3</div>
+  <script>
+    console.log(document.getElementsByClassName('input'))
+    var tt = document.getElementsByClassName('input')
+    var arr = [1,2,3]
+    function f1(){
+      console.log(document.getElementsByClassName('input'))
+      document.getElementsByClassName('input')[0].checked = true
+    }
+    function f2(){
+      document.getElementsByClassName('input')[1].checked = true
+    }
+    function f3(){
+      document.getElementsByClassName('input')[2].checked = true
+    }
+    </script>
+</body>
+</html>

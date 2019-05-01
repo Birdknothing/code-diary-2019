@@ -1,0 +1,5 @@
+const f1 = new Promise((res)=>{setTimeout(res,1000,'done1')})
+const f2 = new Promise((res)=>{setTimeout(res,2000,'done2')})
+const f3 = new Promise((res)=>{setTimeout(res,3000,'done3')})
+Promise.race([f1,f2,f3]).then(console.log)
+Promise.all([f1,f2,f3]).then(console.log)

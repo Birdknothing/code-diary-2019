@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            background: #bbbbbb;
+        }
+        span.inline {
+            background: #FF6600;
+            display: inline;
+            border:10px solid aqua;
+            font-size: 30px;
+            vertical-align: middle;
+            /*vertical-align默认值为baseline;*/
+        }
+        span.inline-block {
+            background: yellowgreen;
+            width: 100px;
+            height: 300px;
+            display: inline-block;
+            vertical-align: middle;
+            /*vertical-align默认值为baseline;*/
+        }
+        /*
+            大家可以先猜一下（inline、inline-block、text）谁的baseline在最下面，
+            其中inline-block的baseline是第（3）情况---没有内容但有高度
+        */
+        
+    </style>
+</head>
+<body>
+<div>
+    <span class="inline">inline</span>
+    <span class="inline-block"></span>
+    text
+</div>
+</body>
+</html>
+
+查看代码
