@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+ // const curry = (f,length) => {length = length || f.length;return (...args) => length - args.length > 0 ? curry(function(){f.call(this,...args,...arguments)},length - args.length) : f.call(this,...args)}
+// const compose = (...args) => x => args.reduceRight((acc,f) => f(acc),x)
+// const curry = require('lodash/fp/curry')
+// const compose = require('lodash/fp/compose')
+const curry = (f,length) => {length = length || f.length;return (...args) => length - args.length > 0 ? curry(function(){return f.call(this,...args,...arguments)},length - args.length) :  f.call(this,...args)}
+const compose = (...args) => x => args.reduceRight((acc,f) => f(acc),x)
+class Maybe {
+  constructor(x){
+    this._val = x
+  }
+  static of(y){
+    return new Maybe(y)
+  }
+  isNothing() {
+    return this._val === null || this._val === undefined
+  }
+  map(f) {
+    return this.isNothing() ? Maybe.of(null) : Maybe.of(f(this._val))
+  }  
+}
+class IO {
+  constructor(f) {
+    this._val = f
+  }
+  static of(f) {
+    return new IO(f)
+  }
+  map(f) {
+    return IO.of(compose(f,this._val))
+  }
+}
+const map = curry((f,x) => x.map(f))
+const prop = curry((key,obj) => obj[key])
+const a = {x:{x:1}}
+const b = () => ({y:1})
+const h = () => x
+console.log(IO.of(b).map(prop('y'))._val)
+console.log(IO.of(b).map(prop('y'))._val())
+    </script>
+</body>
+</html>

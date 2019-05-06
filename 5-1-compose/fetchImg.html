@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <script>
+    const curry = (f,length) => {length = f.length || length;return (...args) => length - args.length > 0 ? curry(function(){return f.call(this,...args,...arguments)},length - args.length) : f.call(this,...args)}
+    const compose = (...args) => x => args.reduceRight((acc,f) => f(acc),x)
+      const url = keyword => 'http://image.baidu.com/i?tn=resultjsonavstar&ie=utf-8&word='+ keyword   +'&pn=0&rn=60'
+      const trace = curry((tag,data) => {console.log(tag);return data})
+      const getJSON = curry((cb,url) => $.getJSON(url,cb))
+      const setHTML = curry((tmplt,html) => $(tmplt).html(html))
+      const showJSON = compose(getJSON(trace),url)
+      console.log(typeof showJSON)
+      showJSON('cats')
+    </script>
+</body>
+</html>
