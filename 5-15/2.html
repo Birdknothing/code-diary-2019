@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="//cache.amap.com/h5/static/common/vconsole.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <a href="./1.html">11</a>
+  <div id="k" style="width: 200px;height: 200px;background: red"></div>
+  <input type="text" id="g" onkeypress="console.log(event);event.data !== 1 && event.preventDefault()">
+  <script>
+  // window.onbeforeunload=(e)=>{
+  //   console.log(e)
+  //   console.log(e.type)
+  //   console.log('go away')
+  //   // e.preventDefault()
+  //   // return '1'
+  //   return true
+  // }
+  // document.getElementById('g').addEventListener('textInput',(e)=>{
+  //   console.log('hah')
+  //   console.log(e)
+  //   if(e.data !== '1') {e.preventDefault()}
+  //   // return e.data === '1' ? true : false
+  // })
+  window.onfocus = () => {
+    console.log('window onfocu')
+  }
+  window.oncontextmenu = (e) => {
+    console.log('pop menu')
+    e.preventDefault()
+  }
+  document.getElementById('k').ongesturechange= (e) => {
+    console.log('start gesture')
+    console.log(e)
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+.size{
+  box-sizing: content-box;
+  // border: 10px solid green;
+  padding: 10px;
+  width: 400px;
+  height: 200px;
+}
+.effect2{
+  background: url('http://f.hiphotos.baidu.com/lvpics/w=600/sign=b7c305c7aad3fd1f3609a13a004f25ce/dcc451da81cb39db83b5f1bfd2160924aa1830e5.jpg') no-repeat 100% center/50%;
+}
+.effect1{
+  background: radial-gradient(circle at 50%,transparent 300px, red 301px,red 309px,transparent 310px) repeat-x -300px 300px/ 100%;
+}
+.effect{
+  background: radial-gradient(circle at 100px -70px, transparent 80px, currentColor 80px, currentColor 90px, transparent 90px) repeat-x -100px 200px/ 200px 200px;
+      // radial-gradient(circle at 200px/ 200px 200pxx 270px, transparent 80px, currentColor 80px, currentColor 90px, transparent 90px) repeat-x;
+  // background-size: 200px 200px;
+  // background-position: -100px 100%;
+  // background-position: -100px calc(100% + 160px);
+  // background-position: -100px calc(100% + 160px), 0 calc(100% - 40px);
+  // animation: move 1s infinite linear;
+}
+@keyframes move {
+  from{background-position-x:-100px ,0}
+  to{background-position-x: -300px,-200px}
+}

@@ -36,10 +36,12 @@
 //   length = length || f.length
 //   return (...args) => length - args.length > 0 ? curry(function(){return f.call(this,...args,...arguments)},length - args.length) :  f.call(this,...args)
 // }
-const curry = (f,length) => {length = length || f.length;return (...args) => length - args.length > 0 ? curry(function(){return f.call(this,...args,...arguments)},length - args.length) :  f.call(this,...args)}
+// const curry = (f,length) => {length = length || f.length;return (...args) => length - args.length > 0 ? curry(function(){return f.call(this,...args,...arguments)},length - args.length) :  f.call(this,...args)}
+const curry = ( f,length ) => { length = length || f.length ; return (...usedArgs) => length - usedArgs.length > 0 ? curry( (...restArgs) => f.call(this,...usedArgs,...restArgs), length - usedArgs.length) : f.apply(this,usedArgs)}
 // const h = a => b => c => a+b+c
 const h = (a,b,c,d,e) => a+b+c+d+e
 const tp = curry(h)
+console.log(tp(1,2)(3,4)(5))
 // console.log(tp(1,2,3,4,5))
 // console.log(tp(1,2,6)(4)(10))  
 // console.log(tp(1,2)(3)(4))

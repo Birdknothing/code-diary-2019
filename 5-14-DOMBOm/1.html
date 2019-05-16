@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #test{
+      box-sizing: border-box;
+      width: 50px;
+      height: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  11112323
+    <a href="./2.html">111</a>
+    <button onclick="window.history.go(-1)">go back</button>
+    <button onclick="this.innerHTML = window.getSelection().toString()">click</button>
+    <iframe src="http://www.baidu.com" frameborder="0" style="width:200px;height: 200px;"></iframe>
+    <div style="display: flex;overflow: scroll;height: 100px" id="input" onscroll="console.log(test.offsetLeft);console.log('clientLeft='+test.clientLeft);">
+        <input type="text" id="test" maxlength="50">
+      </div>
+      <div contenteditable="">12938yrhphdfaseri</div>
+      <button onclick="st()" id='clock'>开始定时器</button>
+      <button onclick="stop()">clear interval</button>
+    <script>
+      let i = 1;
+      let w;
+      function st(){
+        w = setInterval(()=>{clock.innerHTML = ++i},1000)
+        console.log('start w='+w)
+      }
+      function stop(){
+        console.log('stop w='+w)
+        clearInterval(w)
+        clearInterval(w)
+      }
+    console.log(window.frames[0])
+
+    console.log(document.lastModified)
+    console.log(document.compatMode)
+    console.log(input.getBoundingClientRect())
+    </script>
+</body>
+</html>

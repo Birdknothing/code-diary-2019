@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>font page</div>
+  <!-- <iframe src="http://127.0.0.1:3000/h" id="ifr" frameborder="0"></iframe> -->
+  <form onsubmit="console.log(event);return false" >
+    <button type="submit" id="gg" onclick="console.log(event);event.stopImmediatePropagation();return false" onmousedown="console.log('go way')">submit</button>
+  </form>
+  <script>
+    window.addEventListener('copy',e=>{
+      console.log(e)
+      e.clipboardData.setData('text/plain',window.getSelection().toString()+'hello world')
+      e.preventDefault()
+    })
+    window.oncontextmenu=e=>{
+      console.log(e)
+    }
+      function get(url,callback) {
+        const quest = new XMLHttpRequest()
+        quest.open('GET',url)
+        quest.onreadystatechange=()=>{
+          if(quest.readyState === 4 && quest.status === 200) {
+            const type = quest.getResponseHeader('Content-Type');
+            console.log('responseHeader.Content-Type ='+type)
+            callback(type.indexOf('xml') !== -1 && quest.responseXML ? quest.responseXML : type === 'application/json' ? JSON.parse(quest.responseText) : quest.responseText)
+          }
+        }
+        // quest.setRequestHeader('Content-Type','application/json')
+        quest.send(null)
+      }
+      window.onmessage=(e)=>{
+        console.log(e)
+        console.log('e.data='+e.data)
+      }
+      document.getElementById('gg').addEventListener('click',function(e){
+        console.log('there')
+        // e.preventDefault()
+      })
+      // document.getElementById('gg').onclick=function(e){
+      //   console.log('here')
+      // }
+      // get('http://127.0.0.1:3001/h',console.log)
+      // let iframe = document.getElementById('ifr').contentWindow
+      // setTimeout(()=>{iframe.postMessage('abc',"*")},1000)
+      // setTimeout(()=>{console.log(iframe.document.body)},10)
+     
+    </script>
+</body>
+</html>
