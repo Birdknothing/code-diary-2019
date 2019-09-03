@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="./my-min-library/react.min.js"></script>
+    <script src="./my-min-library/reactdom.min.js"></script>
+    <script src="./my-min-library/babel.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app1"></div>
+    <div id="app2"></div>
+    <script type="text/babel">
+      class M extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            x: 1,
+            y: 2
+          };
+        }
+        render() {
+          console.log(this.state.x);
+          if (this.props.idd === 'x') {
+            this.state.x = 2;
+          }
+          return this.state.x;
+        }
+      }
+      function N(props) {
+        const state = React.useState;
+        const [test, setT] = state(100);
+        console.log('111');
+        // setT(200);
+        setTimeout(() => {
+          setT(200);
+        }, 2000);
+        // if (props.idd === 'x') {
+        //   setTimeout(() => {
+        //     setT(200);
+        //     setTimeout(() => {
+        //       setT(test - 1);
+        //       setTimeout(() => {
+        //         setT(test - 1);
+        //       }, 2000);
+        //     }, 2000);
+        //   }, 2000);
+        // }
+        setInterval(() => {
+          console.log('test', test);
+        }, 1000);
+        return <button onClick={() => setT(test + 1)}>{test}</button>;
+      }
+      const Data1 = React.createContext('yellow');
+      class W extends React.Component {
+        static contextType = Data1;
+        render() {
+          // const { color } = this.context;
+          const color = typeof this.context === 'string' ? this.context : this.context.color;
+          console.log(this.context);
+          return <div style={{ color }}>123</div>;
+        }
+      }
+      // ReactDOM.render(<N idd="x" />, app);
+      ReactDOM.render(
+        <Data1.Provider value="null">
+          <W />
+          <Data1.Consumer>{x => '123'}</Data1.Consumer>
+        </Data1.Provider>,
+        app2
+      );
+      ReactDOM.render(
+        // 注意provider的value只要地址改变或者值改变都会触发内部所有包含组件的render()
+        <Data1.Provider value={{ color: 'blue', content: 'wtf' }}>
+          <W />
+          <Data1.Consumer>{val => val.content}</Data1.Consumer>
+        </Data1.Provider>,
+        app1
+      );
+    </script>
+  </body>
+</html>

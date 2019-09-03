@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="../my-min-library/react.min.js"></script>
+    <script src="../my-min-library/reactdom.min.js"></script>
+    <script src="../my-min-library/babel.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script type="text/babel">
+    const C1 = React.lazy();
+      class Test extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { x: 1 };
+          // setTimeout(() => {
+          //   console.log(this.state.x);
+          // }, 1000);
+        }
+        render() {
+          const ck = () => {
+            this.setState(state => {
+              return { x: 2 };
+            });
+          };
+          return (
+            <div>
+              {this.state.x}
+              <button onClick={ck}>click</button>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<Test />, test);
+    </script>
+  </body>
+</html>

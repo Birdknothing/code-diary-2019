@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="../my-min-library/jquery.dev.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div class="a b">ab</div>
+    <div class="m">m</div>
+    <div class="a b c">abc</div>
+    <div class="d" style="position: absolute">
+      <div class="e">
+        <div class="f">f</div>
+      </div>
+    </div>
+    <button id="bt">clcik</button>
+    <div class="z">zzzzz</div>
+    <div class="y" style="width:100px;height:100px;background-color:gray;margin-left:100px;margin-top:100px;">yyyyy</div>
+    <script>
+      class A {
+        constructor() {
+        }
+        x(){}
+      }
+      const aa = new A();
+      console.log($.isEmptyObject(Object.create(null))) // true
+      console.log($.isPlainObject(Object.create(null))) // false
+      $('body').on('click','.z', () => {
+        console.log('z clicked');
+      });
+
+      $('<div class="z">a zz</div>').appendTo('body');
+      // $('.y').toggle({
+      //   duration:5000,
+      //   easing:'swing',
+      //   step:(i,j) =>{console.log('step',j.prop,i)},
+      //   progress:(x,y,z) =>{console.log('progress',x,y,z)},
+      //   complete:()=>{console.log('complete')},
+      //   start:(x) => {console.log('start',x)},
+      //   fail:(x,y) => {console.log('fail',x,y)},
+      //   always:(x,y) => {console.log('always',x,y)},
+      //   done:(x,y) => {console.log('done',x,y)}
+      // });
+      $('.y').click(e => $(e.target).animate({marginLeft:'toggle'},{duration:2000,step:(val,ele) => console.log(ele.prop+' '+val)}))
+      .animate({marginLeft:'toggle'},3000)
+      $('input').focus(function() {
+        $('<span>Focused!</span>')
+          .appendTo('body')
+          .fadeOut(1000);
+      });
+      $('#bt').bind('my', (e, x) => {
+        console.log('yyy');
+        console.log($(e.target).html() + x);
+      });
+      $('#bt').bind('click', () => {
+        console.log('a clicked');
+        $(this).triggerHandler('my', ['my msg']);
+      });
+      console.log(
+        $('.d .f')
+          .offsetParent()
+          .get()
+      );
+      $('.a.b').click({ x: 1 }, function(e) {
+        const { data } = e;
+        data.x += 1;
+        console.log(e);
+        alert('ab');
+      });
+      console.log(
+        $('.a')
+          .filter()
+          .get()
+      );
+      console.log($(document).find('.m'));
+      // console.log($('.b:eq(1)').html())
+      // console.log($('.b').eq(1).html())
+      // setTimeout(() => {
+      //   $('.a.b')
+      //     .clone(true)
+      //     .prependTo('body');
+      //   console.log($('.a.b').detach().appendTo('body'));
+      // }, 2000);
+    </script>
+    ：first =========>> .first() ：last =========>> .last() ：not =========>> .not(selector | Element | JQ | Element[] | JQ[]) ：first =========>> .first() ：first =========>> .first() ：first =========>> .first() ：first =========>> .first() ：first =========>> .first() ：first =========>> .first() ：first =========>> .first() ：first =========>> .first()
+  </body>
+</html>

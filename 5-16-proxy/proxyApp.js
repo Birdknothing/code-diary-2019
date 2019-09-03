@@ -22,4 +22,4 @@ app.use('/',(req,res)=>{
     res.send(resp.text)
   })
 })
-app.use(express.static('./public'))
+// app.use(express.static('./public'))

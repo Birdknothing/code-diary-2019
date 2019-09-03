@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="../my-min-library/jquery.dev.js"></script>
+    <title>Document</title>
+    <style>
+      .test {
+        color: yellow;
+      }
+      .mm {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="test m">123</div>
+      <div class="test n" id="tt">234</div>
+    </div>
+    <div id="app2">
+      <div class="test">234</div>
+    </div>
+    <div class="test1">test1</div>
+    <div class="test1">test2</div>
+    <div class="test1" id="fkk">test3</div>
+    <button id="fk"></button>
+    <div id="aa" class="a c"></div>
+    <div id="bb" class="a b c"></div>
+    <button id="cc" class="mm" onclick="w()">
+      mmm
+    </button>
+    <script>
+      const w = (() => {
+        let k = 0;
+        return () => {
+          $('#cc').toggleClass('mm', k++ % 3 === 0);
+        };
+      })();
+      $('#bb').removeClass(function(i, j) {
+        console.log('i', i, 'j', j);
+        return $(this)
+          .prev()
+          .attr('class');
+      });
+      $('#cc').html(function(i, sr) {
+        console.log('i', i, 'sr', sr);
+        return 'hahah';
+      });
+      console.log($('.test', $('#app')).css('color', 'red'));
+      $('<div>', {
+        text: 'abc',
+        class: 'yellow',
+        click: function() {
+          console.log(this);
+        }
+      }).appendTo($('#app'));
+      $('.test1').each((i, ele) => {
+        if (i === 1) {
+          return false;
+        }
+      });
+      console.log($('.test').index($('.n')));
+      $('.n').attr('a1', 'ttt');
+      $('#app2 .test').click(function() {
+        console.log('#app2 .test is clicked');
+      });
+      $('#app2 .test')
+        .show('slow')
+        .hide('slow')
+        .slideUp();
+      $('#fkk').queue(function() {
+        console.log($(this).html());
+        $(this).html('testtest111');
+        $(this).dequeue();
+      });
+      $('#fkk').queue(function() {
+        console.log($(this).html());
+        $(this).html('testtest222');
+      });
+      $('#fkk').queue('fk');
+      $('#fkk').dequeue();
+      $.fn.extend({ xx: () => console.log('11111') });
+      $().xx();
+      $('.test1:last-child').dequeue();
+      console.log($('#app2 .test').queue('fx'));
+      console.log($('.m').data('a1'));
+      $.fn.extend({
+        test: () => console.log('haha')
+      });
+      console.log($('#tt').index());
+      // $(function($) {
+      //   $(app).html('111');
+      // });
+    </script>
+  </body>
+</html>

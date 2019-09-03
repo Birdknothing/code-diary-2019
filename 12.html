@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="../6.png" alt="" />
+    <input type="text" /><button onclick="rbt.postMessage(this.previousElementSibling.value)">send msg</button> <input type="text" /><button onclick="testt(this.previousElementSibling.value)">send export msg</button>
+
+    <script>
+      // import('./worker2.js').then(module => {
+      //   const m = module.default;
+      //   console.log(m('hi'))
+      // })
+      // import holly from './worker2.js';
+      const aMsg = async e => {
+        const tmp = await import('./worker2.js');
+        const tmp2 = tmp.default;
+        return tmp2(e);
+      };
+      // console.log(aMsg('hi'));
+      const testt = e => {
+        // console.log(holly(e));
+        aMsg(e).then(console.log);
+      };
+
+      let rbt = new Worker('./worker.js');
+      rbt.onmessage = e => {
+        console.log('worker : ' + e.data);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="../my-min-library/react.min.js"></script>
+    <script src="../my-min-library/reactdom.min.js"></script>
+    <script src="../my-min-library/babel.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script type="text/babel">
+      class Test extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { x: 1 };
+          this.setX = this.setX.bind(this);
+        }
+        setX(x) {
+          this.setState((state, props) => {
+            console.log(state);
+            console.log(props);
+            return { x: 2 };
+          });
+        }
+        render() {
+          setInterval(() => {
+            console.log(this.state.y);
+          }, 1000);
+          return (
+            <div onClick={() => this.setX(33)}>
+              <h1>{this.state.x}</h1>
+              <input value={this.state.y} onChange={e => Object.assign(this.state, { y: e.target.value })} />
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<Test />, test);
+    </script>
+  </body>
+</html>

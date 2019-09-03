@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="../my-min-library/jquery.dev.js"></script>
+  </head>
+  <body>
+    <div  class="x y">1</div>
+    <div  class="y z">2</div>
+    <div class="c1">3</div>
+    <div class="c1">4</div>
+    <div class="test1">
+      11
+      <div class="tt">12</div>
+    </div>
+    <div class="bb">11</div>
+    <span class="c1">span5</span>
+    <div id="app"><div id="son"> </div></div>
+    <script>
+      const log = (() => {
+        const $bd = $('<pre>', { height: 500, width: 1000 }).appendTo('body');
+        return (...s) => {
+          $bd.append(
+              '\n' +
+              s
+                .map(x => JSON.stringify(x, null, 4))
+                .join(' >> ')
+                .replace(/\"/g, '')
+          );
+        };
+      })();
+      log(
+        'test1',
+        $('.c1:not(div)')
+          .first()
+          .html()
+      );
+      $('.c1').insertBefore()
+        $('.c1:eq(1)').after((i,j) => $('.c1:eq(2)'))
+      console.log($('div[class$=y]').get())
+      log($('div:contains("11")').get()[0])
+      // log($('.c1').first().get());
+      // log($('.c1:eq(1)').get());
+      // log($('.c1').first()[0] === $('.c1:eq(1)').prev()[0]);
+      // log(Object.prototype.toString.call($('.c1').first()));
+      // log(typeof $('.c1').first().map);
+      // const log = (...nc) => {
+      //   $('#con')
+      //     .css({ height: 500, width: 1000 })
+      //     .html(
+      //       (i, o) =>
+      //         o +
+      //         '\n' +
+      //         nc
+      //           .map(x => JSON.stringify(x, null, 4))
+      //           .join(' 》》 ')
+      //           .replace(/\"/g, '')
+      //     );
+      // };
+      $('#app').css({ height: 50, width: 200, background: 'red', overflow: 'scroll' });
+      $('#son').css({ height: 100, width: 100, background: 'green', marginLeft: 20, marginTop: 20 });
+    </script>
+  </body>
+</html>

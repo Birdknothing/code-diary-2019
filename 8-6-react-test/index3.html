@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="hollow"></div>
+    <script type="text/babel">
+      const { Component, Fragment } = React;
+      class F extends Component {
+        state = { x: 'state before' };
+        static getDerivedStateFromProps(getProps, getState) {
+          console.log('F get props', { getProps, getState });
+        }
+        componentDidMount() {
+          console.log('F did mount');
+          setTimeout(() => {
+            console.log('%c %s', 'color:blue', 'start to update state');
+            this.setState({ x: 'state after' + Date.now() });
+          }, 2000);
+        }
+        shouldComponentUpdate(nextProps, nextState) {
+          console.log('F should update', { nextProps, nextState });
+          return true;
+        }
+        componentDidUpdate(prevProps, prevState) {
+          console.log('F did update' + Date.now(), { prevProps, prevState });
+        }
+        componentWillUnmount() {
+          console.log('F will unmount', Date.now());
+        }
+        render() {
+          console.log('hha');
+          return (
+            <div>
+              {this.props.x}
+              {this.state.x}
+            </div>
+          );
+        }
+      }
+      class App extends Component {
+        state = { x: 'props before ' };
+        componentDidMount() {
+          console.log('App did mount');
+          setTimeout(() => {
+            console.log('%c %s', 'color:red', 'start to update props');
+            this.setState({ x: 'props after ' });
+          }, 2000);
+        }
+        componentWillUnmount() {
+          console.log('App will unmount', Date.now());
+        }
+        render() {
+          return <F {...this.state} />;
+        }
+      }
+      setTimeout(() => {
+        ReactDOM.render('unmount Component App at ' + Date.now(), app);
+      }, 6000);
+      ReactDOM.render(<App />, app);
+    </script>
+  </body>
+</html>

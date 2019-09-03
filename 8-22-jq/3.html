@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>1</li>
+      <li id="w">2</li>
+      <li>3</li>
+    </ul>
+    <script>
+      // Demo 1
+      var ul = document.querySelectorAll('ul')[0],
+        lis = ul.querySelectorAll('li');
+      console.log(lis[0].innerHTML);
+      w.innerHTML = 33;
+      console.log(lis[0].nextElementSibling.innerHTML);
+
+      // Demo 2
+      // var ul = document.getElementsByTagName('ul')[0],
+      //   lis = ul.getElementsByTagName('li');
+      // for (var i = 0; i < lis.length; i++) {
+      //   ul.appendChild(document.createElement('li'));
+      // }
+    </script>
+  </body>
+</html>

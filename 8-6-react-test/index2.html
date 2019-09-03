@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      #app {
+        color: green;
+      }
+      input {
+        display: none;
+      }
+      .fBox {
+        position: relative;
+      }
+      .sBox {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        left: 400px;
+      }
+      input[name='wrap2'] + div {
+        z-index: 0;
+      }
+      input[name='wrap2']:checked + div {
+        /* opacity: 1; */
+        z-index: 999;
+      }
+      input[name='wrap1'] + div {
+        /* opacity: 0; */
+        display: none;
+      }
+      input[name='wrap1']:checked + div {
+        /* opacity: 1; */
+        display: block !important;
+      }
+      /* input:checked + div {
+        display: block;
+      } */
+      /* button {
+        color: black;
+      } */
+      input:checked + div + input + div + button {
+        color: red;
+      }
+      input:checked + div + button + button {
+        color: red;
+      }
+
+      button {
+        display: block;
+        float: left;
+      }
+      .son {
+        width: 200px;
+        height: 100px;
+        background: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      const { Component, Fragment } = React;
+      const E = props => (
+        <div class="son">
+          E component: <br />
+          内层拿到 x = {props.x}.x
+        </div>
+      );
+      const Wrap1 = Cp =>
+        class extends Component {
+          state = { x: '中层 State' };
+          click(id) {
+            this.props.click(id);
+          }
+          render() {
+            return (
+              <div className="sBox" style={{ backgroundColor: 'blue', width: 400, height: 200 }}>
+                <input type="radio" class="wrap11" name="wrap1" />
+                <Cp {...this.props} {...this.state} />
+                <input type="radio" class="wrap12" name="wrap1" defaultChecked />
+                <Cp {...this.state} {...this.props} />
+                <button
+                  onClick={() => {
+                    this.click('wrap11');
+                  }}
+                >
+                  中层: state 在右
+                </button>
+                <button
+                  onClick={() => {
+                    this.click('wrap12');
+                  }}
+                >
+                  中层: props 在右
+                </button>
+              </div>
+            );
+          }
+        };
+      const Wrap2 = Cp =>
+        class extends Component {
+          state = { x: '外层 State' };
+          click(cname) {
+            // if (!document.getElementBycname(cname).checked) {
+            Array.from(document.getElementsByClassName(cname)).forEach(element => {
+              element.checked = true;
+            });
+            this.setState({});
+            // }
+          }
+          render() {
+            return (
+              <div style={{ backgroundColor: 'red', width: 500, height: 300 }}>
+                <input type="radio" class="wrap21" name="wrap2" />
+                <Cp click={this.click.bind(this)} {...this.props} {...this.state} />
+                <input type="radio" class="wrap22" name="wrap2" defaultChecked />
+                <Cp click={this.click.bind(this)} {...this.state} {...this.props} />
+                <button
+                  onClick={() => {
+                    this.click('wrap21');
+                  }}
+                >
+                  外层: state 在右
+                </button>
+                <button
+                  onClick={() => {
+                    this.click('wrap22');
+                  }}
+                >
+                  外层: props 在右
+                </button>
+              </div>
+            );
+          }
+        };
+      const compose = (...args) => Cp => args.reduceRight((acc, f) => f(acc), Cp);
+      const C = compose(
+        Wrap2,
+        Wrap1
+      )(E);
+      ReactDOM.render(<C x="最外 props" />, app);
+    </script>
+  </body>
+</html>

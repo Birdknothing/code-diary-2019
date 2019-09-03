@@ -1,0 +1,40 @@
+<textarea id="dataStr" class="dnone"><%= JSON.stringify(terms) %> </textarea>
+<div class="mainCenter">
+  <div class="banner">
+    <div class="bannerText">
+      <div class="subTitle">产品功能覆盖广泛</div>
+      <div class="subInfo">
+        三端产品演示-乘客端、司机端、后台端，呈现强大细节功能。<br />
+        为您，我们能做的还有更多。
+      </div>
+    </div>
+    <div class="bannerPic">
+      <img class="bannerImg" src="../public/display/banner.png" alt="" />
+    </div>
+  </div>
+</div>
+<div class="lunbo">
+  <% for( let i in terms) { %> <input type="radio" name="terms" class="dnone" <%= i === '0' ? 'checked' : '' %>> <% } %>
+  <div class="tabTerms">
+    <% for( let i in terms) { %>
+    <div class="tabTerm" onclick="this.parentNode.parentNode.getElementsByTagName('input')[<%= i %>].checked = true">
+      <%= terms[i].cName %>
+    </div>
+    <% } %>
+  </div>
+  <div class="mainCenter">
+    <% for( let j in terms ) { %>
+    <div class="dnone term <%= 'term'+j %>"></div>
+    <% } %>
+  </div>
+</div>
+
+<script>
+  [...document.getElementsByClassName('term')].forEach((slideMountDiv, index) => {
+    new slideDiv({ mountDiv: slideMountDiv,divName:'term'+index, divs: divConfig['term' + index] ,width:'100%',height:'1016px',slideWidth:'1060px',slideHeight:'812px'});
+  });
+
+// $test 定位刷新显示哪张动画,待删除
+  // document.getElementsByClassName('lunbo')[0].getElementsByTagName('input')[1].checked = true;
+  // document.getElementsByClassName('slideBox')[1].getElementsByTagName('input')[5].checked = true;
+</script>

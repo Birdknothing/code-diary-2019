@@ -1,7 +1,7 @@
 /**
  * config 中的proxy是必须参数为要代理的域名或ip，其余参数自定
  * get，post方法返回一个promise对象
- * 
+ * new Proxy({proxy:'192.168.7.198:3000',param1:1,param2:2}).post('/api/abc).then(data=>{})
  */
 class Proxy {
   constructor(config){

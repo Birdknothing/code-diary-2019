@@ -1,0 +1,70 @@
+/*尾部*/
+.footer {
+  height: 403px;
+  padding-top: 66px;
+  background: #242A37;
+  box-sizing: border-box;
+}
+
+.body {
+  width: 1080px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.body > .left {
+  width: 45%;
+  justify-content: space-around;
+}
+
+/*左边*/
+.left > .item {
+  width: 60px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left > .item > .label {
+  width: 100%;
+}
+
+.body > .right {
+  width: 45%;
+  flex-direction: column;
+}
+
+.left > .item > ul {
+  width: 100%;
+  padding-top: 20px;
+}
+
+.item > ul > li {
+  height: 25px;
+  width: 100%;
+  padding-left: 2px;
+  box-sizing: border-box;
+}
+
+/*右边*/
+
+.right .code {
+  width: 63px;
+  height: 63px;
+}
+
+.imgBox {
+  height: 100px;
+  align-items: flex-end;
+}
+
+.msg {
+  height: 28px;
+  align-items: flex-end;
+  position: relative;
+  top: 5px;
+  left: 10px;
+}
+
+.address {
+  margin-top: 15px;
+}

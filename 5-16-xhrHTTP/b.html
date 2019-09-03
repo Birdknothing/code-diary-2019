@@ -1,0 +1,42 @@
+<HTML>  
+    <HEAD>  
+    <TITLE>测试操作剪贴板</TITLE>  
+    </HEAD>  
+    <script>  
+    function copyToClipboard()  
+    {  
+     var d=document.all("source").value;  
+     window.clipboardData.setData('text',d);  
+    }  
+    </script>  
+    <BODY>  
+    <button onclick="copyToClipboard();">拷贝</button>  
+    <input type="text" size=20 id="source" value="测试数据">  
+    <br>  
+    <button onclick="alert(window.clipboardData.getData('text'));">显示</button>  
+    <button onclick="window.clipboardData.clearData('text');">清空</button>  
+    </BODY>  
+    </HTML>  
+     
+    下面是另一个例子实现页面中选中字符，并拖拉到文本区功能。注意其中的window.event.dataTransfer对象也可处理剪贴板内容，不过只能用在 drag-and-drop 操作中。
+    <HTML>  
+    <HEAD>  
+    <TITLE>测试操作剪贴板2</TITLE>  
+    </HEAD>  
+    <script>  
+    function transferDrop() {  
+       window.event.srcElement.innerText = window.event.dataTransfer.getData("text");  
+       window.event.returnValue = false;  
+    }  
+    function transferDrag() {  
+     window.event.dataTransfer.dropEffect = 'move';  
+     window.event.returnValue = false;  
+    }  
+    </script>  
+     
+    <BODY>
+    <p id="mySource" ondragstart="window.event.dataTransfer.effectAllowed = 'move';">选择我们并把我们拖到下面的textarea</p>  
+    <textarea id="myTarget" ondrop="transferDrop();" ondragover="window.event.returnValue = false;" ondragenter="transferDrag();">  
+    </textarea>
+    </BODY>  
+    </HTML>

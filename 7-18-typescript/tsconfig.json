@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "target": "es5",
+    "watch": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "downlevelIteration": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "allowJs": true
+  },
+  "exclude": ["node_modules"]
+}

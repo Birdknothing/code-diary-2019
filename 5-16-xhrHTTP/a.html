@@ -10,15 +10,32 @@
 <body>
   <div>font page</div>
   <!-- <iframe src="http://127.0.0.1:3000/h" id="ifr" frameborder="0"></iframe> -->
-  <form onsubmit="console.log(event);return false" >
+  <!-- <form onsubmit="console.log(event);return false" >
+    </form> -->
     <button type="submit" id="gg" onclick="console.log(event);event.stopImmediatePropagation();return false" onmousedown="console.log('go way')">submit</button>
-  </form>
+    <button onclick="copy()">copy</button>
+    <div onclick="copy()" id='kk'>123111111111111111111111</div>
   <script>
-    window.addEventListener('copy',e=>{
+    document.getElementById('kk').addEventListener('copy',e=>{
       console.log(e)
-      e.clipboardData.setData('text/plain',window.getSelection().toString()+'hello world')
+      console.log('haha')
+      e.clipboardData.setData('text/plain','hello1 world')
       e.preventDefault()
     })
+    function copy() {
+      let d = new DataTransfer()
+
+      // Object.defineProperty(d,'effectAllowed',{value:"uninitialized"})
+      let a = new ClipboardEvent("copy",{clipboardData:d})
+      a.isTrusted = true
+      // let b = a.initEvent('copy')
+      // a.clipboardData.setData('text/plain','wild')
+      // Object.defineProperty(a,'defaultPrevented',{value:true})
+      // Object.defineProperty(a,'returnValue',{value:false})
+      // a.isTrusted = true
+      document.getElementById('kk').dispatchEvent(a)
+
+    }
     window.oncontextmenu=e=>{
       console.log(e)
     }

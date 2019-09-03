@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div id="fuckReact"></div>
+    <script type="text/babel">
+      // import react from 'react';
+      ReactDOM.render(<h1>fuckReact</h1>, fuckReact);
+    </script>
+    <emp name="aa" id="m" style="width:200px;height: 200px;"></emp>
+    <script type="text/babel">
+      class emp extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+        state = {};
+        render() {
+          return (
+            <div>
+              <h1>shoplist for {this.props.name}</h1>
+              <ul>
+                <li>instagram</li>
+                <li>whatsapp</li>
+                <li>oculus</li>
+              </ul>
+            </div>
+          );
+        }
+      }
+      new emp(); -->
+
+    <!-- </script> -->
+    <div id="fk"></div>
+
+    <script type="text/babel">
+      const C1 = function(props) {
+        return <h1>hello {props.name}</h1>;
+      };
+      class C2 extends React.Component {
+        constructor(props) {
+          super(props);
+          this.props = props;
+          console.log(props);
+          this.state = {
+            name: new Date()
+          };
+          // this.state = {};
+          // this.props = { name: 'fuck' };
+          // retumrn <h1>fk</h1>;
+        }
+        componentDidMount() {
+          setTimeout(() => {
+            // this.state.name = new Date();
+            this.setState({ name: new Date() });
+          }, 2000);
+        }
+        render() {
+          return <h1>{this.state.name.toLocaleString()}</h1>;
+        }
+      }
+      const C3 = {
+        type: 'h1',
+        props: { name: 'fuc', children: '' }
+      };
+      ReactDOM.render(<C2 name={Date.now()} />, fk);
+      // ReactDOM.render(<C2 name="fuc" />, fk);
+      // ReactDOM.render(C3, fk);
+    </script>
+  </body>
+</html>

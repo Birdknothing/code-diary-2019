@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      div {
+        position: relative;
+      }
+      .g {
+        height: 600px;
+      }
+      .w {
+        height: 200px;
+        background: orange;
+      }
+      .a {
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        justify-content: space-between;
+        height: calc(100% - 500px);
+        width: 300px;
+        background: red;
+      }
+      .b,
+      .c {
+        display: flex;
+        height: 100%;
+        width: 20px;
+        background: green;
+      }
+      .b div {
+        display: flex;
+        width: 20px;
+        height: 100px;
+      }
+      .c {
+        width: calc(100% - 40px);
+        background: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="g">
+      <div class="w"></div>
+      <div class="a">
+        <div class="b">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="c"></div>
+      </div>
+    </div>
+  </body>
+</html>

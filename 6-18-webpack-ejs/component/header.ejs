@@ -1,0 +1,31 @@
+<!--头部-->
+<link rel="stylesheet" href="../public/header.css">
+<header class="page-header border-box aic">
+    <div class="container flex aic jcc">
+        <div class="logoBox flex aic">
+            <img class="logo" src="/public/web/image/common/logo.png" alt="">
+        </div>
+        <div class="tabsBox flex aic">
+            <div class="tabs flex aic jcc">
+                <% for(var i = 0; i < navList.length ;i++){ %>
+                    <div class="tab flex aic jcc <%- navList[i].pathname === ctx.originalUrl ? 'active' : '' %>">
+                        <a class="navItem <%- navList[i].pathname === ctx.originalUrl ? 'active' : '' %>"" href="<%= navList[i].pathname %>"><%= navList[i].name %></a>
+                        <% if(navList[i].subNav && navList[i].subNav.length) { %>
+                            <div class="sub-tabs-wrap" >
+                                <div class="content">
+                                    <% for( var j = 0; j < navList[i].subNav.length; j++ ){%>
+                                        <a class="sub-nav-item" ref="<%= navList[i].subNav[j].pathname %>">
+                                            <%= navList[i].subNav[j].name %>
+                                        </a>
+                                    <% } %>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <a class="action bg-white f14 flex aic jcc hand">立即使用</a>
+    </div>
+</header>
+<div class="placehold-header-height"></div>

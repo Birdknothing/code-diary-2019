@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      import k from './11.js';
+      setTimeout(() => {
+        k.x = 3;
+        console.log('outer', k.x);
+      }, 3000);
+    </script>
+    <script type="module">
+      import w from './11.js';
+      setInterval(() => {
+        console.log('inner', w.x);
+      }, 1000);
+    </script>
+  </body>
+</html>

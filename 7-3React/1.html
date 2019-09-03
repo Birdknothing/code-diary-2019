@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="../my-min-library/react.min.js"></script>
+    <script src="../my-min-library/reactdom.min.js"></script>
+    <script src="../my-min-library/babel.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test"></div>
+
+    <input type="text" class="-query-string" />
+    <div class="b_m"></div>
+    <script type="text/babel">
+      class Test extends React.Component {
+        constructor(props) {
+          super(props);
+          this.bind(['changeState', 'submit']);
+          this.state = {
+            input1: true
+          };
+        }
+        bind(fs) {
+          let self = this;
+          fs.forEach(f => {
+            self[f] = self[f].bind(self);
+          });
+        }
+        changeState(e) {
+          this.setState({ value: e.target.value.toUpperCase() });
+        }
+        submit(e) {
+          console.log('will submit' + this.state.value);
+          e.preventDefault();
+        }
+        render() {
+          const exchange = () => {
+              this.setState({ input1: !this.state.input1 });
+              console.log(this.state.input1);
+            },
+            listen = e => {
+              this.setState({ testV: e.target.value });
+            };
+          const a = this.state.a;
+          console.log('rendered');
+          setInterval(() => {
+            this.state.a = 1;
+          }, 1000);
+          setInterval(() => {
+            this.setState({ b: 1 });
+          }, 4000);
+          return (
+            <div>
+              {a}
+              <form onSubmit={this.submit}>
+                {console.log('holly')}
+                <input type="text" onChange={this.changeState} />
+                <input type="radio" name="test1" checked={!this.state.input1} />
+                <input type="radio" name="test1" checked={this.state.input1} />
+                <button type="submit">submit</button>
+                <button onClick={exchange}>exchange</button>
+              </form>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<Test name="fuk" />, test);
+    </script>
+  </body>
+</html>

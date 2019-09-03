@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="../my-min-library/react.min.js"></script>
+    <script src="../my-min-library/reactdom.min.js"></script>
+    <script src="../my-min-library/babel.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script type="text/babel">
+      const { Component, Fragment } = React;
+      class A extends Component {
+        // state = { x: 1, y: 2 };
+        constructor(props) {
+          super(props);
+          this.state = {};
+        }
+        render() {
+          const { x, y } = this.state;
+          return (
+            <Fragment>
+              x= {x} and y= {y}
+            </Fragment>
+          );
+        }
+      }
+      const m = { z: 1 };
+      const C = function(props) {
+        console.log('C');
+        console.log(props);
+        return <div>123</div>;
+      };
+      class B extends A {
+        state = { x: 3, y: 4 };
+        props = { x: 'helloworld' };
+        render() {
+          console.log('222');
+          console.log(this);
+          console.log('kk', this.refs.kk);
+          console.log(this.props.children);
+          const { x, y } = this.state;
+          this.w = setTimeout(() => {
+            this.state.x = 5;
+            this.setState({});
+            clearTimeout(this.w);
+          }, 2000);
+          // setTimeout(() => {
+          //   this.setState();
+          //   setTimeout(() => {
+          //   }, 2000);
+          // }, 2000);
+          return (
+            <Fragment>
+              <div ref="st">
+                x= {x} and y= {y} and {this.props.x} and {m.z}
+                <C ref="kk" />
+                <button />
+              </div>
+            </Fragment>
+          );
+        }
+      }
+      const X = props => {
+        console.log(props.test1);
+        console.log(props.test1.props.children.push('2'));
+        // console.log(Reflect.ownKeys(props.children));
+        // console.log(props.children.children.getDOMNode().appendChild('2');
+        return (
+          <div>
+            {props.test1}
+            <div>3</div>
+          </div>
+        );
+      };
+      class Yson1 extends Component {
+        constructor(props) {
+          super(props);
+          this.state = {};
+        }
+        componentDidMount() {
+          setTimeout(() => {
+            console.log('Yson1 didmount');
+          }, 0);
+        }
+        componentWillUnmount() {
+          console.log('Yson1 willunmount');
+        }
+        render() {
+          return <div>yson1</div>;
+        }
+      }
+      class Yson2 extends Component {
+        constructor(props) {
+          super(props);
+          this.state = {};
+        }
+        componentDidMount() {
+          console.log('Yson2 didmount');
+        }
+        componentWillUnmount() {
+          console.log('Yson2 willunmount');
+        }
+        render() {
+          return <div>yson2</div>;
+        }
+      }
+      // const Y = Cp =>
+      //   class extends Component{
+      //     render(){
+      //       return <Cp {...this.props} />
+      //     }
+      //   }
+      // class Y extends Component {
+      const Yx = (Cp1, Cp2) =>
+        class extends Component {
+          constructor(props) {
+            super(props);
+            this.state = {};
+          }
+          componentDidMount() {
+            setTimeout(() => {
+              console.log('Y update');
+              this.setState({}, () => {
+                console.log('setstate callback');
+              });
+            }, 2000);
+            console.log('Y didmount');
+          }
+          //WARNING! To be deprecated in React v17. Use componentDidUpdate instead.
+          componentDidUpdate(nextProps, nextState) {
+            console.log('update');
+          }
+          componentWillUnmount() {
+            console.log('Y willunmount');
+          }
+          render() {
+            const { test1, state } = this.props;
+            const { x, y } = state;
+            console.log(test1);
+            return (
+              <div>
+                <Cp1 />
+                <div>{test1}</div>
+                <div>x={x}</div>
+                <div>y={y}</div>
+                <Cp2 />
+              </div>
+            );
+          }
+        };
+      const Y = Yx(Yson1, Yson2);
+      const wrap = Cp =>
+        class extends Component {
+          constructor(props) {
+            super(props);
+            this.state = { x: 1, y: 2 };
+          }
+          componentDidMount() {
+            console.log('wrapped YY didmount');
+            setInterval(() => {
+              console.log('wrapedYY.x= ' + this.state.x);
+            }, 2000);
+            setTimeout(() => {
+              this.render = () => '123';
+              this.setState({});
+            }, 2000);
+          }
+          componentWillUnmount() {
+            console.log('wrapped YY willunmount');
+          }
+          render() {
+            return <Cp state={this.state} {...this.props} />;
+          }
+        };
+      const YY = wrap(Y);
+      class Cir extends Component {
+        constructor(props) {
+          super(props);
+          this.state = { x: 'cir' };
+        }
+        componentDidMount() {
+          console.log('Cir did mount');
+        }
+        componentWillReceiveProps(nextProps) {
+          console.log('Cir receiveProps nextProps', nextProps);
+        }
+        shouldComponentUpdate(nextProps, nextState) {
+          console.log('Cir shouldCpUpdata', nextProps, nextState);
+          return 1;
+        }
+        componentDidUpdate(prevProps, prevState) {
+          console.log('Cir did uptate');
+          console.log(prevProps, prevState);
+        }
+        static getDerivedStateFromProps(nextProps, prevState) {
+          console.log('getDerivedState');
+          console.log(nextProps, prevState);
+        }
+        render() {
+          return <div>cir{this.props.x}</div>;
+        }
+      }
+
+      class CC extends Component {
+        Cps = [x => <div>cp1</div>, x => <div>cp2</div>];
+        constructor(props) {
+          super(props);
+          this.state = { x: 1 };
+        }
+        componentDidMount() {
+          console.log('did mount');
+          setTimeout(() => {
+            this.setState({ x: 2 });
+          }, 2000);
+        }
+        //WARNING! To be deprecated in React v17. Use new lifecycle static getDerivedStateFromProps instead.
+        componentWillReceiveProps(nextProps) {
+          console.log('nextProps', nextProps);
+        }
+
+        shouldComponentUpdate(nextProps, nextState) {
+          console.log('CC shouldCpUpdata', nextProps, nextState);
+          return 1;
+        }
+        componentDidUpdate(prevProps, prevState) {
+          console.log('did uptate');
+          console.log(prevProps, prevState);
+        }
+        render() {
+          const ActCp = this.Cps[Number(this.props.index)];
+          console.log(typeof this.props.children);
+          console.log(this.props.children);
+          const T1 = <div>T1</div>;
+          return (
+            <div>
+              <ActCp />
+              <Cir {...this.state} />
+              {T1}
+              {this.state.x}
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<CC index={1}>{x => x}</CC>, test);
+      // ReactDOM.render(
+      //   <X
+      //     test1={
+      //       <div>
+      //         <div>1</div>{' '}
+      //       </div>
+      //     }
+      //   />,
+      //   test
+      // );
+    </script>
+  </body>
+</html>
