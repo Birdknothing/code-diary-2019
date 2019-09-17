@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="../my-min-library/react.min.js"></script>
+    <script src="../my-min-library/reactdom.min.js"></script>
+    <script src="../my-min-library/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="app2"></div>
+    <script type="text/babel">
+      const { useState, Component, useEffect, Fragment } = React;
+      const MyContext = React.createContext({ x: 1 });
+      const MT = props => {
+        const { children } = props;
+        const [x, setX] = useState({ y: 1 });
+        const { y } = x;
+        useEffect(() => {
+          setX({ y: 222 });
+        }, []);
+        return (
+          <div>
+            {children}+{y}
+          </div>
+        );
+      };
+      class T extends Component {
+        state = { x: 1 };
+        // static getDerivedStateFromProps(props, state) {
+        //   console.log('%c %s', 'color:red', 'getDerivedState');
+        //   console.log({ props, state });
+        // }
+        componentDidMount() {
+          console.log('%c %s', 'color:red', 'this');
+          console.log(this);
+        }
+        // shouldComponentUpdate(props, state) {
+        //   console.log('%c %s', 'color:red', 'should update');
+        //   console.log({ props, state });
+        //   return state.x === 2 ? false : true;
+        // }
+        // componentDidUpdate(prevProps, prevState) {
+        //   console.log('%c %s', 'color:red', 'didupdate');
+        //   console.log({ prevProps, prevState });
+        // }
+        // componentWillUnmount() {
+        //   console.log('%c %s', 'color:red', 'unmount');
+        // }
+        render() {
+          const { x } = this.state;
+          return <div>{x}</div>;
+        }
+      }
+      const makeUseState = () => {
+        const newOne = stateAmount => ({
+          index: 0,
+          whole: stateAmount,
+          data: [],
+          getData(initData) {
+            let i = this.index;
+            this.index = (i + 1) % this.whole;
+            return [this.data[i] ? this.data[i] : (this.data[i] = initData), this.setData(i)];
+          },
+          setData(index) {
+            return (newData, reRender) => {
+              this.data[index] = newData;
+              reRender();
+            };
+          }
+        });
+        const rootState = {};
+        return (data, CpName, seq, stateAmount) => {
+          if (rootState[CpName] === undefined) {
+            rootState[CpName] = [];
+          }
+          let store = rootState[CpName];
+          if (!store[seq]) {
+            store[seq] = newOne(stateAmount);
+          }
+          return store[seq].getData(data);
+        };
+      };
+      const myUseState = makeUseState();
+      const N = props => {
+        const { seq, testDiff, update } = props;
+        // 后面三个参数解析模板字符串时添加
+        const [A, setA] = myUseState('123', 'N', seq, 2);
+        const [B, setB] = myUseState('123', 'N', seq, 2);
+        const tmout = testDiff === '一' ? 2000 : 4000;
+        return (
+          <Fragment>
+            第{testDiff}个函数组件：
+            <br />
+            <button onClick={() => setA('123A', update)}>更新</button>
+            <br />
+            A= {A}
+            <br />
+            <button onClick={() => setB('123B', update)}>更新</button>
+            <br />B = {B}
+          </Fragment>
+        );
+      };
+      class M extends Component {
+        render() {
+          return (
+            <Fragment>
+              {/* seq,update为解析模板字符串时添加 */}
+              <N seq={0} update={() => this.setState({})} testDiff="一" />
+              <N seq={1} update={() => this.setState({})} testDiff="二" />
+            </Fragment>
+          );
+        }
+      }
+      const A1 = props => {
+        return (
+          <Fragment>
+            <input type="text" onChange={props.onA1Change} value={props.val} ref={props.getref} />
+          </Fragment>
+        );
+      };
+      const A2 = props => {
+        return (
+          <Fragment>
+            <input type="text" onChange={props.onA2Change} value={props.val} />
+          </Fragment>
+        );
+      };
+      // let tmp1 = 0;
+      // let tmp2 = 0;
+      const Pa = props => {
+        let [tmp1, setTmp1] = useState(0);
+        let [tmp2, setTmp2] = useState(0);
+        return (
+          <Fragment>
+            <A1
+              getref={t => {
+                console.log(t);
+              }}
+              onA1Change={({ target: { value: val1 } }) => {
+                console.log('val1', val1);
+                setTmp1(val1);
+                setTmp2(val1 * 100);
+                // tmp1 = val1;
+                // tmp2 = val1 * 100;
+                // ReactDOM.render(<Pa />, app);
+              }}
+              val={tmp1}
+            />
+            <br />
+            <A2
+              onA2Change={({ target: { value: val2 } }) => {
+                console.log('val2', val2);
+                setTmp2(val2);
+                setTmp1(val2 / 100);
+                // tmp2 = val2;
+                // tmp1 = val2 / 100;
+                // tmp2 = val2;
+                // tmp1 = val2 / 100;
+                // ReactDOM.render(<Pa />, app);
+              }}
+              val={tmp2}
+            />
+          </Fragment>
+        );
+      };
+      T.contextType = MyContext;
+      // ReactDOM.render(
+      //   <MyContext.Provider value={{ x: 1 }}>
+      //     <T />
+      //   </MyContext.Provider>,
+      //   app
+      // );
+      ReactDOM.render(<Pa />, app);
+    </script>
+  </body>
+</html>

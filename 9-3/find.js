@@ -53,10 +53,16 @@ var website = 'http://www.fesucai.com';
 var dirName = 'public2'; // 保存在的文件夹
 var source = ['.js', '.css', '.jpg', '.png', '.gif']; // 要保存哪些除了js css外的静态资源
 var links = ['/', '.html', '.php']; // 其他链接入口
+var wrongFileNameCode = ['\\', '/', ':', '*', '?', '"', '<', '>', '|']; // 这些符号不能出现在windows新文件名中，最好用_代替，且'\'必须用双\\ 表示,encodeURIComponent才能转义'/',而encodeURI和escape都无法做到
+var depth = 1;
+var allAssets = [];
+var allPages = [url];
+var pagesDone = [];
 // 生成的目录结构
 var struct = (_a = {},
     _a['/' + dirName] = {
-        assets: {}
+        // 不能叫assets，因为可能刚好和某个子文件夹重名
+        $assets: {}
     },
     _a);
 var curry = function (f, l) {
@@ -89,9 +95,10 @@ var getHtml = function (url, form) {
             .get(encodeURI(url))
             .charset(form)
             .end(function (err, result) {
-            if (err) {
+            if (err || !result || !('text' in result)) {
                 console.error({ url: url, err: err });
                 res('wrong');
+                return;
             }
             var target = result.text;
             var preCheckForm = JSON.stringify(result.headers) + result.text;
@@ -107,27 +114,29 @@ var getHtml = function (url, form) {
     });
 };
 // url里面可能包含中文，要encodeURI
-var getAssets = function (url) { return superagent.get(url); };
+var getAssets = function (url) { return superagent.get(encodeURI(url)); };
 // 拿$
 var get$ = function (html) { return Cheerio.load(html); };
 // 往assests内push资源文件名
 var pushAsset = function (obj, type, filename, cb) {
     // 已包括此文件不操作
-    if (obj['assets'][type] && obj['assets'][type].includes(filename)) {
+    if (obj['$assets'][type] && obj['$assets'][type].includes(filename)) {
         return;
     }
     // 已有资源项目新文件
-    if (obj['assets'][type] && !obj['assets'][type].includes(filename)) {
-        obj['assets'][type].push(filename);
+    if (obj['$assets'][type] && !obj['$assets'][type].includes(filename)) {
+        obj['$assets'][type].push(filename);
     }
     // 新资源项目
-    if (!(type in obj['assets'])) {
-        (obj['assets'][type] = []).push(filename);
+    if (!(type in obj['$assets'])) {
+        (obj['$assets'][type] = []).push(filename);
     }
     cb();
 };
 // 根据文件名和内容写string文件
 var writeFile = curry(function (name, content) {
+    // 所有相关原网址自动删除
+    content = content.replace(new RegExp(website, 'g'), '');
     fs.writeFileSync(path.join(dirName, name), content);
 });
 // 创建
@@ -163,7 +172,7 @@ var mkAll = function (pathurl, store) {
         }
         // 文件夹或记录已存在不创建
         if (!(dirname in acc)) {
-            acc[dirname] = { assets: {} };
+            acc[dirname] = { $assets: {} };
             // 建文件夹
             mkDir(dirName, nowPath + dirname);
         }
@@ -173,56 +182,95 @@ var mkAll = function (pathurl, store) {
 };
 // 写根据url爬到的文件
 var writeHtml = function (url, name) { return getHtml(url).then(writeFile(name)); };
-// 功能部分,爬取当前页所有资源类型文件,url必须包含网址和协议
-var scratch = function (url, source, store) {
-    if (store === void 0) { store = struct['/' + dirName]; }
-    return __awaiter(_this, void 0, void 0, function () {
-        var html;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, getHtml(url)];
-                case 1:
-                    html = _a.sent();
-                    if (html === 'wrong') {
-                        return [2 /*return*/];
-                    }
-                    fs.appendFileSync('/htmlpath', url);
-                    writeHtml(url, 'index.html');
-                    // const $ = get$(html as string);
-                    // $('script,link').each(function() {
-                    //   fs.appendFileSync('./jscssPath', ($(this).prop('src') || $(this).prop('href')) + '\n');
-                    //   mkAll($(this).prop('src') || $(this).prop('href'));
-                    // });
-                    // 递归遍历其他链接
-                    // links.forEach(feat => {
-                    //   const exp = new RegExp('(?<=href=")([^"]+\\' + feat + ')(?=")', 'g');
-                    //   const result = new Set((html as string).match(exp));
-                    //   if (result) {
-                    //     result.forEach(newurl => {
-                    //       fs.appendFileSync('./link', newurl + '\n');
-                    //       if (!newurl.includes('://')) {
-                    //         newurl = website + newurl;
-                    //       }
-                    //       // 有些被encodeURI过的字符串要解码
-                    //       scratch(decodeURI(newurl), source);
-                    //     });
-                    //   }
-                    // });
-                    // 图片等
-                    source.forEach(function (extname) {
-                        // .jpg .png .gif 等 考虑到 background:url(/a/b/c.jpg)的情况
-                        var exp = extname !== ('.css' || '.js') ? new RegExp('(?<=[("])[^"(]+\\' + extname, 'g') : new RegExp('[^"]+\\' + extname, 'g');
-                        var result = html.match(exp);
-                        if (result) {
-                            result.forEach(function (pathurl) {
-                                mkAll(pathurl);
-                            });
-                        }
-                    });
-                    fs.writeFileSync('./siteStruct.js', 'module.exports = ' + JSON.stringify(struct, null, 4));
-                    return [2 /*return*/];
+// 功能部分,爬取当前页所有资源类型文件,url必须包含网址和协议,同时将爬取过网页加以记录
+var scratch = function (url) { return __awaiter(_this, void 0, void 0, function () {
+    var html, pname, filename;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (pagesDone.includes(url)) {
+                    return [2 /*return*/, 'yes'];
+                }
+                pagesDone.push(url);
+                return [4 /*yield*/, getHtml(url)];
+            case 1:
+                html = _a.sent();
+                if (html === 'wrong') {
+                    return [2 /*return*/, 'no'];
+                }
+                pname = url.match(/http[s]?:\/\/[^/]+(.*)/)[1];
+                filename = !pname || pname === '/' ? 'index.html' : encodeURIComponent(pname);
+                // 创建当前页
+                writeHtml(url, filename);
+                return [4 /*yield*/, getAssetsLinks(source, html)];
+            case 2:
+                // 拿静态资源链接数组等
+                (_a.sent()).forEach(function (pathurl) {
+                    mkAll(pathurl);
+                });
+                getPageLinks(links, html);
+                return [2 /*return*/, 'yes'];
+        }
+    });
+}); };
+var rmDupli = function (oarr) { return (oarr === null ? null : Array.from(new Set(oarr))); };
+// 根据文本html和资源类别数组获取所有资源链接
+var getAssetsLinks = function (source, content) { return __awaiter(_this, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        source.forEach(function (extname) {
+            // .jpg .png .gif 等 考虑到 background:url(/a/b/c.jpg)的情况,对于js，css必须是 /a/b/c.js 不能是a/b/c.js
+            var exp = extname !== ('.css' || '.js') ? new RegExp('(?<=[("])/[^"(]+\\' + extname, 'g') : new RegExp('[^"]+\\' + extname, 'g');
+            var result = rmDupli(content.match(exp));
+            if (result) {
+                allAssets = rmDupli(allAssets.concat(result));
             }
         });
+        return [2 /*return*/, allAssets];
     });
+}); };
+// 根据文本html和页面特征数组获得所有页面链接
+var getPageLinks = function (links, content) {
+    links.forEach(function (feat) {
+        var exp = new RegExp('(?<=href=")([^"]+\\' + feat + ')(?=")', 'g');
+        // 去重
+        var result = rmDupli(content.match(exp));
+        if (result) {
+            // 并且如果没有协议头加协议头
+            allPages = rmDupli(allPages.concat(result.map(function (ele) { return ele.includes('://') ? ele : website + ele; })));
+        }
+    });
+    return allPages;
 };
-scratch(url, source);
+(function () { return __awaiter(_this, void 0, void 0, function () {
+    var i, _i, allPages_1, pageurl;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                i = 0;
+                _a.label = 1;
+            case 1:
+                if (!(i <= depth)) return [3 /*break*/, 6];
+                _i = 0, allPages_1 = allPages;
+                _a.label = 2;
+            case 2:
+                if (!(_i < allPages_1.length)) return [3 /*break*/, 5];
+                pageurl = allPages_1[_i];
+                return [4 /*yield*/, scratch(pageurl)];
+            case 3:
+                _a.sent();
+                _a.label = 4;
+            case 4:
+                _i++;
+                return [3 /*break*/, 2];
+            case 5:
+                i++;
+                return [3 /*break*/, 1];
+            case 6:
+                console.log(allAssets.length);
+                fs.writeFileSync('./Struct.js', 'module.exports = ' + JSON.stringify(struct, null, 4));
+                fs.writeFileSync('./assets', allAssets.join('\n'));
+                fs.writeFileSync('./pages', allPages.join('\n'));
+                return [2 /*return*/];
+        }
+    });
+}); })();

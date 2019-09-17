@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="../my-min-library/vue.dev.js"></script>
+    <title>Document</title>
+    <style>
+      [test] {
+        color: red;
+      }
+      .cr {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" style="height: 300px">
+      {{ x }}
+      <!-- <div @click.native="iform"><div>emmeee</div></div> -->
+      <Other></Other>
+      <br />
+      <Test :val="x"></Test>
+    </div>
+    <div id="app2">{{x}}<Test :val="'1'"/></div>
+    <script>
+      const W = {
+        eArray: {},
+        $emit(ename, data) {
+          if (this.eArray[ename] === undefined) {
+            return;
+          }
+          this.eArray[ename].forEach(f => {
+            f(data);
+          });
+        },
+        $on(ename, f) {
+          if (this.eArray[ename]) {
+            this.eArray[ename].push(f);
+            return;
+          }
+          (this.eArray[ename] = []).push(f);
+          return;
+        }
+      };
+      Vue.component('Other', {
+        template: `<div>ohter</div>`,
+        created() {
+          this.$on('click1', function(params) {
+            console.log('get click');
+          });
+        }
+      });
+      Vue.component('Teson1', {
+        template: `<div :style="{color:$attrs.conf.color}" @click="$attrs.conf.color='blue'"><slot></slot>sonson1</div>`,
+        mounted() {
+          console.log('%c %s', 'color:red', 'teson1');
+          console.log(this.$attrs);
+        }
+
+      });
+      Vue.component('Teson2', {
+        template: `<div :style="{color:$attrs.conf.color}" @click="$attrs.conf.color='red'">sonson2</div>`,
+        inject: ['dos'],
+        mounted() {
+          console.log('%c %s', 'color:red', 'teson2');
+          this.dos();
+          console.log(this.$attrs);
+        }
+      });
+      Vue.component('Test', {
+        template: `<div class="cr" ref="s2" onclick="console.log('hh');W.$emit('click1')"><Teson1 ref="s1" :conf="config" v-on="$listeners">{{m}}teson1child</Teson1><Teson2 :conf="config" v-on="$listeners"/>val =  {{val}},y={{y}}</div>`,
+        // render(create) {
+        //   return create('div', { class: 'cr' }, [{ tag: 'div', text: `val=${this.val}` + `y=${this.y}` }]);
+        // },
+        props: ['val'],
+        fk: 0,
+        created() {
+          this.$options.propsData.val = 2;
+          this.$data.y = 3;
+          // this.$props.val = 2;
+        },
+        provide() {
+          return {
+            dos: this.dos
+          };
+        },
+        mounted() {
+          console.log('%c %s', 'color:red', 'Test mounted');
+          console.log(this.$attrs);
+          console.log(this.$vnode);
+          console.log(this.$listeners);
+          console.log(this.$options.fk);
+          console.log(this);
+          this.$on('hook:beforeDestroy', function() {
+            console.log('beforeDestory');
+          });
+        },
+        methods: {
+          dos() {
+            console.log('click');
+          }
+        },
+        watch: {
+          y() {
+            console.log('y');
+          }
+        },
+        data() {
+          return { y: 1, z: { x: 1 }, config: { color: 'yellow' },m:"m" };
+        }
+      });
+      var v = new Vue({
+        data: {
+          x: 1
+        },
+        watch: {
+          x() {
+            console.log('twice');
+          }
+        },
+        methods: {
+          iform() {
+            console.log('parent informed');
+          }
+        },
+        created() {
+          W.$on('click1', function() {
+            console.log('app get click');
+          });
+        },
+        created(){
+          this.$on('hook:mounted', function() {
+            console.log('beforeDestory');
+          });
+        },
+        mounted() {
+          console.log('here')
+        }
+      });
+      setTimeout(() => {
+        console.log('fuk');
+        v.$mount('#app');
+      }, 3000);
+      setTimeout(() => {
+        console.log('fuk2');
+        v.$mount('#app2');
+      }, 5000);
+    </script>
+    <button onclick="v.$mount('#app2')">fk1</button>
+  </body>
+</html>

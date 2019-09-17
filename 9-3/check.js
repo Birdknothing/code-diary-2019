@@ -40,15 +40,41 @@ const aa = `哈哈:：《>黑河aa`;
 console.log(encodeURI(':：哈哈aa'));
 
 const m = {
-  __proto__:{
-    x:1
+  __proto__: {
+    x: 1
   }
-}
-const n ={}
-Object.assign(n,m)
-console.log(n)
+};
+const n = {};
+Object.assign(n, m);
+console.log(n);
 // n.__proto__.x = m.__proto__.x;
 // const n = JSON.parse(JSON.stringify(m));
-;
-console.log(`https://www.baicu.com/`.match(/http[s]?:\/\/[^/]+(.*)/)[1]);
-console.log(path.basename('/a/b/c.index.html'))
+// console.log(`https://www.baicu.com/`.match(/http[s]?:\/\/[^/]+(.*)/)[1]);
+// console.log(path.basename('/a/b/c.index.html'));
+// new Promise(res => {
+//   setTimeout(res, 2000, 'first');
+// })
+//   .then(data => {
+//     console.log(data);
+//     return 'what';
+//   })
+//   .then(console.log);
+// const kk = [1, 2];
+// (async () => {
+//   console.log(
+//     await new Promise(res => {
+//       kk.splice(0, 0, 0);
+//       setTimeout(res, 2000, 'hello');
+//     })
+//   );
+//   fs.writeFileSync('./log', kk.join('\n'));
+// })();
+// console.log(`script src="a/b/1.js" src="/a/b/2.js"`.match(new RegExp('(?<=[("])/[^"(]+\\' + '.js', 'g')));
+fs.writeFileSync('./'+encodeURIComponent(`/>abc|/`),'abc');
+console.log(encodeURIComponent(`/>abc|/`))
+console.log(fs.readFileSync('./'+encodeURIComponent('/>abc|/')).toString());
+// const sst = `abc:http:/?*+`
+// console.log(escape(sst) === encodeURIComponent(sst));
+// console.log(escape(sst))
+// console.log(encodeURIComponent(sst))
+console.log(`https://www.baicu.com/ab/c/d.html`.replace(new RegExp('http[s]?:\\/\\/'+'www.baicu.com','g'),''));

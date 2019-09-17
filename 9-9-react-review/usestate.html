@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="../my-min-library/react.min.js"></script>
+    <script src="../my-min-library/reactdom.min.js"></script>
+    <script src="../my-min-library/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="app2"></div>
+    <script type="text/babel">
+      const { useState, Component, useEffect, Fragment } = React;
+      const makeUseState = () => {
+        const newOne = stateAmount => ({
+          index: 0,
+          whole: stateAmount,
+          data: [],
+          getData(initData) {
+            let i = this.index;
+            this.index = (i + 1) % this.whole;
+            return [this.data[i] ? this.data[i] : (this.data[i] = initData), this.setData(i), this.jump.bind(this)];
+          },
+          jump(bool, num) {
+            if (!bool) {
+              this.index = (this.index + num) % this.whole;
+            }
+            return bool;
+          },
+          setData(index) {
+            return (newData, reRender) => {
+              this.data[index] = newData;
+              reRender();
+            };
+          }
+        });
+        const rootState = {};
+        return (data, CpName, seq, stateAmount) => {
+          if (rootState[CpName] === undefined) {
+            rootState[CpName] = [];
+          }
+          let store = rootState[CpName];
+          if (!store[seq]) {
+            store[seq] = newOne(stateAmount);
+          }
+          return store[seq].getData(data);
+        };
+      };
+      const myUseState = makeUseState();
+      const N = props => {
+        const { seq, testDiff, update } = props;
+        // myUseState后面三个入参和所有jump在解析jsx时自动添加
+        const [A, setA, jump] = myUseState('123', 'N', seq, 4);
+        const [B, setB] = myUseState('123', 'N', seq, 4);
+        const cond = testDiff === '一' ? true : false;
+        // 解析时自动初始化
+        let C, D;
+        let setC = () => {},
+          setD = () => {};
+        // jump函数第二个参数在解析jsx时自动添加,为当前判断条件内所有useState数目，支持判断条件嵌套
+        if (jump(cond, 2)) {
+          console.log('第一个组件的C将显示');
+          [C, setC] = myUseState('C', 'N', seq, 4);
+          if (jump(true, 1)) {
+            [D, setD] = myUseState('D', 'N', seq, 4);
+          }
+        }
+        const tmout = testDiff === '一' ? 2000 : 4000;
+        return (
+          <Fragment>
+            <br />第{testDiff}个函数组件：
+            <br />
+            <button onClick={() => setA('123A ' + Math.random(), update)}>更新</button>
+            <br />
+            A= {A}
+            <br />
+            <button onClick={() => setB('123B ' + Math.random(), update)}>更新</button>
+            <br />B = {B}
+            <br />
+            <button
+              onClick={() => {
+                // 此判断在解析时自动添加
+                if (!C) {
+                  return;
+                }
+                setC('123C' + Math.random(), update);
+              }}
+            >
+              更新
+            </button>
+            <br />C = {C}
+            <br />
+            <button
+              onClick={() => {
+                // 此判断在解析时自动添加
+                if (!D) {
+                  return;
+                }
+                setD('123D' + Math.random(), update);
+              }}
+            >
+              更新
+            </button>
+            <br />D = {D}
+          </Fragment>
+        );
+      };
+      class M extends Component {
+        render() {
+          return (
+            <Fragment>
+              {/* seq,update为解析jsx时添加 */}
+              <N seq={0} update={() => this.setState({})} testDiff="一" />
+              <N seq={1} update={() => this.setState({})} testDiff="二" />
+            </Fragment>
+          );
+        }
+      }
+
+      ReactDOM.render(<M />, app);
+    </script>
+  </body>
+</html>

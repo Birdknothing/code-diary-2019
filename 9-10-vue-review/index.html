@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    Vue:
+    <div id="app">
+      <button onclick="appExm.$mount('#app')">刷新Vue视图</button>
+      <ul>
+        <li v-for="(val,index) in arr" :key="index">
+          {{ val }}
+        </li>
+      </ul>
+    </div>
+    React:
+    <div id="app2"></div>
+    <script>
+      var appExm = new Vue({
+        el: '#app',
+        data: {
+          arr: [1, 2, 3]
+        },
+        mounted() {
+          console.log('%c %s', 'color:red', 'Vue mount');
+          console.log(this);
+          console.log(this.$el);
+          console.log(document.getElementById('app'));
+          console.log(this.$el === document.getElementById('app'));
+          this.arr[1] = Math.random();
+        }
+      });
+    </script>
+    <script type="text/babel">
+      const { useEffect, Fragment, Component } = React;
+      const render = () => ReactDOM.render(<M />, app2);
+      // 函数组件
+      // const arr = [1, 2, 3];
+      // const M = props => {
+      //   useEffect(() => {
+      //     arr[1] = Math.random();
+      //   });
+      //   return (
+      //     <Fragment>
+      //       <button onClick={render}>刷新React视图</button>
+      //       <ul>
+      //         {arr.map(ele => (
+      //           <li>{ele}</li>
+      //         ))}
+      //       </ul>
+      //     </Fragment>
+      //   );
+      // };
+      const N = props => <div>change</div>;
+      // 类组件
+      class M extends Component {
+        state = { arr: [1, 2, 3] };
+        componentDidMount() {
+          console.log('%c %s', 'color:red', 'react mount');
+          console.log(this);
+          this.state.arr[1] = Math.random();
+        }
+        // static getDerivedStateFromProps(props, state) {
+        //   state.arr[1] = Math.random();
+        // }
+        render() {
+          return (
+            <Fragment>
+              <button onClick={render}>刷新React视图</button>
+              <ul>
+                {this.state.arr.map(ele => (
+                  <li>{ele}</li>
+                ))}
+              </ul>
+            </Fragment>
+          );
+        }
+      }
+      setTimeout(() => {
+        ReactDOM.render(<M />, app2);
+      }, 2000);
+      setTimeout(() => {
+        ReactDOM.render(<M />, app2);
+      }, 4000);
+      setTimeout(() => {
+        ReactDOM.render(<M />, app2);
+      }, 6000);
+      ReactDOM.render(<M />, app2);
+    </script>
+  </body>
+</html>
