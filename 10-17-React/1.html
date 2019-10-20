@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="../my-min-library/react.min.js"></script>
+    <script src="../my-min-library/reactdom.min.js"></script>
+    <script src="../my-min-library/babel.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body style="overflow: auto;height: 1000px;">
+    <div id="app" style="overflow: scroll;height: 500px;"></div>
+    <script src="infinite2.js"></script>
+    <script type="text/babel">
+      // const m = document.documentElement;
+      // m.addEventListener("scroll", function() {
+      //   // const n = m.children[0];
+
+      //   console.log(m.scrollTop, m.clientHeight, m.scrollHeight);
+      //   console.log(document.body.scrollTop);
+      // });
+      // m.addEventListener("resize", function() {
+      //   // const n = m.children[0];
+
+      //   console.log(m.scrollTop, m.clientHeight, m.scrollHeight);
+      //   console.log(document.body.scrollTop);
+      // });
+      // m.addEventListener("mousewheel", function() {
+      //   // const n = m.children[0];
+
+      //   console.log(m.scrollTop, m.clientHeight, m.scrollHeight);
+      //   console.log(document.body.scrollTop);
+      // });
+      // const InfiniteScroll = module.exports;
+      // console.log(typeof InfiniteScroll);
+
+      // const InfiniteScroll = require("InfiniteScroll");
+      let items = [];
+      let switchg = true;
+      const LoadFunc = () => {
+        console.log("h");
+
+        const ele = <li>1</li>;
+        items.push(ele);
+        ReactDOM.render(<M />, app);
+      };
+      // setInterval(() => {
+      //   switchg = !switchg;
+      //   LoadFunc();
+      //   ReactDOM.render(<M />, app);
+      // }, 2000);
+      class M extends React.Component {
+        componentDidMount() {}
+        render() {
+          const LoadFunc = () => {
+            const ele = <li>1</li>;
+            items.push(ele);
+            this.setState({});
+          };
+
+          return (
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={LoadFunc}
+              hasMore={true}
+              threshold={20}
+              style={{ height: 800 }}
+              loader={
+                <div className="loader" key={0}>
+                  Loading ...
+                </div>
+              }
+              useWindow={false}
+              getScrollParent={() => document.getElementById("app")}
+            >
+              <ul>{items}</ul>
+            </InfiniteScroll>
+          );
+        }
+      }
+      // const M = props => (
+      //   <InfiniteScroll
+      //     pageStart={0}
+      //     loadMore={LoadFunc}
+      //     hasMore={true || false}
+      //     threshold={20}
+      //     loader={
+      //       <div className="loader" key={0}>
+      //         Loading ...
+      //       </div>
+      //     }
+      //   >
+      //     <ul>{items}</ul>
+      //   </InfiniteScroll>
+      // );
+      ReactDOM.render(<M />, app);
+    </script>
+  </body>
+</html>

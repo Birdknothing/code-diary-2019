@@ -1,0 +1,8 @@
+%limit {
+  & img {
+    overflow: hidden;
+  }
+}
+.div {
+  @extend %limit;
+}

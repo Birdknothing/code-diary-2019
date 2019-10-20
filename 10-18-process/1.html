@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script src="jq.js"></script>
+        <div
+            style="width: 200px;height: 200px;border: 1px solid black;background-color:blue"
+            class="app"
+        ></div>
+        <div
+            style="width: 200px;height: 200px;border: 1px solid black;background-color:red"
+            id="app2"
+        ></div>
+        <script>
+            function MakeDragable(selector) {
+                var config = {
+                    moveOpacity: 0.4,
+                    throttleTime: 500
+                };
+                var mouseObj = {
+                    carryDiv: null,
+                    fixLeft: 0,
+                    fixTop: 0,
+                    originMouseLeft: 0,
+                    originMouseTop: 0
+                };
+                function MousedownCallback(e) {
+                    var $target = $(e.target);
+                    mouseObj.fixLeft = $target.offset().left;
+                    mouseObj.fixTop = $target.offset().top;
+                    mouseObj.originMouseLeft = e.screenX;
+                    mouseObj.originMouseTop = e.screenY;
+                    mouseObj.carryDiv = $target
+                        .clone()
+                        .appendTo("body")
+                        .css({
+                            position: "fixed",
+                            left: mouseObj.fixLeft,
+                            top: mouseObj.fixTop,
+                            opacity: config.moveOpacity
+                        });
+                }
+                function Throttle(f, time) {
+                    var firstTime = true;
+                    var timeout = false;
+                    return function(e) {
+                        if (firstTime || timeout) {
+                            timeout = false;
+                            f(e);
+                            var clock = setTimeout(function() {
+                                timeout = true;
+                                clearTimeout(clock);
+                            }, time);
+                            firstTime = false;
+                        }
+                    };
+                }
+                var ThrottleMousedownCallback = Throttle(
+                    MousedownCallback,
+                    config.throttleTime
+                );
+                function MousemoveCallback(e) {
+                    if (mouseObj.carryDiv === null) {
+                        return;
+                    }
+                    mouseObj.carryDiv.css({
+                        left:
+                            mouseObj.fixLeft +
+                            e.screenX -
+                            mouseObj.originMouseLeft,
+                        top:
+                            mouseObj.fixTop +
+                            e.screenY -
+                            mouseObj.originMouseTop
+                    });
+                }
+                function MouseupCallback(e) {
+                    if (mouseObj.carryDiv === null) {
+                        return;
+                    }
+                    mouseObj.carryDiv.remove();
+                    mouseObj.carryDiv = null;
+                }
+                $(document).on(
+                    "mousedown",
+                    selector,
+                    ThrottleMousedownCallback
+                );
+                $(document)
+                    .on("mousemove", MousemoveCallback)
+                    .on("mouseup", MouseupCallback);
+            }
+            MakeDragable(".app");
+        </script>
+    </body>
+</html>
