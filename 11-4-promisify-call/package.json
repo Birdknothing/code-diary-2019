@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "promisify-call": "^2.0.4"
+  }
+}

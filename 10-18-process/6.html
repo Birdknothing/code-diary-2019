@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+            .x {
+                width: 100px;
+                height: 100px;
+            }
+            .a{
+                background-color: #f23;
+            }
+            .c{
+                background-color: #0f4;
+            }
+            .d{
+                font-weight: bold;
+                text-decoration: underline;
+                font-style:bold italic underline;
+                font-family:'A Galega';
+                font-size:16px;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="../my-min-library/jquery.min.js"></script>
+        <div class="a x">
+            a
+            <div class="c x"><span>interfeare</span>c</div>
+        </div>
+        <div class="d x">hahah</div>
+        <script>
+            $(".a").on("mousedown",'.c',function(e){
+                console.log($(this).text());
+            });
+        </script>
+    </body>
+</html>

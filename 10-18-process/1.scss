@@ -1,0 +1,12 @@
+$a: ".test1";
+$b: ".test2";
+.b {
+    .h {
+        #{$a} & {
+            color: red;
+        }
+    }
+}
+#{$b} .b {
+    color: blue;
+}

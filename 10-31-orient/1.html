@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <script src="../my-min-library/jquery.min.js"></script>
+    </head>
+    <body>
+        <script>
+            function portrait() {
+                alert("portrait");
+            }
+            function landscape() {
+                alert("landscape");
+            }
+            $(function() {
+                //监听横竖屏旋转，ios 和 Android 写法不一样
+                onResize();
+                if (!!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+                    // window.addEventListener(
+                    //     "onorientationchange" in window ? "orientationchange" : "resize",
+                    //     onResize,
+                    //     false
+                    // );
+                    $(window).on('orientationchange' in window ? 'orientationchange' : 'resize',onResize)
+                } else {
+                    window.addEventListener("resize", onResize, false);
+                }
+            });
+
+            function onResize() {
+                if ($(document).width() < $(document).height()  ) {
+                    if (!!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+                        var timer = setTimeout(function() {
+                            portrait(); //竖屏时执行的函数
+
+                            clearTimeout(timer);
+                        }, 100);
+                    } else {
+                        portrait();
+                    }
+                } else {
+                    if (!!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+                        var timer = setTimeout(function() {
+                            landscape(); //横屏时执行的函数
+                            clearTimeout(timer);
+                        }, 100);
+                    } else {
+                        landscape();
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
