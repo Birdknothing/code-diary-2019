@@ -1,0 +1,94 @@
+.ico-engine {
+  margin-right: 11px;
+  color: #666;
+  font-size: 16px;
+}
+:global {
+  .search-box {
+    .ant-input-group {
+      position: relative;
+    }
+    .ant-input-group-addon {
+      background: #fff;
+      &:nth-of-type(1) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-right: 0;
+        padding-left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      &:nth-of-type(2) {
+        padding: 0 8px;
+        color: #666;
+        font-size: 20px;
+        cursor: pointer;
+        &:hover {
+          color: #cf0100;
+        }
+      }
+      .ant-select {
+        margin: 0;
+      }
+    }
+    .ant-select {
+      margin-top: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 30px;
+
+      .ant-select-selection__rendered {
+        margin: 0 auto;
+        padding-left: 8px;
+        &:before {
+          position: absolute;
+          bottom: 6px;
+          left: 28px;
+          border: 2px solid #999;
+          border-color: transparent #999 #999 transparent;
+          content: "";
+        }
+
+        i {
+          display: block;
+          float: none;
+          line-height: 35px;
+        }
+
+        span {
+          display: none;
+        }
+      }
+    }
+    .ant-input {
+      margin-left: 36px;
+      width: calc(100% - 36px);
+      border-left-color: #fff;
+
+      &:focus,
+      &:hover {
+        border-left-color: #d12721;
+      }
+    }
+  }
+
+  .search-dropdown {
+    left: 34px !important;
+    width: 160px !important;
+    border-radius: 4px;
+    // &.no-dropdown {
+    //     display: none;
+    // }
+    .ant-select-dropdown-menu-item {
+      color: #333;
+    }
+    &:before {
+      left: 10px;
+    }
+    &:after {
+      left: 11px;
+    }
+  }
+}

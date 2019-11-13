@@ -1,0 +1,25 @@
+@import "../../common";
+
+.action-sheet {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    border-radius: rem(20) rem(20) 0 0; 
+    overflow: hidden;
+    z-index: 51;
+    // transition: height 0.3s;
+
+    .drag-bar {
+        position: absolute;
+        left: 50%;
+        top: rem(15);
+        width: rem(80);
+        height: rem(10);
+        transform: translate(-50%, 0);
+        background: #ccc;
+        border-radius: rem(5);
+        z-index: 2;
+    }
+}

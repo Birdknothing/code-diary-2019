@@ -1,0 +1,9 @@
+{
+  "version": {
+    "file": {
+      "name": "dist/index.html",
+      "list": ["umi.css", "umi.js"]
+    }
+  }
+
+}

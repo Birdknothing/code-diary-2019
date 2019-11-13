@@ -1,0 +1,318 @@
+.edit-wrap{
+  /*滚动条样式*/
+  ::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 8px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 8px;
+    box-shadow: inset 0 0 8px #f6f6f6;
+    -webkit-box-shadow: inset 0 0 1px #f6f6f6;
+    background: #e1e1e2 !important;
+  }
+  ::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 8px #f6f6f6;
+    border-radius: 0;
+    background: #f6f6f6;
+  }
+}
+// 编辑器外框样式
+.sider-nav:after {
+  display: block !important;
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 3px !important;
+  background-color: #e4e4e4 !important;
+  border-left: 1px solid #d4d4d4 !important;
+  border-right: 1px solid #d4d4d4 !important;
+}
+
+.content {
+  position: relative;
+  // overflow: auto;
+
+  .item-page {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    // overflow: auto;
+    transition: all 0.3s;
+    .ant-tabs-ink-bar{
+      background-color: #da0301;
+      z-index: 99;
+    }
+
+    .ant-tabs-bar{
+      background: #e7e7e7;
+      margin-bottom: 2px;
+    }
+    .ant-tabs-bar:after{
+      display: block;
+      content: "";
+      position: absolute;
+      top: auto;
+      bottom: -1px;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background: #d4d4d4;
+    }
+    .ant-tabs-nav-container{
+      position: relative;
+      top: 1px;
+    }
+    .ant-tabs-nav-scroll {
+      background-color: #e7e7e7;
+    }
+
+    .ant-tabs-nav .ant-tabs-tab {
+      margin: 0;
+      padding: 18px 40px;
+    }
+    .ant-tabs-nav .ant-tabs-tab-active {
+      background-color: #f6f6f6;
+      z-index: 99;
+    }
+    .ant-tabs-nav .ant-tabs-tab-active:after {
+      display: block !important;
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: auto;
+      right: 0px !important;
+      height: 100% !important;
+      width: 1px !important;
+      background: #d4d4d4 !important;
+    }
+    .ant-tabs-ink-bar {
+      bottom: auto;
+      top: 0;
+      z-index: 120;
+    }
+  }
+
+  .edit-item-list-wrap{
+    overflow: hidden;
+    height: 100%;
+    .ant-tabs{
+      height: 100%;
+    }
+  }
+
+  .edit-item-full-auto-wrap{
+    height: 100%;
+    padding: 10px 0;
+    overflow-y: auto;
+  }
+  .edit-item-cont{
+    padding: 10px 0;
+    .widgets-content{
+      .ant-collapse-content > .ant-collapse-content-box {
+        padding: 4px 8px 16px;
+      }
+      &:last-child{
+        .ant-collapse-item > .ant-collapse-content{
+          border:none;
+        }
+      }
+    }
+  }
+
+  .ant-collapse-item > .ant-collapse-content{
+    border: none;
+    border-bottom: 1px solid #d9d9d9;
+    background-color: #f6f6f6;
+  }
+}
+
+.widgets-content, .level-nav {
+  // max-width: 440px;
+  .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+    padding: 12px 16px 12px 20px;
+    .ant-collapse-extra {
+      position: absolute;
+      top: 10px;
+      left: -17px;
+    }
+  }
+  .ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box {
+    padding: 4px 8px 16px;
+    background: #f6f6f6;
+    &:hover {
+      .anticon {
+        display: block;
+      }
+    }
+  }
+  .ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow {
+    left: 0;
+  }
+
+  .ant-collapse > .ant-collapse-item:last-child, .ant-collapse > .ant-collapse-item:last-child  {
+    border: none;
+  }
+
+
+}
+.ant-collapse{
+  border: none;
+  background-color: #f6f6f6;
+}
+.collapse-con, .level-nav {
+  // max-width: 400px;
+  // padding:  0 20px;
+  &.ant-collapse-borderless {
+    background: none;
+  }
+  .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow {
+    width: 0;
+    border: 4px solid transparent;
+    border-bottom: 5px solid  #999;
+    transform: rotate(0) translateY(-8px);
+    svg {
+      display: none;
+    }
+  }
+  .ant-collapse-item-active > .ant-collapse-header .ant-collapse-arrow {
+    transform: rotate(180deg) translateY(5px);
+  }
+  .ant-collapse-item > .ant-collapse-header {
+    margin: 0 20px;
+    font-weight: bold;
+  }
+  .ant-collapse-borderless > .ant-collapse-item {
+    padding: 0;
+    // .ant-collapse-header, .ant-collapse-content {
+    //   // max-width: 400px;
+    // }
+  }
+}
+
+
+// 内容区缩放
+.resizeMe {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding-right: 3px;
+  .item-page {
+    right: 320px;
+    transition: all 0.3s;
+  }
+  .item-editor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 320px;
+    height: 100%;
+    background: #fdd;
+    border-left: 1px solid #d4d4d4;
+    background: #f4f5f5;
+    box-sizing: border-box;
+    &::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: -3px;
+      width: 2px;
+      height: 100%;
+      border-left: 1px solid #d4d4d4;
+      background: #e4e4e4;
+    }
+  }
+}
+.defaultPage {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  .item-page {
+    right: 0;
+    transition: all 0.3s;
+  }
+  .item-editor {
+    display: none;
+  }
+}
+
+.ant-tabs {
+  width: 100%;
+  text-align: left;
+}
+
+
+.widgets-container {
+  .ant-tabs-content {
+    flex: 1;
+    height: calc(100% - 54px);
+
+    .ant-tabs-tabpane {
+      height: 100%;
+      overflow-x:hidden;
+      overflow-y: auto;
+    }
+  }
+
+  .widgets-content {
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  .Editable-widgets-content {
+    height: calc(100% - 99px);
+  }
+
+  .ant-btn-circle {
+    padding: 0;
+    width: 28px;
+  }
+  .ant-tabs-top-content.ant-tabs-content-animated,
+  .ant-tabs-bottom-content.ant-tabs-content-animated {
+    transition: none;
+  }
+}
+
+// 试玩弹窗
+.game-trail-iframe {
+  padding: 0;
+  z-index: 1200;
+  .ant-modal-body {
+    height: 100%;
+    padding: 0;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .ant-modal-close {
+    background-color: #fff;
+    border-radius: 30px;
+    top: -20px;
+    right: -20px;
+    .ant-modal-close-x {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 20px;
+      border-radius: 30px;
+      &:hover {
+        background-color: #e62e25;
+        color: #fff;
+      }
+      &:active {
+        background-color: #a60100;
+        color: #fff;
+      }
+    }
+  }
+  .ant-modal-content {
+    height: 100%;
+  }
+  iframe {
+    background-color: rgb(49, 49, 49);
+  }
+}
+.ant-menu-inline .ant-menu-item{
+  overflow: visible;
+}

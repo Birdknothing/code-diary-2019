@@ -1,0 +1,49 @@
+.handler {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #3c3e3f;
+  line-height: 60px;
+}
+.icon {
+  margin: 0 30px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  &:hover {
+    color: #cf0100;
+  }
+  &.disable {
+    color: #9e9f9f;
+    cursor: not-allowed;
+  }
+}
+.icon-handler {
+  margin: 0 10px;
+  color: #fff;
+  font-size: 22px;
+  background-color: #363839;
+  height: 36px;
+  width: 36px;
+  border-radius: 36px;
+  cursor: pointer;
+  svg {
+    margin-top: 6px;
+  }
+  &:hover {
+    color: #cf0100;
+    background-color: #2F2E2E;
+  }
+  
+}
+.handler-num {
+  margin-right: 30px;
+  span {
+    color: #fff;
+  }
+}
+.hide {
+  display: none;
+}

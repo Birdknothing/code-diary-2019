@@ -1,0 +1,48 @@
+export default {
+  // 移动端开始
+  layout_placeholder: '搜索关键词',
+  layout_tit_hot: '热门',
+  layout_tit_new: '新品',
+  layout_tit_popular: '流行类别',
+  layout_pop_more: '更多',
+  layout_hot_serch: '热门搜索:',
+  tag_all: '推荐',
+  layout_title: '首页',
+  layout_more: '更多',
+  layout_btn_sure: '好的',
+
+  // 体验区
+  wh_title: '体验区',
+  wh_loading_tip: '正在加载中...',
+  wh_loaded_tip: '已全部加载',
+  wh_search_tip: '抱歉，没有搜索结果，您可以尝试',
+  wh_search_tip2: '检查拼写或更换关键词',
+  wh_search_tip3: ' ',
+  wh_no_data_tip: '没有相关游戏哦',
+  wh_less_reviews: '没有足够的评分',
+  wh_type_popular: '最受欢迎',
+  wh_type_new: '最新发布',
+  wh_tip_title: '温馨提示',
+  wh_open_fail_tip: '该游戏暂时无法进行移动端体验，在解决技术难题之前，您可以在PC端体验',
+  wh_empty_search_tip: '请输入搜索关键词',
+
+  // 游戏详情
+  detail_creator: '创作者',
+  detail_online: '在线',
+  detail_level: '等级',
+  detail_tags: '标签：',
+  detail_more: '更多',
+  detail_experienced: '体验人数',
+  detail_reviews: '评论',
+  detail_less_reviews_num: '没有足够的评分人数',
+  detail_less_reviews: '没有足够的评分',
+  detail_description: '描述',
+  detail_version: '版本',
+  detail_rate_success: '感谢您的评分！',
+  detail_recent_updates: '版本记录',
+  detail_original_template: '游戏模板',
+  detail_same_template: '相同模板游戏',
+  detail_collect: '已收藏至我的游戏',
+  detail_collect_cancel: '已取消收藏',
+  detail_play: '试玩'
+};

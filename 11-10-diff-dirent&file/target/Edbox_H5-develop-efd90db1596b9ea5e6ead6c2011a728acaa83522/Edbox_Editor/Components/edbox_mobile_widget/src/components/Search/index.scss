@@ -1,0 +1,73 @@
+@import "../../common";
+
+.search {
+    position: relative;
+    height: rem(60);
+    line-height: rem(60);
+    border-radius: rem(30);
+    background-color: #fff;  
+    box-shadow: 0 rem(5) rem(20) 0 rgba(0, 0, 0, 0.1);
+    padding: 0 rem(30) 0 rem(80);
+
+    &.gray {
+        background-color: #f4f4f4;
+
+        input {
+            background-color: #f4f4f4;
+        }
+    }
+
+    .selection {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: rem(60);
+        height: rem(60);
+        line-height: rem(60);
+
+        i {
+            line-height: rem(70);
+            font-size: rem(35);
+            color: #b2b2b2;
+            margin-left: rem(17);
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: rem(7);
+            right: 0;
+            width: 0;
+            height: 0;
+            border: rem(4) solid #b2b2b2;
+            border-color: transparent #b2b2b2 #b2b2b2 transparent;
+        }
+    }
+
+    input {
+        width: 100%;
+        height: rem(60);
+        line-height: rem(60);
+        padding: rem(8) 0;
+        font-size: rem(32);
+        color: #333;
+
+        &::-webkit-input-placeholder {
+            color: #999;
+        }
+        &:-moz-placeholder {
+            color:    #999;
+        }
+        &::-moz-placeholder { 
+            color:    #999;
+        }
+    }
+}
+
+:global {
+    .search-overlay {
+        .am-popover-item-content, i {
+            color: #b2b2b2;
+        }
+    }
+}

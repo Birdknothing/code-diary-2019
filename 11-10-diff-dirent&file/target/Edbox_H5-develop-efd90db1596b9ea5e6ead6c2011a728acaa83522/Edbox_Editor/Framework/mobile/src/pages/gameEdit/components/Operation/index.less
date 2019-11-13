@@ -1,0 +1,102 @@
+
+.menu {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-shadow: 0 0 10px #ccc;
+  z-index: 2;
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin: 0 10px;
+  height: 32px;
+  width: 32px;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
+.menuItem {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  transition: all 0.3s;
+  z-index: 200;
+  &.active {
+    bottom: 0;
+  }
+}
+.header {
+  position: relative;
+  padding: 0 40px;
+  height: 72px;
+  line-height: 72px;
+  border-bottom: 1px solid #e2e2e2;
+  font-size: 28px;
+  color: #666;
+
+}
+.operationList {
+  padding: 20px;
+  text-align: center;
+  color: #000;
+  font-size: 24px;
+  li {
+    position: relative;
+    display: inline-block;
+    padding-top: 150px;
+    width: 25%;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      margin-left: -65px;
+      width: 130px;
+      height: 130px;
+      border-radius: 10px;
+      background: url('./img/save.png') center center no-repeat #f6f6f6;
+      background-size: 60px 60px;
+      
+    }
+    &:active:before {
+      background: url('./img/save-active.png') center center no-repeat #f6f6f6;
+      background-size: 60px 60px;
+    }
+
+    &.saveAs:before {
+      background: url('./img/save-other.png') center center no-repeat #f6f6f6;
+      background-size: 60px 60px;
+    }
+
+    &.saveAs:active:before {
+      background: url('./img/save-other-active.png') center center no-repeat #f6f6f6;
+      background-size: 60px 60px;
+    }
+
+    &.play:before {
+      background: url('./img/play.png') center center no-repeat #f6f6f6;
+      background-size: 60px 60px;
+    }
+
+    &.play:active:before {
+      background: url('./img/play-active.png') center center no-repeat #f6f6f6;
+      background-size: 60px 60px;
+    }
+
+    &.reset:before {
+      background: url('./img/reset.png') center center no-repeat #f6f6f6;
+      background-size: 60px 60px;
+    }
+
+    &.reset:active:before {
+      background: url('./img/reset-active.png') center center no-repeat #f6f6f6;
+      background-size: 60px 60px;
+    }
+  }
+}

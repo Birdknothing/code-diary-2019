@@ -1,0 +1,39 @@
+.switch-box {
+  width: 60px;
+  height: 24px;
+  line-height: 22px;
+
+  &:after {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.widget-item-error {
+  color: #da0301;
+  font-size: 12px;
+  line-height: 24px;
+}
+:global{
+  .ant-switch::after{
+    box-shadow: 0 2px 4px 0 rgba(0, 35, 11, 0.2);
+  }
+  .ant-switch-loading-icon, .ant-switch::after{
+    display: block !important;
+    position: absolute !important;
+    top: 1px;
+    left: 1px;
+    width: 20px !important;
+    height: 20px !important;
+    background-color: #fff !important;
+    border-radius: 18px !important;
+    cursor: pointer !important;
+    transition: all 0.36s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    content: ' ' !important;
+  }
+  .ant-switch-checked::after{
+    left: 100%;
+    margin-left: -1px;
+    transform: translateX(-100%);
+  }
+}

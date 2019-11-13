@@ -1,0 +1,24 @@
+{
+  "online_pic_list": [
+    {
+      "id": "d75604b4-7610-4f2e-9909-de3a0f04b9f5",
+      "title": "img_cover_5cbdc193-9624-4b0d-ae86-2134318d1c9c.png",
+      "cover": "http://cdncs.101.com/v0.1/static/edu_product/esp/assets/d75604b4-7610-4f2e-9909-de3a0f04b9f5.pkg/img_cover_5cbdc193-9624-4b0d-ae86-2134318d1c9c.png",
+      "description":"",
+      "update_time": "2019-08-08T17:01:30.000+0000",
+      "program_type":"TEXTURE",
+      "create_time": "2019-08-08T07:34:30.000+0000",
+      "format_type": "TEXTURE_IMAGE"
+    },
+    {
+      "id": "7ce84e59-9a60-4185-ba06-2427388c4415",
+      "title": "img_cover2_bfa94ce8-68d8-408c-871a-8814a755baf6.png",
+      "cover": "http://cdncs.101.com/v0.1/static/edu_product/esp/assets/7ce84e59-9a60-4185-ba06-2427388c4415.pkg/img_cover2_bfa94ce8-68d8-408c-871a-8814a755baf6.png",
+      "description":"",
+      "update_time": "2019-08-08T17:01:30.000+0000",
+      "program_type":"TEXTURE",
+      "create_time": "2019-08-08T07:34:30.000+0000",
+      "format_type": "TEXTURE_IMAGE"
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+.list-layer{
+    position: relative;
+    margin-top: 10px;
+    height: calc(100% - 233px);
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.head{
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 59px;
+    padding-left: 40px;
+    border-bottom: 1px solid #e2e2e2;
+    font-size: 14px;
+    strong{
+        color: #333;
+    }
+    color: #999;
+    span{
+        color: #cf0100;
+    }
+}
+
+.content{
+    height: calc(100% - 59px);
+    overflow-y: auto;
+}
+
+.no-padding{
+    :global{
+        .ant-popover-inner-content{
+            padding: 0;
+        }
+    }
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding-left: 40px;
+    background-color: #fff;
+    flex-wrap: nowrap;
+    &:nth-child(2n){
+        background-color: #f9f9f9;
+    }
+    .img{
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin-right: 29px;
+        cursor: pointer;
+        img{
+            display:block;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            background-color: #dcdcdc;
+        }
+    }
+    .name{
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        font-weight: bold;
+        color: #111;
+        font-size: 14px;
+        width: 50%;
+        p{
+            position: relative;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            .txt{
+              cursor: pointer;
+            }
+            &:hover{
+                .txt{
+                  color: #cf0100;
+                }
+                .edit-name{
+                    visibility: visible;
+                }
+            }
+            .edit-name{
+                right: 0;
+                top: 4px;
+                position: absolute;
+                visibility: hidden;
+                cursor: pointer;
+                background-color: #fff;
+                i{
+                    vertical-align: top;
+                }
+            }
+        }
+        .statu{
+            font-size: 12px;
+            color: #ff9600;
+            font-weight: normal;
+            &.error{
+                color: #cf0100;
+                padding-left: 16px;
+                background: url(../../../assets/myworks/icon-warn.png) left center no-repeat;
+            }
+            &.published{
+                color: #1e75f7;
+            }
+            span{
+                color: #666;
+            }
+            :global{
+              .ant-statistic{
+                display: inline-block;
+                margin-left: 6px;
+              }
+              .ant-statistic-content{
+                display: inline-block;
+                font-size: 12px;
+              }
+            }
+        }
+    }
+    .qrcode{
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        width: 21px;
+        height: 21px;
+        margin-left: 10px;
+        cursor: pointer;
+        background: url(../../../assets/myworks/icon-qrcode.png) no-repeat;
+    }
+    .col{
+        position: relative;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #666;
+        &.cursor{
+            cursor: pointer;
+        }
+        p{
+            position: relative;
+            z-index: 2;
+            margin-bottom: 0;
+        }
+        .jump-area{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+    }
+    .elli{
+        width: 80%;
+        display: -webkit-box;
+        /*! autoprefixer: off */
+        -webkit-box-orient: vertical;
+        /* autoprefixer: on */
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+    .opbtn{
+        position: relative;
+        width: 28px;
+        height: 28px;
+        display: inline-block;
+        background-color: #f4f4f4;
+        border: 1px solid #f4f4f4;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-right: 3%;
+        &:last-child{
+            margin-right: 0;
+        }
+        &:hover{
+            border-color: #cf0100;
+            i{
+                background-position-x: -28px;
+            }
+        }
+        i{
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            display: block;
+            width: 28px;
+            height: 28px;
+            background: url(../../../assets/myworks/spr.png) no-repeat;
+        }
+        .icon-out{
+            background-position: 0 -112px;
+        }
+        .icon-cancel{
+            background-position: 0 -224px;
+        }
+        .icon-publish{
+            background-position: 0 0;
+        }
+        .icon-play{
+            background-position: 0 -28px;
+        }
+        .icon-edit{
+            background-position: 0 -56px;
+        }
+        .icon-more{
+            background-position: 0 -84px;
+        }
+        .icon-share{
+            background-position: 0 -196px;
+        }
+    }
+}
+
+.more-pop{
+    .item-more{
+        height: 35px;
+        background-color: #fff;
+        cursor: pointer;
+        // &:nth-child(2n){
+        //     background-color: #f4f4f4;
+        // }
+        font-size: 14px;
+        color: #3c3c3c;
+        line-height: 35px;
+        padding-left: 8px;
+        padding-right: 27px;
+        white-space: nowrap;
+        &:hover{
+            background-color: #f4f4f4;
+            span{
+                &.icon-del{
+                    background-position: -28px -168px;
+                }
+                &.icon-copy{
+                    background-position: -28px -140px;
+                }
+                &.icon-share{
+                    background-position: -28px -196px;
+                }
+            }
+        }
+        span{
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            vertical-align: middle;
+            background: url(../../../assets/myworks/spr.png) no-repeat;
+            &.icon-del{
+                background-position: 0 -168px;
+            }
+            &.icon-copy{
+                background-position: 0 -140px;
+            }
+            &.icon-share{
+                background-position: 0 -196px;
+            }
+        }
+    }
+}
+
+.star{
+    display: inline-block;
+    width: 100px;
+    .num{
+        font-size: 14px;
+        color: #da0301;
+        font-weight: bold;
+    }
+}
+
+.starbar{
+    position: relative;
+    display: inline-block;
+    width: 68px;
+    height: 12px;
+    margin-right: 5px;
+    background: url(../../../assets/components/gamecard/icon-star0.png) no-repeat;
+    .percent{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 0;
+        height: 12px;
+        background: url(../../../assets/components/gamecard/icon-star100.png) no-repeat;
+    }
+}
+
+.qrcode-pop{
+    :global{
+        .ant-popover-inner-content{
+            padding:5px;
+        }
+    }
+}
+
+.share-icon{
+    margin-right: 5px;
+    font-size: 18px;
+}

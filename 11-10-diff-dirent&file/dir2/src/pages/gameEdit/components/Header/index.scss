@@ -1,0 +1,127 @@
+.header {
+  position: relative;
+  height: 60px;
+  line-height: 60px;
+  background-color: #f6f6f6;
+  z-index: 2;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 3px;
+    background-color: #e4e4e4;
+    border-top: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+  }
+  .back {
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    padding:  0 10px;
+    i {
+      font-size: 12px;
+      font-weight: bold;
+    }
+    span {
+      margin-left: 5px;
+    }
+    &:focus {
+      color: rgba(0, 0, 0, 0.65);
+      border-color: #d9d9d9;
+
+    }
+  }
+  .logo {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .handle {
+    position: absolute;
+    right: 50px;
+    top: 15px;
+    // width: 195px;
+    width: 430px;
+
+    .ico-msg {
+      float: right;
+      margin: 4px 10px 0 0;
+      cursor: pointer;
+    }
+    button {
+      float: right;
+      margin-right: 20px;
+    }
+
+  }
+  .icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #999999;
+    font-size: 20px;
+  }
+  .save {
+    position: relative;
+    padding-right: 10px;
+    svg {
+      display: none;
+    }
+    i {
+      border: 5px solid transparent;
+      border-top: 6px solid #fff;
+    }
+  }
+}
+.trial {
+  color: #e62e25;
+  border-color:#e62e25;
+  &:hover {
+    color: #fff;
+    background-color: #e62e25;
+  }
+  &:active {
+    background-color: #a60100;
+  }
+}
+.errorText {
+  font-size: 12px;
+  color: #e62e25;
+}
+.gameName {
+  line-height: 30px;
+}
+.ico-msg{
+  display: inline-block;
+  width: 14px;
+  height: 16px;
+  background: url(../../../../assets/icon-advise.png) no-repeat;
+  margin-top: -3px;
+  font-size: 22px;
+  color: #da0301;
+  vertical-align: middle;
+  cursor: pointer;
+  &:hover{
+    color: #e62e25;
+  }
+}
+
+.send_phone {
+  text-align: center;
+  p {
+    height: 180px;
+    font-size: 16px!important;
+    line-height: 180px;
+  }
+  button {
+    margin-bottom: 20px;
+  }
+
+}
+.ahistoric {
+  display: block;
+  width: 135px;
+  line-height: 30px;
+  text-align: center;
+}

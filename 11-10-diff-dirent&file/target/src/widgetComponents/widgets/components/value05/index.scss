@@ -1,0 +1,32 @@
+.number-range-box {
+  .number-input {
+    display: inline-block;
+    width: 108px;
+    color: #111;
+  }
+
+  .to-text {
+    margin: 0 20px;
+    color: #999;
+  }
+
+  .unit-text {
+    margin-left: 10px;
+    color: #111;
+  }
+
+  :global {
+    .ant-input-number-handler-wrap {
+      display: none;
+    }
+    .ant-input-number-input {
+      text-align: center;
+    }
+  }
+}
+
+.widget-item-error {
+  color: #da0301;
+  font-size: 12px;
+  line-height: 24px;
+}

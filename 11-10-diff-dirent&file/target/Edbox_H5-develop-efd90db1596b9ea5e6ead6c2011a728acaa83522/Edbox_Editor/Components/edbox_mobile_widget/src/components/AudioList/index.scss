@@ -1,0 +1,70 @@
+@import "../../common";
+.audio-result-wrap{
+  height: 100%;
+  font-size: 0;
+  text-align: center;
+  &:after{
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    
+  }
+}
+.audio-list-wrap {
+  height: 100%;
+  padding-bottom: rem(230);
+  .audio-list-item {
+      position: relative;
+      text-align: left;
+      width: rem(668);
+      height: rem(90);
+      margin: rem(20) auto;
+      font-size: rem(34);
+  }
+
+  .title {
+      display: inline-block;
+      font-size: rem(34);
+      color: #333;
+      width: rem(554);
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+  }
+
+  .time {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      font-size: rem(24);
+      color: #a1a1a1;
+  }
+
+  .icon {
+      position: absolute;
+      top: rem(25);
+      right: 0;
+      font-size: rem(24);
+      color: #1c1d22;
+  }
+}
+
+.no-result-wrap{
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  padding-bottom: rem(120);
+  .img{
+      width: rem(350);
+      margin-bottom: rem(30);
+  }
+  p{
+      margin: rem(30) 0;
+      font-size: rem(30)
+  }
+  .em{
+      font-weight: 700;
+  }
+}

@@ -1,0 +1,92 @@
+@import "../../common";
+
+.audio-search-wrap {
+    position: relative;
+    margin-top: rem(10);
+
+    .audio-search {
+        width: rem(650);
+        height: rem(80);
+        font-size: rem(32);
+        border-radius: rem(80);
+        background-color: #f4f4f4;
+        color: #111111;
+    }
+
+    .audio-engine {
+        position: relative;
+        display: inline-block;
+        font-size: rem(36);
+        color: #cccccc;
+        margin: 0 rem(60) 0 rem(24);
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: rem(36);
+            left: rem(50);
+            border: rem(10) solid #cccccc;
+            border-color: #cccccc transparent transparent transparent;
+            transition:all 0.3s;
+            transform-origin: 50% 2%;
+        }
+        &.on{
+            &::after {
+                top: rem(40);
+                transform:rotateZ(180deg);
+            }
+        }
+
+    }
+
+    .audio-input {
+        background-color: transparent;
+        width: rem(500);
+        height: rem(80);
+        line-height: rem(80);
+        font-size: rem(32);
+    }
+
+    .audio-close {
+        position: absolute;
+        top: rem(30);
+        right: rem(28);
+        font-size: rem(24);
+        color: #000;
+    }
+
+    .audio-engine-list {
+        position: absolute;
+        left: rem(60);
+        top: rem(98);
+        z-index: 100;
+        display: none;
+        width: rem(240);
+        height: rem(176);
+        border-radius: rem(6);
+        background-color: #fff;
+        &.on{
+            display: block;
+        }
+    }
+
+    .audio-engine-list-item {
+        height: rem(88);
+        line-height: rem(88);
+        background-color: #fff;
+        .icon-engine {
+            margin-left: rem(24);
+            font-size: rem(36);
+            color: #333;
+        }
+        span {
+            font-size: rem(32);
+            color: #111;
+            margin-left: rem(24);
+        }
+        &.on,
+        &:active {
+            background-color: #f4f4f4;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+.uploadIcon{
+    width: 128px;
+    height: 128px;
+    border:1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    .btn{
+        margin: 39px auto 0;
+        display: block;
+        color: #fff;
+        width: 32px;
+        height: 32px;
+        font-size: 22px;
+        line-height: 32px;
+        border-radius: 50%;
+        background-color: #cf0100;
+        text-align: center;
+    }
+    .txt{
+        font-size: 14px;
+        color: #666;
+        text-align: center;
+        margin-top: 20px;
+    }
+    &.game-icon{
+        position: relative;
+        border: none;
+        &:hover{
+            .txt{
+                opacity: 1;
+                transition: all .3s;
+            }
+        }
+        .txt{
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            color: #fff;
+            text-align: center;
+            padding-top: 37px;
+            line-height: 28px;
+            background: rgba(0,0,0,0.5);
+        }
+        img{
+            width: 128px;
+            height: 128px;
+        }
+    }
+}
+
+.floor{
+    margin-bottom: 20px;
+}

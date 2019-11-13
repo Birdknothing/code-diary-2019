@@ -1,0 +1,53 @@
+/* bass css */
+html {
+    height: 100%;
+    body{
+      
+    padding-bottom: 0 !important;
+    }
+  }
+  body{
+    position: relative;
+    margin:0 auto;
+    font:14px/1.5 "microsoft yahei", Arial, sans-serif;
+    color: #666;
+    background:#fff;
+    height: 100%;
+  }
+  .wrapper{
+    margin:0 auto;
+    width: 1300px;
+  }
+  .clearfix:after{ content:""; height:0; visibility:hidden; display:block; clear:both;}
+  .clearfix{zoom:1;}
+  .clear {clear:both }
+  a {
+    text-decoration:none;
+    outline:none;
+    cursor: pointer;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .relative {
+    position: relative;
+  }
+  .center {
+    text-align: center;
+  }
+  .fl {
+    float: left;
+  }
+  .fr {
+    float: right;
+  }
+  .transparent {
+    opacity: 0;
+  }
+  .hide {
+    display: none !important;
+  }
+  .oh {
+    overflow: hidden;
+  }
+  

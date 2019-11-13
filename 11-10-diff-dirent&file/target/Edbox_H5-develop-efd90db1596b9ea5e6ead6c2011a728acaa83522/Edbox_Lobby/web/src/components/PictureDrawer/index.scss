@@ -1,0 +1,23 @@
+.items {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: #eaeaea;
+  margin-left: -2px;
+  .pageLoading {
+    background-color: #eaeaea;
+  }
+}
+.picmodal{
+  :global{
+    .ant-drawer-content-wrapper{
+      padding-top: 104px;
+    }
+    .ant-drawer-body{
+      padding: 0;
+      height: calc(100% - 55px);
+      background-color: #f4f5f5;
+    }
+  }
+}

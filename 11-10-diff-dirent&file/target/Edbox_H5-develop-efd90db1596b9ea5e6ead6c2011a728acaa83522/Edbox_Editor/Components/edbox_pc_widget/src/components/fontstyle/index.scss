@@ -1,0 +1,27 @@
+.body {
+    button {
+        margin-right: 10px;
+    }
+}
+
+.btn-bold {
+    font-weight: bold;
+}
+
+.btn-italic {
+    font-style: italic;
+}
+
+.btn-underline {
+    line-height: 30px;
+    span {
+        display: block;
+        width: 10px;
+        margin: 0 auto;
+
+        &:last-of-type {
+            margin-top: -28px;
+            text-indent: -1px;
+        }
+    }
+}

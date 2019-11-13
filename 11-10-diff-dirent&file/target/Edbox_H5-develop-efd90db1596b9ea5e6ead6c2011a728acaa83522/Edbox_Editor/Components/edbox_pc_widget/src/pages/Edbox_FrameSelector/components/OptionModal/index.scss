@@ -1,0 +1,37 @@
+.modal-style{
+    :global{
+        .ant-modal-content{
+            border-radius: 10px;
+        }
+        .ant-modal-header{
+            padding: 0 10px;
+            height: 40px;
+            background: url(./image/bg-modal-head.png) no-repeat;
+        }
+        .ant-modal-title{
+            font-size: 14px;
+            color: #fff;
+            font-weight: bold;
+            line-height: 1;
+            line-height: 40px;
+        }
+        .ant-modal-close-x{
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            color: #fff;
+        }
+    }
+}
+
+.label{
+    display: inline-block;
+}
+.input{
+    display: inline-block;
+    :global{
+        .ant-input{
+            width: 73px;
+        }
+    }
+}

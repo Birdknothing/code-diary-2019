@@ -1,0 +1,174 @@
+.list-item {
+  position: relative;
+  margin: 40px;
+  height: 130px;
+  font-size: 0;
+  &:active {
+    border-radius: 16px;
+    background: #f6f6f6;
+  }
+  .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    overflow: hidden;
+    width: 129px;
+    height: 129px;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  }
+  .right-wrap {
+    position: relative;
+    padding-right: 80px;
+    padding-left: 161px;
+  }
+  .tit {
+    overflow: hidden;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 32px;
+  }
+  .intro {
+    overflow: hidden;
+    margin-top: 6px;
+    height: 35px;
+    color: #999;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 24px;
+  }
+
+  .rank-wrap {
+    margin-top: 10px;
+    font-size: 0;
+  }
+  .no-rank-tip {
+    padding-top: 10px;
+    color: #999;
+    font-size: 22px;
+  }
+  .rank {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 20px;
+    vertical-align: middle;
+  }
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/layout/bg_star.png") 0 0 no-repeat;
+  }
+  .active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/layout/bg_star.png") 0 -25px no-repeat;
+  }
+  .num {
+    display: inline-block;
+    overflow: hidden;
+    margin-left: 22px;
+    max-width: 300px;
+    color: #ff0012;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 24px;
+  }
+  .btn-play {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -30px;
+    width: 60px;
+    height: 60px;
+    background: url("../../assets/layout/ico_play.png") 0 -75px no-repeat;
+    &:active {
+      background: url("../../assets/layout/ico_play.png") 0 0 no-repeat;
+    }
+    &.disable {
+      background: url("../../assets/layout/ico_play.png") 0 -75px no-repeat;
+    }
+  }
+}
+
+.loading-tip {
+  padding: 30px;
+  color: #999;
+  text-align: center;
+  font-size: 24px;
+}
+
+:global {
+  html:not([data-scale]) .am-list-body::before {
+    background: none;
+  }
+  html:not([data-scale]) .am-list-body::after {
+    background: none;
+  }
+}
+
+.no-data-wrap {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 0;
+  &::before {
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    content: "";
+    vertical-align: middle;
+  }
+}
+
+.no-data {
+  display: inline-block;
+  padding-bottom: 60px;
+  vertical-align: middle;
+  .img {
+    width: 320px;
+  }
+  .txt {
+    padding-top: 40px;
+    color: #666;
+    font-size: 26px;
+  }
+}
+
+.loading-wrap {
+  padding: 50px 0;
+  text-align: center;
+
+  :global {
+    .ant-spin {
+      transform: scale3d(1.2, 1.2, 1.2);
+    }
+
+    .ant-spin-lg .ant-spin-dot {
+      font-size: 64px;
+    }
+
+    .ant-spin-lg .ant-spin-dot i {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
+.loading-finish-tip {
+  padding: 0 0 20px 0;
+  color: #999;
+  text-align: center;
+  font-size: 24px;
+}

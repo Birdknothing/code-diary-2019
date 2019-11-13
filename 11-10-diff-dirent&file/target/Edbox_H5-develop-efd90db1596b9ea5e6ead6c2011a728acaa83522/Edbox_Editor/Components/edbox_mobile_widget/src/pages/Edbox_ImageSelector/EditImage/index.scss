@@ -1,0 +1,429 @@
+@import "../../../common";
+
+.image-editor {
+
+    .edit-area {
+        height: 100%;
+    }
+
+    .actions {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: rem(100);
+        line-height: rem(100);
+        border-top: 1px solid #e2e2e2;
+        text-align: center;
+        z-index: 1;
+        background: #fff;
+
+        i {
+            font-size: rem(40);
+        }
+
+        .ico-close {
+            font-size: rem(30);
+        }
+    }
+
+    .opacity {
+        padding: rem(25) rem(40);
+
+        .input-wrap {
+            display: inline-block;
+            vertical-align: middle;
+            width: rem(125);
+            height: rem(60);
+            line-height: rem(60);
+            padding: 0 rem(15);
+            margin-left: rem(20);
+            border-radius: rem(30);
+            // overflow: hidden;
+            background: #f5f5f5;
+            font-size: rem(34);
+        }
+
+        input {
+            width: rem(60);
+            height: rem(60);
+            line-height: rem(60);
+            text-align: center;
+            font-size: rem(34);
+            color: #111;
+            background: #f5f5f5;
+        }
+    }
+
+    .flip-rotate {
+        .item {
+            line-height: rem(100);
+            text-align: center;
+            font-size: rem(40);
+
+            &:active {
+                color: $primaryColor;
+            }
+        }
+    }
+
+    .ico-download {
+        color: $primaryColor;
+    }
+
+    .ico-loading {
+        color: #666;
+        animation: loading 2s infinite linear;
+    }
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+:global {
+    .image-editor {
+        
+        &.hide-cropper {
+            .cropper-crop-box {
+                span {
+                    display: none;
+                }
+            }
+
+            .cropper-drag-box {
+                display: none;
+            }
+        }
+
+        .cropper-view-box {
+            outline: 1px solid #fff;
+        }
+
+        .cropper-dashed{
+            border:1px solid #fff;
+        }
+
+        .dashed-h{
+            border-width: 1px 0;
+        }
+
+        .dashed-v {
+            border-width: 0 1px;
+        }
+
+        .cropper-line{
+            background-color: #fff;
+        }
+
+        .line-e, .line-w {
+            width: rem(2);
+        }
+
+        .line-s, .line-n {
+            height: rem(2);
+        }
+
+        .line-e{
+            right: 0;
+        }
+
+        .line-w{
+            left: 0;
+        }
+
+        .line-s{
+            bottom: 0;
+        }
+
+        .line-n{
+            top: 0;
+        }
+
+        .cropper-bg, .cropper-modal {
+            background: #272727;
+        }
+
+        .cropper-face, .cropper-line, .cropper-point, .cropper-dashed {
+            opacity: 1;
+        }
+
+        .cropper-face {
+            background-color: transparent;
+        }
+
+        .point-e, .point-n, .point-w, .point-s{
+            display: none;
+        }
+
+        .point-ne, .point-nw, .point-sw, .point-se{
+            background-color: transparent;
+
+            &:before, &:after {
+                content: "";
+                position: absolute;
+                background-color: #fff;
+            }
+
+            &:before{
+                width: rem(48);
+                height: rem(8);
+            }
+
+            &:after {
+                width: rem(8);
+                height: rem(48);
+            }
+        }
+
+        .point-ne {
+            &:before, &:after {
+                top: 2px;
+                right: 2px;
+            }
+        }
+
+        .point-nw {
+            &:before, &:after {
+                top: 2px;
+                left: 2px;
+            }
+        }
+
+        .point-sw{
+            &:before, &:after {
+                bottom: 2px;
+                left: 2px;
+            }
+        }
+
+        .point-se{
+            &:before, &:after {
+                bottom: 2px;
+                right: 2px;
+                opacity: 1;
+            }
+        }
+
+        .h-list {
+            padding: rem(40) rem(20) rem(26);
+            overflow-x: scroll;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+
+            .swiper-wrapper {
+                flex-wrap: wrap;
+                // overflow: hidden;
+            }
+
+            .swiper-slide {
+                position: relative;
+                width: rem(134);
+                height: rem(134);
+                border-radius: rem(8);
+                margin-right: rem(10);
+                margin-bottom: rem(10);
+                background-size: cover;
+                background-position: center center;
+                box-shadow: 0 rem(5) rem(20) 0 rgba(0, 0, 0, 0.1);
+
+                i {
+                    position: absolute;
+                    bottom: rem(10);
+                    right: rem(10);
+                    font-size: rem(25); 
+                } 
+
+                &.d-type {
+                    font-size: rem(32);
+                    color: #999;
+                    text-align: center;
+                }
+
+                &.cut-default {
+                    line-height: rem(134);
+                }
+
+                &.cut-free {
+                    display: table;
+                    line-height: rem(38);
+                    padding: rem(17);
+
+                    .content {
+                        position: relative;
+                        display: table-cell;
+                        vertical-align: middle;
+                        border: 1px solid #999;
+                    }
+
+                    p {
+                        margin: 0;
+
+                        &:before, &:after {
+                            content: "";
+                            position: absolute;
+                            width: rem(10);
+                            height: rem(10);
+                            border-style: solid;
+                        }
+
+                        &:nth-of-type(1) {
+                            &:before, &:after {
+                                top: 0;
+                            }
+                            &:before {
+                                left: 0;
+                                border-color: #999 transparent transparent #999;
+                                border-width: rem(2) 0 0 rem(2);
+                            }
+
+                            &:after {
+                                right: 0;
+                                border-color: #999 #999 transparent transparent;
+                                border-width: rem(2) rem(2) 0 0;
+                            }
+                        }
+
+                        &:nth-of-type(2) {
+                            &:before, &:after {
+                                bottom: 0;
+                            }
+                            &:before {
+                                left: 0;
+                                border-color: transparent transparent #999 #999;
+                                border-width: 0 0 rem(2) rem(2);
+                            }
+
+                            &:after {
+                                right: 0;
+                                border-color: transparent #999 #999 transparent;
+                                border-width: 0 rem(2) rem(2) 0;
+                            }
+                        }
+                    }
+                }
+
+                &.cut-1-1, &.cut-3-4, &.cut-2-3, &.cut-9-16 {
+                    &:before {
+                        content: "";
+                        display: block;
+                        margin: rem(16) auto rem(6);
+                        border: 1px solid #999;
+                        height: rem(58);
+                    }
+                }
+
+                &.cut-1-1 {
+                    &:before{
+                        width: rem(58);
+                    }
+                }
+
+                &.cut-3-4 {
+                    &:before{
+                        width: rem(45);
+                    }
+                }
+
+                &.cut-2-3 {
+                    &:before{
+                        width: rem(40);
+                    }
+                }
+
+                &.cut-9-16 {
+                    &:before{
+                        width: rem(34);
+                    }
+                }
+
+                &.cut-more {
+                    line-height: rem(134);
+                    font-size: rem(50);
+                }
+
+                &:after {
+                    display: none;
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    border: rem(2) solid $primaryColor;
+                    border-radius: rem(8);
+                    pointer-events: none;
+                }
+
+                &.active {
+                    color: $primaryColor;
+                    font-weight: bold;
+                     
+                    &:after {
+                        display: block;
+                    }
+
+                    &.d-type {
+                        &:before {
+                            border-color: $primaryColor;
+                        }
+                    }
+
+                    &.cut-free {
+                        .content {
+                            border-color: $primaryColor;
+
+                            p{
+                                &:before, &:after {
+                                    border-color: $primaryColor;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .swiper-scrollbar {
+                left: rem(20);
+                right: rem(20);
+                width: auto;
+                height: rem(8);
+                background: #f6f6f6;
+                overflow: hidden;
+            }
+
+            .swiper-scrollbar-drag{
+                background: #ccc;
+            }
+        }
+
+        .opacity {
+            .am-slider-wrapper {
+                display: inline-block;
+                width: rem(524);
+                vertical-align: middle;
+            }
+        }
+
+        .am-tabs-default-bar-tab {
+            height: rem(108);
+            line-height: rem(108);
+            
+            &:after {
+                display: none !important;
+            }
+            i {
+                font-size: rem(40);
+            }
+        }
+        .am-tabs-default-bar-underline {
+            display: none;
+        }
+    } 
+}

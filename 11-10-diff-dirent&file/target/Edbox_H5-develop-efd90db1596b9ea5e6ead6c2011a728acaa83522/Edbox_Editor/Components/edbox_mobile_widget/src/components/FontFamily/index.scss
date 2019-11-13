@@ -1,0 +1,620 @@
+@import '../../common';
+
+.font-list {
+    position: absolute;
+    top: rem(102);
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    .ico-check {
+        display: none;
+        position: absolute;
+        left: rem(10);
+        top: 50%;
+        transform: translate(0, -50%);
+        font-size: rem(24);
+        color: $primaryColor;
+    }
+}
+
+:global {
+    .font-list {
+        .am-list-body {
+            &:before {
+                display: none !important;
+            }
+        }
+
+        .am-list-line {
+            padding-left: rem(50);
+            &:after {
+                display: none !important;
+            }
+        }
+
+        .am-radio-inner {
+            display: none;
+        }
+
+        .am-radio-item {
+            &.active {
+                .am-list-content {
+                    color: $primaryColor;
+                }
+                .ico-check {
+                    display: block;
+                }
+            }
+
+            .am-list-content {
+                font-size: rem(34);
+            }
+        }
+    }
+}
+
+/*设置字体文件库*/
+/*'http://component.edbox-dev.101.com:8090/editor';*/
+/*@font-face { //0
+    font-family: 'A Galega';
+    src: url('../../assets/fonts/en/AGalega.otf')  format('truetype');
+}
+
+@font-face { //1
+    font-family: 'Abril'; 
+    src: url('../../assets/fonts/en/Abril.ttf')  format('truetype');
+}
+
+@font-face { //2
+    font-family: 'AcademyKiller';
+    src: url('../../assets/fonts/en/AcademyKiller.TTF')  format('truetype');
+}
+
+@font-face { //3
+    font-family: 'Adieresis';
+    src: url('../../assets/fonts/en/Adieresis.TTF')  format('truetype');
+}
+
+@font-face { //4
+    font-family: 'Afectionless';
+    src: url('../../assets/fonts/en/Afectionless.ttf')  format('truetype');
+}
+
+@font-face { //5
+    font-family: 'Agreloy';
+    src: url('../../assets/fonts/en/Agreloy.TTF')  format('truetype');
+}
+
+@font-face { //6
+    font-family: 'Aileron';
+    src: url('../../assets/fonts/en/Aileron.otf')  format('truetype');
+}
+
+@font-face { //7
+    font-family: 'Air Mail';
+    src: url('../../assets/fonts/en/AirMail.TTF')  format('truetype');
+}
+
+@font-face { //8
+    font-family: 'Ajiwaipro';
+    src: url('../../assets/fonts/en/Ajiwaipro.TTF')  format('truetype');
+}
+
+@font-face { //9
+    font-family: 'akaDylan Open';
+    src: url('../../assets/fonts/en/akaDylanOpen.TTF')  format('truetype');
+}
+
+@font-face { //10
+    font-family: 'AlaskanNights';
+    src: url('../../assets/fonts/en/AlaskanNights.TTF')  format('truetype');
+}
+
+@font-face { //11
+    font-family: 'ALEO';
+    src: url('../../assets/fonts/en/ALEO.TTF')  format('truetype');
+}
+
+@font-face { //12
+    font-family: 'alger';
+    src: url('../../assets/fonts/en/alger.TTF')  format('truetype');
+}
+
+@font-face { //13
+    font-family: 'AlgerianBasD';
+    src: url('../../assets/fonts/en/AlgerianBasD.TTF')  format('truetype');
+}
+
+@font-face { //14
+    font-family: 'AlphaRope';
+    src: url('../../assets/fonts/en/AlphaRope.TTF')  format('truetype');
+}
+
+@font-face { //15
+    font-family: 'AlphaSmart';
+    src: url('../../assets/fonts/en/AlphaSmart.TTF')  format('truetype');
+}
+
+@font-face { //16
+    font-family: 'Altitude';
+    src: url('../../assets/fonts/en/Altitude.otf')  format('truetype');
+}
+
+@font-face { //17
+    font-family: 'Amazing sound';
+    src: url('../../assets/fonts/en/Amazingsound.TTF')  format('truetype');
+}
+
+@font-face { //18
+    font-family: 'Amoebica';
+    src: url('../../assets/fonts/en/Amoebica.otf')  format('truetype');
+}
+
+@font-face { //19
+    font-family: 'Ancient Medium';
+    src: url('../../assets/fonts/en/AncientMedium.TTF')  format('truetype');
+}
+
+@font-face { //20
+    font-family: 'Antique Quest St';
+    src: url('../../assets/fonts/en/AntiqueQuestSt.TTF')  format('truetype');
+}
+
+@font-face { //21
+    font-family: 'Aramis';
+    src: url('../../assets/fonts/en/Aramis.TTF')  format('truetype');
+}
+
+@font-face { //22
+    font-family: 'Arenq';
+    src: url('../../assets/fonts/en/Arenq.otf')  format('truetype');
+}
+
+@font-face { //23
+    font-family: 'Arensdorff_Ink';
+    src: url('../../assets/fonts/en/Arensdorff_Ink.otf')  format('truetype');
+}
+
+@font-face { //24
+    font-family: 'Armagedon';
+    src: url('../../assets/fonts/en/Armagedon.TTF')  format('truetype');
+}
+
+@font-face { //25
+    font-family: 'Asylum';
+    src: url('../../assets/fonts/en/Asylum.TTF')  format('truetype');
+}
+
+@font-face { //26
+    font-family: 'Austie Bost Simple Simon';
+    src: url('../../assets/fonts/en/AustieBostSimpleSimon.TTF')  format('truetype');
+}
+
+@font-face { //27
+    font-family: 'AXR Airpena';
+    src: url('../../assets/fonts/en/AXRAirpena.TTF')  format('truetype');
+}
+
+@font-face { //28
+    font-family: 'Baddit';
+    src: url('../../assets/fonts/en/Baddit.TTF')  format('truetype');
+}
+
+@font-face { //29
+    font-family: 'BankGothic Lt BT';
+    src: url('../../assets/fonts/en/BankGothicLtBT.TTF')  format('truetype');
+}
+
+@font-face { //30
+    font-family: 'bauhausef-demibold';
+    src: url('../../assets/fonts/en/bauhausef-demibold.otf')  format('truetype');
+}
+
+@font-face { //31
+    font-family: 'Blackletter686BT';
+    src: url('../../assets/fonts/en/Blackletter686BT.TTF')  format('truetype');
+}
+
+@font-face { //32
+    font-family: 'blanch';
+    src: url('../../assets/fonts/en/blanch.otf')  format('truetype');
+}
+
+@font-face { //33
+    font-family: 'bodoniMT';
+    src: url('../../assets/fonts/en/bodoniMT.TTF')  format('truetype');
+}
+
+@font-face { //34
+    font-family: 'Brisk';
+    src: url('../../assets/fonts/en/Brisk.TTF')  format('truetype');
+}
+
+@font-face { //35
+    font-family: 'Capsuula';
+    src: url('../../assets/fonts/en/Capsuula.TTF')  format('truetype');
+}
+
+@font-face { //36
+    font-family: 'CentraleSans';
+    src: url('../../assets/fonts/en/CentraleSans.otf')  format('truetype');
+}
+
+@font-face { //37
+    font-family: 'CHERI___';
+    src: url('../../assets/fonts/en/CHERI___.TTF')  format('truetype');
+}
+
+@font-face { //38
+    font-family: 'chocolate cake';
+    src: url('../../assets/fonts/en/chocolatecake.ttf')  format('truetype');
+}
+
+@font-face { //39
+    font-family: 'Cinematic';
+    src: url('../../assets/fonts/en/Cinematic.TTF')  format('truetype');
+}
+
+@font-face { //40
+    font-family: 'circles and sticks';
+    src: url('../../assets/fonts/en/circlesandsticks.TTF')  format('truetype');
+}
+
+@font-face { //41
+    font-family: 'Circula';
+    src: url('../../assets/fonts/en/Circula.otf')  format('truetype');
+}
+
+@font-face { //42
+    font-family: 'Citadel Script';
+    src: url('../../assets/fonts/en/CitadelScript.TTF')  format('truetype');
+}
+
+@font-face { //43
+    font-family: 'Cobac';
+    src: url('../../assets/fonts/en/Cobac.TTF')  format('truetype');
+}
+
+@font-face { //44
+    font-family: 'Coluna_Sketch';
+    src: url('../../assets/fonts/en/Coluna_Sketch.otf')  format('truetype');
+}
+
+@font-face { //45
+    font-family: 'cuyabra';
+    src: url('../../assets/fonts/en/cuyabra.otf')  format('truetype');
+}
+
+@font-face { //46
+    font-family: 'DexgothicD';
+    src: url('../../assets/fonts/en/DexgothicD.TTF')  format('truetype');
+}
+
+@font-face { //47
+    font-family: 'Digital-7Mono';
+    src: url('../../assets/fonts/en/Digital-7Mono.TTF')  format('truetype');
+}
+
+@font-face { //48
+    font-family: 'Dotchaos';
+    src: url('../../assets/fonts/en/Dotchaos.TTF')  format('truetype');
+}
+
+@font-face { //49
+    font-family: 'Eight One';
+    src: url('../../assets/fonts/en/EightOne.TTF')  format('truetype');
+}
+
+@font-face { //50
+    font-family: 'Estrangelo Edessa';
+    src: url('../../assets/fonts/en/EstrangeloEdessa.TTF')  format('truetype');
+}
+
+@font-face { //51
+    font-family: 'Expansiva';
+    src: url('../../assets/fonts/en/Expansiva.otf')  format('truetype');
+}
+
+@font-face { //52
+    font-family: 'Geosans';
+    src: url('../../assets/fonts/en/Geosans.TTF')  format('truetype');
+}
+
+@font-face { //53
+    font-family: 'Gris';
+    src: url('../../assets/fonts/en/Gris.TTF')  format('truetype');
+}
+
+@font-face { //54
+    font-family: 'Hachipochi';
+    src: url('../../assets/fonts/en/Hachipochi.TTF')  format('truetype');
+}
+
+@font-face { //55
+    font-family: 'Half Price 4 You';
+    src: url('../../assets/fonts/en/HalfPrice4You.TTF')  format('truetype');
+}
+
+@font-face { //56
+    font-family: 'Helleplus32';
+    src: url('../../assets/fonts/en/Helleplus32.TTF')  format('truetype');
+}
+
+@font-face { //57
+    font-family: 'Helvelow';
+    src: url('../../assets/fonts/en/Helvelow.TTF')  format('truetype');
+}
+
+@font-face { //58
+    font-family: 'Hermes';
+    src: url('../../assets/fonts/en/Hermes.otf')  format('truetype');
+}
+
+@font-face { //59
+    font-family: 'KENDRIC Regular';
+    src: url('../../assets/fonts/en/KENDRICRegular.TTF')  format('truetype');
+}
+
+@font-face { //60
+    font-family: 'kilsonburg';
+    src: url('../../assets/fonts/en/kilsonburg.TTF')  format('truetype');
+}
+
+@font-face { //61
+    font-family: 'Kuudere';
+    src: url('../../assets/fonts/en/Kuudere.TTF')  format('truetype');
+}
+
+@font-face { //62
+    font-family: 'Modernism';
+    src: url('../../assets/fonts/en/Modernism.TTF')  format('truetype');
+}
+
+@font-face { //63
+    font-family: 'MODERNO_';
+    src: url('../../assets/fonts/en/MODERNO_.TTF')  format('truetype');
+}
+
+@font-face { //64
+    font-family: 'monkey hat';
+    src: url('../../assets/fonts/en/monkeyhat.otf')  format('truetype');
+}
+
+
+@font-face { //65
+    font-family: 'Times New Roman';
+    src: url('../../assets/fonts/en/TimesNewRoman.fon')  format('truetype');
+}
+
+@font-face { //66
+    font-family: '书体坊米芾体';
+    src: url('../../assets/fonts/zh/书体坊米芾体.TTF')  format('truetype');
+}
+
+@font-face { //67
+    font-family: '汉仪全唐诗简体';
+    src: url('../../assets/fonts/zh/汉仪全唐诗简体.TTF')  format('truetype');
+}
+
+@font-face { //68
+    font-family: '长城中行书体';
+    src: url('../../assets/fonts/zh/长城中行书体.TTF')  format('truetype');
+}
+
+@font-face { //69
+    font-family: '奶油小甜心';
+    src: url('../../assets/fonts/zh/奶油小甜心.TTF')  format('truetype');
+}
+
+@font-face { //70
+    font-family: '奶油小甜心';
+    src: url('../../assets/fonts/zh/奶油小甜心.TTF')  format('truetype');
+}
+
+@font-face { //70
+    font-family: '方正雅珠体系列';
+    src: url('../../assets/fonts/zh/方正雅珠体系列.TTF')  format('truetype');
+}
+
+@font-face { //71
+    font-family: '方正大魏体简体';
+    src: url('../../assets/fonts/zh/方正大魏体简体.TTF')  format('truetype');
+}
+
+@font-face { //72
+    font-family: '方正行楷简体';
+    src: url('../../assets/fonts/zh/方正行楷简体.TTF')  format('truetype');
+}
+
+@font-face { //73
+    font-family: '方正淘乐简体';
+    src: url('../../assets/fonts/zh/方正淘乐简体.TTF')  format('truetype');
+}
+
+@font-face { //74
+    font-family: '方正像素系列 24';
+    src: url('../../assets/fonts/zh/方正像素系列24.TTF')  format('truetype');
+}
+
+@font-face { //75
+    font-family: '方正呐喊简体';
+    src: url('../../assets/fonts/zh/方正呐喊简体.TTF')  format('truetype');
+}
+
+@font-face { //76
+    font-family: '方正叶根友特楷简体';
+    src: url('../../assets/fonts/zh/方正叶根友特楷简体.TTF')  format('truetype');
+}
+
+@font-face { //77
+    font-family: '方正手绘简体_准';
+    src: url('../../assets/fonts/zh/方正手绘简体_准.TTF')  format('truetype');
+}
+
+@font-face { //78
+    font-family: '方正幼线简体';
+    src: url('../../assets/fonts/zh/方正幼线简体.TTF')  format('truetype');
+}
+
+@font-face { //79
+    font-family: '方正童体毛笔简体';
+    src: url('../../assets/fonts/zh/方正童体毛笔简体.TTF')  format('truetype');
+}
+
+@font-face { //80
+    font-family: '方正魏碑简体';
+    src: url('../../assets/fonts/zh/方正魏碑简体.TTF')  format('truetype');
+}
+
+@font-face { //81
+    font-family: '方正有猫在简体';
+    src: url('../../assets/fonts/zh/方正有猫在简体.TTF')  format('truetype');
+}
+
+@font-face { //82
+    font-family: '方正风雅楷体宋简体';
+    src: url('../../assets/fonts/zh/方正风雅楷体宋简体.TTF')  format('truetype');
+}
+
+@font-face { //83
+    font-family: '方正琥珀简体';
+    src: url('../../assets/fonts/zh/方正琥珀简体.TTF')  format('truetype');
+}
+
+@font-face { //84
+    font-family: '方正苏新诗柳楷简体';
+    src: url('../../assets/fonts/zh/方正苏新诗柳楷简体.TTF')  format('truetype');
+}
+
+@font-face { //85
+    font-family: '方正粉丝天下简体';
+    src: url('../../assets/fonts/zh/方正粉丝天下简体.TTF')  format('truetype');
+}
+
+@font-face { //86
+    font-family: '方正彩云简体';
+    src: url('../../assets/fonts/zh/方正彩云简体.TTF')  format('truetype');
+}
+
+@font-face { //87
+    font-family: '方正正纤黑简体';
+    src: url('../../assets/fonts/zh/方正正纤黑简体.TTF')  format('truetype');
+}
+
+@font-face { //88
+    font-family: '方正榜书楷简体';
+    src: url('../../assets/fonts/zh/方正榜书楷简体.TTF')  format('truetype');
+}
+
+@font-face { //89
+    font-family: '方正华隶简体';
+    src: url('../../assets/fonts/zh/方正华隶简体.TTF')  format('truetype');
+}
+
+@font-face { //90
+    font-family: '方正儿童楷隶简体';
+    src: url('../../assets/fonts/zh/方正儿童楷隶简体.TTF')  format('truetype');
+}
+
+@font-face { //91
+    font-family: '方正兰亭圆简体';
+    src: url('../../assets/fonts/zh/方正兰亭圆简体.TTF')  format('truetype');
+}
+
+@font-face { //92
+    font-family: '方正兰亭宋简体';
+    src: url('../../assets/fonts/zh/方正兰亭宋简体.TTF')  format('truetype');
+}
+
+@font-face { //93
+    font-family: '方正兰亭黑简体';
+    src: url('../../assets/fonts/zh/方正兰亭黑简体.TTF')  format('truetype');
+}
+
+@font-face { //94
+    font-family: '方正清刻本悦宋简体';
+    src: url('../../assets/fonts/zh/方正清刻本悦宋简体.TTF')  format('truetype');
+}
+
+@font-face { //95
+    font-family: '方正启体简体';
+    src: url('../../assets/fonts/zh/方正启体简体.TTF')  format('truetype');
+}
+
+@font-face { //96
+    font-family: '方正启笛简体';
+    src: url('../../assets/fonts/zh/方正启笛简体.TTF')  format('truetype');
+}
+
+@font-face { //97
+    font-family: '方正吕建德行楷简体';
+    src: url('../../assets/fonts/zh/方正吕建德行楷简体.TTF')  format('truetype');
+}
+
+@font-face { //98
+    font-family: '方正楷体简体';
+    src: url('../../assets/fonts/zh/方正楷体简体.TTF')  format('truetype');
+}
+
+@font-face { //99
+    font-family: '方正宋刻本秀楷简体';
+    src: url('../../assets/fonts/zh/方正宋刻本秀楷简体.TTF')  format('truetype');
+}
+
+@font-face { //100
+    font-family: '方正趣宋简体';
+    src: url('../../assets/fonts/zh/方正趣宋简体.TTF')  format('truetype');
+}
+
+@font-face { //101
+    font-family: '方正黄草简体';
+    src: url('../../assets/fonts/zh/方正黄草简体.TTF')  format('truetype');
+}
+
+@font-face { //102
+    font-family: '方正黑隶简体';
+    src: url('../../assets/fonts/zh/方正黑隶简体.TTF')  format('truetype');
+}
+
+@font-face { //103
+    font-family: '方正秉楠圆宋简体';
+    src: url('../../assets/fonts/zh/方正秉楠圆宋简体.TTF')  format('truetype');
+}
+
+@font-face { //104
+    font-family: '蒙纳简超刚黑';
+    src: url('../../assets/fonts/zh/蒙纳简超刚黑.TTF')  format('truetype');
+}
+
+@font-face { //105
+    font-family: '昆仑细圆';
+    src: url('../../assets/fonts/zh/昆仑细圆.TTF')  format('truetype');
+}
+
+@font-face { //106
+    font-family: '八大山人';
+    src: url('../../assets/fonts/zh/八大山人.TTF')  format('truetype');
+}
+
+@font-face { //107
+    font-family: '典雅楷体简体';
+    src: url('../../assets/fonts/zh/典雅楷体简体.TTF')  format('truetype');
+}
+
+@font-face { //108
+    font-family: '祥南行书体';
+    src: url('../../assets/fonts/zh/祥南行书体.TTF')  format('truetype');
+}
+
+@font-face { //109
+    font-family: '超世纪中古印';
+    src: url('../../assets/fonts/zh/超世纪中古印.TTF')  format('truetype');
+}
+
+@font-face { //110
+    font-family: '田氏宋体旧字形';
+    src: url('../../assets/fonts/zh/田氏宋体旧字形.TTF')  format('truetype');
+}*/

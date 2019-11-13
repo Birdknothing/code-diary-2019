@@ -1,4 +1,8 @@
-const fs = require('fs');
-console.log('123456'.indexOf('345'));
-console.log('123456'.substring(0, 2));
-console.log(fs.readFileSync('./121.js').toString());
+var a = function(){
+    var b = {x:1}
+    a = ()=>b;
+    return b;
+}
+console.log(a());
+a().x =2;
+console.log(a());

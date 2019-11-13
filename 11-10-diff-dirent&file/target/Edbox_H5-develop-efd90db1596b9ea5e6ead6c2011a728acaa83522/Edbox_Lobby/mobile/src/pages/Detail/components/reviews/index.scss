@@ -1,0 +1,176 @@
+.reviews-block {
+  position: relative;
+  padding: 40px 0 30px;
+}
+
+.reviews-title {
+  color: #333;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.reviews-score,
+.reviews-score-0 {
+  position: relative;
+  margin-top: 20px;
+}
+
+.reviews-score {
+  padding-left: 200px;
+
+  .version-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .score {
+    color: #333;
+    font-size: 28px;
+  }
+
+  .num {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 155px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 78px;
+    line-height: 1.1;
+  }
+
+  .version {
+    margin-top: 5px;
+    color: #999;
+    font-size: 28px;
+    line-height: 1;
+  }
+}
+
+.no-enough {
+  color: #999;
+  text-align: center;
+  font-size: 28px;
+  line-height: 120px;
+}
+
+.reviews-star-box {
+  overflow: hidden;
+
+  .item {
+    position: relative;
+    margin: 2px 0 3px;
+    padding-left: 140px;
+
+    &:nth-child(1) {
+      .light-star {
+        width: 100%;
+      }
+    }
+
+    &:nth-child(2) {
+      .light-star {
+        width: 80%;
+      }
+    }
+
+    &:nth-child(3) {
+      .light-star {
+        width: 60%;
+      }
+    }
+
+    &:nth-child(4) {
+      .light-star {
+        width: 40%;
+      }
+    }
+
+    &:nth-child(5) {
+      .light-star {
+        width: 20%;
+      }
+    }
+  }
+
+  .star-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 122px;
+    height: 21px;
+    background: url(../../img/ico-star2.png) no-repeat 0 0;
+  }
+
+  .light-star {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    height: 100%;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 122px;
+      height: 21px;
+      background: url(../../img/ico-star2-active.png) no-repeat 0 0;
+      background-size: cover;
+      content: "";
+    }
+  }
+
+  .progress-box {
+    overflow: hidden;
+    height: 21px;
+
+    .progress-bar {
+      position: relative;
+      display: block;
+      margin-top: 4px;
+      height: 14px;
+      border-radius: 7px;
+      background: #f4f5f7;
+    }
+
+    .progress-line {
+      position: absolute;
+      height: 100%;
+      border-radius: 7px;
+      background: #e10401;
+    }
+  }
+}
+
+.reviews-rate {
+  position: relative;
+  margin-top: 35px;
+
+  .tit {
+    color: #333;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .rate-box {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .rate-star {
+    display: inline-block;
+    margin: 0 20px;
+    width: 72px;
+    height: 66px;
+    background: url(../../img/ico-star3.png) no-repeat 0 0;
+    vertical-align: middle;
+
+    &.active {
+      background: url(../../img/ico-star3-active.png) no-repeat 0 0;
+    }
+  }
+}

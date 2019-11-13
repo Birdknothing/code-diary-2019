@@ -1,0 +1,62 @@
+@import "../../common";
+
+.btns-wrap {
+  position: relative;
+  background-color: #f5f5f5;
+  padding: rem(6) rem(90) rem(24) rem(34);
+  font-size: 0;
+  height: auto;
+  overflow: hidden;
+  a:hover, a:active{
+    color: #fff;
+  }
+  .btn-opr{
+      position: absolute;
+      right: rem(30);
+      top: rem(40);
+      width: rem(50);
+      height: rem(50);
+      background-color: transparent;
+      &::after{
+          position: absolute;
+          right: rem(14);
+          top: rem(14);
+          display: inline-block;
+          content: "";
+          width: rem(16);
+          height: rem(16);
+          border:rem(2) #ccc solid;
+          border-bottom: 0; 
+          border-left: 0;
+          
+          transform: rotateZ(315deg);
+          transition: all 0.3s;
+          // transform-origin: -10% 50%;
+      }
+      
+  }
+  .border-btn{
+    // height: rem(64);
+    margin: rem(30) rem(20) rem(10) 0;
+  }
+  .btns-list{
+      font-size: 0;
+      max-height: rem(540);
+      -webkit-overflow-scrolling: touch;
+      overflow: auto;
+  }
+  &.on{
+      height: rem(133);
+      .btn-opr{
+          &::after{
+            transform: rotate(135deg);
+          }
+      }
+      .btns-list{
+        height: rem(80);
+        overflow: hidden;
+        height: auto;
+      }
+  }
+}
+

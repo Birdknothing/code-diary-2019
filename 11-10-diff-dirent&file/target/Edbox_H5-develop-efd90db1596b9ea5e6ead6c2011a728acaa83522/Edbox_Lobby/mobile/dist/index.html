@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><link rel="stylesheet" href="/mobile/umi.css?v=1573205532487"><meta charset="utf-8"><!-- set `maximum-scale` for some compatibility issues --><!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" /> --><meta name="viewport" content="minimal-ui,width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,target-densitydpi=320"><meta content="telephone=no" name="format-detection"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="HandheldFriendly" content="true"><!-- UC默认竖屏 ，UC强制全屏 --><meta name="full-screen" content="yes"><meta name="browsermode" content="application"><!-- QQ强制竖屏 QQ强制全屏 --><meta name="x5-orientation" content="portrait"><meta name="x5-fullscreen" content="true"><meta name="x5-page-mode" content="app"><script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script><title>Edbox</title><link rel="icon" href="/mobile/favicon.ico" type="image/x-icon"><script>window.routerBase = "/";</script></head><body oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;"><script>zoom(750);
+    function zoom(width, id) {
+      var ratio; //缩放比例
+      c_width = document.documentElement.clientWidth;
+      ratio = c_width / width;
+      if (id) {
+        document.getElementById(id).style.cssText = "zoom:" + ratio;
+      } else {
+        document.body.style.cssText = "zoom:" + ratio;
+      }
+    }
+    window.addEventListener(
+      "resize",
+      function() {
+        if(document.documentElement.clientWidth > document.documentElement.clientHeight){
+          zoom(1344);
+        }else{
+          zoom(750);
+        }
+      },
+      false
+    );
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+        setTimeout(function() {
+          window.scrollTo(0, 1);
+        }, 100);
+      },
+      false
+    );</script><div id="root"></div><script>/**
+     * Edbox组件加载器
+     */
+    var Loader = {
+      /**
+       * 加载需求组件
+       * @param {string} path 组件路径
+       * @param {string} condition 加载条件
+       * @param {string} onload  加载完成后执行string类型函数
+       */
+      Load: function (path, condition, onload) {
+        function load() {
+          document.write('<script src="' + path + '" type="text/javascript"><\/script>');
+          if (onload) {
+            document.write('<script type="text/javascript">' + onload + '<\/script>');
+          }
+        }
+        if (condition || condition === undefined || condition === null) {
+          load();
+        }
+        else {
+          if (onload) {
+            document.write('<script type="text/javascript">' + onload + '<\/script>');
+          }
+        }
+      },
+
+      /**
+       * Edbox组件加载路径
+       */
+      ComponentRootPath: "http://component.edbox-cn.101.com/libs/",
+
+      /**
+       * 协议
+       */
+      Protocol: "http",
+
+      /**
+       * 组件服务器域名
+       */
+      Host: {
+        /**
+      * 国内预生产服务器域名
+      */
+        BetaCN: ".edbox-beta-cn.101.com",
+        /**
+         * 海外预生产服务器域名
+         */
+        Beta: ".edbox-beta.101.com",
+        /**
+         * 国内服务器域名
+         */
+        CN: ".edbox-cn.101.com",
+        /**
+         * 香港服务器域名
+         */
+        HK: ".edbox-hk.101.com",
+        /**
+         * 美国服务器域名
+         */
+        US: ".edbox.101.com",
+        /**
+         * QA服务器域名
+         */
+        QA: ".edbox-qa.101.com",
+        /**
+         * Dev服务器域名
+         */
+        Dev: ".edbox-dev.101.com"
+      },
+
+      /**
+      * 初始化Edbox组件加载路径
+      */
+      InitComponentRootPath: function () {
+        Loader.Protocol = window.location.protocol.replace(":", "");
+        if (Loader.Protocol.toLowerCase() === "file") {
+          // 配置file协议为http协议
+          Loader.Protocol = "http";
+        }
+
+        var host = window.location.hostname;
+        var keys = Object.keys(Loader.Host);
+        for (var i = 0; i < keys.length; i++) {
+          var key = keys[i];
+          var temphost = Loader.Host[key];
+          if (host.indexOf(temphost) >= 0) {
+            Loader.ComponentRootPath = Loader.Protocol + "://component" + temphost + "/libs/";
+            return;
+          }
+        }
+        Loader.ComponentRootPath = Loader.Protocol + "://component.edbox-dev.101.com/libs/";
+      }
+    };
+
+    Loader.InitComponentRootPath();
+    var v = new Date().getTime();
+    Loader.Load(Loader.ComponentRootPath + "Edbox_Lobby/js/Edbox.js?v=" + v);
+    // Loader.Load(Loader.ComponentRootPath + "Edbox_Editor/js/Edbox.js?v=" + new Date().getTime());</script><script src="/mobile/umi.js?v=1573205532487"></script></body></html>

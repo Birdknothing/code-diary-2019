@@ -1,0 +1,364 @@
+
+html, body, #root {
+	height: 100%;
+  }
+  
+  *{
+	  margin: 0;
+	  box-sizing: border-box;
+  }
+  @import './themes/base.scss';
+  @import './themes/homebanner.scss';
+  
+  //大厅外框
+  @import './themes/layouts.scss';
+  
+  ::-webkit-scrollbar {
+	  width:8px; /*对垂直流动条有效*/
+	  height: 8px; /*对水平流动条有效*/
+  }
+  
+  /*定义滚动条的轨道颜色、内阴影及圆角*/
+  ::-webkit-scrollbar-track{
+	  background-color: transparent;
+	  border-radius: 3px;
+  }
+  
+  
+  /*定义滑块颜色、内阴影及圆角*/
+  ::-webkit-scrollbar-thumb{
+	  border-radius: 7px;
+	  background-color: #ccc;
+  }
+  
+  //头部标签
+  .ant-tabs-bar{
+	  border-bottom: 0;
+  }
+  .ant-tabs-nav .ant-tabs-tab{
+	  font-size: 14px;
+	  color: #000;
+  }
+  .ant-tabs-nav .ant-tabs-tab-active{
+	  color: #cf0100;
+	  font-weight: bold;
+	  font-size: 14px;
+  }
+  .ant-tabs-ink-bar{
+	  background-color: transparent;
+	  &:after{
+		  content: '';
+		  position: absolute;
+		  left: 50%;
+		  top: 0;
+		  margin-left: -20px;
+		  width: 40px;
+		  height: 2px;
+		  background-color: #cf0100;
+		  box-shadow: 0 1px 5px rgba(255,57,57,.69);
+	  }
+  }
+  .ant-popover-title{
+	  position: relative;
+	  background-color: #f4f4f4;
+	  color: #333;
+	  font-size: 18px;
+	  font-weight: bold;
+	  border-bottom: 1px solid #ccc;
+  }
+  
+  .tagspop{
+	  .ant-popover-title{
+		  border: 1px solid #ccc;
+	  }
+	  .ant-popover-inner-content{
+		  border: 1px solid #ccc;
+		  border-top: none;
+	  }
+  }
+  
+  .tagspop .ant-popover-inner-content{
+	  padding: 20px 0 20px 20px;
+  }
+  .tagspop.ant-popover-placement-bottomRight > .ant-popover-content > .ant-popover-arrow{
+	  right: 42px;
+	  top: 8px;
+	  z-index: 10;
+	  border-top-color: #f4f4f4;
+	  border-left-color: #f4f4f4;
+	  box-shadow: -1px -1px 0px #ccc;
+  }
+  
+  
+  //公共标题
+  .module-title{
+	  position: relative;
+	  height: 60px;
+	  h2{
+		  line-height: 60px;
+		  font-size: 18px;
+		  color: #111;
+		  margin-bottom: 0;
+		  font-weight: bold;
+		  &.hot{
+			  padding-left: 32px;
+			  background: url(./assets/ware/icon-hot.png) left center no-repeat;
+		  }
+	  }
+	  span{
+		  position: absolute;
+		  display: block;
+		  height: 100%;
+		  right: 0;
+		  top: 15px;
+		  width: 88px;
+		  height: 30px;
+		  border-radius: 2px;
+		  background-color: #fff;
+		  color: #666;
+		  text-align: center;
+		  line-height: 28px;
+		  border: 1px solid #dcdee3;
+		  font-size: 14px;
+		  cursor: pointer;
+		  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+	  }
+  }
+  
+  .ware-layer{
+	  height: 100%;
+	  background: url(./assets/layout/bg-view.png) repeat;
+  }
+  
+  .btn-play{
+	  display: inline-block;
+	  width: 64px;
+	  height: 26px;
+	  background-color: #da0301;
+	  font-size: 14px;
+	  color: #fff;
+	  line-height: 26px;
+	  text-align: center;
+	  border-radius: 3px;
+	  margin-right: 24px;
+	  vertical-align: top;
+	  cursor: pointer;
+	  transition: all .3s;
+	  &:hover{
+		  opacity: .8;
+	  }
+  }
+  
+  .ant-form-vertical .ant-form-item{
+	  margin-bottom: 0;
+	  padding-bottom: 0;
+  }
+  .iframeEdit{
+	  &.ant-modal{
+		  padding-bottom: 0;
+	  }
+	  .ant-modal-header{
+		  position: relative;
+		  background-color: #cf0100;
+		  height: 60px;
+		  padding: 0;
+		  border-bottom: none;
+		  .logo{
+			  float: left;
+			  width: 79px;
+			  height: 42px;
+			  margin-left: 33px;
+			  margin-top: 7px;
+			  margin-bottom: 0;
+			  cursor: pointer;
+			  img{
+				  width: 100%;
+				  height: 100%;
+			  }
+		  }
+	  }
+	  .ant-modal-content{
+		  height: 100%;
+	  }
+	  .ant-modal-body{
+		  padding: 0;
+		  height: calc(100% - 60px);
+	  }
+	  .ant-modal-close-x {
+		  width: 60px;
+		  height: 60px;
+		  line-height: 60px;
+		  color: #fff;
+	  }
+  }
+  
+  .iframeGame{
+	  max-width: 95%;
+	  max-height: 95%;
+	  min-height: 80%;
+	  min-width: 50%;
+	  .ant-modal-content{
+		  height: 100%;
+	  }
+	  .ant-modal-body{
+		  height: 100%;
+	  }
+	  .ant-modal-close-x {
+		  width: 30px;
+		  height: 30px;
+		  line-height: 30px;
+	  }
+  }
+  .iframePlay{
+	  max-width: 86%;
+	  // max-height: 95%;
+	  // min-height: 80%;
+	  // min-width: 50%;
+	  padding-bottom: 0;
+	  iframe{
+		background-color: #313131;
+	  }
+	  .ant-modal-content{
+		  height: 100%;
+		//   background-color: transparent;
+	  }
+	  .ant-modal-body{
+		  height: 100%;
+		  padding: 0;
+	  }
+	  .ant-modal-close{
+		  background-color: #666;
+		  border-radius: 30px;
+		  top: 0;
+		  right: -44px;
+			color: #ebebeb;
+		  &:hover{
+			  background-color: #cf0100;
+			  color: #fff;
+		  }
+		  .ant-modal-close-x {
+				position: relative;
+			  width: 34px;
+			  height: 34px;
+			  line-height: 34px;
+			  font-size: 12px;
+				border-radius: 30px;
+				.anticon-close{
+					display: none;
+				}
+				&:after{
+					content: '';
+					display: block;
+					width: 34px;
+					height: 34px;
+					background: url(./assets/layout/icon-close.png) center no-repeat;
+				}
+		  }
+	  }
+  }
+  .iframeIM{
+	  .ant-modal-content{
+		  height: 100%;    
+		  border-radius: 8px;
+		  overflow: hidden;
+	  }
+	  .ant-modal-body{
+		  height: 100%;
+		  padding: 60px 0 0 0;
+	  }
+	  .ant-modal-close-x {
+		  width: 60px;
+		  height: 60px;
+		  line-height: 60px;
+		  color: #fff;
+	  }
+	  .ant-modal-header{
+		  padding: 0;
+		  overflow: hidden;
+		  border: 0;
+	  }
+	// .ant-modal-content{
+	// 	height: 100%;    
+	//   //   border-radius: 8px;
+	//   //   overflow: hidden;
+	// }
+	// .ant-modal-body{
+	// 	height: 100%;
+	//   //   padding:0;
+	// }
+	// .ant-modal-close-x {
+	// 	width: 30px;
+	// 	height: 30px;
+	// 	line-height: 30px;
+	//   //   color: #fff;
+	// }
+  }
+  .im-title{
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 960px;
+	  height: 60px;
+	  .logo{
+		  float: left;
+		  width: 79px;
+		  height: 42px;
+		  margin-left: 33px;
+		  margin-top: 7px;
+		  margin-bottom: 0;
+		  cursor: pointer;
+		  img{
+			  width: 100%;
+			  height: 100%;
+		  }
+	  }
+	  span{
+		  font-size: 16px;
+		  font-weight: bold;
+		  color: #fff;
+		  line-height: 60px;
+		  margin-left: 15px;
+	  }
+	  background: url('./assets/layout/im-nav.png') no-repeat;
+  }
+  
+  @media screen and (max-width: 1600px){
+	  .wrapper{
+		  width: 850px;
+	  }
+  }
+  
+  @media screen and (min-width: 1850px){
+	  .wrapper{
+		  width: 1518px;
+	  }
+  }
+  
+  // 消息提示弹窗样式
+  .model-style{
+	text-align: center !important;
+	.ant-modal-footer{
+	  text-align: center;
+	  background-color: #f4f4f4;
+	}
+  }
+  
+  .target-tips{
+	  .ant-popover-inner-content{
+		  padding: 7px 16px;
+	  }
+  }
+  
+//   .ant-message{
+// 	  top: 50%;
+// 	  margin-top: -25px;
+//   }
+  
+// @media screen and (max-width: 1358px){
+// 	.iframePlay{
+// 		&.ratioW{
+// 			width: 1171px !important;
+// 			height: 659px !important;
+// 		}
+// 	}
+// }

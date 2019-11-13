@@ -1,0 +1,16 @@
+.switch-box {
+  width: 60px;
+  height: 24px;
+  line-height: 22px;
+
+  &:after {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.widget-item-error {
+  color: #da0301;
+  font-size: 12px;
+  line-height: 24px;
+}

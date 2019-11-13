@@ -1,0 +1,52 @@
+.inblock {
+  display: inline-block;
+}
+
+.input-box {
+  position: relative;
+
+  composes: inblock;
+}
+
+.color-line {
+  box-sizing: border-box;
+  padding: 4px;
+  width: 90px;
+  outline: none;
+  border: 1px solid #d9d9d9;
+  border-top-width: 1.02px;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.color-line:hover {
+  border-color: #e62e25;
+  border-right-width: 1px !important;
+}
+
+.line-box {
+  overflow: hidden;
+  width: 80px;
+  height: 20px;
+  border-radius: 2px;
+  background: #da0301;
+  line-height: 20px;
+}
+
+.color-picker {
+  display: none;
+  margin-top: 10px;
+}
+
+.widget-item-error {
+  color: #da0301;
+  font-size: 12px;
+  line-height: 24px;
+}

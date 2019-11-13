@@ -1,0 +1,213 @@
+.waveform {
+    width: 100%;
+    min-width: 280px;
+    height: 217px;
+    border: 1px solid #ccc;
+
+    > wave {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    canvas {
+        height: 100%;
+        background: #fff;
+    }
+}
+
+.current-time {
+    display: block;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+.actions {
+    text-align: center;
+
+    &.disabled {
+        .actions-ico {
+            color: #ccc !important; 
+            cursor: not-allowed;
+        }
+
+        .btn-record {
+            border-color: #ccc !important;
+            cursor: not-allowed;
+        }
+    }
+
+    .btn-record, .actions-ico {
+        display: inline-block;
+        vertical-align: middle;
+        color: #999;
+        font-size: 20px;
+        cursor: pointer;
+        &:hover {
+            color: #cf0100;
+            border-color: #cf0100;
+        }
+    }
+
+    .actions-ico {
+        &.disabled {
+            color: #ccc !important; 
+            cursor: not-allowed;
+        }
+    }
+
+    .btn-record {
+        position: relative;
+        width: 44px;
+        height: 44px;
+        line-height: 40px;
+        margin: 0 16px;
+        padding: 0;
+        border: 2px solid #999;
+        border-radius: 50%;
+        font-size: 28px;
+        background-color: transparent;
+
+        .ico-forbid{
+            position: absolute;
+            right: -3px;
+            bottom: 0;
+            line-height: 0;
+            margin-bottom: 0 !important;
+            font-size: 23px;
+        }
+
+        .ico-forbid {
+            color: #cf0201 !important;
+            margin-bottom: 8px;
+        }
+
+        .ico-pause {
+            text-indent: 2px;
+            line-height: 36px;
+        }
+
+        .ico-record {
+            font-size: 28px;
+        }
+
+        .ico-resume{
+            text-indent: 2px;
+        }
+
+        &.disabled {
+            border-color: #ccc;
+            .actions-ico {
+                color: #ccc !important; 
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .ico-play {
+        font-size: 20px;
+    }
+
+    .warning-info {
+        font-size: 12px;
+        color: #cf0100;
+        padding-left: 20px;
+
+        i {
+            display: inline-block;
+            vertical-align: middle;
+            width: 12px;
+            height: 12px;
+            line-height: 12px;
+            border: 1px solid #cf0100;
+            border-radius: 50%;
+            overflow: hidden;
+            font-style: normal;
+            margin-left: 5px;
+            margin-bottom: 2px;
+            cursor: pointer;
+        }
+    }
+
+    .record-tips {
+        font-size: 12px;
+        color: #999;
+    }
+}
+
+:global {
+    .effect-swiper {
+        position: relative;
+        padding: 0 18px;
+        overflow: hidden;
+
+        .main-swiper {
+            height: 0;
+            overflow: hidden;
+        }
+
+        .swiper-slide {
+            position: relative;
+            border: 2px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+
+            &.swiper-slide-thumb-active {
+                border-color: #cf0100;
+            }
+        }
+        img {
+            width: 100%;
+        }
+        p{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            line-height: 15px;
+            text-align: center;
+            color: #fff;
+            font-size: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            margin-bottom: 0;
+        }
+
+        .btn-prev, .btn-next {
+            position: absolute;
+            top: 0;
+            width: 14px;
+            height: 100%;
+            background: #fff;
+            z-index: 1;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            color: #999;
+            border-radius: 2px;
+            cursor: pointer;
+
+            i {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 12px;
+            }
+
+            &:hover {
+                border-color: #cf0100;
+                color: #cf0100;
+            }
+        }
+
+        .btn-prev {
+            left: 0;
+        }
+
+        .btn-next {
+            right: 0;
+        }
+    }
+}

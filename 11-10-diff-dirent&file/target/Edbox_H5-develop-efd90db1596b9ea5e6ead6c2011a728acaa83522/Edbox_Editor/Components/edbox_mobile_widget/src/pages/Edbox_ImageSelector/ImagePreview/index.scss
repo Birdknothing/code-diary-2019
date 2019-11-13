@@ -1,0 +1,101 @@
+@import "../../../common";
+.online-image {
+    .header {
+        border-bottom:1px solid #e2e2e2;
+    }
+}
+
+:global {
+    .online-image {
+        .swiper {
+            position: fixed;
+            top: rem(96);
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: #fff;
+            z-index: 1;
+        }
+
+        .main-swiper, .thumb-swiper {
+            img {
+                width: 100%;
+            }
+        }
+
+        .main-swiper {
+            position: absolute;
+            left: 0;
+            top: 40%;
+            width: 100%;
+            transform: translate(0, -50%);
+            overflow: hidden;
+
+            &.center {
+                top: 50%;
+            }
+
+            .swiper-slide {
+                width: 100%;
+            }
+        }
+
+        .thumb-swiper {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: rem(20);
+            box-shadow: 0 0 rem(11) 0 rgba(0, 0, 0, 0.12); 
+            z-index: 1;
+
+            &.hidden {
+                display: none;
+            }
+
+            .swiper-wrapper {
+                background: #fff;
+            }
+
+            .swiper-slide {
+                height: rem(170) !important;
+                background-size: cover;
+                background-position: center center;
+
+                &.swiper-slide-thumb-active {
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        border: rem(4) solid $primaryColor;
+                    }
+                }
+
+                &.selected {
+                    span {
+                        background: $primaryColor;
+                        border-color: $primaryColor;
+                    }
+                }
+
+                span {
+                    position: absolute;
+                    width: rem(50);
+                    height: rem(50);
+                    line-height: rem(50);
+                    right: rem(10);
+                    top: rem(10);
+                    border-radius: 50%;
+                    border: rem(2) solid #fff;
+                    background: rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    color: #fff;
+                    font-size: rem(34);
+                }
+            }
+        }
+    }
+}

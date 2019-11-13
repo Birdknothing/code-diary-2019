@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "lint": "eslint --ext .js src test",
+    "precommit": "npm run lint",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react-helmet": "^5.2.0",
+    "react-overflow-scrolling": "^1.0.0",
+    "swiper": "^4.5.0",
+    "umi": "^2.7.3",
+    "umi-plugin-react": "*"
+  },
+  "devDependencies": {
+    "antd-pro-server": "^1.0.1",
+    "babel-eslint": "^10.0.0",
+    "babel-plugin-import": "^1.11.0",
+    "css-loader": "^2.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-umi": "^1.4.3",
+    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.12.4",
+    "husky": "^0.14.3",
+    "jest": "^22.4.3",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "mockjs": "^1.0.1-beta3",
+    "style-loader": "^0.23.1"
+  }
+}

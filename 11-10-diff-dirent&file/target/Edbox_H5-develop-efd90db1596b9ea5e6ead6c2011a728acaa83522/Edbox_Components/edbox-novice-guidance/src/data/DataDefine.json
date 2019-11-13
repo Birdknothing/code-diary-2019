@@ -1,0 +1,655 @@
+{
+  "Datas": [
+    {
+      "ID": "BaseInfo_tab01",
+      "Name": "BaseInfo",
+      "ShowName": "基础信息",
+      "Icon": "",
+      "Type": "Tab01",
+      "SplitLine": true,
+      "PageType": "FullPage",
+      "Datas": [
+        {
+          "ID": "Game_Name",
+          "Name": "GameName",
+          "ShowName": "游戏名称",
+          "Value": "拼图",
+          "Length": 60,
+          "Type": "Text01",
+          "IsRequired": true
+        },
+        {
+          "ID": "Game_Intro",
+          "Name": "Description",
+          "ShowName": "简介",
+          "Value": "拼图是一款有趣的休闲娱乐游戏。玩家需要活动起自己的手指开始游戏。游戏要求是把图片碎片挪动到正确的位置上，看似简单却因碎片的数量和位置不同变得更有挑战性。",
+          "Length": 1000,
+          "Type": "Text02",
+          "IsRequired": true
+        },
+        {
+          "ID": "Game_Cover",
+          "Name": "CoverImage",
+          "ShowName": "游戏封面",
+          "Value": "",
+          "GUID": "a3eb494c-390d-4a5b-a8db-cef80069aac8",
+          "Type": "Image01",
+          "IsRequired": true,
+          "Width": 256,
+          "Height": 256
+        }
+      ]
+    },
+    {
+      "ID": "Game_Rules_tab01",
+      "Name": "xxx",
+      "ShowName": "玩法规则",
+      "Icon": "",
+      "Type": "Tab01",
+      "PageType": "FullPage",
+      "Datas": [
+        {
+          "ID": "Game_Rules_tab02",
+          "Name": "xxx",
+          "ShowName": "玩法规则",
+          "Icon": "",
+          "Type": "Tab02",
+          "PageType": "FullPage",
+          "Datas": [
+               {
+          "ID": "Rules_01_pieceSet",
+          "Name": "xxx",
+          "ShowName": "碎片设置",
+          "Icon": "",
+          "Type": "Tab03",
+          "Datas": [
+            {
+              "ID": "Rules_01_pieceSet_col",
+              "Name": "xxx",
+              "ShowName": "数量",
+              "Type": "Value02",
+              "Value": 3,
+              "ReadOnly": false,
+              "HelpText": "可设置碎片的数量，数值范围在1-9，默认值为3，仅支持整数",
+              "UnitText": "行",
+              "MaxValue": 9,
+              "MinValue": 1
+            },
+            {
+              "ID": "Rules_01_pieceSet_row",
+              "Name": "xxx",
+              "ShowName": "",
+              "Type": "Value02",
+              "Value": 3,
+              "ReadOnly": false,
+              "UnitText": "列",
+              "MaxValue": 9,
+              "MinValue": 1
+            },
+            {
+              "ID": "Rules_01_pieceSet_pec",
+              "Name": "xxx",
+              "ShowName": "碎片需要重新排位置的比例",
+              "Type": "Value02",
+              "Value": 50,
+              "ReadOnly": false,
+              "HelpText": "碎片需要重新排位置的比例",
+              "UnitText": "%",
+              "MaxValue": 100,
+              "MinValue": 1
+            }
+          ]
+        },
+        {
+          "ID": "Rules_02_timeSet",
+          "Name": "xxx",
+          "ShowName": "时间要求",
+          "Icon": "",
+          "Type": "Tab03",
+          "Datas": [
+            {
+              "ID": "Rules_02_timeSet_gameTime",
+              "Name": "xxx",
+              "ShowName": "游戏时间",
+              "Type": "Value02",
+              "Value": 60,
+              "MaxValue": 100,
+              "MinValue": 1,
+              "HelpText": "仅支持整数，最大不能超过100",
+              "UnitText": "s",
+              "ReadOnly": false
+            },
+            {
+              "ID": "Rules_02_timeSet_timeSwitch",
+              "Name": "xxx",
+              "ShowName": "时长限制",
+              "Type": "Switch01",
+              "Value": true,
+              "ReadOnly": false
+            },
+            {
+              "ID": "Rules_01_timeSet_imageTime",
+              "Name": "xxx",
+              "ShowName": "原图显示时间",
+              "Type": "Value02",
+              "Value": 6,
+              "ReadOnly": false,
+              "MaxValue": 5,
+              "MinValue": 1,
+              "HelpText": "仅支持整数，最大不能超过5",
+              "UnitText": "s"
+            }
+          ]
+        },
+        {
+          "ID": "Rules_02_gameImg",
+          "Name": "xxx",
+          "ShowName": "游戏图片",
+          "Icon": "",
+          "Type": "Tab03",
+          "Datas": [
+            {
+              "ID": "Rules_02_gameImg_imgSelect",
+              "Name": "gameImg",
+              "Value": "",
+              "GUID": "59c28bb0-7ba2-40d3-89c8-28ff574f1bcd",
+              "Type": "Image01",
+              "Width": 647,
+              "Height": 845,
+              "IsRequired": true
+            }
+          ]
+        }
+          ]
+        }
+      ]
+    },
+    {
+      "ID": "Gaming_tab01",
+      "Name": "xxx",
+      "ShowName": "游戏",
+      "Icon": "",
+      "Type": "Tab01",
+      "Datas": [
+        {
+          "ID": "Gaming_tab01_startGame",
+          "Name": "xxx",
+          "ShowName": "开始游戏",
+          "Icon": "",
+          "Type": "Tab01",
+          "PageWidth": 607,
+          "Datas": [
+            {
+              "ID": "Gaming_tab02_startGame_page",
+              "Name": "xxx",
+              "ShowName": "界面",
+              "Icon": "",
+              "Type": "Tab02",
+              "Datas": [
+                {
+                  "ID": "Gaming_tab03_startGame_Scene",
+                  "Name": "xxx",
+                  "ShowName": "场景",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_startGame_scene_gameName",
+                      "Name": "gameName",
+                      "ShowName": "游戏名称",
+                      "Type": "Text01",
+                      "Value": "Jigsaw Puzzle",
+                      "Length": 30,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 45,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#efde63",
+                        "fontStyle": {
+                          "bold": true,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_startGame_scene_bgImage",
+                      "Name": "bgImage",
+                      "ShowName": "背景底图",
+                      "Value": "",
+                      "GUID": "e85667e6-cc20-49c0-97b1-1f1f3e863d03",
+                      "Type": "Image01",
+                      "Width": 750,
+                      "Height": 1334
+                    }
+                  ]
+                },
+                {
+                  "ID": "Gaming_tab03_startGame_Do",
+                  "Name": "xxx",
+                  "ShowName": "操作",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_startGame_Do_clickStartBtnName",
+                      "Name": "clickStartBtnName",
+                      "ShowName": "点击开始",
+                      "Type": "Text01",
+                      "Value": "Start",
+                      "Length": 5,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 38,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#efde63",
+                        "fontStyle": {
+                          "bold": true,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_startGame_Do_clickImage",
+                      "Name": "clickStartImage",
+                      "Value": "",
+                      "GUID": "a3a52e49-8d9a-44c6-b04a-cd86aa20690b",
+                      "Type": "Image01",
+                      "Width": 331,
+                      "Height": 105
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "ID": "Gaming_tab02_startGame_Audio",
+              "Name": "xxx",
+              "ShowName": "声音",
+              "Icon": "",
+              "Type": "Tab02",
+              "Datas": [
+                {
+                  "ID": "Gaming_tab03_startGame_Audio_system",
+                  "Name": "xxx",
+                  "ShowName": "系统",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_startGame_Audio_gameBgAudio",
+                      "Name": "gameBgAudio",
+                      "ShowName": "背景音乐",
+                      "Value": "",
+                      "GUID": "ab8d269e-5a7f-4291-be3d-77cccb568c90",
+                      "Type": "Audio01"
+                    },
+                    {
+                      "ID": "Gaming_tab03_startGame_Audio_clickAudio",
+                      "Name": "clickAudio",
+                      "ShowName": "点击开始音效",
+                      "Value": "",
+                      "GUID": "4edef7f5-07aa-4977-b4f3-b4788fa857b2",
+                      "Type": "Audio01"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ID": "Gaming_tab01_gaming",
+          "Name": "xxx",
+          "ShowName": "游戏中",
+          "Icon": "",
+          "Type": "Tab01",
+          "PageWidth": 607,
+          "Datas": [
+                 {
+              "ID": "Gaming_tab02_gaming_page",
+              "Name": "xxx",
+              "ShowName": "界面",
+              "Icon": "",
+              "Type": "Tab02",
+              "Datas": [
+                {
+                  "ID": "Gaming_tab03_gaming_res",
+                  "Name": "xxx",
+                  "ShowName": "资源",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_gaming_res_returnBtnName",
+                      "Name": "returnBtnName",
+                      "ShowName": "返回",
+                      "Type": "Text01",
+                      "Value": "Return",
+                      "Length": 7,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 20,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#000000",
+                        "fontStyle": {
+                          "bold": false,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_returnBtnImg",
+                      "Name": "returnBtnImg",
+                      "Value": "",
+                      "GUID": "a73fefee-ad48-495e-a6a3-705516c275fa",
+                      "Type": "Image01",
+                      "Width": 250,
+                      "Height": 80
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_rePlayBtnName",
+                      "Name": "rePlayBtnName",
+                      "ShowName": "重新拼图",
+                      "Type": "Text01",
+                      "Value": "Restart",
+                      "Length": 7,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 20,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#000000",
+                        "fontStyle": {
+                          "bold": false,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_rePlayBtnImg",
+                      "Name": "rePlayBtnImg",
+                      "Value": "",
+                      "GUID": "a73fefee-ad48-495e-a6a3-705516c275fa",
+                      "Type": "Image01",
+                      "Width": 250,
+                      "Height": 80
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_bgImg",
+                      "ShowName": "背景图片",
+                      "Name": "bgImg",
+                      "Value": "",
+                      "GUID": "e85667e6-cc20-49c0-97b1-1f1f3e863d03",
+                      "Type": "Image01",
+                      "Width": 750,
+                      "Height": 1334
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_countDownImg",
+                      "ShowName": "倒计时图标",
+                      "Name": "countDownImg",
+                      "Value": "",
+                      "GUID": "a7b18688-1904-4ccd-a568-dccc830c9d39",
+                      "Type": "Image01",
+                      "Width": 87,
+                      "Height": 80
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_hint",
+                      "Name": "hint",
+                      "ShowName": "提示文本",
+                      "Type": "Text01",
+                      "Value": "Click to swap the pieces",
+                      "Length": 44,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 15,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#ffffff",
+                        "fontStyle": {
+                          "bold": true,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_pieceSelectImg",
+                      "ShowName": "碎片选中框",
+                      "Name": "pieceSelectImg",
+                      "Value": "",
+                      "GUID": "e59b2dd4-2dde-4cec-8536-8204321e9ea2",
+                      "Type": "Image01",
+                      "Width": 161,
+                      "Height": 157
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "ID": "Gaming_tab02_gaming_Audio",
+              "Name": "xxx",
+              "ShowName": "声音",
+              "Icon": "",
+              "Type": "Tab02",
+              "Datas": [
+                {
+                  "ID": "Gaming_tab03_gaming_Audio_system",
+                  "Name": "xxx",
+                  "ShowName": "系统",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_gaming_Audio_gameAudio",
+                      "Name": "gameAudio",
+                      "ShowName": "背景音乐",
+                      "Value": "",
+                      "GUID": "81e139d7-47d6-45e1-acec-d4b304b3a579",
+                      "Type": "Audio01"
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_Audio_moveAudio",
+                      "Name": "moveAudio",
+                      "ShowName": "移动拼图音效",
+                      "Value": "",
+                      "GUID": "ad5e59c7-439b-4dbb-90a5-5bdb2468db40",
+                      "Type": "Audio01"
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_Audio_reStartAudio",
+                      "Name": "reStartAudio",
+                      "ShowName": "重新拼图音效",
+                      "Value": "",
+                      "GUID": "638cd6c4-36cf-4f91-9293-f5e78be429a7",
+                      "Type": "Audio01"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+       {
+          "ID": "Gaming_tab01_gameover",
+          "Name": "xxx",
+          "ShowName": "游戏结算",
+          "Icon": "",
+        "Type": "Tab01",
+        "PageWidth": 607,
+          "Datas": [
+                 {
+              "ID": "Gaming_tab02_gameover_page",
+              "Name": "xxx",
+              "ShowName": "界面",
+              "Icon": "",
+              "Type": "Tab02",
+              "Datas": [
+                {
+                  "ID": "Gaming_tab03_gameover_res",
+                  "Name": "xxx",
+                  "ShowName": "资源",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_gameover_res_gameFailHint",
+                      "Name": "gameFailHint",
+                      "ShowName": "失败",
+                      "Type": "Text01",
+                      "Value": "Sorry, you lost the game.",
+                      "Length": 44,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 20,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#ffffff",
+                        "fontStyle": {
+                          "bold": true,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_gameover_res_gameFailImg",
+                      "Name": "gameFailImg",
+                      "Value": "",
+                      "GUID": "309d66f1-dd42-49bf-998d-a0680a7b8d4f",
+                      "Type": "Image01",
+                      "Width": 100,
+                      "Height": 100
+                    },
+                    {
+                      "ID": "Gaming_tab03_gameover_res_successHint",
+                      "Name": "successHint",
+                      "ShowName": "成功",
+                      "Type": "Text01",
+                      "Value": "Congratulations!",
+                      "Length": 44,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 20,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#ffffff",
+                        "fontStyle": {
+                          "bold": true,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_gameover_res_gameoverImg",
+                      "ShowName": "结束底图",
+                      "Name": "gameoverImg",
+                      "Value": "",
+                      "GUID": "e85667e6-cc20-49c0-97b1-1f1f3e863d03",
+                      "Type": "Image01",
+                      "Width": 750,
+                      "Height": 1334
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "ID": "Gaming_tab02_gameover_Audio",
+              "Name": "xxx",
+              "ShowName": "声音",
+              "Icon": "",
+              "Type": "Tab02",
+              "Datas": [
+                {
+                  "ID": "Gaming_tab03_gameover_Audio_system",
+                  "Name": "xxx",
+                  "ShowName": "系统",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_gameover_Audio_successAuduio",
+                      "Name": "successAuduio",
+                      "ShowName": "胜利音效",
+                      "Value": "",
+                      "GUID": "e1c116d1-80a8-4c3d-afc3-36c177a873a1",
+                      "Type": "Audio01"
+                    },
+                    {
+                      "ID": "Gaming_tab03_gameover_Audio_fialAudio",
+                      "Name": "fialAudio",
+                      "ShowName": "失败音效",
+                      "Value": "",
+                      "GUID": "5c580938-e935-4127-9654-a894dda4acde",
+                      "Type": "Audio01"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

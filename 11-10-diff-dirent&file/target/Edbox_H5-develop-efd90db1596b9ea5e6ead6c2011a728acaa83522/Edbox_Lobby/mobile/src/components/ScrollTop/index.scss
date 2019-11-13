@@ -1,0 +1,40 @@
+
+@keyframes show {
+  0%{
+    opacity: 0;
+    transform: translate3d(100px,100px,0 );
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.top{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translate3d(100px,100px,0 ) scale3d(0,0,0);
+  transition:all 0.6s;
+  // display: none;
+  &.show{
+    // display: block;
+    opacity: 1;
+    transform: none;
+  }
+  &.leave{
+    opacity: 0;
+    transform: translate3d(100px,100px,0 ) scale3d(0,0,0);
+  }
+  .img{
+    display: block;
+    width: 100%;
+  }
+  &:active{
+    opacity: 0.8;
+  }
+}

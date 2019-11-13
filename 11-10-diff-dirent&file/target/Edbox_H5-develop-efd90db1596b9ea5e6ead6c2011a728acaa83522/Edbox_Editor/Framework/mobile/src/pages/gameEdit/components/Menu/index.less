@@ -1,0 +1,128 @@
+
+.barColor{
+  color: #000;
+  background-color: #FFF;
+  .next {
+    position: absolute;
+    right: 13px;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 28px;
+    height: 60px;
+    line-height: 60px;
+  }
+  .title {
+    font-weight: bold;
+    font-size: 34px;
+  }
+}
+a:active, a:hover {
+  color: unset;
+}
+.menu {
+  margin: 0;
+  padding: 35px 40px;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-shadow: 0 0 10px #ccc;
+}
+.menuHeader {
+  position: relative;
+  height: 32px;
+}
+.close {
+  position: absolute;
+  right: -20px;
+  margin: 0 10px;
+  height: 32px;
+  width: 32px;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
+ul {
+  list-style-type:none;
+}
+
+.menuList {
+  padding: 20px 8px;
+  height: 100%;
+  font-size: 34px;
+  color: #000;
+  font-weight: bold;
+  overflow-y: scroll;
+  ul {
+    padding: 0 0 0 42px;
+  }
+  li {
+    line-height: 100px;
+    cursor: pointer;
+    span {
+      position: relative;
+      display: block;
+      vertical-align: middle;
+      &:before {
+        display: none;
+        content: "";
+        position: absolute;
+        top: 35px;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        background: url('./img/check.png') center center no-repeat;
+        background-size: 30px 30px;
+      }
+      &:active, &.active {
+        color: #cf0100;
+        
+      }
+      &.active:before {
+        display: block;
+      }
+    }
+    
+  }
+}
+.menuItem {
+  // display: none;
+  position: fixed;
+  top:100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.3s;
+  z-index: 200;
+  &.active {
+    top: 0;
+  }
+}
+.recommend {
+  display: inline-block;
+  margin-left: 20px;
+  height: 33px;
+  width: 28px;
+  background: url('./img/recommend.png') center 3px no-repeat;
+  background-size: 28px 30px;
+}
+
+.hasChild {
+  >span {
+    position: relative;
+    padding-left: 42px;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 35px;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      background: url('./img/open.png') center 3px no-repeat;
+      background-size: 24px 24px;
+    }
+  }
+}
+

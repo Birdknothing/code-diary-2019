@@ -1,0 +1,76 @@
+@import "../../common";
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: rem(96);
+    line-height: rem(96);
+    padding: 0 rem(20);
+    z-index: 1;
+
+    &.theme-white {
+        .ico-back, .btn-confirm-txt, h2 {
+            color: #000;
+        }
+    }
+
+    .ico-back {
+        position: absolute;
+        top: 50%;
+        left: rem(20);
+        color: #fff;
+        font-size: rem(30);
+        transform: translate(0, -50%);
+
+        &:hover {
+            color: $primaryColor;
+        }
+    }
+
+    .btn-confirm, .btn-confirm-txt {
+        position: absolute !important;
+        top: 50%;
+        right: rem(20);
+        transform: translate(0, -50%);
+    }   
+
+    .btn-confirm {
+        height: rem(60);
+        line-height: rem(60);
+        border-radius: rem(8);
+        padding: 0 rem(38);
+        font-size: rem(34);
+
+        &.icon-btn {
+            width: rem(60);
+            padding: 0;
+        }
+
+        i {
+            color: #fff;
+            font-size: rem(32);
+            height: 100%;
+            overflow: hidden;
+            line-height: rem(60);
+        }
+    }
+
+    .btn-confirm-txt {
+        font-size: rem(32);
+        color: #fff;
+
+        &:hover {
+            color: $primaryColor;
+        }
+    }
+
+    h2 {
+        font-size: rem(34);
+        color: #fff;
+        text-align: center;
+        padding: 0 rem(120);
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,53 @@
+# edbox-mobile
+## 1.0版本
+### 目录结构
+
+```bash
+├── /mock/           # 数据mock
+├── /dist/           # 项目输出目录
+├── /src/            # 项目源码目录
+│ ├── /assets/       # 公共文件，编译时copy至dist目录
+│ ├── /components/   # UI组件及UI相关方法
+│ │ ├── skin.less    # 全局样式
+│ │ └── vars.less    # 全局样式变量
+│ ├── /pages/        # 页面
+│ │ └── /user/       # 路由
+│ │   ├── /components/ #私有组件     
+│ │   ├── /models/     #私有模型(按需加载) 
+│ │   ├── /services/   #私有服务(按需加载)   
+│ │   ├── index.js       
+│ │   └── index.less   
+│ ├── /models/       # 全局数据模型(默认加载)
+│ ├── /services/     # 数据接口
+│ ├── /themes/       # 项目样式
+│ ├── /utils/        # 工具函数
+│ │ ├── config.js    # 项目常规配置
+│ │ ├── menu.js      # 菜单及面包屑配置
+│ │ ├── config.js    # 项目常规配置
+│ │ ├── request.js   # 异步请求函数
+│ │ └── theme.js     # 项目需要在js中使用到样式变量
+│ ├── route.js       # 路由配置
+│ ├── index.js       # 入口文件
+│ └── global.css(.less) #全局样式文件     
+├── package.json     # 项目信息
+├── .eslintrc        # Eslint配置
+```
+
+### 快速开始
+
+```bash
+npm i 或者 yarn install
+```
+
+启动服务.
+
+```bash
+$ npm start
+```
+
+编译.
+
+```bash
+$ npm run build
+```
+

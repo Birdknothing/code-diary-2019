@@ -1,14 +1,6 @@
-setTimeout(() => {
-  console.log("setTimeout");
-}, 2000);
-process.nextTick(() => {
-  console.log("tick");
-});
-console.log("main");
-
-process.on("beforeExit", code => {
-  console.log("beforeexit with :" + code);
-});
-process.on("exit", code => {
-  console.log("exit with: " + code);
-});
+function m(){
+  return 1 || 2;
+}
+console.log(m());
+const w = '?lan=123&'
+console.log((w.match(/lan=([^&]+)/) || [])[1])

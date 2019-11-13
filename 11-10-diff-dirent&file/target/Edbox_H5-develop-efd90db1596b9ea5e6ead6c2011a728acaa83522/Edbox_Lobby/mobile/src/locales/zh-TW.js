@@ -1,0 +1,48 @@
+export default {
+  // 移动端开始
+  layout_placeholder: '搜索關鍵字',
+  layout_tit_hot: '熱門',
+  layout_tit_new: '新品',
+  layout_tit_popular: '流行類別',
+  layout_pop_more: '更多',
+  layout_hot_serch: '熱門搜索:',
+  tag_all: '推薦',
+  layout_title: '首頁',
+  layout_more: '更多',
+  layout_btn_sure: '好的',
+
+  // 体验区
+  wh_title: '體驗區',
+  wh_loading_tip: '正在加載中...',
+  wh_loaded_tip: '已全部加載',
+  wh_search_tip: '抱歉，沒有搜索結果，您可以嘗試',
+  wh_search_tip2: '檢查拼寫或更換關鍵字',
+  wh_search_tip3: ' ',
+  wh_no_data_tip: '沒有相關遊戲哦',
+  wh_less_reviews: '沒有足夠的評分',
+  wh_type_popular: '最受歡迎',
+  wh_type_new: '最新發佈',
+  wh_tip_title: '溫馨提示',
+  wh_open_fail_tip: '該遊戲暫時無法進行移動端體驗，在解決技術難題之前，您可以在PC端體驗',
+  wh_empty_search_tip: '請輸入搜索關鍵字',
+
+  // 游戏详情
+  detail_creator: '創作者',
+  detail_online: '線上',
+  detail_level: '等級',
+  detail_tags: '標籤：',
+  detail_more: '更多',
+  detail_experienced: '體驗人數',
+  detail_reviews: '評論',
+  detail_less_reviews_num: '沒有足夠的評分人數',
+  detail_less_reviews: '沒有足夠的評分人數',
+  detail_description: '描述',
+  detail_version: '版本',
+  detail_rate_success: '感謝您的評分！',
+  detail_recent_updates: '版本記錄',
+  detail_original_template: '遊戲範本',
+  detail_same_template: '相同範本遊戲',
+  detail_collect: '已收藏至我的遊戲',
+  detail_collect_cancel: '已取消收藏',
+  detail_play: '試玩'
+};

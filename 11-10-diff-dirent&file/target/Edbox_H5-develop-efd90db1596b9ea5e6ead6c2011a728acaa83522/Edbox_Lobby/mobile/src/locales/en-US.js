@@ -1,0 +1,48 @@
+export default {
+  // 移动端开始
+  layout_placeholder: 'Keywords',
+  layout_tit_hot: 'Trending',
+  layout_tit_new: 'New',
+  layout_tit_popular: 'Top Categories',
+  layout_pop_more: 'MORE',
+  layout_hot_serch: 'Top searches:',
+  tag_all: 'RECOMMENDED',
+  layout_title: 'Home',
+  layout_more: 'More',
+  layout_btn_sure: 'OK',
+
+  // 体验区
+  wh_title: 'Game Center',
+  wh_loading_tip: 'Loading...',
+  wh_loaded_tip: "Here's everything ; )",
+  wh_search_tip: 'Sorry, no matches available. You can:',
+  wh_search_tip2: '1. Check the spelling or change the keywords;',
+  wh_search_tip3: '2. Change the search scope.',
+  wh_no_data_tip: 'Sorry, no matches available',
+  wh_less_reviews: 'No enough ratings',
+  wh_type_popular: 'Popular',
+  wh_type_new: 'Recent',
+  wh_tip_title: 'Tips',
+  wh_open_fail_tip: 'This game is temporarily unavailable for mobile devices. You can try it on PCs.',
+  wh_empty_search_tip: 'Please enter search keywords.',
+
+  // 游戏详情
+  detail_creator: 'Creator',
+  detail_online: 'playing',
+  detail_level: 'Rated',
+  detail_tags: 'Tags:',
+  detail_more: 'More',
+  detail_experienced: 'played',
+  detail_reviews: 'Reviews',
+  detail_less_reviews_num: 'No enough ratings',
+  detail_less_reviews: 'No enough ratings',
+  detail_description: 'Brief Introduction',
+  detail_version: 'Version',
+  detail_rate_success: 'Thanks for your rating!',
+  detail_recent_updates: 'Version History',
+  detail_original_template: 'Original Template',
+  detail_same_template: 'Adapted Games',
+  detail_collect: 'Has been added to my game',
+  detail_collect_cancel: 'Collection cancelled',
+  detail_play: 'Play'
+};

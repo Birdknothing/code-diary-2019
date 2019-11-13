@@ -1,0 +1,98 @@
+.number-input {
+    width: 100%;
+}
+
+:global {
+    .input-number {
+        padding-left: 31px;
+        padding-right: 31px;
+
+        &.disabled {
+            padding-left: 0;
+            padding-right: 0;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+
+        .ant-input-number {
+            position: relative;
+            border-radius: 0;
+            border-color: #ccc;
+            box-shadow: none !important;
+            border-left: 0;
+            border-right: 0;
+            width: 100%;
+        }
+
+        .ant-input-number-handler-wrap {
+            width: 100%;
+            opacity: 1 !important;
+        }
+
+        .ant-input-number-handler {
+            position: absolute;
+            top: -1px;
+            width: 32px;
+            height: 32px !important;
+            line-height: 32px;
+            background: #f5f5f5;
+            border: 1px solid #ccc;
+
+            &:hover {
+                border-color: #d12721;
+
+                &:before, &:after {
+                    background-color: #d12721;
+                }
+            }
+
+            i {
+                display: none !important;
+            }
+        }
+
+        .ant-input-number-handler-up {
+            right: -32px;
+            border-radius: 0 2px 2px 0;
+
+            &:before, &:after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                background: #666;
+            }
+
+            &:before {
+                width: 14px;
+                height: 1px;
+                margin-left: -7px;
+            }
+
+            &:after {
+                width: 1px;
+                height: 14px;
+                margin-top: -7px;
+            }
+        }
+
+        .ant-input-number-handler-down {
+            left: -32px;
+            border-radius: 2px 0 0 0 2px;
+            &:before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 14px;
+                height: 1px;
+                margin-left: -7px;
+                background: #666;
+            }
+        }
+
+        .ant-input-number-input-wrap {
+            position: relative;
+        }
+    }
+}

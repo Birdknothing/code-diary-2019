@@ -1,0 +1,152 @@
+
+.barColor{
+  color: #000;
+  background-color: #FFF;
+  .next, .play {
+    position: absolute;
+    right: 26px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 28px;
+    height: 60px;
+    width: 60px;
+    background-color: #cf0100;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: center center;
+    &:active {
+      background-color: #b00100;
+    }
+  }
+  .play {
+    background-image:  url('./img/play.png');
+  }
+  .title {
+    position: relative;
+    margin-top: -15px;
+    font-weight: bold;
+    font-size: 34px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      right: -25px;
+      border: 6px solid transparent;
+      border-top: 8px solid #000;
+    }
+  }
+}
+.barColorDark {
+  background-color: #272727;
+  color: #fff;
+  .title { 
+    &:before {
+      border-top-color: #fff;
+    }
+  }
+  .back {
+    background-image: url('./img/back-w.png');
+  }
+}
+a:active, a:hover {
+  color: unset;
+}
+.menu {
+  margin: 0;
+  padding: 35px 40px;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.close {
+  display: block;
+  margin: 0 20px;
+  height: 32px;
+  width: 32px;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
+ul {
+  list-style-type:none;
+}
+
+.menuList {
+  margin-top: 20px;
+  
+  font-size: 34px;
+  color: #000;
+  font-weight: bold;
+  li {
+    height: 100px;
+    line-height: 100px;
+    cursor: pointer;
+    span {
+      display: block;
+      &:active, &.active {
+        color: #cf0100;
+      }
+    }
+    
+    >ul {
+      font-weight: normal;
+      font-size: 30px;
+      color: #333;
+    }
+  }
+}
+.menuItem {
+  display: none;
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.40);
+  &.active {
+    display: block;
+  }
+}
+.back {
+  display: block;
+  height: 48px;
+  width: 48px;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-position: center center;
+  background-image: url('./img/back.png');
+  &:active {
+    background-image: url('./img/back-active.png');
+  }
+}
+
+.more {
+  position: absolute;
+  right: 125px;
+  height: 48px;
+  width: 48px;
+  background-repeat: no-repeat;
+  background-size: 48px 48px;
+  background-position: center center;
+  background-image: url('./img/more.png');
+  &:active, &.moreActive {
+    background-image: url('./img/more-active.png');
+  }
+}
+.bar {
+  position: absolute;
+  top: 68px;
+  margin: 0 auto;
+  width: 360px;
+  height: 10px;
+  background-color: #ccc;
+  i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background-color: #cf0100;
+  }
+}

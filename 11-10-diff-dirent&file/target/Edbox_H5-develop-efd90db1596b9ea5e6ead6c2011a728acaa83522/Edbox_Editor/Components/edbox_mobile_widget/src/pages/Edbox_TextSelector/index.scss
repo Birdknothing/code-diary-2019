@@ -1,0 +1,106 @@
+@import "../../common";
+
+.action-sheet {
+    .actions {
+        height: rem(100);
+        line-height: rem(100);
+        text-align: center;
+        margin-bottom: rem(50);
+        
+        i {
+            font-size: rem(40);
+            color: #666;
+            line-height: rem(100);
+            &:hover {
+                color: $primaryColor;
+            }
+        }
+
+        .active {
+            i {
+                color: $primaryColor;
+            }
+        }
+    }
+    .disabled{
+        color: #999;
+        i{
+            color: #999;
+            &:hover {
+                color: #999;
+            }
+        }
+    }
+}
+
+.edit-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #272727;
+
+    textarea, .hidden-txt{
+        padding: rem(20) rem(30);
+        max-width: rem(480);
+        max-height: rem(385);
+        line-height: rem(73);
+        word-break: break-all;
+        text-align: justify;
+    }
+
+    textarea {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: rem(2) dashed #fff;
+        background: transparent;
+        border-radius: 0;
+        resize: none;
+        overflow: auto;
+        z-index: 0;
+        color: #fdf06c;
+        font-size: .625rem;
+        
+    }
+
+    .hidden-txt {
+        display: inline-block;
+        overflow: hidden;
+        z-index: -1;
+        opacity: 0;
+    }
+
+    .edit-btns {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+
+        a {
+            display: inline-block;
+            width: rem(100);
+            height: rem(100);
+            margin: 0 rem(30);
+            line-height: rem(100);
+            border-radius: 50%;
+            padding: 0;
+        }
+
+        .btn-reset {
+            font-size: rem(55);
+            color: #999;
+        }
+
+        .btn-confirm {
+            font-size: rem(50);
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}

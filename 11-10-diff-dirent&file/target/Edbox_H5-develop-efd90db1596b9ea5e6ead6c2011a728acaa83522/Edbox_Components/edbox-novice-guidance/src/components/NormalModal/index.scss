@@ -1,0 +1,97 @@
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.normal-modal-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  text-align: center;
+  z-index: 100;
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+  }
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+  }
+  * {
+    &:after {
+      display: none;
+    }
+  }
+}
+.modal-content{
+  margin-bottom: 10px;
+}
+
+.normal-modal {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -200px;
+  width: 490px;
+  padding: 22px 22px;
+  min-height: 20px;
+  border-radius: 8px;
+  background: rgba(22, 19, 19, 0.9);
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #fff;
+
+  :global {
+    .ant-btn {
+      border-radius: 30px;
+      margin: 0 10px;
+      min-width: 90px;
+    }
+    .ant-btn-primary {
+      box-shadow: 0 0 20px rgba(207, 1, 0, 0.6);
+    }
+  }
+}
+:global {
+  .fade-enter,
+  .fade-appear {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  .fade-enter-active,
+  .fade-appear-active {
+    opacity: 1;
+    transform: none;
+    transition: all 0.5s;
+  }
+  .fade-enter-done {
+    opacity: 1;
+  }
+  .fade-exit {
+    opacity: 1;
+  }
+  .fade-exit-active {
+    opacity: 0;
+    transform: translateY(-10%);
+    transition: all 0.5s;
+  }
+
+  .fade-exit-done {
+    opacity: 0;
+  }
+}

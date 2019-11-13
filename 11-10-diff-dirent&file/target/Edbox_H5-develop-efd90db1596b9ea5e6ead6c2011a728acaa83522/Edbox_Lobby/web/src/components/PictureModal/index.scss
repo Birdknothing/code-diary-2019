@@ -1,0 +1,22 @@
+.items {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: #eaeaea;
+  .pageLoading {
+    background-color: #eaeaea;
+  }
+}
+.picmodal{
+  :global{
+    .ant-modal-body{
+      padding: 0;
+    }
+    // .ant-modal-close{
+    //   top: 12px;
+    //   right: 8px;
+    // }
+
+  }
+}

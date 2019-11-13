@@ -1,0 +1,12 @@
+.set-modal{
+  width: 288px;
+  :global{
+    .ant-modal-footer{
+      background-color: #f4f4f4;
+      text-align: center;
+      .ant-btn-primary{
+        margin-left: 8px;
+      }
+    }
+  }
+}

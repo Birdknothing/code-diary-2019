@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>loading</title>
+    <link rel="stylesheet" href="css/css.css" />
+</head>
+
+<body>
+    <div id="bg">
+        <div class="main">
+            <div class="edbox_logo">
+                <div class="edbox_logo_box">
+                    <canvas id="canvas"></canvas>
+                    <img id="img" src="./img/pc-loading.png" />
+                </div>
+                <p> <span id="tip">正在加载游戏</span>...<span id="progress">0</span>%</p>
+            </div>
+            <div class="name">
+                <img id="imgName" src="" alt="">
+                <p>Edbox.101.com</p>
+            </div>
+        </div>
+        <svg id="svg" class="svg"></svg>
+    </div>
+    <script src="./js/index.js" type="text/javascript"></script>
+    <script src="./js/snap.svg.js" type="text/javascript"></script>
+    <script src="./js/progress_loading.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        var Module = {
+            bgAnimate: new svgAnimate('#e70535'),
+            progress: new progressLoading(),
+            curPercent: 0, // 当前显示的percent
+            percent: 0, // 实际进度
+            CN: {
+                tip: "正在加载游戏",
+                img: "./img/loadpngCN.png"
+            },
+            EN: {
+                tip: "Loading Game",
+                img: "./img/loadpng.png"
+            }
+        };
+
+        function switchLanguage(type) {
+            if (type === "English") {
+                document.getElementById("tip").innerText = Module.EN.tip;
+                document.getElementById("imgName").src = Module.EN.img;
+            }
+            else {
+                document.getElementById("tip").innerText = Module.CN.tip;
+                document.getElementById("imgName").src = Module.CN.img;
+            }
+        }
+
+        /**
+         * 初始化监听消息
+         */
+        function onMessage() {
+            function messageCallBack(e) {
+                var data = e.data;
+                if (data && data.Type && data.Type === "process") {
+                    Module.percent += data.Datas;
+                }
+                if (data && data.Type && data.Type === "hide") {
+                    hide();
+                }
+                if (data && data.Type && data.Type === "lang") {
+                    switchLanguage(data.Datas);
+                }
+            }
+            window.addEventListener("message", messageCallBack, false);
+        }
+
+        /**
+         * 初始化进度条事件
+         */
+        function onProgress() {
+            var time = setInterval(function () {
+                //调用setProgress方法，传入进度数值
+                if (Module.curPercent <= 99 && Module.curPercent <= Module.percent)
+                    Module.progress.setProgress(Module.curPercent++);
+
+                //100%时动画
+                if (Module.curPercent >= 100) {
+                    Module.progress.setProgress(Module.curPercent);
+                    var data = {
+                        Type: "FirstIfm",
+                        Datas: "PercentFinish"
+                    };
+                    parent.postMessage(data, "*");
+                    clearInterval(time);
+                }
+            }, 50);
+        }
+
+        /**
+         * 100加载时
+         */
+        function hide() {
+            var svg = document.getElementById("bg");
+            svg.classList.add("over");
+        }
+
+        window.onload = function () {
+            onMessage();
+            onProgress();
+            var data = {
+                Type: "FirstIfm",
+                Datas: "loaded"
+            };
+            parent.postMessage(data, "*");
+        };
+
+        window.onresize = function () {
+            var bgAnimate = new svgAnimate('#e70535');
+        };
+
+    </script>
+</body>
+
+</html>

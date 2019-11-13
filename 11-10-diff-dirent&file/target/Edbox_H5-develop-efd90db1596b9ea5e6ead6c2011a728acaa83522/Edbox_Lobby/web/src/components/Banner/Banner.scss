@@ -1,0 +1,51 @@
+.banner{
+    width: 750px;
+    float: left;
+    height: 530px;
+    background: #efefef;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.full{
+    img{
+        width: 750px;
+        height: 428px;
+        object-fit: contain;
+    }
+}
+
+.thumbnail{
+    margin: 10px;
+    :global{
+        .swiper-slide{
+            position: relative;
+            width: 138px;
+            height: 80px;
+            border: 2px solid #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            &.active,
+            &:hover{
+                span{
+                    opacity: 0;
+                }
+            }
+        }
+    }
+    span{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 134px;
+        height: 76px;
+        background-color: #000;
+        opacity: 0.5;
+        transition: all .3s;
+    }
+    img{
+        width: 134px;
+        height: 76px;
+        object-fit: contain;
+    }
+}

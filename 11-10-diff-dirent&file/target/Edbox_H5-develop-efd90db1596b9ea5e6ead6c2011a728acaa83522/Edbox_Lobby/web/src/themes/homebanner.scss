@@ -1,0 +1,100 @@
+#certify {
+	position: relative;
+	width: 1300px;
+	margin: 0 auto 0;
+}
+.ware-layer{
+	position: relative;
+}
+.ware-banner{
+	padding-top: 85px;
+	height: 325px;
+	background: url(./assets/ware/bg-banner.jpg) no-repeat;
+	background-size: cover;
+}
+
+#certify .swiper-container {
+	// padding-bottom: 60px;
+	height: 240px;
+}
+#certify .swiper-wrapper{
+	width: 100%;
+	// position: absolute;
+	// left: 50%;
+	// transform: translateX(-50%);
+}
+
+#certify  .swiper-slide {
+	width: 640px;
+	height: 240px;
+	background: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+}
+#certify  .swiper-slide img{
+	display:block;
+	width: 640px;
+	height: 240px;
+}
+#certify  .swiper-slide p {
+	line-height: 98px;
+	padding-top: 0;
+	text-align: center;
+	color: #636363;
+	font-size: 1.1em;
+	margin: 0;
+}
+
+#certify .swiper-pagination {
+	width: 100%;
+	bottom: -20px;
+}
+
+#certify .swiper-pagination-bullets .swiper-pagination-bullet {
+	margin: 0 5px;
+	background-color: #c8c8c8;
+	width: 20px;
+	height: 2px;
+	opacity: 1;
+	border-radius: 0;
+}
+
+#certify .swiper-pagination-bullets .swiper-pagination-bullet-active {
+	background-color: #cf0100;
+	box-shadow: 0 1px 5px rgba(255,57,57,.69);
+}
+
+#certify .swiper-button-prev {
+	left: 0;
+	width: 27px;
+	height: 54px;
+	background: url(./assets/ware/icon-banner-arrow.png) no-repeat;
+}
+
+#certify .swiper-button-prev:hover {
+	opacity: 0.9;
+}
+
+#certify .swiper-button-next {
+	right: 0;
+	width: 27px;
+	height: 54px;
+	transform: rotate(180deg);
+	background: url(./assets/ware/icon-banner-arrow.png) no-repeat;
+}
+
+#certify .swiper-button-next:hover {
+	opacity: 0.9;
+}
+
+
+@media screen and (max-width: 1600px){
+	#certify{
+		width: 850px;
+	}
+}
+@media screen and (min-width: 1850px){
+    #certify{
+		width: 1518px;
+	}
+}

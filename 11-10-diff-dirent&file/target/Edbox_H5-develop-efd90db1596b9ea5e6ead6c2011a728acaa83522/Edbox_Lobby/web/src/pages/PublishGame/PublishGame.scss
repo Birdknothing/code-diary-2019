@@ -1,0 +1,312 @@
+.PublishGame{
+    position: relative;
+    height: 100%;
+    :global{
+        .ant-affix{
+            z-index: 12;
+        }
+    }
+    .publishAnchor{
+        z-index: 12;
+        :global{
+            .ant-anchor-wrapper{
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                margin-left: 0;
+                padding-left: 0;
+                height: 40px;
+                overflow: inherit;
+                z-index: 12;
+            }
+            .ant-anchor{
+                height: 44px;
+                padding-left: 40px;
+                background-color: rgba(255, 255, 255, 0.6);
+                box-shadow: 0 1px 10px rgba(204, 204, 204, 0.5);
+            }
+            .ant-anchor-ink{
+                display: none;
+            }
+            .ant-anchor-link{
+                padding: 0;
+                position: relative;
+                display: inline-block;
+                font-size: 14px;
+                color: #333;
+                height: 44px;
+                line-height: 44px;
+                margin-right: 80px;
+                &.ant-anchor-link-active{
+                    a{
+                        color: #cf0100;
+                        font-weight: bold;
+                    }
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        margin-left: -20px;
+                        width: 40px;
+                        height: 2px;
+                        background-color: #cf0100;
+                        box-shadow: 0 1px 5px rgba(255,57,57,.69);
+                    }
+                }
+            }
+            .ant-anchor-link-title{
+                font-size: 14px;
+                color: #333;
+            }
+        }
+    }
+    
+}
+
+.main{
+    padding: 88px 40px 0;
+    height: 100%;
+    .item{
+        border-bottom: 1px solid #e2e2e2;
+        margin-bottom: 24px;
+    }
+    .h2{
+        font-size: 18px;
+        font-weight: bold;
+        color: #111;
+        margin-bottom: 30px;
+    }
+    .tipsQue{
+        display: inline-block;
+        font-size: 14px;
+        font-weight: normal;
+        color: #ccc;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 16px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        background-color: #fbfbfb;
+        margin-left: 6px;
+    }
+    :global{
+        .tipsPop{
+            max-width: 350px;
+            .ant-popover-arrow{
+                box-shadow: -1px -1px 0px 0px #c8c8c8;
+                left: 5px;
+            }
+            .ant-popover-inner{
+                border-radius: 2px;
+                box-shadow: 0px 0px 0px 1px #c8c8c8;
+            }
+        }
+        .ant-tag{
+            position: relative;
+            height: 32px;
+            padding: 0 20px;
+            border-radius: 3px;
+            margin-right: 10px;
+            font-size: 14px;
+            color: #111111;
+            line-height: 32px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            &.default{
+                background-color: #ccc;
+                border-color: #ccc;
+                color: #fff;
+                cursor: not-allowed;
+                &:hover{
+                    color: #fff;
+                }
+            }
+            &.ant-tag-checkable-checked{
+                background-color: #cf0100;
+                border-color: #cf0100;
+                color: #fff;
+                &.default{
+                    background-color: #ccc;
+                    border-color: #ccc;
+                    color: #fff;
+                    cursor: not-allowed;
+                    &:hover{
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    .label{
+        position: relative;
+        font-size: 14px;
+        color: #999;
+        margin-bottom: 10px;
+        &.require{
+            padding-left: 10px;
+            &:after{
+                // content:'';
+                // position: absolute;
+                // left: 0;
+                // top: 50%;
+                // margin-top: -2px;
+                // width: 4px;
+                // height: 4px;
+                // border-radius: 50%;
+                // background-color: #d41a19;
+                
+                content: '*';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                margin-top: -2px;
+                width: 10px;
+                height: 10px;
+                line-height: 10px;
+                color: #d41a19;
+                font-size: 20px;
+            }
+        }
+        
+    }
+    .floor{
+        margin-bottom: 20px;
+        &.colTag{
+            width: 41.66666667%;
+        }
+        :global{
+            .ant-input{
+                background-color: #f9f9f9;
+            }
+            .ant-form-item-control{
+                position: relative;
+            }
+            .ant-input-affix-wrapper .ant-input:not(:first-child){
+                padding-left: 20px;
+            }
+        }
+        .limit{
+            position: absolute;
+            bottom: -34px;
+            right: 0;
+            font-size: 14px;
+            color: #999;
+            text-align: right;
+        }
+        .limit02{
+            position: absolute;
+            bottom: 0;
+            right: -44px;
+            font-size: 14px;
+            color: #999;
+            text-align: right;
+        }
+        &.flex{
+            display: flex;
+            align-items: center;
+        }
+    }
+    .uploadIcon{
+        width: 128px;
+        height: 128px;
+        border:1px solid #ccc;
+        background-color: #f9f9f9;
+        cursor: pointer;
+        .btn{
+            margin: 39px auto 0;
+            display: block;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            font-size: 22px;
+            line-height: 32px;
+            border-radius: 50%;
+            background-color: #cf0100;
+            text-align: center;
+        }
+        .txt{
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+        }
+        &.game-icon{
+            border: none;
+            img{
+                width: 128px;
+                height: 128px;
+            }
+        }
+    }
+    .addTag{
+        display: inline-block;
+        height: 32px;
+        width: 32px;
+        background-color: #f9f9f9;
+        color: #ccc;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        text-align: center;
+        line-height: 32px;
+        cursor: pointer;
+        font-size: 16px;
+        vertical-align: top;
+    }
+    .tagbox{
+        display: inline-block;
+        position: relative;
+        margin-bottom: 10px;
+        &:hover{
+            .del{
+                display: block;
+            }
+        }
+    }
+    .del{
+        display: none;
+        position: absolute;
+        top: -6px;
+        right: 3px;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        border-radius: 50%;
+        color: #666;
+        text-align: center;
+        line-height: 16px;
+        background-color: #fff;
+        cursor: pointer;
+        z-index: 1;
+    }
+    .btn-publish{
+        // height: 58px;
+        // font-size: 24px;
+        // padding: 0 50px;
+        // border-radius: 10px;
+    }
+    .btn-preview{
+        // height: 58px;
+        // font-size: 24px;
+        color: #333;
+        background-color: #f4f4f4;
+        margin-left: 30px;
+        // padding: 0 50px;
+        // border-radius: 10px;
+    }
+    .btn-preview[disabled]{
+        color: rgba(0, 0, 0, 0.25);
+        background-color: #f5f5f5;
+        border-color: #d9d9d9;
+    }
+}
+
+.topBtn{
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}

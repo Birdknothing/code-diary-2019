@@ -1,0 +1,35 @@
+.header {
+  position: relative;
+  margin-bottom: 15px;
+  padding: 0 20px;
+}
+
+.tit{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.ico-back, .ico-close {
+  cursor: pointer;
+
+  &:hover {
+      color: #cf0100;
+  }
+}
+
+.ico-close {
+  color: #dadada;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 24px;
+}
+
+.ico-back {
+  margin-right: 5px;
+  color: #666;
+  font-size: 20px;
+}

@@ -1,0 +1,360 @@
+{
+  "Datas": [
+    {
+      "ID": "Datas_BaseInfo",
+      "Name": "BaseInfo",
+      "ShowName": "基础信息设置",
+      "Type": "Tab01",
+      "PageType": "FullPage",
+      "Datas": [
+        {
+          "ID": "Datas_BaseInfo_GameName",
+          "Name": "GameName",
+          "ShowName": "游戏名称",
+          "Value": "值",
+          "Type": "Text01"
+        },
+        {
+          "ID": "Datas_BaseInfo_Description",
+          "Name": "Description",
+          "ShowName": "游戏简介",
+          "Value": "值",
+          "Type": "Text02"
+        },
+        {
+          "ID": "Datas_BaseInfo_multi",
+          "Name": "Tips",
+          "ShowName": "多文本输入",
+          "Type": "Text03",
+          "Value": ["aaaaa", "bbbbb"],
+          "Length": 60,
+          "StyleEdit": true,
+          "Style": {
+            "fontFamily": {
+              "id": 0,
+              "name": "A Galega"
+            },
+            "fontSize": {
+              "size": 32,
+              "startNum": 8,
+              "endNum": 72
+            },
+            "fontColor": "#FFFFFF",
+            "fontStyle": {
+              "bold": false,
+              "italic": false,
+              "underline": false
+            }
+          }
+        },
+        {
+          "ID": "Datas_BaseInfo_CoverImage",
+          "Name": "CoverImage",
+          "ShowName": "封面图片",
+          "Value": "默认图片路径",
+          "GUID": "113c93d0-401e-11e9-909c-ab890e471017",
+          "Type": "Image01"
+        }
+      ]
+    },
+    {
+      "ID": "Datas_Login",
+      "Name": "Login",
+      "ShowName": "登录选择页面",
+      "Type": "Tab01",
+      "Class": "Login",
+      "Resetable": false,
+      "Datas": [
+        {
+          "ID": "Datas_Login_LoginMode",
+          "Name": "LoginMode",
+          "ShowName": "登录方式",
+          "Type": "Tab02",
+          "Datas": [
+            {
+              "ID": "Datas_Login_LoginMode_Modes",
+              "Name": "Modes",
+              "ShowName": "登录方式选择",
+              "Type": "Select04",
+              "Value": [
+                {
+                  "Name": "Edbox",
+                  "ShowName": "Edbox",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/c83abb14-f44e-4803-a8cf-aca5c4786621.pkg/login-edbox_3ca6beac-3be3-4c58-9e5c-f23242013d67.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "99U",
+                  "ShowName": "99U",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/1480d24f-4d8e-4226-8a02-53d464c2854b.pkg/login-nd_92250986-2834-4d4b-a8fa-054647113237.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "Edmodo",
+                  "ShowName": "Edmodo",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/fbaab563-8397-4989-aa4b-f87a6f29f22d.pkg/login-em_83535e75-9c3c-4da4-8ef2-f317fb3d60da.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "Facebook",
+                  "ShowName": "Facebook",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/010bd40d-aeb9-4230-80b4-e409b8f11113.pkg/login-fb_447a90c4-ec13-4fe3-b07c-7fd975ee3482.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "Weixin",
+                  "ShowName": "微信",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/7fff204a-33ab-4ae9-bda7-020a17b98197.pkg/login-wx_b4a3d58b-e5df-4b1e-865d-2b9ef456c1a8.png",
+                  "ImageGUID": ""
+                }
+              ],
+              "Key": ["Edbox", "99U", "Edmodo", "Facebook", "Weixin"],
+              "Items": [
+                {
+                  "Name": "Edbox",
+                  "ShowName": "Edbox",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/e7444a36-bea0-4ea1-a887-a365ea20dce6.pkg/login-edbox_4cd77fee-3fe1-49e4-b83a-746383a2c4a4.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "99U",
+                  "ShowName": "99U",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/1480d24f-4d8e-4226-8a02-53d464c2854b.pkg/login-nd_92250986-2834-4d4b-a8fa-054647113237.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "Edmodo",
+                  "ShowName": "Edmodo",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/fbaab563-8397-4989-aa4b-f87a6f29f22d.pkg/login-em_83535e75-9c3c-4da4-8ef2-f317fb3d60da.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "Facebook",
+                  "ShowName": "Facebook",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/010bd40d-aeb9-4230-80b4-e409b8f11113.pkg/login-fb_447a90c4-ec13-4fe3-b07c-7fd975ee3482.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "Weixin",
+                  "ShowName": "微信",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/7fff204a-33ab-4ae9-bda7-020a17b98197.pkg/login-wx_b4a3d58b-e5df-4b1e-865d-2b9ef456c1a8.png",
+                  "ImageGUID": ""
+                }
+              ],
+              "Keys": ["Edbox", "99U", "Edmodo", "Facebook", "Weixin"],
+              "IsRequired": true,
+              "ReadOnly": false
+            }
+          ]
+        },
+        {
+          "ID": "Datas_Login_Layout",
+          "Name": "Layout",
+          "ShowName": "界面设置",
+          "Type": "Tab02",
+          "Datas": [
+            {
+              "ID": "Datas_Login_Layout_Background",
+              "Name": "Background",
+              "ShowName": "背景图",
+              "Type": "Image01",
+              "Value": ""
+            },
+            {
+              "ID": "Datas_Login_Layout_WindowBackground",
+              "Name": "WindowBackground",
+              "ShowName": "窗口背景图",
+              "Type": "Image01",
+              "Value": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/68b43ed1-e02b-4b3e-b278-5020fc14a965.pkg/login-bg_cbec69dc-af44-4bb9-86ad-9d649f473a40.jpg"
+            },
+            {
+              "ID": "Datas_Login_Layout_LeadingWords",
+              "Name": "LeadingWords",
+              "ShowName": "引导语",
+              "Type": "Text01",
+              "Value": "嗨，选个方式登录吧~",
+              "ReadOnly": false,
+              "StyleEdit": true,
+              "Style": {
+                "fontFamily": { "id": 0, "name": "A Galega" },
+                "fontSize": { "size": 12, "startNum": 8, "endNum": 72 },
+                "fontColor": "#cf0100",
+                "fontStyle": {
+                  "bold": false,
+                  "italic": false,
+                  "underline": false
+                },
+                "align": "center"
+              },
+              "Property": { "FontFamily": false, "Align": true }
+            },
+            {
+              "ID": "Datas_Login_Layout_LeadingIcon",
+              "Name": "LeadingIcon",
+              "ShowName": "引导图标",
+              "Type": "Image01",
+              "Value": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/9474ce38-d956-437c-8baa-acf860fd4533.pkg/login-arrow_affd55c7-9169-43af-a08f-c3af088f0c16.png"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "GlobalConfig": {
+    "ID": "GlobalConfig",
+    "Name": "GlobalConfig",
+    "ShowName": "全局配置",
+    "Type": "GlobalConfig",
+    "Width": 1080,
+    "Height": 720
+  },
+  "StaticData": {
+    "ID": "StaticData",
+    "Name": "StaticData",
+    "Type": "StaticData",
+    "ShowName": "静态数据",
+    "Datas": [],
+    "Login": {
+      "ID": "Datas_Login",
+      "Name": "Login",
+      "ShowName": "登录选择页面",
+      "Type": "Tab01",
+      "Class": "Login",
+      "Resetable": false,
+      "Datas": [
+        {
+          "ID": "Datas_Login_LoginMode",
+          "Name": "LoginMode",
+          "ShowName": "登录方式",
+          "Type": "Tab02",
+          "Datas": [
+            {
+              "ID": "Datas_Login_LoginMode_Modes",
+              "Name": "Modes",
+              "ShowName": "登录方式选择",
+              "Type": "Select04",
+              "Value": [
+                {
+                  "Name": "Edbox",
+                  "ShowName": "Edbox",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/e7444a36-bea0-4ea1-a887-a365ea20dce6.pkg/login-edbox_4cd77fee-3fe1-49e4-b83a-746383a2c4a4.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "99U",
+                  "ShowName": "99U",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/1480d24f-4d8e-4226-8a02-53d464c2854b.pkg/login-nd_92250986-2834-4d4b-a8fa-054647113237.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "Edmodo",
+                  "ShowName": "Edmodo",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/fbaab563-8397-4989-aa4b-f87a6f29f22d.pkg/login-em_83535e75-9c3c-4da4-8ef2-f317fb3d60da.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "Facebook",
+                  "ShowName": "Facebook",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/010bd40d-aeb9-4230-80b4-e409b8f11113.pkg/login-fb_447a90c4-ec13-4fe3-b07c-7fd975ee3482.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "Weixin",
+                  "ShowName": "微信",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/7fff204a-33ab-4ae9-bda7-020a17b98197.pkg/login-wx_b4a3d58b-e5df-4b1e-865d-2b9ef456c1a8.png",
+                  "ImageGUID": ""
+                }
+              ],
+              "Key": ["Edbox", "99U", "Edmodo", "Facebook", "Weixin"],
+              "Items": [
+                {
+                  "Name": "Edbox",
+                  "ShowName": "Edbox",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/e7444a36-bea0-4ea1-a887-a365ea20dce6.pkg/login-edbox_4cd77fee-3fe1-49e4-b83a-746383a2c4a4.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "99U",
+                  "ShowName": "99U",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/1480d24f-4d8e-4226-8a02-53d464c2854b.pkg/login-nd_92250986-2834-4d4b-a8fa-054647113237.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "Edmodo",
+                  "ShowName": "Edmodo",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/fbaab563-8397-4989-aa4b-f87a6f29f22d.pkg/login-em_83535e75-9c3c-4da4-8ef2-f317fb3d60da.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "Facebook",
+                  "ShowName": "Facebook",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/010bd40d-aeb9-4230-80b4-e409b8f11113.pkg/login-fb_447a90c4-ec13-4fe3-b07c-7fd975ee3482.png",
+                  "ImageGUID": ""
+                },
+                {
+                  "Name": "Weixin",
+                  "ShowName": "微信",
+                  "Image": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/7fff204a-33ab-4ae9-bda7-020a17b98197.pkg/login-wx_b4a3d58b-e5df-4b1e-865d-2b9ef456c1a8.png",
+                  "ImageGUID": ""
+                }
+              ],
+              "Keys": ["Edbox", "99U", "Edmodo", "Facebook", "Weixin"],
+              "IsRequired": true,
+              "ReadOnly": false
+            }
+          ]
+        },
+        {
+          "ID": "Datas_Login_Layout",
+          "Name": "Layout",
+          "ShowName": "界面设置",
+          "Type": "Tab02",
+          "Datas": [
+            {
+              "ID": "Datas_Login_Layout_Background",
+              "Name": "Background",
+              "ShowName": "背景图",
+              "Type": "Image01",
+              "Value": ""
+            },
+            {
+              "ID": "Datas_Login_Layout_WindowBackground",
+              "Name": "WindowBackground",
+              "ShowName": "窗口背景图",
+              "Type": "Image01",
+              "Value": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/68b43ed1-e02b-4b3e-b278-5020fc14a965.pkg/login-bg_cbec69dc-af44-4bb9-86ad-9d649f473a40.jpg"
+            },
+            {
+              "ID": "Datas_Login_Layout_LeadingWords",
+              "Name": "LeadingWords",
+              "ShowName": "引导语",
+              "Type": "Text01",
+              "Value": "嗨，选个方式登录吧~",
+              "ReadOnly": false,
+              "StyleEdit": true,
+              "Style": {
+                "fontFamily": { "id": 0, "name": "A Galega" },
+                "fontSize": { "size": 12, "startNum": 8, "endNum": 72 },
+                "fontColor": "#cf0100",
+                "fontStyle": {
+                  "bold": false,
+                  "italic": false,
+                  "underline": false
+                },
+                "align": "center"
+              },
+              "Property": { "FontFamily": false, "Align": true }
+            },
+            {
+              "ID": "Datas_Login_Layout_LeadingIcon",
+              "Name": "LeadingIcon",
+              "ShowName": "引导图标",
+              "Type": "Image01",
+              "Value": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/9474ce38-d956-437c-8baa-acf860fd4533.pkg/login-arrow_affd55c7-9169-43af-a08f-c3af088f0c16.png"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

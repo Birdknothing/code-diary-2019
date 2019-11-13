@@ -1,0 +1,61 @@
+@import "../../common";
+
+.audioplayer-card {
+    position: relative;
+    border-top-left-radius: rem(20);
+    border-top-right-radius: rem(20);
+    box-shadow: 0 rem(-15) rem(5) #f6f6f6;
+    height: rem(136);
+    margin-top: rem(100);
+    padding: rem(40) 0 0 rem(40);
+    background-color: #fff;
+
+    &::before {
+        border: none!important;
+    }
+
+    .title {
+        font-size: rem(34);
+        color: #333;
+        width: rem(554);
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+    }
+
+    .time {
+        position: absolute;
+        left: rem(480);
+        top: rem(94);
+        font-size: rem(24);
+        color: #999;
+    }
+
+    .btn {
+        position: absolute;
+        right: rem(40);
+        top: rem(56);
+        width: rem(60);
+        height: rem(60);
+        line-height: rem(60);
+        border-radius: rem(60);
+        font-size: rem(16);
+        color: $primaryColor;
+        background-color: #f5f5f5;
+    }
+}
+
+:global .audioplayer-card-wrap{
+  .am-slider-wrapper {
+    position: absolute;
+    top: rem(110);
+    width: rem(420);
+
+    .am-slider-handle {
+        width: rem(32);
+        height: rem(32);
+        margin-top: rem(-14);
+        margin-left: rem(-16);
+    }
+}
+}

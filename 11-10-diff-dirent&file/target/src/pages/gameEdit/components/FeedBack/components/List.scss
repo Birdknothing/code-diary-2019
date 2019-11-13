@@ -1,0 +1,76 @@
+.list{
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+    &.card{
+        border: 1px solid #ccc;
+        box-shadow: 0 0 8px rgba(0,0,0,.45);
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+}
+.txt{
+    font-size: 14px;
+    color: #111;
+    margin-bottom: 5px;
+    &.elli{
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+    }
+}
+.img{
+    span{
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        margin-right: 15px;
+        cursor: pointer;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+.bot{
+    height: 30px;
+    margin-top: 10px;
+    .btn{
+        float: right;
+    }
+    :global{
+        .ant-btn{
+            padding: 0 7px;
+            height: 24px;
+        }
+    }
+}
+
+.statu{
+    font-size: 18px;
+    color: #999;
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+
+.empty-list{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	.empty-icon{
+		margin: 0 auto;
+		width: 143px;
+		height: 114px;
+		background: url(../../../../../assets/bg-empty.png) no-repeat;
+	}
+	p{
+		margin: 20px auto;
+		width: 283px;
+		font-size: 12px;
+		line-height: 22px;
+		color: #666;
+	}
+}

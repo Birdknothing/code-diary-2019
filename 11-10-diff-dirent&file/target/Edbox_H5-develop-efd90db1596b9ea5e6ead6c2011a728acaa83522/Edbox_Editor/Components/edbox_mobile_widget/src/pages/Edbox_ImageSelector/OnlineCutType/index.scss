@@ -1,0 +1,74 @@
+@import "../../../common";
+
+.page-wrap {
+    background: #f5f5f5;
+}
+
+.fixed-hd {
+    position: fixed;
+    top: rem(96);
+    left: 0;
+    width: 100%;
+    padding: rem(20);
+    background: #fff;
+    border-top: 1px solid #e2e2e2;
+
+    .search {
+        display: inline-block;
+        vertical-align: middle;
+        width: rem(652);
+    }
+
+    .ico-close {
+        color: #000;
+        margin-left: rem(28);
+        font-size: rem(25);
+    }
+}
+
+.list {
+    position: fixed;
+    top: rem(200);
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+    padding: rem(20) rem(15);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    .item {
+        position: relative;
+        width: rem(234);
+        height: rem(234);
+        margin: rem(3);
+        background: #fff;
+        background-size: cover;
+        background-position: center center;
+
+        i {
+            position: absolute;
+            bottom: rem(20);
+            right: rem(20);
+            font-size: rem(40);
+        }
+
+        .ico-download {
+            color: $primaryColor;
+        }
+
+        .ico-loading {
+            color: #666;
+            animation: loading 2s infinite linear;
+        }
+    }
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}

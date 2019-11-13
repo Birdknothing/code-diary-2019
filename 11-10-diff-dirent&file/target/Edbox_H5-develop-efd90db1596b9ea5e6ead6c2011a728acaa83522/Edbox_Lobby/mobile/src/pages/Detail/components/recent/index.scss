@@ -1,0 +1,58 @@
+.recent-block {
+  padding: 40px 0;
+
+  .title {
+    color: #333;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  .content {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .part {
+    padding: 36px 0;
+    border-bottom: 1px solid #ccc;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:nth-last-child(1) {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  .sub-title,
+  .text {
+    color: #999;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 28px;
+  }
+
+  .sub-title {
+    margin-top: 16px;
+    line-height: 1;
+  }
+
+  .text {
+    margin-top: 30px;
+    line-height: 1.3;
+  }
+
+  .btn-more {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0 15px;
+    background: #fff;
+    color: #cf0100;
+    font-size: 28px;
+    line-height: 1.3;
+  }
+}

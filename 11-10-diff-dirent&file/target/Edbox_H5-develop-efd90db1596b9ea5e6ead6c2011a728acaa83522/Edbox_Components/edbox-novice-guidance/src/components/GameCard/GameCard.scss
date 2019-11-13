@@ -1,0 +1,425 @@
+.gameCardList{
+    margin-top: 17px;
+    min-height: 100%;
+    min-width: 101%;
+    display: flex;
+    // justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 17px auto 0;
+    // margin-top: 17px;
+    &.nomargin{
+        .game{
+            margin-right: 0;
+            padding: 0;
+            height: 100px;
+            width: 340px;
+            box-shadow: none;
+        }
+    }
+}
+.game{
+    display: inline-block;
+    height: 130px;
+    padding: 15px 25px 15px 15px;
+    width: 380px;
+    margin-bottom: 23px;
+    margin-right: 23px;
+    transition: all .3s;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.12);
+    border-radius: 5px;
+    &.noCur{
+        dt{
+            cursor: initial;
+            img{
+                cursor: initial;
+            }
+        }
+        dd{
+            cursor: initial;
+            h2{
+                cursor: initial;
+            }
+        }
+    }
+    // &:hover{
+    //     transform: translate(5px,-5px);
+    // }
+    // &:nth-child(3n){
+    //     margin-right: 0;
+    // }
+    dt{
+        float: left;
+        width: 100px;
+        height: 100px;
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 1px solid #e8e8e8;
+        img{
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+    }
+    dd{
+        width: 231px;
+        float: right;
+        height: 100px;
+        margin-bottom: 0;
+        cursor: pointer;
+        h2{
+            font-size: 24px;
+            font-weight: bold;
+            color: #111;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            line-height: 1;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .tags{
+            font-size: 14px;
+            color: #999;
+            line-height: 1;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            margin-bottom: 4px;
+        }
+        .brief{
+            height: 40px;
+            font-size: 14px;
+            color: #999;
+            line-height: 20px;
+            display: -webkit-box;
+            margin-bottom: 5px;
+            /*! autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+    }
+}
+
+.info{
+    height: 20px;
+    margin-bottom: 7px;
+    .line{
+        display: inline-block;
+        height: 10px;
+        width: 1px;
+        background-color: #ccc;
+        margin: 0 5px;
+    }
+}
+.star{
+    display: inline-block;
+    width: 100px;
+    .num{
+        font-size: 14px;
+        color: #da0301;
+        font-weight: bold;
+    }
+}
+.starbar{
+    position: relative;
+    display: inline-block;
+    width: 68px;
+    height: 12px;
+    margin-right: 5px;
+    background: url(../../assets/components/gamecard/icon-star0.png) no-repeat;
+    .percent{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 0;
+        max-width: 100%;
+        height: 12px;
+        background: url(../../assets/components/gamecard/icon-star100.png) no-repeat;
+    }
+}
+.players{
+    display: inline-block;
+    // width: 120px;
+    p{
+        font-size: 14px;
+        color: #999;
+        margin-bottom: 0;
+    }
+}
+
+.bot{
+    height: 26px;
+    font-size: 0;
+    .creat-option{
+        display: inline-block;
+    }
+    .btn-option{
+        display: inline-block;
+        position: relative;
+        border-radius: 3px;
+        // overflow: hidden;
+        vertical-align: middle;
+        background-color: #ffd0d1;
+        .progress{
+            position: absolute;
+            height: 100%;
+            top: 0;
+            left: 0;
+            width: 0;
+            z-index: 1;
+            background-color: #da0301;
+        }
+        .export{
+
+        }
+    }
+    .btn-option02{
+        display: inline-block;
+        position: relative;
+        border-radius: 3px;
+        // overflow: hidden;
+        vertical-align: middle;
+        margin-right: 11px;
+        .progress{
+            position: absolute;
+            height: 100%;
+            top: 0;
+            left: 0;
+            width: 0;
+            z-index: 1;
+            background-color: #da0301;
+        }
+        &.loading{
+            background-color: #ffd0d1;
+        }
+    }
+    .play{
+        position: relative;
+        display: inline-block;
+        width: 64px;
+        height: 26px;
+        background-color: #da0301;
+        font-size: 14px;
+        color: #fff;
+        line-height: 26px;
+        text-align: center;
+        border-radius: 3px;
+        vertical-align: top;
+        cursor: pointer;
+        transition: all .3s;
+        z-index: 2;
+        &.loading{
+            cursor: not-allowed;
+            background-color: transparent;
+            width: 78px;
+            font-size: 12px;
+            padding-left: 12px;
+        }
+        &:hover{
+            opacity: .8;
+        }
+    }
+    .creat{
+        position: relative;
+        display: inline-block;
+        width: 84px;
+        height: 26px;
+        background-color: #da0301;
+        font-size: 14px;
+        color: #fff;
+        line-height: 26px;
+        text-align: center;
+        border-radius: 3px;
+        vertical-align: top;
+        cursor: pointer;
+        transition: all .3s;
+        // z-index: 2;
+        &.loading{
+            cursor: not-allowed;
+            background-color: transparent;
+            width: 84px;
+            font-size: 12px;
+            padding-left: 12px;
+        }
+        &:hover{
+            opacity: .8;
+        }
+    }
+    .play02{
+        position: relative;
+        display: inline-block;
+        width: 64px;
+        height: 26px;
+        background-color: #fff;
+        border: 1px solid #da0301;
+        font-size: 14px;
+        color: #da0301;
+        line-height: 26px;
+        text-align: center;
+        border-radius: 3px;
+        vertical-align: top;
+        cursor: pointer;
+        // z-index: 2;
+        transition: all .3s;
+        &.loading{
+            cursor: not-allowed;
+            background-color: transparent;
+            font-size: 12px;
+            padding-left: 12px;
+            width: 84px;
+            color: #fff;
+            border: 1px solid #ffd0d1;
+        }
+        &:hover{
+            opacity: .8;
+        }
+    }
+    .author{
+        display: inline-block;
+        margin-left: 24px;
+        vertical-align: middle;
+        margin-top: 1px;
+    }
+    .portrait{
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 9px;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .authorName{
+        display: inline-block;
+        font-size: 16px;
+        color: #333;
+        width: 80px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.export-tpl{
+    display: inline-block;
+    height: 26px;
+    width: 30px;
+    vertical-align: top;
+    text-align: center;
+    .export-arrow{
+        display: inline-block;
+        width: 30px;
+        height: 26px;
+        cursor: pointer;
+        background: url(../../assets/components/gamecard/icon-arrow.png) center no-repeat;
+    }
+}
+.export-option{
+    // width: 158px;
+    padding-right: 10px;
+	p{
+		position: relative;
+		margin-bottom: 0;
+		height: 30px;
+		line-height: 30px;
+		cursor: pointer;
+		background: #fff;
+		font-size: 14px;
+		color: #333;
+		padding-left: 33px;
+		span{
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 34px;
+			&.icon-export{
+				background: url(../../assets/components/gamecard/icon-export.png) center no-repeat;
+			}
+		}
+	}
+}
+
+.export-pop{
+    :global{
+        .ant-popover-inner-content{
+            padding: 0;
+        }
+        .ant-popover-content{
+            .ant-popover-arrow{
+                box-shadow: -1px -1px 0px 0px #ccc;
+                right: 15px;
+                top: 9px;
+            }
+        }
+        .ant-popover-inner{
+            box-shadow: 0 0px 0px 1px #ccc;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+    }
+}
+
+
+@media screen and (min-width: 1700px){
+    .gameCardList{
+        // max-width: 1545px;
+    }
+	.game{
+		margin-right: 23px;
+        // &:nth-child(3n){
+        //     margin-right: 23px;
+        // }
+	}
+}
+
+@media screen and (min-width: 1900px){
+    .gameCardList{
+        // max-width: 1590px;
+    }
+	.game{
+        margin-right: 23px;
+        // &:nth-child(3n){
+        //     margin-right: 23px;
+        // }
+        // &:nth-child(4n){
+        //     margin-right: 0;
+        // }
+	}
+}
+
+@media screen and (max-width: 1440px){
+    .gameCardList{
+        max-width: 1292px;
+    }
+	.game{
+        margin-right: 18px;
+        // &:nth-child(3n){
+        //     margin-right: 18px;
+        // }
+	}
+}
+
+
+@media screen and (max-width: 1280px){
+    .gameCardList{
+        // max-width: 716px;
+    }
+	.game{
+        margin-right: 18px;
+        // &:nth-child(3n){
+        //     margin-right: 18px;
+        // }
+        // &:nth-child(2n){
+        //     margin-right: 0px;
+        // }
+	}
+}

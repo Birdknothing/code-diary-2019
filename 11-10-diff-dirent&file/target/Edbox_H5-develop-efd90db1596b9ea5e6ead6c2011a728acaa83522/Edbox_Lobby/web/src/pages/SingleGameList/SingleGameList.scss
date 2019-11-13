@@ -1,0 +1,70 @@
+.singleGameList{
+    position: relative;
+    height: 100%;
+}
+.main{
+    position: relative;
+    padding: 72px 40px 0;
+    height: 100%;
+}
+
+.mw-list{
+    height: calc(100% - 42px);
+    :global{
+        .ant-pagination{
+            text-align: center;
+            margin-top: 60px;
+        }
+        .ant-pagination-options-quick-jumper input{
+            border-radius: 0;
+        }
+        .ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link{
+            border-radius: 0;
+            border: 0;
+            background-color: #f4f4f5;
+        }
+        .ant-pagination-item{
+            border-radius: 0;
+            border: none;
+        }
+        .ant-pagination-item-active{
+            border: 1px solid #da0301;
+        }
+    }
+}
+
+.search{
+    width: 260px;
+    height: 28px;
+    position: absolute;
+    top: 72px;
+    right: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: row;
+    flex: auto;
+    align-items: center;
+    i{
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 13px;
+        background: url(../../assets/myworks/icon-search.png) no-repeat;
+    }
+    input{
+        border: none;
+        background-color: transparent;
+        outline: none;
+        color: #111;
+        font-size: 16px;
+        line-height: 20px;
+
+    }
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        color: #ccc;
+        font-size: 16px;
+    }
+}

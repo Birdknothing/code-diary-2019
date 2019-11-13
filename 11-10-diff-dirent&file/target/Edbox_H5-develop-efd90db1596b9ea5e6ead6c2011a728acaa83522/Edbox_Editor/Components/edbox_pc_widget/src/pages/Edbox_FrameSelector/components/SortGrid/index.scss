@@ -1,0 +1,41 @@
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    width: 350px;
+    margin-top: 15px;
+    // justify-content: space-between;
+}
+
+.grid-item{
+    position: relative;
+    width: 50px;
+    // height: 120px;
+    display: inline-block;
+    background-color: #fff;
+    margin-bottom: 6px;
+    border: 1px solid transparent;
+    margin-right: 10px;
+    &:nth-child(6n){
+        margin-right: 0;
+    }
+    img{
+        display: block;
+        width: 48px;
+        height: 48px;
+    }
+    &.selected{
+        border: 1px solid #da0301;
+    }
+    .num{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.5);
+        color: #fff;
+        min-height: 12px;
+        min-width: 12px;
+        padding: 4px;
+        font-size: 12px;
+        line-height: 12px;
+    }
+}

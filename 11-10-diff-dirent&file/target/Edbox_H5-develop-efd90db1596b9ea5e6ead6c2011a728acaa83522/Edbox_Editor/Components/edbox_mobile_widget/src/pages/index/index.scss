@@ -1,0 +1,15 @@
+@import "../../common";
+
+.nav-link{
+    padding: rem(20);
+
+    li {
+        margin-bottom: rem(10);
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+    }
+}

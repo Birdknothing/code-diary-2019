@@ -1,0 +1,34 @@
+.time{
+    margin-bottom: 0;
+    height: 14px;
+    line-height: 14px;
+    :global{
+        .ant-input{
+            border-radius: 0px !important;
+        }
+        .ant-input-sm{
+            height: 14px;
+        }
+        .ant-input{
+            border: 0;
+            font-size: 12px;
+            text-align: center;
+            outline: none;
+            &:focus{
+                box-shadow: none;
+            }
+            pointer-events: bounding-box;
+        }
+        .ant-input-affix-wrapper .ant-input:not(:last-child) {
+            padding: 1px 7px;
+        }
+        .ant-input-affix-wrapper{
+            line-height: 1;
+            height: 14px;
+        }
+        .ant-input-affix-wrapper .ant-input-suffix {
+            right: 3px;
+            margin-top: -1px;
+        }
+    }
+}

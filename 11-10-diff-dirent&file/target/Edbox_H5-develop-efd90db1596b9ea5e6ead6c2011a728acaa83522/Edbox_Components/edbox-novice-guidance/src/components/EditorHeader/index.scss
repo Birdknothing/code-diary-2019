@@ -1,0 +1,179 @@
+.header {
+  position: relative;
+  height: 60px;
+  line-height: 60px;
+  background-color: #f6f6f6;
+  text-align: center;
+  z-index: 2;
+  &:after {
+    display: block !important;
+    content: '' !important;
+    position: absolute !important;
+    top: auto !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    height: 3px !important;
+    background-color: #e4e4e4 !important;
+    border-top: 1px solid #d4d4d4 !important;
+    border-bottom: 1px solid #d4d4d4 !important;
+  }
+  :global {
+    .ant-btn {
+      height: 28px;
+      padding: 0 20px;
+    }
+  }
+  .back {
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    padding:  0 10px;
+    i {
+      font-size: 12px;
+      font-weight: bold;
+    }
+    span {
+      margin-left: 5px;
+    }
+  }
+  .logo {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .handle {
+    position: absolute;
+    right: 50px;
+    top: 0px;
+    // width: 195px;
+    width: 230px;
+
+    i {
+      cursor: pointer;
+    }
+  }
+  .icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #999999;
+    font-size: 20px;
+  }
+  .save {
+    position: relative;
+    padding-right: 10px;
+    svg {
+      display: none;
+    }
+    i {
+      border: 5px solid transparent;
+      border-top: 6px solid #fff;
+    }
+  }
+
+}
+.trial {
+  color: #e62e25;
+  border-color: #e62e25;
+  &:hover {
+    color: #fff;
+    background-color: #e62e25;
+  }
+  &:active {
+    background-color: #a60100;
+  }
+}
+.errorText {
+  font-size: 12px;
+  color: #e62e25;
+}
+.gameName {
+  line-height: 30px;
+}
+.ico-msg {
+  display: inline-block;
+  width: 14px;
+  height: 16px;
+  background: url(../../assets/components/editorheader/icon-advise.png) no-repeat;
+  margin-top: -3px;
+  font-size: 22px;
+  color: #da0301;
+  vertical-align: middle;
+  cursor: pointer;
+  &:hover {
+    color: #e62e25;
+  }
+}
+:global{
+  .no-after-modal{
+    z-index: 100;
+    *{
+      &:after{
+        position: relative !important;
+      }
+    }
+  }
+
+}
+
+.save-success-tip-modal{
+  :global{
+    .ant-modal-footer{
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+  }
+  .tip-txt{
+    text-align: center;
+  }
+}
+
+.simple-header{
+  position: relative;
+  background-color: #cf0100;
+  height: 60px;
+  padding: 0;
+  border-bottom: none;
+  :global{
+    .logo{
+      float: left;
+    width: 79px;
+    height: 42px;
+    margin-left: 33px;
+    margin-top: 7px;
+    margin-bottom: 0;
+    cursor: pointer;
+    }
+  }
+  .btn-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0;
+    font-weight: 700;
+    line-height: 1;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: color .3s;
+  }
+}
+
+// 兼容引导
+.btn-top-wrap{
+  display: inline-block;
+  height: 28px;
+  vertical-align: middle;
+  line-height: 1;
+}
+.btn-wrap{
+  display: inline-block;
+}

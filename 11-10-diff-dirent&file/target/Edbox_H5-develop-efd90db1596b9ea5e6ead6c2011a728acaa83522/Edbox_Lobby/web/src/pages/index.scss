@@ -1,0 +1,144 @@
+
+.hotLayer{
+    margin-top: 22px;
+}
+.hotList{
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+}
+.item{
+    position: relative;
+    width: 208px;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    transition: all .3s;
+    &:nth-child(6n){
+        margin-left: 0;
+    }
+    &:hover{
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        dt{
+            .play{
+                opacity: 1;
+            }
+        }
+        dd{
+            opacity: 1;
+        }
+    }
+    dt{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        .play{
+            opacity: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -25px;
+            margin-top: -40px;
+            width: 50px;
+            height: 50px;
+            transition: all .3s;
+            cursor: pointer;
+            background: url(../assets/ware/icon-list-play.png) no-repeat;
+        }
+    }
+    dd{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 54px;
+        width: 100%;
+        padding: 0 10px;
+        background-color: rgba(0,0,0,0.5);
+        margin-bottom: 0;
+        opacity: 0;
+        transition: all .3s;
+        display: flex;
+        align-items: center;
+        p{
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 21px;
+            display: -webkit-box;
+            /*! autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+    }
+    &.large{
+        width: 426px;
+        margin-left: 0;
+        dd{
+            p{
+                width: 400px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1600px){
+    .hotList{
+        height: 290px;
+        overflow: hidden;
+    }
+	.item{
+        height: 130px;
+        width: 155px;
+        margin-left: 15px;
+        margin-bottom: 15px;
+        &:nth-child(5n){
+            margin-left: 0;
+        }
+        &:nth-child(6n){
+            margin-left: 15px;
+        }
+        &.large{
+            width: 326px;
+            margin-left: 0;
+        }
+        dt{
+            .play{
+                width: 40px;
+                height: 40px;
+                margin-left: -20px;
+                background-size: contain;
+            }
+        }
+        dd{
+            height: 54px;
+            p{
+                width: 80px;
+                height: 54px;
+                line-height: 54px;
+                margin-bottom: 0;
+            }
+            
+        }
+    }
+}
+
+@media screen and (min-width: 1850px){
+    .item{
+        &:nth-child(6n){
+            margin-left: 10px;
+        }
+        &:nth-child(7n){
+            margin-left: 0;
+        }
+    }
+}

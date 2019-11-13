@@ -1,0 +1,143 @@
+.warehouse-page-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.tab-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 7;
+  width: 100%;
+
+// height: 128px;
+  height: 100%;
+  background-color: #fff;
+
+  &.disable {
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 20;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0);
+      content: "";
+    }
+    :global {
+      .am-tabs-tab-bar-wrap {
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+:global {
+  // .am-tabs{
+  //   height: 70px;
+  // }
+  .am-tabs-tab-bar-wrap {
+    height: 68px;
+    border-bottom: 1px solid #e2e2e2;
+  }
+  .am-tabs-default-bar-tab {
+    display: inline-block;
+    overflow: hidden;
+    height: 68px;
+    color: #999;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 30px;
+  }
+  .am-tabs-default-bar-tab-active {
+    color: #da0301;
+    font-weight: 700;
+  }
+  .am-tabs-default-bar-underline {
+    border: 4px #da0301 solid;
+    transform: translate3d(0, 0, 0) scaleX(0.5);
+  }
+}
+
+.content {
+  position: relative;
+  padding-top: 128px;
+
+// padding-top: 96px;
+  height: 100%;
+}
+// 转tab切换
+.cont-item {
+  // display: flex;
+  overflow-x: hidden;
+  padding-top: 60px;
+  height: 100%;
+}
+.list-wrap {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+// display: none;
+  height: 100%;
+
+  :global {
+    .game-list-item {
+      margin-top: 0;
+    }
+  }
+}
+.loading-wrap {
+  padding: 50px 0;
+  text-align: center;
+
+  :global {
+    .ant-spin {
+      transform: scale3d(1.2, 1.2, 1.2);
+    }
+
+    .ant-spin-lg .ant-spin-dot {
+      font-size: 64px;
+    }
+
+    .ant-spin-lg .ant-spin-dot i {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
+.type-tab-wrap {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  z-index: 10;
+
+// padding-top:20px;
+  padding: 4px 0;
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  font-size: 0;
+}
+.type-item {
+  display: inline-block;
+  overflow: hidden;
+  margin: 0 10px;
+  padding: 0 30px;
+  max-width: 260px;
+  height: 50px;
+  border: 1px solid #da0301;
+  border-radius: 50px;
+  color: #da0301;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 24px;
+  line-height: 50px;
+  &.on {
+    background-color: #da0301;
+    color: #fff;
+  }
+}

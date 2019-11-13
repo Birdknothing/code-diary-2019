@@ -1,0 +1,17 @@
+@import "../../common";
+
+.card-box {
+    border-top-left-radius: rem(20);
+    border-top-right-radius: rem(20);
+    width: rem(750);
+    overflow-x: scroll;
+}
+
+.card-box-change-btn {
+    display: block;
+    margin: rem(15) auto 0;
+    width: rem(80);
+    height: rem(10);
+    border-radius: rem(10);
+    background-color: #ccc;
+}

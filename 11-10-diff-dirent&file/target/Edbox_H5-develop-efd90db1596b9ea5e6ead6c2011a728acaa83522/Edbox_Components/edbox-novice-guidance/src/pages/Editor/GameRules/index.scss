@@ -1,0 +1,19 @@
+.editItem {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  overflow: hidden;
+}
+.empty {
+  padding-top: 100px;
+}
+.deleteIcon {
+  font-size: 14px;
+  color: #da0301;
+  &:hover {
+    color: #EB372F;
+  }
+}
+

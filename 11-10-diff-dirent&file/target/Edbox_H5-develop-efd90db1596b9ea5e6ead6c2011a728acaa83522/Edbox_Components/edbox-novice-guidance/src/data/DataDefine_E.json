@@ -1,0 +1,655 @@
+{
+  "Datas": [
+    {
+      "ID": "BaseInfo_tab01",
+      "Name": "BaseInfo",
+      "ShowName": "Basic Information",
+      "Icon": "",
+      "Type": "Tab01",
+      "SplitLine": true,
+      "PageType": "FullPage",
+      "Datas": [
+        {
+          "ID": "Game_Name",
+          "Name": "GameName",
+          "ShowName": "Game Name",
+          "Value": "Jigsaw Puzzle",
+          "Length": 60,
+          "Type": "Text01",
+          "IsRequired": true
+        },
+        {
+          "ID": "Game_Intro",
+          "Name": "Description",
+          "ShowName": "Brief Introduction",
+          "Value": "Puzzle is an interesting recreational game. Players need to move their fingers to start the game.",
+          "Length": 1000,
+          "Type": "Text02",
+          "IsRequired": true
+        },
+        {
+          "ID": "Game_Cover",
+          "Name": "CoverImage",
+          "ShowName": "Game Cover",
+          "Value": "",
+          "GUID": "a3eb494c-390d-4a5b-a8db-cef80069aac8",
+          "Type": "Image01",
+          "IsRequired": true,
+          "Width": 256,
+          "Height": 256
+        }
+      ]
+    },
+    {
+      "ID": "Game_Rules_tab01",
+      "Name": "xxx",
+      "ShowName": "Game Rules",
+      "Icon": "",
+      "Type": "Tab01",
+      "PageType": "FullPage",
+      "Datas": [
+        {
+          "ID": "Game_Rules_tab02",
+          "Name": "xxx",
+          "ShowName": "Game Rules",
+          "Icon": "",
+          "Type": "Tab02",
+          "PageType": "FullPage",
+          "Datas": [
+               {
+          "ID": "Rules_01_pieceSet",
+          "Name": "xxx",
+          "ShowName": "Pieces Settings",
+          "Icon": "",
+          "Type": "Tab03",
+          "Datas": [
+            {
+              "ID": "Rules_01_pieceSet_col",
+              "Name": "xxx",
+              "ShowName": "Number of pieces",
+              "Type": "Value02",
+              "Value": 3,
+              "ReadOnly": false,
+              "HelpText": "You can set the number of rows and columns with the value ranging from 1 to 9 (integers only). The default value is 3.",
+              "UnitText": "Rows",
+              "MaxValue": 9,
+              "MinValue": 1
+            },
+            {
+              "ID": "Rules_01_pieceSet_row",
+              "Name": "xxx",
+              "ShowName": "",
+              "Type": "Value02",
+              "Value": 3,
+              "ReadOnly": false,
+              "UnitText": "Columns",
+              "MaxValue": 9,
+              "MinValue": 1
+            },
+            {
+              "ID": "Rules_01_pieceSet_pec",
+              "Name": "xxx",
+              "ShowName": "Rearrangement",
+              "Type": "Value02",
+              "Value": 50,
+              "ReadOnly": false,
+              "HelpText": "Rearrangement",
+              "UnitText": "%",
+              "MaxValue": 100,
+              "MinValue": 1
+            }
+          ]
+        },
+        {
+          "ID": "Rules_02_timeSet",
+          "Name": "xxx",
+          "ShowName": "Time Limits",
+          "Icon": "",
+          "Type": "Tab03",
+          "Datas": [
+            {
+              "ID": "Rules_02_timeSet_gameTime",
+              "Name": "xxx",
+              "ShowName": "Play",
+              "Type": "Value02",
+              "Value": 60,
+              "MaxValue": 100,
+              "MinValue": 1,
+              "HelpText": "Only integers between 1 and 100 (1 and 100 included). No time limit if blank.",
+              "UnitText": "s",
+              "ReadOnly": false
+            },
+            {
+              "ID": "Rules_02_timeSet_timeSwitch",
+              "Name": "xxx",
+              "ShowName": "Time Limits",
+              "Type": "Switch01",
+              "Value": true,
+              "ReadOnly": false
+            },
+            {
+              "ID": "Rules_01_timeSet_imageTime",
+              "Name": "xxx",
+              "ShowName": "Image preview",
+              "Type": "Value02",
+              "Value": 6,
+              "ReadOnly": false,
+              "MaxValue": 5,
+              "MinValue": 1,
+              "HelpText": "Only integers no more than 5",
+              "UnitText": "s"
+            }
+          ]
+        },
+        {
+          "ID": "Rules_02_gameImg",
+          "Name": "xxx",
+          "ShowName": "Puzzle Picture",
+          "Icon": "",
+          "Type": "Tab03",
+          "Datas": [
+            {
+              "ID": "Rules_02_gameImg_imgSelect",
+              "Name": "gameImg",
+              "Value": "",
+              "GUID": "59c28bb0-7ba2-40d3-89c8-28ff574f1bcd",
+              "Type": "Image01",
+              "Width": 647,
+              "Height": 845,
+              "IsRequired": true
+            }
+          ]
+        }
+          ]
+        }
+      ]
+    },
+    {
+      "ID": "Gaming_tab01",
+      "Name": "xxx",
+      "ShowName": "Game Interfaces",
+      "Icon": "",
+      "Type": "Tab01",
+      "Datas": [
+        {
+          "ID": "Gaming_tab01_startGame",
+          "Name": "xxx",
+          "ShowName": "Start Page",
+          "Icon": "",
+          "Type": "Tab01",
+          "PageWidth": 607,
+          "Datas": [
+            {
+              "ID": "Gaming_tab02_startGame_page",
+              "Name": "xxx",
+              "ShowName": "Interface",
+              "Icon": "",
+              "Type": "Tab02",
+              "Datas": [
+                {
+                  "ID": "Gaming_tab03_startGame_Scene",
+                  "Name": "xxx",
+                  "ShowName": "Scene",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_startGame_scene_gameName",
+                      "Name": "gameName",
+                      "ShowName": "Game name",
+                      "Type": "Text01",
+                      "Value": "Jigsaw Puzzle",
+                      "Length": 30,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 45,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#efde63",
+                        "fontStyle": {
+                          "bold": true,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_startGame_scene_bgImage",
+                      "Name": "bgImage",
+                      "ShowName": "Background",
+                      "Value": "",
+                      "GUID": "e85667e6-cc20-49c0-97b1-1f1f3e863d03",
+                      "Type": "Image01",
+                      "Width": 750,
+                      "Height": 1334
+                    }
+                  ]
+                },
+                {
+                  "ID": "Gaming_tab03_startGame_Do",
+                  "Name": "xxx",
+                  "ShowName": "Operation",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_startGame_Do_clickStartBtnName",
+                      "Name": "clickStartBtnName",
+                      "ShowName": "Start button",
+                      "Type": "Text01",
+                      "Value": "Start",
+                      "Length": 5,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 38,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#efde63",
+                        "fontStyle": {
+                          "bold": true,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_startGame_Do_clickImage",
+                      "Name": "clickStartImage",
+                      "Value": "",
+                      "GUID": "a3a52e49-8d9a-44c6-b04a-cd86aa20690b",
+                      "Type": "Image01",
+                      "Width": 331,
+                      "Height": 105
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "ID": "Gaming_tab02_startGame_Audio",
+              "Name": "xxx",
+              "ShowName": "Sound",
+              "Icon": "",
+              "Type": "Tab02",
+              "Datas": [
+                {
+                  "ID": "Gaming_tab03_startGame_Audio_system",
+                  "Name": "xxx",
+                  "ShowName": "System",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_startGame_Audio_gameBgAudio",
+                      "Name": "gameBgAudio",
+                      "ShowName": "Background music",
+                      "Value": "",
+                      "GUID": "ab8d269e-5a7f-4291-be3d-77cccb568c90",
+                      "Type": "Audio01"
+                    },
+                    {
+                      "ID": "Gaming_tab03_startGame_Audio_clickAudio",
+                      "Name": "clickAudio",
+                      "ShowName": "Clicking buttons",
+                      "Value": "",
+                      "GUID": "4edef7f5-07aa-4977-b4f3-b4788fa857b2",
+                      "Type": "Audio01"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ID": "Gaming_tab01_gaming",
+          "Name": "xxx",
+          "ShowName": "In-game Page",
+          "Icon": "",
+          "Type": "Tab01",
+          "PageWidth": 607,
+          "Datas": [
+                 {
+              "ID": "Gaming_tab02_gaming_page",
+              "Name": "xxx",
+              "ShowName": "Interface",
+              "Icon": "",
+              "Type": "Tab02",
+              "Datas": [
+                {
+                  "ID": "Gaming_tab03_gaming_res",
+                  "Name": "xxx",
+                  "ShowName": "Resources",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_gaming_res_returnBtnName",
+                      "Name": "returnBtnName",
+                      "ShowName": "Return button",
+                      "Type": "Text01",
+                      "Value": "Return",
+                      "Length": 7,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 20,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#000000",
+                        "fontStyle": {
+                          "bold": false,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_returnBtnImg",
+                      "Name": "returnBtnImg",
+                      "Value": "",
+                      "GUID": "a73fefee-ad48-495e-a6a3-705516c275fa",
+                      "Type": "Image01",
+                      "Width": 250,
+                      "Height": 80
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_rePlayBtnName",
+                      "Name": "rePlayBtnName",
+                      "ShowName": "Restart button",
+                      "Type": "Text01",
+                      "Value": "Restart",
+                      "Length": 7,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 20,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#000000",
+                        "fontStyle": {
+                          "bold": false,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_rePlayBtnImg",
+                      "Name": "rePlayBtnImg",
+                      "Value": "",
+                      "GUID": "a73fefee-ad48-495e-a6a3-705516c275fa",
+                      "Type": "Image01",
+                      "Width": 250,
+                      "Height": 80
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_bgImg",
+                      "ShowName": "Background",
+                      "Name": "bgImg",
+                      "Value": "",
+                      "GUID": "e85667e6-cc20-49c0-97b1-1f1f3e863d03",
+                      "Type": "Image01",
+                      "Width": 750,
+                      "Height": 1334
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_countDownImg",
+                      "ShowName": "Timer icon",
+                      "Name": "countDownImg",
+                      "Value": "",
+                      "GUID": "a7b18688-1904-4ccd-a568-dccc830c9d39",
+                      "Type": "Image01",
+                      "Width": 87,
+                      "Height": 80
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_hint",
+                      "Name": "hint",
+                      "ShowName": "Tips",
+                      "Type": "Text01",
+                      "Value": "Click to swap the pieces",
+                      "Length": 44,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 15,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#ffffff",
+                        "fontStyle": {
+                          "bold": true,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_res_pieceSelectImg",
+                      "ShowName": "Frame of selected pieces",
+                      "Name": "pieceSelectImg",
+                      "Value": "",
+                      "GUID": "e59b2dd4-2dde-4cec-8536-8204321e9ea2",
+                      "Type": "Image01",
+                      "Width": 161,
+                      "Height": 157
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "ID": "Gaming_tab02_gaming_Audio",
+              "Name": "xxx",
+              "ShowName": "Sound",
+              "Icon": "",
+              "Type": "Tab02",
+              "Datas": [
+                {
+                  "ID": "Gaming_tab03_gaming_Audio_system",
+                  "Name": "xxx",
+                  "ShowName": "System",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_gaming_Audio_gameAudio",
+                      "Name": "gameAudio",
+                      "ShowName": "Background music",
+                      "Value": "",
+                      "GUID": "81e139d7-47d6-45e1-acec-d4b304b3a579",
+                      "Type": "Audio01"
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_Audio_moveAudio",
+                      "Name": "moveAudio",
+                      "ShowName": "Swapping pieces",
+                      "Value": "",
+                      "GUID": "ad5e59c7-439b-4dbb-90a5-5bdb2468db40",
+                      "Type": "Audio01"
+                    },
+                    {
+                      "ID": "Gaming_tab03_gaming_Audio_reStartAudio",
+                      "Name": "reStartAudio",
+                      "ShowName": "Restart",
+                      "Value": "",
+                      "GUID": "638cd6c4-36cf-4f91-9293-f5e78be429a7",
+                      "Type": "Audio01"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+       {
+          "ID": "Gaming_tab01_gameover",
+          "Name": "xxx",
+          "ShowName": "Results Page",
+          "Icon": "",
+        "Type": "Tab01",
+        "PageWidth": 607,
+          "Datas": [
+                 {
+              "ID": "Gaming_tab02_gameover_page",
+              "Name": "xxx",
+              "ShowName": "Interface",
+              "Icon": "",
+              "Type": "Tab02",
+              "Datas": [
+                {
+                  "ID": "Gaming_tab03_gameover_res",
+                  "Name": "xxx",
+                  "ShowName": "Resources",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_gameover_res_gameFailHint",
+                      "Name": "gameFailHint",
+                      "ShowName": "Failure message",
+                      "Type": "Text01",
+                      "Value": "Sorry, you lost the game.",
+                      "Length": 44,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 20,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#ffffff",
+                        "fontStyle": {
+                          "bold": true,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_gameover_res_gameFailImg",
+                      "Name": "gameFailImg",
+                      "Value": "",
+                      "GUID": "309d66f1-dd42-49bf-998d-a0680a7b8d4f",
+                      "Type": "Image01",
+                      "Width": 100,
+                      "Height": 100
+                    },
+                    {
+                      "ID": "Gaming_tab03_gameover_res_successHint",
+                      "Name": "successHint",
+                      "ShowName": "Success message",
+                      "Type": "Text01",
+                      "Value": "Congratulations!",
+                      "Length": 44,
+                      "ReadOnly": false,
+                      "StyleEdit": true,
+                      "Style": {
+                        "fontFamily": {
+                          "id": 0,
+                          "name": "A Galega"
+                        },
+                        "fontSize": {
+                          "size": 20,
+                          "startNum": 8,
+                          "endNum": 72
+                        },
+                        "fontColor": "#ffffff",
+                        "fontStyle": {
+                          "bold": true,
+                          "italic": false,
+                          "underline": false
+                        }
+                      }
+                    },
+                    {
+                      "ID": "Gaming_tab03_gameover_res_gameoverImg",
+                      "ShowName": "Game Over",
+                      "Name": "gameoverImg",
+                      "Value": "",
+                      "GUID": "e85667e6-cc20-49c0-97b1-1f1f3e863d03",
+                      "Type": "Image01",
+                      "Width": 750,
+                      "Height": 1334
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "ID": "Gaming_tab02_gameover_Audio",
+              "Name": "xxx",
+              "ShowName": "Sound",
+              "Icon": "",
+              "Type": "Tab02",
+              "Datas": [
+                {
+                  "ID": "Gaming_tab03_gameover_Audio_system",
+                  "Name": "xxx",
+                  "ShowName": "System",
+                  "Icon": "",
+                  "Type": "Tab03",
+                  "Datas": [
+                    {
+                      "ID": "Gaming_tab03_gameover_Audio_successAuduio",
+                      "Name": "successAuduio",
+                      "ShowName": "Success",
+                      "Value": "",
+                      "GUID": "e1c116d1-80a8-4c3d-afc3-36c177a873a1",
+                      "Type": "Audio01"
+                    },
+                    {
+                      "ID": "Gaming_tab03_gameover_Audio_fialAudio",
+                      "Name": "fialAudio",
+                      "ShowName": "Failure",
+                      "Value": "",
+                      "GUID": "5c580938-e935-4127-9654-a894dda4acde",
+                      "Type": "Audio01"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

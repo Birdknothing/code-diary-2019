@@ -1,0 +1,25 @@
+{
+  "config": {
+    "dev": {
+      "localPath": "dist",
+      "remotePath": "mobile_widget",
+      "connect": {
+        "host": "192.168.19.136",
+        "port": 21,
+        "user": "editor234", 
+        "password": "bianji234" 
+      }
+    },
+    "qa": {
+      "localPath": "dist",
+      "remotePath": "mobile_widget",
+      "connect": {
+        "host": "192.168.19.136",
+        "port": 21,
+        "user": "editor233", 
+        "password": "233bianji" 
+      }
+    }
+  }
+  
+}

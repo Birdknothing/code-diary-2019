@@ -1,0 +1,32 @@
+@import "./themes/base.scss";
+@import "./themes/lobby_layout.scss";
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  // background-color: #fdd;
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.am-toast {
+  .am-toast-notice-content .am-toast-text.am-toast-text-icon {
+    padding: 30px 30px;
+  }
+
+  .am-icon-lg {
+    width: 72px;
+    height: 72px;
+  }
+
+  .am-toast-notice-content .am-toast-text.am-toast-text-icon .am-toast-text-info {
+    margin-top: 12px;
+    font-size: 32px;
+  }
+}

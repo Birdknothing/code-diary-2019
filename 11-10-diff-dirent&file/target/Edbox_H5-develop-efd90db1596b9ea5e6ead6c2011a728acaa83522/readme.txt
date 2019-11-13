@@ -1,0 +1,4 @@
+Edbox_Lobby:web大厅的目录
+Edbox_Componets:通用的组件的目录
+Edbox_Editor/Components:编辑器相关的组件目录
+Edbox_Editor/Framework:编辑器框架相关的
