@@ -1,0 +1,337 @@
+﻿{
+  "Message": {
+    "Name": "Message",
+    "ComponentName": "UtilBarn消息组件",
+    "Description": "用于UtilBarn平台的消息组件,用于实现跨域消息的传递与管理",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "UtilBarn",
+        "Wiki": "UtilBarn通用组件"
+      }
+    ],
+    "Datas": [
+      {
+        "Name": "ID",
+        "ChineseName": "组件唯一ID",
+        "EnglishName": "Unique ID",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Enable",
+        "ChineseName": "是否启用",
+        "EnglishName": "Whether to enable",
+        "Type": "Boolean",
+        "Value": false
+      },
+      {
+        "Name": "Window",
+        "ChineseName": "监听的窗口对象",
+        "EnglishName": "Listening window object",
+        "Type": "Object",
+        "Value": null
+      }
+    ],
+    "Functions": [
+      {
+        "Name": "Send",
+        "ChineseName": "发送消息",
+        "EnglishName": "Send Message",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "type",
+            "Type": "Text",
+            "Description": "方法执行类型关键字",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "datas",
+            "Type": "Array",
+            "ArrayType": {
+              "Type": "Object"
+            },
+            "Description": "消息数据",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Start",
+        "ChineseName": "启动并监听消息组件",
+        "EnglishName": "Start and listen for the message component",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Stop",
+        "ChineseName": "停止并释放消息组件",
+        "EnglishName": "Stop and release the message component",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ],
+    "StaticDatas": [
+      {
+        "Name": "MessageList",
+        "ChineseName": "消息组件队列",
+        "EnglishName": "Message Component List",
+        "Type": "Array",
+        "ArrayType": [
+          {
+            "Type": "Message"
+          }
+        ],
+        "Value": null
+      },
+      {
+        "Name": "ConnectCallback",
+        "ChineseName": "消息组件连接回调",
+        "EnglishName": "Message component connection callback",
+        "Type": "Function",
+        "FunctionType": [
+          {
+            "Type": "Message"
+          }
+        ],
+        "Value": null
+      },
+      {
+        "Name": "DisonnectCallback",
+        "ChineseName": "消息组件连接中断回调",
+        "EnglishName": "Message component connection interrupt callback",
+        "Type": "Function",
+        "FunctionType": [
+          {
+            "Type": "Message"
+          }
+        ],
+        "Value": null
+      },
+      {
+        "Name": "Functions",
+        "ChineseName": "方法集",
+        "EnglishName": "Function Set",
+        "Type": "Map",
+        "MapType": [
+          {
+            "Type": "Text"
+          },
+          {
+            "Type": "Function",
+            "FunctionType": [
+              {
+                "Type": "Array",
+                "ArrayType": {
+                  "Type": "Object"
+                }
+              },
+              {
+                "Type": "Message"
+              }
+            ]
+          }
+        ],
+        "Value": null
+      }
+    ],
+    "StaticFunctions": [
+      {
+        "Name": "Get",
+        "ChineseName": "获取消息组件",
+        "EnglishName": "Get message component",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "window",
+            "Type": "Object",
+            "Description": "监听的窗口对象",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Message"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Contain",
+        "ChineseName": "是否存在该窗口消息组件的监听",
+        "EnglishName": "Whether there is a listener for the window message component",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "window",
+            "Type": "Object",
+            "Description": "监听的窗口对象",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "Boolean",
+          "Description": "是否存在"
+        }
+      },
+      {
+        "Name": "AddMessageHandler",
+        "ChineseName": "添加消息处理事件",
+        "EnglishName": "Add Message Handler",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "type",
+            "Type": "Text",
+            "Description": "方法执行类型关键字",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "func",
+            "Type": "Function",
+            "FunctionType": [
+              {
+                "Type": "Array",
+                "ArrayType": {
+                  "Type": "Object"
+                }
+              },
+              {
+                "Type": "Message"
+              }
+            ],
+            "Description": "消息",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Broadcast",
+        "ChineseName": "向所有连接的消息组件广播消息",
+        "EnglishName": "Broadcast messages to all connected message components",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "type",
+            "Type": "Text",
+            "Description": "方法执行类型关键字",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "datas",
+            "Type": "Array",
+            "ArrayType": {
+              "Type": "Object"
+            },
+            "Description": "消息数据",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  }
+}

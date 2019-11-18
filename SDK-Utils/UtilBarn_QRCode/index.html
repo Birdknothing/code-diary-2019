@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <title>QRCode</title>
+</head>
+<body>
+    <button type="button" onclick="create()">生成二维码</button>
+    <button type="button" onclick="download()">下载</button>
+    <button type="button" onclick="show()">大屏显示</button>
+    <script src="/libs/UtilBarn/js/UtilBarn.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function create() {
+            UtilBarn.QRCode.Create("http://192.168.211.67", function (data) {
+                var img = document.createElement("img");
+                img.setAttribute("src", data);
+                document.body.appendChild(img);
+            });
+        }
+
+        function download(name) {
+            UtilBarn.QRCode.Download(name);
+        }
+
+        function show() {
+            UtilBarn.QRCode.Show();
+        }
+    </script>
+</body>
+</html>

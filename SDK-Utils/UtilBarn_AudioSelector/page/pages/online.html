@@ -1,0 +1,114 @@
+﻿<!-- 上方搜索栏 -->
+<div class="Header">
+    <!-- 返回按钮 -->
+    <div class="Back" ng-click="DataFunction.GetFunction('Back')()">
+        <img ng-src="{{DataFunction.GetImage('Back')}}" />
+    </div>
+
+    <!-- 一级标签栏 -->
+    <div class="FirstTab btn-group">
+        <div ng-repeat="data in Datas.Online.FirstTab.Datas" class="btn btn-default btn-sm {{Datas.Online.FirstTab.Select === $index ? 'active':'' }}" ng-click="DataFunction.Online.SelectFirstTab($index)">{{DataFunction.GetText(data.Name)}}</div>
+    </div>
+
+    <!-- 搜索栏 -->
+    <div class="Input">
+        <div class="InputBackground">
+            <img class="InputNDRIcon" ng-src="{{DataFunction.GetImage('NDR')}}" />
+            <input type="text" placeholder="{{DataFunction.GetText('SearchInputPlaceholder')}}" ng-model="DataFunction.Online.Keyword" />
+            <img class="InputSearchIcon" ng-src="{{DataFunction.GetImage('Search')}}" ng-click="DataFunction.Online.Search()" />
+        </div>
+    </div>
+</div>
+
+<!-- 内容区 -->
+<div class="Content" ng-init="DataFunction.ScrollInit()">
+    <!-- 二级标签栏 -->
+    <div class="SecondTab">
+        <div class="TabScroll">
+            <div class="TabBar">
+                <span ng-click="DataFunction.Online.SelectSecondTab(-1)" class="{{Datas.Online.SecondTab.Select === -1 ? 'active':'' }}">
+                    {{DataFunction.GetText('All') }}
+                </span>
+                <span ng-repeat="data in Datas.Online.SecondTab.Datas" ng-click="DataFunction.Online.SelectSecondTab($index) " class="{{Datas.Online.SecondTab.Select === $index ? 'active':'' }}">
+                    {{DataFunction.GetText(data.Name) }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 三级标签栏 -->
+    <div class="ThirdTab {{DataFunction.Online.ThirdTabOpen ? 'Open':'' }}">
+        <div class="TabDom">
+            <div class="TabArea">
+                <span ng-click="DataFunction.Online.SelectThirdTab(-1)" class="btn btn-default btn-sm {{Datas.Online.ThirdTab.Select === -1 ? 'active':'' }}">
+                    {{DataFunction.GetText('All') }}
+                </span>
+                <span ng-repeat="data in Datas.Online.ThirdTab.Datas" ng-click="DataFunction.Online.SelectThirdTab($index)" class="btn btn-default btn-sm {{Datas.Online.ThirdTab.Select === $index ? 'active':'' }}">
+                    {{DataFunction.GetText(data.Name) }}
+                </span>
+            </div>
+            <div class="OpenButton" ng-click="DataFunction.Online.ThirdTabOpen = !DataFunction.Online.ThirdTabOpen">
+                <img ng-src="{{DataFunction.GetImage('PullDown')}}" ng-show="!DataFunction.Online.ThirdTabOpen" />
+                <img ng-src="{{DataFunction.GetImage('PullUp')}}" ng-show="DataFunction.Online.ThirdTabOpen" />
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜索队列 -->
+    <div class="List">
+        <div class="NoSound" ng-show="DataFunction.Online.ListDatas.length > 0">
+            <div class="ListItem  {{ DataFunction.Online.Datas.Guid === DataFunction.Online.EmptyData.Guid ? 'select':'' }}" ng-click="DataFunction.Online.SelectData(DataFunction.Online.EmptyData)" ng-swipe-left="DataFunction.Online.SelectSecondTab(Datas.Online.SecondTab.Select + 1)" ng-swipe-right="DataFunction.Online.SelectSecondTab(Datas.Online.SecondTab.Select - 1)">
+                <div class="ItemIcon" ng-show="DataFunction.Online.Datas.Guid === DataFunction.Online.EmptyData.Guid">
+                    <img ng-src="{{DataFunction.GetImage('NoSound')}}" />
+                </div>
+                <div class="ItemIcon" ng-show="DataFunction.Online.Datas.Guid !== DataFunction.Online.EmptyData.Guid">
+                    <img ng-src="{{DataFunction.GetImage('NoSound_Idle')}}" />
+                </div>
+                <div class="ItemContent">
+                    <input class="ContentName" value="{{DataFunction.GetText('NoSound')}}" disabled />
+                </div>
+            </div>
+        </div>
+        <div class="Audio" ng-repeat="data in DataFunction.Online.ListDatas">
+            <div class="ListItem select" ng-show="DataFunction.Online.Datas.Guid === data.Guid">
+                <div class="ItemIcon">
+                    <img ng-src="{{DataFunction.GetImage('Play')}}" ng-show="!DataFunction.Online.OnPlay" ng-click="DataFunction.Online.Play(data)" />
+                    <img ng-src="{{DataFunction.GetImage('Pause')}}" ng-show="DataFunction.Online.OnPlay" ng-click="DataFunction.Online.Stop()" />
+                </div>
+                <div class="ItemContent">
+                    <div class="ItemContentTop">
+                        <input class="ContentName" value="{{data.Name}}" disabled />
+                        <div class="Time">{{DataFunction.Online.GetTime(data.CurrentTime) + '/' + DataFunction.Online.GetTime(data.TotalTime)}}</div>
+                    </div>
+                    <div class="TimeSlider">
+                        <div class="input-range minimal">
+                            <input type="range" min="0" max="{{data.TotalTime}}" step="20" value="0" style="background: -webkit-linear-gradient(top, #1296db, #1296db) 0% 0% / {{data.GetPercent()}}% 100% no-repeat" ng-model="data.CurrentTime" ng-touchstart="DataFunction.Online.Stop()" ng-touchend="DataFunction.Online.Start(data)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ListItem " ng-click="DataFunction.Online.SelectData(data)" ng-show="DataFunction.Online.Datas.Guid !== data.Guid" ng-swipe-left="DataFunction.Online.SelectSecondTab(Datas.Online.SecondTab.Select + 1)" ng-swipe-right="DataFunction.Online.SelectSecondTab(Datas.Online.SecondTab.Select - 1)">
+                <div class="ItemIcon">
+                    <img ng-src="{{DataFunction.GetImage('Play'+ '_Idle')}}" ng-click="DataFunction.Online.Play(data)" />
+                </div>
+                <div class="ItemContent">
+                    <input class="ContentName" value="{{data.Name}}" disabled />
+                    <div class="Time">
+                        <img ng-src="{{DataFunction.GetImage('Time')}}" />
+                        <div>{{DataFunction.Online.GetTime(data.TotalTime)}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="NoList" ng-show="DataFunction.Online.ListDatas.length === 0" ng-swipe-left="DataFunction.Online.SelectSecondTab(Datas.Online.SecondTab.Select + 1)" ng-swipe-right="DataFunction.Online.SelectSecondTab(Datas.Online.SecondTab.Select - 1)">
+            <div class="Image">
+                <img ng-src="{{DataFunction.GetImage('NoList')}}" />
+            </div>
+            <div class="Text">{{DataFunction.GetText('NoList')}}</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 下方按钮集 -->
+<div ng-include="'controls/bottombuttons.html'"></div>

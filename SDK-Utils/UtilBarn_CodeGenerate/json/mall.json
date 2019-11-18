@@ -1,0 +1,1068 @@
+{
+  "Mall": {
+    "Name": "Mall",
+    "ComponentName": "UtilBarn商城组件",
+    "Description": "用于UtilBarn平台的商城组件,用于实现商城、商店、商品的管理",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "UtilBarn",
+        "Wiki": "UtilBarn通用组件"
+      },
+      {
+        "Name": "UtilBarn.Request",
+        "Wiki": "UtilBarn通用请求授权组件"
+      },
+      {
+        "Name": "UtilBarn.Prop",
+        "Wiki": "UtilBarn道具组件"
+      },
+      {
+        "Name": "UtilBarn.Store",
+        "Wiki": "UtilBarn商城组件#商店模块"
+      },
+      {
+        "Name": "UtilBarn.Commodity",
+        "Wiki": "UtilBarn商城组件#商品模块"
+      }
+    ],
+    "Datas": [
+      {
+        "Name": "Enable",
+        "ChineseName": "是否启用",
+        "EnglishName": "Enable",
+        "Type": "Boolean",
+        "Value": false
+      },
+      {
+        "Name": "ID",
+        "ChineseName": "游戏内的唯一ID",
+        "EnglishName": "Unique ID",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "GUID",
+        "ChineseName": "服务器上的唯一ID",
+        "EnglishName": "Unique ID On Server",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "MallName",
+        "ChineseName": "商城名称",
+        "EnglishName": "Mall Name",
+        "Type": "Text",
+        "Value": "商店"
+      },
+      {
+        "Name": "MallIcon",
+        "ChineseName": "商城入口图标",
+        "EnglishName": "Mall Entrance Icon",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "BackgroundImage",
+        "ChineseName": "商城背景",
+        "EnglishName": "Mall Background Image",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "OpenAudio",
+        "ChineseName": "打开商城音效",
+        "EnglishName": "Open Mall Audio",
+        "Type": "Audio",
+        "Value": ""
+      },
+      {
+        "Name": "CloseAudio",
+        "ChineseName": "关闭商城音效",
+        "EnglishName": "Close Mall Audio",
+        "Type": "Audio",
+        "Value": ""
+      },
+      {
+        "Name": "MallAD",
+        "ChineseName": "商城广告文",
+        "EnglishName": "Mall AD",
+        "Type": "LongText",
+        "Value": ""
+      },
+      {
+        "Name": "StoreList",
+        "ChineseName": "商店列表",
+        "EnglishName": "Store List",
+        "Type": "Array",
+        "ArrayType": {
+          "Type": "Store"
+        },
+        "Value": null
+      },
+      {
+        "Name": "PurchaseConfirmationPrompt",
+        "ChineseName": "购买确认提示",
+        "EnglishName": "Purchase Confirmation Prompt",
+        "Type": "Array",
+        "ArrayType": {
+          "Type": "Text"
+        },
+        "Value": null
+      },
+      {
+        "Name": "PurchaseSuccessPrompt",
+        "ChineseName": "购买成功提示",
+        "EnglishName": "Purchase Success Prompt",
+        "Type": "Array",
+        "ArrayType": {
+          "Type": "Text"
+        },
+        "Value": null
+      },
+      {
+        "Name": "PurchaseFailurePrompt",
+        "ChineseName": "购买失败提示",
+        "EnglishName": "Purchase Failure Prompt",
+        "Type": "Array",
+        "ArrayType": {
+          "Type": "Text"
+        },
+        "Value": null
+      },
+      {
+        "Name": "InsufficientBalancePrompt",
+        "ChineseName": "余额不足提示",
+        "EnglishName": "Insufficient Balance Prompt",
+        "Type": "Array",
+        "ArrayType": {
+          "Type": "Text"
+        },
+        "Value": null
+      },
+      {
+        "Name": "PurchaseLimitPrompt",
+        "ChineseName": "达到购买上限提示",
+        "EnglishName": "Purchase Limit Prompt",
+        "Type": "Array",
+        "ArrayType": {
+          "Type": "Text"
+        },
+        "Value": null
+      },
+      {
+        "Name": "PurchaseButtonText",
+        "ChineseName": "购买按钮文字",
+        "EnglishName": "Purchase Button Text",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "TipBoxBackground",
+        "ChineseName": "提示框背景",
+        "EnglishName": "Tip Box Background",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "CommodityDetailsBackground",
+        "ChineseName": "商品详情背景",
+        "EnglishName": "Product Details Background",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "CommodityBottomFrame",
+        "ChineseName": "商品底框",
+        "EnglishName": "Commodity Bottom Frame",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "CloseButtonImage",
+        "ChineseName": "关闭按钮图片",
+        "EnglishName": "Close Button Image",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "ButtonBottomFrame",
+        "ChineseName": "按钮底框",
+        "EnglishName": "Button Bottom Frame",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "ButtonClickSound",
+        "ChineseName": "按钮点击音效",
+        "EnglishName": "Button Click Sound",
+        "Type": "Audio",
+        "Value": ""
+      }
+    ],
+    "Functions": [
+      {
+        "Name": "Get",
+        "ChineseName": "通过服务器验证配置表的数据",
+        "EnglishName": "Verify the data of the configuration table through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Mall"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Set",
+        "ChineseName": "通过服务器保存数据",
+        "EnglishName": "Save data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Mall"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Delete",
+        "ChineseName": "通过服务器删除数据",
+        "EnglishName": "Delete data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "CreateStore",
+        "ChineseName": "创建商店",
+        "EnglishName": "Create Store",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Store"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Open",
+        "ChineseName": "打开UI",
+        "EnglishName": "Open UI",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ],
+    "StaticDatas": [
+      {
+        "Name": "Current",
+        "ChineseName": "当前实例",
+        "EnglishName": "Current Instance",
+        "Type": "Mall",
+        "Value": null
+      },
+      {
+        "Name": "BuyCallback",
+        "ChineseName": "购买回调",
+        "EnglishName": "Buy Callback",
+        "Type": "Function",
+        "FunctionType": [
+          {
+            "Type": "Commodity"
+          },
+          {
+            "Type": "Int"
+          }
+        ],
+        "Value": null
+      },
+      {
+        "Name": "CanBuyJudgeFunction",
+        "ChineseName": "商品是否可以购买判断方法，返回是否",
+        "EnglishName": "Whether the product can be purchased as a judgment method, return True or False",
+        "Type": "Function",
+        "FunctionType": [
+          {
+            "Type": "Commodity"
+          },
+          {
+            "Type": "Int"
+          }
+        ],
+        "FunctionReturnType": {
+          "Type": "Boolean"
+        },
+        "Value": null
+      }
+    ],
+    "StaticFunctions": [
+      {
+        "Name": "Init",
+        "ChineseName": "根据配置表Json数据获取配置表初始化商城",
+        "EnglishName": "According to the configuration table Json data acquisition configuration table initialization mall",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "data",
+            "Type": "Text",
+            "Description": "配置表Json数据",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GetList",
+        "ChineseName": "获取商城中的所有商店",
+        "EnglishName": "Get all the items in the mall",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Array",
+              "ArrayType": {
+                "Type": "Store"
+              }
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GetJson",
+        "ChineseName": "获取配置表Json",
+        "EnglishName": "Get the configuration table Json",
+        "Type": "Function",
+        "Keys": null,
+        "Return": {
+          "Type": "Text",
+          "Description": "配置表Json"
+        }
+      },
+      {
+        "Name": "OpenMall",
+        "ChineseName": "打开商城UI",
+        "EnglishName": "Open Mall UI",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  },
+  "Store": {
+    "Name": "Store",
+    "ComponentName": "UtilBarn商城组件#商店模块",
+    "Description": "用于UtilBarn平台的商城组件,用于实现商店的管理",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "UtilBarn",
+        "Wiki": "UtilBarn通用组件"
+      },
+      {
+        "Name": "UtilBarn.Request",
+        "Wiki": "UtilBarn通用请求授权组件"
+      },
+      {
+        "Name": "UtilBarn.Prop",
+        "Wiki": "UtilBarn道具组件"
+      },
+      {
+        "Name": "UtilBarn.Commodity",
+        "Wiki": "UtilBarn商城组件#商品模块"
+      }
+    ],
+    "Datas": [
+      {
+        "Name": "ID",
+        "ChineseName": "游戏内的唯一ID",
+        "EnglishName": "Unique ID",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "GUID",
+        "ChineseName": "服务器上的唯一ID",
+        "EnglishName": "Unique ID On Server",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "StoreName",
+        "ChineseName": "商店名称",
+        "EnglishName": "Store Name",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "CommodityList",
+        "ChineseName": "商品列表",
+        "EnglishName": "Commodity List",
+        "Type": "Array",
+        "ArrayType": {
+          "Type": "Commodity"
+        },
+        "Value": ""
+      }
+    ],
+    "Functions": [
+      {
+        "Name": "Get",
+        "ChineseName": "通过服务器验证配置表的数据",
+        "EnglishName": "Verify the data of the configuration table through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Store"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Set",
+        "ChineseName": "通过服务器保存数据",
+        "EnglishName": "Save data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Store"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Delete",
+        "ChineseName": "通过服务器删除数据",
+        "EnglishName": "Delete data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "CreateCommodity",
+        "ChineseName": "创建商品",
+        "EnglishName": "Create Commodity",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Commodity"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Open",
+        "ChineseName": "打开UI",
+        "EnglishName": "Open UI",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ],
+    "StaticFunctions": [
+      {
+        "Name": "GetByGUID",
+        "ChineseName": "获取商店根据商店GUID",
+        "EnglishName": "Get Store based on Store GUID",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "guid",
+            "Type": "Text",
+            "Description": "GUID值",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Store"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  },
+  "Commodity": {
+    "Name": "Commodity",
+    "ComponentName": "UtilBarn商城组件#商品模块",
+    "Description": "用于UtilBarn平台的商城组件,用于实现商品的管理",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "UtilBarn",
+        "Wiki": "UtilBarn通用组件"
+      },
+      {
+        "Name": "UtilBarn.Request",
+        "Wiki": "UtilBarn通用请求授权组件"
+      },
+      {
+        "Name": "UtilBarn.Prop",
+        "Wiki": "UtilBarn道具组件"
+      },
+      {
+        "Name": "UtilBarn.Currency",
+        "Wiki": "UtilBarn经济组件#货币模块"
+      }
+    ],
+    "Datas": [
+      {
+        "Name": "ID",
+        "ChineseName": "游戏内的唯一ID",
+        "EnglishName": "Unique ID",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "GUID",
+        "ChineseName": "服务器上的唯一ID",
+        "EnglishName": "Unique ID On Server",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Index",
+        "ChineseName": "位置",
+        "EnglishName": "Index",
+        "Type": "Int",
+        "Value": 0
+      },
+      {
+        "Name": "CommodityName",
+        "ChineseName": "商品名称",
+        "EnglishName": "Commodity Name",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Image",
+        "ChineseName": "商品图片",
+        "EnglishName": "Commodity Image",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "Description",
+        "ChineseName": "商品介绍",
+        "EnglishName": "Commodity Description",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "StartSaleTime",
+        "ChineseName": "开始出售时间",
+        "EnglishName": "Start Sale Time",
+        "Type": "DateTime",
+        "Value": null
+      },
+      {
+        "Name": "EndSaleTime",
+        "ChineseName": "结束出售时间",
+        "EnglishName": "End Sale Time",
+        "Type": "DateTime",
+        "Value": null
+      },
+      {
+        "Name": "IsInventoryLimit",
+        "ChineseName": "是否库存限制",
+        "EnglishName": "Is Inventory Limit",
+        "Type": "Boolean",
+        "Value": true
+      },
+      {
+        "Name": "InventoryLimit",
+        "ChineseName": "库存限制",
+        "EnglishName": "Inventory Limit",
+        "Type": "Int",
+        "Value": 0
+      },
+      {
+        "Name": "IsPurchaseLimit",
+        "ChineseName": "是否商品限购",
+        "EnglishName": "Is Purchase Limit",
+        "Type": "Boolean",
+        "Value": true
+      },
+      {
+        "Name": "PurchaseLimitType",
+        "ChineseName": "商品限购类型",
+        "EnglishName": "Purchase Limit Type",
+        "Type": "Enum",
+        "EnumType": [
+          {
+            "Type": "Day"
+          },
+          {
+            "Type": "Week"
+          },
+          {
+            "Type": "Total"
+          }
+        ],
+        "Value": 0
+      },
+      {
+        "Name": "PurchaseLimit",
+        "ChineseName": "商品限购",
+        "EnglishName": "Purchase Limit",
+        "Type": "Int",
+        "Value": 0
+      },
+      {
+        "Name": "BindingProp",
+        "ChineseName": "绑定道具",
+        "EnglishName": "Binding Prop",
+        "Type": "Prop",
+        "Value": null
+      },
+      {
+        "Name": "BindingPropCount",
+        "ChineseName": "绑定道具数量",
+        "EnglishName": "Binding Prop Count",
+        "Type": "Int",
+        "Value": 1
+      },
+      {
+        "Name": "Price",
+        "ChineseName": "商品价格",
+        "EnglishName": "Commodity Price",
+        "Type": "Map",
+        "MapType": [
+          {
+            "Type": "Currency"
+          },
+          {
+            "Type": "Int"
+          }
+        ],
+        "Value": null
+      }
+    ],
+    "Functions": [
+      {
+        "Name": "Get",
+        "ChineseName": "通过服务器验证配置表的数据",
+        "EnglishName": "Verify the data of the configuration table through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Commodity"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Set",
+        "ChineseName": "通过服务器保存数据",
+        "EnglishName": "Save data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Commodity"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Delete",
+        "ChineseName": "通过服务器删除数据",
+        "EnglishName": "Delete data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Buy",
+        "ChineseName": "购买",
+        "EnglishName": "Buy",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "Currency",
+            "Type": "Currency",
+            "Description": "支付货币类型",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "Count",
+            "Type": "Int",
+            "Description": "购买数量",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Open",
+        "ChineseName": "打开UI",
+        "EnglishName": "Open UI",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ],
+    "StaticFunctions": [
+      {
+        "Name": "GetByGUID",
+        "ChineseName": "获取商品根据商品GUID",
+        "EnglishName": "Get Commodity based on Commodity GUID",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "guid",
+            "Type": "Text",
+            "Description": "GUID值",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Commodity"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  }
+}

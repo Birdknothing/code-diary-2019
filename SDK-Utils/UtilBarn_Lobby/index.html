@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <title>UtilBarn 粘合层接口测试</title>
+
+    <link href="/libs/ThirdParty/bootstrap/css/bootstrap-3.0.3.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">UtilBarn 粘合层接口测试</div>
+        <div class="panel-body">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetTagsList();">获取标签列表</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetRecommandApps();">获取推荐列表</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="SearchExperienceApps();">获取体验列表</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetExperienceAppInfo();">获取作品详情</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="SearchCreateApps();">获取模板列表</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="AddPlayRecord();">添加最近游戏记录</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetPlayRecord();">获取最近游戏记录</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetAppTags();">获取作品标签</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetGameRecentUpdates();">获取作品历史</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetGameOriginalTpl();">获取作品模板</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetGameSameTpl();">获取作品推荐</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="CollectApp();">收藏作品</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="CancelCollectApp();">取消收藏</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetUserCollectApps();">获取收藏列表</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetImage();">图片测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GamePlay();">播放测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="CheckEbService();">基础服务程序测试</button>
+                </span>
+            </div>
+			<!-- <a id="BaseProgramDownload" href="" style="display: none;">下载客户端</a> -->
+        </div>
+    </div>
+
+    <script src="/libs/UtilBarn/js/UtilBarn.js" type="text/javascript"></script>
+    <script src="/libs/UtilBarn_Lobby/js/UtilBarn_LobbyView.js" type="text/javascript"></script>
+    <script src="/libs/UtilBarn_MMOApiBase/js/UtilBarn_MMOApiBase.js" type="text/javascript"></script>
+    <script type="text/javascript">
+		UtilBarn.ServerKey = "QA";
+		UtilBarn.Start();
+		UtilBarn.Host.MMO.QA = "192.168.211.2:8081";
+		UtilBarn.LobbyView.Init();
+		
+		function GetTagsList() {
+			var data = '';
+			UtilBarn.LobbyView.GetTagsList(data, function(apps){
+				console.log(apps);
+			}, function(error){
+				console.log("GetTagsList error:" + error)
+			});
+		}
+		
+		function GetRecommandApps() {
+			var data = new Object;
+			data.recommand_type = 1;
+			data.page = 1;
+			data.size = 12;
+			UtilBarn.LobbyView.GetRecommandApps(data, function(apps){
+				console.log(apps);
+			}, function(error){
+				console.log("GetRecommandApps error:" + error)
+			});
+		}
+		
+		function GetPlayRecord(){
+			
+			UtilBarn.LobbyView.GetPlayRecord('', function(apps){
+				console.log(apps);
+			}, function(error){
+				console.log("GetPlayRecord error:" + error)
+			});
+		}
+		
+		function AddPlayRecord(){
+			UtilBarn.MMOApiBase.AddPlayRecord("a5181510-7d2d-11e9-b6a2-a5b59933a89d",
+				function(apps){
+					
+				},
+				function(e){
+					
+				}
+			);
+		}
+		
+		function SearchExperienceApps() {
+			var data = new Object;
+			data.word = '';
+			data.page = 1;
+			data.size = 12;
+			data.sorts = "!popular, releasetime";
+			data.type = "";
+			UtilBarn.LobbyView.SearchExperienceApps(data, function(apps){
+				console.log(apps);
+			}, function(error){
+				console.log("SearchExperienceApps error:" + error)
+			});
+		}
+		
+		function SearchCreateApps(){
+			var data = new Object;
+			data.word = '';
+			data.page = 1;
+			data.size = 12;
+			data.sorts = "!popular, releasetime";
+			UtilBarn.LobbyView.SearchCreateApps(data, function(apps){
+				console.log(apps);
+			}, function(error){
+				console.log("SearchCreateApps error:" + error)
+			});
+		}
+		
+		function GetExperienceAppInfo() {
+			var data = new Object;
+			data.appid = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			UtilBarn.LobbyView.GetExperienceAppInfo(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("GetExperienceAppInfo error:" + error)
+			});
+		}
+		
+		function GetAppTags(){
+			var data = new Object;
+			data.appid = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			UtilBarn.LobbyView.GetAppTags(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("GetAppTags error:" + error)
+			});
+		}
+		
+		function GetGameRecentUpdates() {
+			var data = new Object;
+			data.appid = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			UtilBarn.LobbyView.GetGameRecentUpdates(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("GetGameRecentUpdates error:" + error)
+			});
+		}
+		
+		function GetGameOriginalTpl() {
+			var data = new Object;
+			data.appid = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			UtilBarn.LobbyView.GetGameOriginalTpl(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("GetGameOriginalTpl error:" + error)
+			});
+		}
+		
+		function GetGameSameTpl() {
+			var data = new Object;
+			data.appid = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			UtilBarn.LobbyView.GetGameSameTpl(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("GetGameSameTpl error:" + error)
+			});
+		}
+		
+		function GetImage() {
+			var data = new Object;
+			data.resourceId = "a12ecd4c-83db-4913-b079-a97fd67b257f";
+			UtilBarn.LobbyView.GetImage(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("GetGameSameTpl error:" + error)
+			});
+		}
+		
+		function CollectApp() {
+			var data = new Object;
+			data.appid = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			UtilBarn.LobbyView.CollectApp(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("CollectApp error:" + error)
+			});
+		}
+		
+		function CancelCollectApp() {
+			var data = new Object;
+			data.appid = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			UtilBarn.LobbyView.CancelCollectApp(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("CancelCollectApp error:" + error)
+			});
+		}
+		
+		function GetUserCollectApps() {
+			var data = new Object;
+			data.page = 1;
+			data.size = 12;
+			UtilBarn.LobbyView.GetUserCollectApps(data, function(apps){
+				console.log(apps);
+			}, function(error){
+				console.log("GetUserCollectApps error:" + error)
+			});
+		}
+		
+		function GamePlay(){
+			var data = new Object;
+			// data.appid = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			data.appId = '9fe838a0-7d2c-11e9-8121-b7daed65fd6a';
+			data.playType = 3;
+			data.version = '';
+			UtilBarn.LobbyView.OpenGamePlay(data, function(data){
+				console.log(data);
+			}, function(error){
+				console.log("GamePlay error:" + JSON.stringify(error))
+			});
+		}
+		
+		function CheckEbService(){
+			UtilBarn.LobbyView.CheckEbService("", function(data){
+				console.log("CheckEbService success, data :" + data)
+			}, function(error){
+				console.log("CheckEbService error:" + error)
+			})
+		}
+    </script>
+</body>
+</html>

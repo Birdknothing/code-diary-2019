@@ -1,0 +1,703 @@
+{
+  "Backpack": {
+    "Name": "Backpack",
+    "ComponentName": "UtilBarn背包组件",
+    "Description": "用于UtilBarn平台的背包组件,用于实现背包的管理",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "UtilBarn",
+        "Wiki": "UtilBarn通用组件"
+      },
+      {
+        "Name": "UtilBarn.Request",
+        "Wiki": "UtilBarn通用请求授权组件"
+      },
+      {
+        "Name": "UtilBarn.Prop",
+        "Wiki": "UtilBarn道具组件"
+      },
+      {
+        "Name": "UtilBarn.BackpackProp",
+        "Wiki": "UtilBarn背包组件#背包道具模块"
+      }
+    ],
+    "Datas": [
+      {
+        "Name": "Enable",
+        "ChineseName": "是否启用",
+        "EnglishName": "Enable",
+        "Type": "Boolean",
+        "Value": false
+      },
+      {
+        "Name": "ID",
+        "ChineseName": "游戏内的唯一ID",
+        "EnglishName": "Unique ID",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "GUID",
+        "ChineseName": "服务器上的唯一ID",
+        "EnglishName": "Unique ID On Server",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Title",
+        "ChineseName": "标题",
+        "EnglishName": "Title",
+        "Type": "Text",
+        "Value": "背包"
+      },
+      {
+        "Name": "Icon",
+        "ChineseName": "图标",
+        "EnglishName": "Icon",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "BackgroundImage",
+        "ChineseName": "背景图片",
+        "EnglishName": "Background Image",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "GridImage",
+        "ChineseName": "格子图片",
+        "EnglishName": "Grid Image",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "Total",
+        "ChineseName": "格子总数",
+        "EnglishName": "Total Number Of Grids",
+        "Type": "Int",
+        "Value": 40
+      },
+      {
+        "Name": "Columns",
+        "ChineseName": "格子",
+        "EnglishName": "Columns",
+        "Type": "Int",
+        "Value": 4
+      },
+      {
+        "Name": "PropList",
+        "ChineseName": "道具列表",
+        "EnglishName": "Prop List",
+        "Type": "Array",
+        "ArrayType": {
+          "Type": "BackpackProp"
+        },
+        "Value": null
+      }
+    ],
+    "Functions": [
+      {
+        "Name": "Get",
+        "ChineseName": "通过服务器获取数据",
+        "EnglishName": "Get data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Backpack"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Set",
+        "ChineseName": "通过服务器保存数据",
+        "EnglishName": "Save data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Backpack"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Delete",
+        "ChineseName": "通过服务器删除数据",
+        "EnglishName": "Delete data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ],
+    "StaticDatas": [
+      {
+        "Name": "Current",
+        "ChineseName": "当前实例",
+        "EnglishName": "Current Instance",
+        "Type": "Backpack",
+        "Value": null
+      },
+      {
+        "Name": "RoleID",
+        "ChineseName": "当前角色ID",
+        "EnglishName": "Current Role ID",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "UsePropCallback",
+        "ChineseName": "使用道具回调",
+        "EnglishName": "Use prop callback",
+        "Type": "Function",
+        "FunctionType": [
+          {
+            "Type": "Prop"
+          },
+          {
+            "Type": "Int"
+          }
+        ],
+        "Value": null
+      }
+    ],
+    "StaticFunctions": [
+      {
+        "Name": "Init",
+        "ChineseName": "根据配置表Json数据获取配置表初始化背包",
+        "EnglishName": "According to the configuration table Json data acquisition configuration table initialization backpack",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "data",
+            "Type": "Text",
+            "Description": "配置表Json数据",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Backpack"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "RefreshList",
+        "ChineseName": "刷新道具列表",
+        "EnglishName": "Refresh Prop List",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Array",
+              "ArrayType": {
+                "Type": "BackpackProp"
+              }
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GetList",
+        "ChineseName": "获取背包中的所有道具",
+        "EnglishName": "Get all the items in the backpack",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Array",
+              "ArrayType": {
+                "Type": "BackpackProp"
+              }
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GetJson",
+        "ChineseName": "获取配置表Json",
+        "EnglishName": "Get the configuration table Json",
+        "Type": "Function",
+        "Keys": null,
+        "Return": {
+          "Type": "Text",
+          "Description": "配置表Json"
+        }
+      },
+      {
+        "Name": "Open",
+        "ChineseName": "打开UI",
+        "EnglishName": "Open UI",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GetPropByGUID",
+        "ChineseName": "根据GUID获取背包道具",
+        "EnglishName": "Get backpack props based on GUID",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "guid",
+            "Type": "Text",
+            "Description": "GUID值",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "BackpackProp",
+          "Description": "背包道具"
+        }
+      },
+      {
+        "Name": "GainProp",
+        "ChineseName": "游戏内获得道具",
+        "EnglishName": "Get props in the game",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "prop",
+            "Type": "Prop",
+            "Description": "道具",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "count",
+            "Type": "Int",
+            "Description": "数量",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GainPropByMall",
+        "ChineseName": "在商城获得道具",
+        "EnglishName": "Get props in the mall",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "prop",
+            "Type": "Prop",
+            "Description": "道具",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "count",
+            "Type": "Int",
+            "Description": "数量",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "UseProp",
+        "ChineseName": "使用道具",
+        "EnglishName": "Use props",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "prop",
+            "Type": "BackpackProp",
+            "Description": "背包中的道具",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "count",
+            "Type": "Int",
+            "Description": "数量",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "DropProp",
+        "ChineseName": "丢弃道具",
+        "EnglishName": "Drop props",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "prop",
+            "Type": "BackpackProp",
+            "Description": "道具",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  },
+  "BackpackProp": {
+    "Name": "BackpackProp",
+    "ComponentName": "UtilBarn背包组件#背包道具模块",
+    "Description": "用于UtilBarn平台的背包组件,用于实现背包中道具的管理",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "UtilBarn",
+        "Wiki": "UtilBarn通用组件"
+      },
+      {
+        "Name": "UtilBarn.Request",
+        "Wiki": "UtilBarn通用请求授权组件"
+      },
+      {
+        "Name": "UtilBarn.Prop",
+        "Wiki": "UtilBarn道具组件"
+      }
+    ],
+    "Datas": [
+      {
+        "Name": "ID",
+        "ChineseName": "游戏内的唯一ID",
+        "EnglishName": "Unique ID",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "GUID",
+        "ChineseName": "服务器上的唯一ID",
+        "EnglishName": "Unique ID On Server",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Prop",
+        "ChineseName": "道具",
+        "EnglishName": "Prop",
+        "Type": "Prop",
+        "Value": null
+      },
+      {
+        "Name": "ExpireTime",
+        "ChineseName": "过期时间",
+        "EnglishName": "Expire Time",
+        "Type": "DateTime",
+        "Value": null
+      },
+      {
+        "Name": "StackAmount",
+        "ChineseName": "叠加数量",
+        "EnglishName": "Stack Amount",
+        "Type": "Int",
+        "Value": 1
+      }
+    ],
+    "Functions": [
+      {
+        "Name": "Get",
+        "ChineseName": "通过服务器获取数据",
+        "EnglishName": "Get data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "BackpackProp"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Set",
+        "ChineseName": "通过服务器保存数据",
+        "EnglishName": "Save data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "BackpackProp"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Delete",
+        "ChineseName": "通过服务器删除数据",
+        "EnglishName": "Delete data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Use",
+        "ChineseName": "使用道具",
+        "EnglishName": "Use props",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "count",
+            "Type": "Int",
+            "Description": "数量",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ],
+    "StaticFunctions": []
+  }
+}

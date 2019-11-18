@@ -1,0 +1,873 @@
+{
+    "Datas": [{
+            "Name": "BaseInfo",
+            "ChineseName": "基础信息设置",
+            "EnglishName": "Basic Information Settings",
+            "Icon": "fa-info-circle",
+            "Datas": [{
+                    "Name": "GameName",
+                    "ChineseName": "游戏名称",
+                    "EnglishName": "Game Name",
+                    "Value": "图片选取组件",
+                    "ChineseValue": "图片选取组件",
+                    "EnglishValue": "Image Selection Component",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Description",
+                    "ChineseName": "游戏简介",
+                    "EnglishName": "Game Description",
+                    "Value": "图片选取组件",
+                    "ChineseValue": "图片选取组件",
+                    "EnglishValue": "Image Selection Component",
+                    "Type": "LongText"
+                }
+            ]
+        },
+        {
+            "Name": "Images",
+            "ChineseName": "图片设置",
+            "EnglishName": "Picture Settings",
+            "Icon": "fa-image",
+            "Datas": [{
+                    "Name": "Online",
+                    "ChineseName": "在线图片按钮图片",
+                    "EnglishName": "Online Image Button Image",
+                    "Value": "img/online.png",
+                    "ChineseValue": "img/online.png",
+                    "EnglishValue": "img/online.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Local",
+                    "ChineseName": "本地图片按钮图片",
+                    "EnglishName": "Local Image Button Image",
+                    "Value": "img/local.png",
+                    "ChineseValue": "img/local.png",
+                    "EnglishValue": "img/local.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Text",
+                    "ChineseName": "文字转图片按钮图片",
+                    "EnglishName": "Text To Image Button Image",
+                    "Value": "img/text.png",
+                    "ChineseValue": "img/text.png",
+                    "EnglishValue": "img/text.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Options",
+                    "ChineseName": "更多选项",
+                    "EnglishName": "More Options",
+                    "Value": "img/u405.png",
+                    "ChineseValue": "img/u405.png",
+                    "EnglishValue": "img/u405.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Quit",
+                    "ChineseName": "退出",
+                    "EnglishName": "Quit",
+                    "Value": "img/u401.png",
+                    "ChineseValue": "img/u401.png",
+                    "EnglishValue": "img/u401.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "SaveImage",
+                    "ChineseName": "保存图片",
+                    "EnglishName": "Save Image",
+                    "Value": "img/u403.png",
+                    "ChineseValue": "img/u403.png",
+                    "EnglishValue": "img/u403.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Keyboard",
+                    "ChineseName": "键盘",
+                    "EnglishName": "Keyboard",
+                    "Value": "img/u1919.png",
+                    "ChineseValue": "img/u1919.png",
+                    "EnglishValue": "img/u1919.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Style",
+                    "ChineseName": "样式",
+                    "EnglishName": "Style",
+                    "Value": "img/u1924.png",
+                    "ChineseValue": "img/u1924.png",
+                    "EnglishValue": "img/u1924.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Font",
+                    "ChineseName": "字体",
+                    "EnglishName": "Font",
+                    "Value": "img/u1929.png",
+                    "ChineseValue": "img/u1929.png",
+                    "EnglishValue": "img/u1929.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "BackgroundBtn",
+                    "ChineseName": "背景按钮图片",
+                    "EnglishName": "Background Button",
+                    "Value": "img/u1931.png",
+                    "ChineseValue": "img/u1931.png",
+                    "EnglishValue": "img/u1931.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Pointer",
+                    "ChineseName": "选项指针",
+                    "EnglishName": "Option Pointer",
+                    "Value": "img/u1948.png",
+                    "ChineseValue": "img/u1948.png",
+                    "EnglishValue": "img/u1948.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "SelectLocalImage",
+                    "ChineseName": "选择本地图片",
+                    "EnglishName": "Select Local Image",
+                    "Value": "img/u2014.png",
+                    "ChineseValue": "img/u2014.png",
+                    "EnglishValue": "img/u2014.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "AlphaSlider",
+                    "ChineseName": "透明度拖动条",
+                    "EnglishName": "Alpha Slider",
+                    "Value": "img/u1952.png",
+                    "ChineseValue": "img/u1952.png",
+                    "EnglishValue": "img/u1952.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "AlphaSliderThumb",
+                    "ChineseName": "透明度拖动条拇指",
+                    "EnglishName": "Alpha Slider Thumb",
+                    "Value": "img/u1956.png",
+                    "ChineseValue": "img/u1956.png",
+                    "EnglishValue": "img/u1956.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "CancelBtn",
+                    "ChineseName": "文字转图片界面取消按钮",
+                    "EnglishName": "Text To Image Panel Cancel Button",
+                    "Value": "img/u1647.png",
+                    "ChineseValue": "img/u1647.png",
+                    "EnglishValue": "img/u1647.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "ConfirmBtn",
+                    "ChineseName": "文字转图片界面确认按钮",
+                    "EnglishName": "Text To Image Panel Confirm Button",
+                    "Value": "img/u1645.png",
+                    "ChineseValue": "img/u1645.png",
+                    "EnglishValue": "img/u1645.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Horizontal",
+                    "ChineseName": "水平",
+                    "EnglishName": "Horizontal",
+                    "Value": "img/u613.png",
+                    "ChineseValue": "img/u613.png",
+                    "EnglishValue": "img/u613.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Vertical",
+                    "ChineseName": "垂直",
+                    "EnglishName": "Vertical",
+                    "Value": "img/u619.png",
+                    "ChineseValue": "img/u619.png",
+                    "EnglishValue": "img/u619.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Bold",
+                    "ChineseName": "加粗",
+                    "EnglishName": "Bold",
+                    "Value": "img/u635.png",
+                    "ChineseValue": "img/u635.png",
+                    "EnglishValue": "img/u635.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Italic",
+                    "ChineseName": "斜体",
+                    "EnglishName": "Italic",
+                    "Value": "img/u625.png",
+                    "ChineseValue": "img/u625.png",
+                    "EnglishValue": "img/u625.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Underline",
+                    "ChineseName": "下划线",
+                    "EnglishName": "Underline",
+                    "Value": "img/u630.png",
+                    "ChineseValue": "img/u630.png",
+                    "EnglishValue": "img/u630.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "LeftAlign",
+                    "ChineseName": "居左",
+                    "EnglishName": "Left Align",
+                    "Value": "img/u603.png",
+                    "ChineseValue": "img/u603.png",
+                    "EnglishValue": "img/u603.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "MiddleAlign",
+                    "ChineseName": "居中",
+                    "EnglishName": "Middle Align",
+                    "Value": "img/u598.png",
+                    "ChineseValue": "img/u598.png",
+                    "EnglishValue": "img/u598.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "RightAlign",
+                    "ChineseName": "居右",
+                    "EnglishName": "Right Align",
+                    "Value": "img/u608.png",
+                    "ChineseValue": "img/u608.png",
+                    "EnglishValue": "img/u608.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Back",
+                    "ChineseName": "返回按钮图片",
+                    "EnglishName": "Back Button Image",
+                    "Value": "img/back.png",
+                    "ChineseValue": "img/back.png",
+                    "EnglishValue": "img/back.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "NDR",
+                    "ChineseName": "NDR按钮图片",
+                    "EnglishName": "NDR Button Image",
+                    "Value": "img/ndr.png",
+                    "ChineseValue": "img/ndr.png",
+                    "EnglishValue": "img/ndr.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Baidu",
+                    "ChineseName": "百度按钮图片",
+                    "EnglishName": "Baidu Button Image",
+                    "Value": "img/baidu.png",
+                    "ChineseValue": "img/baidu.png",
+                    "EnglishValue": "img/baidu.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Google",
+                    "ChineseName": "谷歌按钮图片",
+                    "EnglishName": "Google Button Image",
+                    "Value": "img/google.png",
+                    "ChineseValue": "img/google.png",
+                    "EnglishValue": "img/google.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "SearchIndex",
+                    "ChineseName": "搜索引擎下标",
+                    "EnglishName": "Search Index",
+                    "Value": "img/u1654.png",
+                    "ChineseValue": "img/u1654.png",
+                    "EnglishValue": "img/u1654.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "Search",
+                    "ChineseName": "搜索按钮图片",
+                    "EnglishName": "Search Button Image",
+                    "Value": "img/search.png",
+                    "ChineseValue": "img/search.png",
+                    "EnglishValue": "img/search.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "EmptyImage",
+                    "ChineseName": "空图片",
+                    "EnglishName": "Empty Image",
+                    "Value": "img/u1610.png",
+                    "ChineseValue": "img/u1610.png",
+                    "EnglishValue": "img/u1610.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "LoadImage",
+                    "ChineseName": "加载图片",
+                    "EnglishName": "Load Image",
+                    "Value": "img/u1082.png",
+                    "ChineseValue": "img/u1082.png",
+                    "EnglishValue": "img/u1082.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "SelectImage",
+                    "ChineseName": "选中图片",
+                    "EnglishName": "Select Image",
+                    "Value": "img/u1553.png",
+                    "ChineseValue": "img/u1553.png",
+                    "EnglishValue": "img/u1553.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "UnselectImage",
+                    "ChineseName": "未选中图片",
+                    "EnglishName": "Unselect Image",
+                    "Value": "img/u1108.png",
+                    "ChineseValue": "img/u1108.png",
+                    "EnglishValue": "img/u1108.png",
+                    "Type": "Image"
+                },
+                {
+                    "Name": "NoList",
+                    "ChineseName": "列表无数据提示图片",
+                    "EnglishName": "List No Data Prompt Image",
+                    "Value": "img/nolist.png",
+                    "ChineseValue": "img/nolist.png",
+                    "EnglishValue": "img/nolist.png",
+                    "Type": "Image"
+                }
+            ]
+        },
+        {
+            "Name": "Texts",
+            "ChineseName": "文本设置",
+            "EnglishName": "Text Settings",
+            "Icon": "fa-file-text",
+            "Datas": [{
+                    "Name": "Local",
+                    "ChineseName": "本地图片",
+                    "EnglishName": "Local Image",
+                    "Value": "本地图片",
+                    "ChineseValue": "本地图片",
+                    "EnglishValue": "Local",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Online",
+                    "ChineseName": "在线图片",
+                    "EnglishName": "Online Image",
+                    "Value": "在线图片",
+                    "ChineseValue": "在线图片",
+                    "EnglishValue": "Online",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Text",
+                    "ChineseName": "创建文字图片",
+                    "EnglishName": "Create Text Image",
+                    "Value": "创建文字图片",
+                    "ChineseValue": "创建文字图片",
+                    "EnglishValue": "Text",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Cancel",
+                    "ChineseName": "取消按钮文本",
+                    "EnglishName": "Cancel Button Text",
+                    "Value": "取消",
+                    "ChineseValue": "取消",
+                    "EnglishValue": "Cancel",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "OK",
+                    "ChineseName": "确认按钮文本",
+                    "EnglishName": "OK Button Text",
+                    "Value": "确认",
+                    "ChineseValue": "确认",
+                    "EnglishValue": "OK",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "ExitOnline",
+                    "ChineseName": "退出在线页面按钮文本",
+                    "EnglishName": "Exit Online Page Button",
+                    "Value": "取消",
+                    "ChineseValue": "取消",
+                    "EnglishValue": "Cancel",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "EnterCrop",
+                    "ChineseName": "进入裁剪页面按钮文本",
+                    "EnglishName": "Enter Crop Page Button Text",
+                    "Value": "确认",
+                    "ChineseValue": "确认",
+                    "EnglishValue": "OK",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "ExitLocal",
+                    "ChineseName": "退出本地页面按钮",
+                    "EnglishName": "Exit Local Page Button",
+                    "Value": "取消",
+                    "ChineseValue": "取消",
+                    "EnglishValue": "Cancel",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "ImageCrop",
+                    "ChineseName": "进行图片裁剪",
+                    "EnglishName": "Image Cropping",
+                    "Value": "确认",
+                    "ChineseValue": "确认",
+                    "EnglishValue": "OK",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Reset",
+                    "ChineseName": "重置按钮文本",
+                    "EnglishName": "Reset Button Text",
+                    "Value": "重置",
+                    "ChineseValue": "重置",
+                    "EnglishValue": "Reset",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "1:1",
+                    "ChineseName": "1:1",
+                    "EnglishName": "1:1",
+                    "Value": "1:1",
+                    "ChineseValue": "1:1",
+                    "EnglishValue": "1:1",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "2:3",
+                    "ChineseName": "2:3",
+                    "EnglishName": "2:3",
+                    "Value": "2:3",
+                    "ChineseValue": "2:3",
+                    "EnglishValue": "2:3",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "3:4",
+                    "ChineseName": "3:4",
+                    "EnglishName": "3:4",
+                    "Value": "3:4",
+                    "ChineseValue": "3:4",
+                    "EnglishValue": "3:4",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Circle",
+                    "ChineseName": "圆形",
+                    "EnglishName": "Circle",
+                    "Value": "Circle",
+                    "ChineseValue": "圆形",
+                    "EnglishValue": "Circle",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "OriginImage",
+                    "ChineseName": "原图",
+                    "EnglishName": "Origin Image",
+                    "Value": "原图",
+                    "ChineseValue": "原图",
+                    "EnglishValue": "Origin Image",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "SelectImage",
+                    "ChineseName": "重新选择图片",
+                    "EnglishName": "Select Image",
+                    "Value": "重新选择图片",
+                    "ChineseValue": "重新选择图片",
+                    "EnglishValue": "SelectImage",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Title",
+                    "ChineseName": "文字设置",
+                    "EnglishName": "Text Setting",
+                    "Value": "文字设置",
+                    "ChineseValue": "文字设置",
+                    "EnglishValue": "Text Setting",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Keyboard",
+                    "ChineseName": "键盘",
+                    "EnglishName": "Keyboard",
+                    "Value": "键盘",
+                    "ChineseValue": "键盘",
+                    "EnglishValue": "Keyboard",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Style",
+                    "ChineseName": "样式",
+                    "EnglishName": "Style",
+                    "Value": "样式",
+                    "ChineseValue": "样式",
+                    "EnglishValue": "Style",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Font",
+                    "ChineseName": "字体",
+                    "EnglishName": "Font",
+                    "Value": "字体",
+                    "ChineseValue": "字体",
+                    "EnglishValue": "Font",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Horizontal",
+                    "ChineseName": "横向",
+                    "EnglishName": "Horizontal",
+                    "Value": "横向",
+                    "ChineseValue": "横向",
+                    "EnglishValue": "Horizontal",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Vertical",
+                    "ChineseName": "竖向",
+                    "EnglishName": "Vertical",
+                    "Value": "竖向",
+                    "ChineseValue": "竖向",
+                    "EnglishValue": "Vertical",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Bold",
+                    "ChineseName": "加粗",
+                    "EnglishName": "Bold",
+                    "Value": "加粗",
+                    "ChineseValue": "加粗",
+                    "EnglishValue": "Bold",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Italic",
+                    "ChineseName": "斜体",
+                    "EnglishName": "Italic",
+                    "Value": "斜体",
+                    "ChineseValue": "斜体",
+                    "EnglishValue": "Italic",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Underline",
+                    "ChineseName": "下划线",
+                    "EnglishName": "Underline",
+                    "Value": "下划线",
+                    "ChineseValue": "下划线",
+                    "EnglishValue": "Underline",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "LeftAlign",
+                    "ChineseName": "居左",
+                    "EnglishName": "Left Align",
+                    "Value": "居左",
+                    "ChineseValue": "居左",
+                    "EnglishValue": "Left-Align",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "MiddleAlign",
+                    "ChineseName": "居中",
+                    "EnglishName": "Middle Align",
+                    "Value": "居中",
+                    "ChineseValue": "居中",
+                    "EnglishValue": "Middle-Align",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "RightAlign",
+                    "ChineseName": "居右",
+                    "EnglishName": "Right Align",
+                    "Value": "居右",
+                    "ChineseValue": "居右",
+                    "EnglishValue": "Right-Align",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "FontSize",
+                    "ChineseName": "字体大小",
+                    "EnglishName": "Font Size",
+                    "Value": "字体大小",
+                    "ChineseValue": "字体大小",
+                    "EnglishValue": "Font-Size",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "FontColor",
+                    "ChineseName": "字体颜色",
+                    "EnglishName": "Font Color",
+                    "Value": "字体颜色",
+                    "ChineseValue": "字体颜色",
+                    "EnglishValue": "Font-Color",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "DefaultFont",
+                    "ChineseName": "默认字体",
+                    "EnglishName": "Default Font",
+                    "Value": "默认字体",
+                    "ChineseValue": "默认字体",
+                    "EnglishValue": "Default-Font",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "SearchInputPlaceholder",
+                    "ChineseName": "搜索栏输入框提示文本",
+                    "EnglishName": "Search Bar Input Box Prompt Text",
+                    "Value": "输入关键字",
+                    "ChineseValue": "输入关键字",
+                    "EnglishValue": "Enter Keywords",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "All",
+                    "ChineseName": "标签栏全部标签",
+                    "EnglishName": "Tab Bar All Tab",
+                    "Value": "全部",
+                    "ChineseValue": "全部",
+                    "EnglishValue": "All",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "Background",
+                    "ChineseName": "标签栏背景图标签",
+                    "EnglishName": "Tab Bar Background Tab",
+                    "Value": "背景图",
+                    "ChineseValue": "背景图",
+                    "EnglishValue": "Background",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "AvatarIcon",
+                    "ChineseName": "标签栏头像图标标签",
+                    "EnglishName": "Tab Bar Avatar Icon Tab",
+                    "Value": "头像图标",
+                    "ChineseValue": "头像图标",
+                    "EnglishValue": "AvatarIcon",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "PropIcon",
+                    "ChineseName": "标签栏道具图标标签",
+                    "EnglishName": "Tab Bar Prop Icon Tab",
+                    "Value": "道具图标",
+                    "ChineseValue": "道具图标",
+                    "EnglishValue": "PropIcon",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "AnimationIcon",
+                    "ChineseName": "标签栏动画图标标签",
+                    "EnglishName": "Tab Bar Animation Icon Tab",
+                    "Value": "动画图标",
+                    "ChineseValue": "动画图标",
+                    "EnglishValue": "AnimationIcon",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "UI",
+                    "ChineseName": "标签栏UI",
+                    "EnglishName": "Tab Bar UI Tab",
+                    "Value": "UI",
+                    "ChineseValue": "UI",
+                    "EnglishValue": "UI",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "UnselectImageTip",
+                    "ChineseName": "未选中指定数量图片提示",
+                    "EnglishName": "Unselected Image Tips For Limit Count",
+                    "Value": "请选中{0}张图片后跳转裁剪页面",
+                    "ChineseValue": "请选中{0}张图片后跳转裁剪页面",
+                    "EnglishValue": "Please select {0} pictures and jump to the clipping page",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "SearchWordEmptyTip",
+                    "ChineseName": "搜索关键字为空提示",
+                    "EnglishName": "Search Word Empty Tip",
+                    "Value": "当前搜索引擎不允许关键字为空",
+                    "ChineseValue": "当前搜索引擎不允许关键字为空",
+                    "EnglishValue": "Current Search Engines Do Not Allow Empty Keywords",
+                    "Type": "Text"
+                },
+                {
+                    "Name": "NoList",
+                    "ChineseName": "列表无数据提示图片",
+                    "EnglishName": "List No Data Prompt Image",
+                    "Value": "一个能用的都找不到...",
+                    "ChineseValue": "一个能用的都找不到...",
+                    "EnglishValue": "Can not find one can use...",
+                    "Type": "Text"
+                }
+            ]
+        }
+    ],
+    "Home": {
+        "Name": "Home",
+        "ChineseName": "主页模块",
+        "EnglishName": "Home Module",
+        "Datas": [{
+                "Name": "SelectButtons",
+                "ChineseName": "可选按钮集",
+                "EnglishName": "Select Buttons",
+                "Datas": [{
+                        "Name": "Online",
+                        "ChineseName": "在线图片",
+                        "EnglishName": "Online Image",
+                        "Type": "Button"
+                    },
+                    {
+                        "Name": "Local",
+                        "ChineseName": "本地图片",
+                        "EnglishName": "Local Image",
+                        "Type": "Button"
+                    },
+                    {
+                        "Name": "Text",
+                        "ChineseName": "创建文字图片",
+                        "EnglishName": "Create Text Image",
+                        "Type": "Button"
+                    }
+                ]
+            },
+            {
+                "Name": "BottomButtons",
+                "ChineseName": "下方按钮集",
+                "EnglishName": "Bottom Buttons",
+                "Datas": [{
+                        "Name": "Reset",
+                        "ChineseName": "重置按钮",
+                        "EnglishName": "Reset Button",
+                        "Type": "Button"
+                    },
+                    {
+                        "Name": "Cancel",
+                        "ChineseName": "取消按钮",
+                        "EnglishName": "Cancel Button",
+                        "Type": "Button"
+                    }
+                ]
+            }
+        ]
+    },
+    "Online": {
+        "Name": "Online",
+        "ChineseName": "在线图片模块",
+        "EnglishName": "Online Image Module",
+        "Datas": [{
+                "Name": "SearchEngines",
+                "ChineseName": "搜索引擎",
+                "EnglishName": "Search Engines",
+                "Datas": [{
+                    "Name": "NDR",
+                    "ChineseName": "NDR库搜索",
+                    "EnglishName": "NDR",
+                    "Type": "Button",
+                    "FirstTab": {
+                        "Name": "FirstTab",
+                        "ChineseName": "一级标签栏",
+                        "EnglishName": "First Level Tab Bar",
+                        "Datas": [{
+                                "Name": "Background",
+                                "ChineseName": "背景图",
+                                "EnglishName": "Background",
+                                "Type": "Tab",
+                                "Guid": "27cfbb28-48c5-427c-aa28-1ae66c4d2ebd"
+                            },
+                            {
+                                "Name": "AvatarIcon",
+                                "ChineseName": "头像图标",
+                                "EnglishName": "Avatar Icon",
+                                "Type": "Tab",
+                                "Guid": "b9beddbe-157c-408b-9189-1e39187698f0"
+                            },
+                            {
+                                "Name": "PropIcon",
+                                "ChineseName": "道具图标",
+                                "EnglishName": "Prop Icon",
+                                "Type": "Tab",
+                                "Guid": "28e87b13-ecb8-43e1-b120-ad58e0197a6c"
+                            },
+                            {
+                                "Name": "AnimationIcon",
+                                "ChineseName": "动画图标",
+                                "EnglishName": "Animation Icon",
+                                "Type": "Tab",
+                                "Guid": "edc14e5b-ef46-43c9-93ab-8c7014c27ea5"
+                            },
+                            {
+                                "Name": "UI",
+                                "ChineseName": "UI",
+                                "EnglishName": "UI",
+                                "Type": "Tab",
+                                "Guid": "c4c7e792-4c9a-4752-b802-661a30cfd921"
+                            }
+                        ]
+                    }
+                }]
+            },
+            {
+                "Name": "BottomButtons",
+                "ChineseName": "下方按钮集",
+                "EnglishName": "Bottom Buttons",
+                "Datas": [{
+                        "Name": "ExitOnline",
+                        "ChineseName": "退出在线页面按钮",
+                        "EnglishName": "Exit Online Page Button",
+                        "Type": "Button"
+                    },
+                    {
+                        "Name": "EnterCrop",
+                        "ChineseName": "进入裁剪页面按钮",
+                        "EnglishName": "Enter Crop Page Button",
+                        "Type": "Button"
+                    }
+                ]
+            }
+        ]
+    },
+    "Local": {
+        "Name": "Local",
+        "ChineseName": "本地图片模块",
+        "EnglishName": "Local Image Module",
+        "Datas": [{
+            "Name": "BottomButtons",
+            "ChineseName": "下方按钮集",
+            "EnglishName": "Bottom Buttons",
+            "Datas": [{
+                    "Name": "ExitLocal",
+                    "ChineseName": "退出本地页面按钮",
+                    "EnglishName": "Exit Local Page Button",
+                    "Type": "Button"
+                },
+                {
+                    "Name": "ImageCrop",
+                    "ChineseName": "进行图片裁剪",
+                    "EnglishName": "Image Cropping",
+                    "Type": "Button"
+                }
+            ]
+        }]
+    }
+}

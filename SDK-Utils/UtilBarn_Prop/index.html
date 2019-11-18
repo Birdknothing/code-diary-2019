@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <title>UtilBarn 道具组件测试</title>
+
+    <link href="/libs/ThirdParty/bootstrap/css/bootstrap-3.0.3.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">道具组件测试</div>
+        <div class="panel-body">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="Init();">初始化道具列表</button>
+                    <button class="btn btn-default" type="button" onclick="com.New(null,success, error);">新建道具</button>
+                    <button class="btn btn-default" type="button" onclick="com.SaveList(success, error);">保存道具列表</button>
+                    <button class="btn btn-default" type="button" onclick="GetJson();">获取Json</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!--UtilBarn库-->
+    <script src="/libs/UtilBarn/js/UtilBarn.js" type="text/javascript"></script>
+    <script src="/libs/UtilBarn/js/UtilBarn.Ext.js" type="text/javascript"></script>
+    <script src="/libs/UtilBarn_Prop/js/UtilBarn_Prop.js" type="text/javascript"></script>
+    <script src="/libs/UtilBarn_FileSaver/js/UtilBarn_FileSaver.js" type="text/javascript"></script>
+    <script>
+        UtilBarn.GameId = "08689b40-2616-11e9-a994-8d998024f53f";
+        UtilBarn.PackageGuid = "af67bed3-e8db-4908-a4c9-23b56507fe84";
+        UtilBarn.Version = "1.00";
+        UtilBarn.Access = "1";
+        UtilBarn.Mode = "1";
+
+        var com = UtilBarn.Prop;
+
+        UtilBarn.Start();
+
+        function success(data) {
+            console.log(data);
+        }
+
+        function error(e) {
+            console.log(e);
+        }
+
+        var json = { "Props": [{ "ID": "242050f9-1539-4ab3-a17d-72ebb3d664f8", "GUID": "c6f8af20-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": "", "StackLimit": 0, "Rarity": 0, "Duration": 0 }, { "ID": "51b28d86-78a9-430c-936b-52bb48bac0ea", "GUID": "c6f8af21-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": "", "StackLimit": 0, "Rarity": 0, "Duration": 0 }, { "ID": "274e2c2f-d28d-4d69-a949-7961edd2a4ca", "GUID": "c6f8af22-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": "", "StackLimit": 0, "Rarity": 0, "Duration": 0 }, { "ID": "5482bc51-10fb-41cc-8dd3-ba9bacd849e8", "GUID": "c6f8af23-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": "", "StackLimit": 0, "Rarity": 0, "Duration": 0 }, { "ID": "2433d795-ce99-405d-9f71-049cd30ec110", "GUID": "c6f8af24-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": "", "StackLimit": 0, "Rarity": 0, "Duration": 0 }, { "ID": "0f699d44-f5f7-443a-b21d-1d274007aa72", "GUID": "c6f8af25-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": "", "StackLimit": 0, "Rarity": 0, "Duration": 0 }, { "ID": "b250c01d-a202-4d32-9581-e24a4c002c0f", "GUID": "c6f8af26-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": "", "StackLimit": 0, "Rarity": 0, "Duration": 0 }, { "ID": "10e605fc-d80d-4ce0-9b94-db7ac29071a6", "GUID": "c6f8af27-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": "", "StackLimit": 0, "Rarity": 0, "Duration": 0 }, { "ID": "cd63e9fc-1be3-4b59-9eda-d86aef0593fe", "GUID": "ee6cc450-5ec3-11e9-9724-e50bc08741ad", "Name": "", "Icon": "", "Description": "", "Attribute": null, "StackLimit": 1, "Rarity": 1, "Duration": 0 }] };
+
+        function Init() {
+            com.Init(JSON.stringify(json), function () {
+                console.log(com.ServerList);
+                console.log(com.PropList);
+            });
+        }
+
+        function GetJson() {
+            var json = com.GetJson();
+            console.log(json);
+            UtilBarn.FileSaver.SaveText(json, "Props.json");
+        }
+
+    </script>
+</body>
+</html>

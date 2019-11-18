@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <title>UtilBarn 新前端分类库</title>
+
+    <link href="/libs/ThirdParty/bootstrap/css/bootstrap-3.0.3.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">库维度</div>
+        <div class="panel-body">
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" id="dimensionbutton" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">资源库<span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a onclick="SetDimensionID('Resource',this);">资源库</a></li>
+                    </ul>
+                </div>
+                <input id="dimensioninput" type="text" class="form-control" value="f7d6183b-7bbe-0adf-3ab7-6e89d9f191e7" placeholder="维度ID">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="Set();">设置</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">前端分类树</div>
+        <div class="panel-body">
+            <div class="input-group">
+                <input id="taginput" type="text" class="form-control" value="" placeholder="Tag ID ，为空时查询一级目录">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetSortTree();">查询</button>
+                </span>
+            </div>
+        </div>
+        <ul class="list-group" id="InfosList"></ul>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">资源列表</div>
+        <div class="panel-body">
+            <div class="input-group">
+                <input id="taginput_resource" type="text" class="form-control" value="" placeholder="Tag ID ，为空时查询一级目录">
+                <input id="keyinput_resource" type="text" class="form-control" value="" placeholder="关键词">
+                <input id="pageinput_resource" type="number" class="form-control" value="1">
+                <input id="sizeinput_resource" type="number" class="form-control" value="20">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetResources();">查询</button>
+                </span>
+            </div>
+        </div>
+        <ul class="list-group" id="InfosList_resource"></ul>
+    </div>
+
+    <!--UtilBarn库-->
+    <script src="/libs/UtilBarn/js/UtilBarn.js" type="text/javascript"></script>
+    <!--Bootstrap库-->
+    <script src="/libs/ThirdParty/bootstrap/js/bootstrap-3.0.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var lib = UtilBarn.NewFrontendLib;
+
+        UtilBarn.Start(null);
+
+        // 设置维度ID
+        function SetDimensionID(key, btn) {
+            var id = lib.SetDimensionID(key);
+            var input = document.getElementById("dimensioninput");
+            input.value = id;
+
+            var button = document.getElementById("dimensionbutton");
+            button.innerText = btn.innerText;
+        }
+
+        // 设置维度ID
+        function Set() {
+            var input = document.getElementById("dimensioninput");
+            lib.DimensionID = input.value;
+        }
+
+        // 查询前端分类树
+        function GetSortTree() {
+            var node = document.getElementById("InfosList");
+            $('#InfosList li').remove();
+            var input = document.getElementById("taginput");
+            var tag = input.value.replace(/ /g, '');
+            lib.GetSortTree(tag, function (data) {
+                var keys = Object.keys(data);
+                for (var i = 0; i < keys.length; i++) {
+                    var key = keys[i];
+                    var value = data[key];
+                    var li = document.createElement("li");
+                    li.classList.add("list-group-item");
+                    li.textContent = value.Name + " : " + value.ID;
+                    node.appendChild(li);
+                }
+            }, function (err) {
+                var li = document.createElement("li");
+                li.classList.add("list-group-item");
+                li.textContent = err;
+                node.appendChild(li);
+                console.log(err);
+            });
+        }
+
+        // 获取分类下的资源列表
+        function GetResources() {
+            var node = document.getElementById("InfosList_resource");
+            $('#InfosList_resource li').remove();
+            var input = document.getElementById("taginput_resource");
+            var tag = input.value.replace(/ /g, '');
+            input = document.getElementById("keyinput_resource");
+            var key = input.value.replace(/ /g, '');
+            input = document.getElementById("pageinput_resource");
+            var page = input.value.replace(/ /g, '');
+            input = document.getElementById("sizeinput_resource");
+            var size = input.value.replace(/ /g, '');
+
+            lib.GetResources(tag, key, page, size, function (data) {
+                console.log(data);
+                var li = document.createElement("li");
+                li.classList.add("list-group-item");
+                li.textContent = "搜索到" + data.Count + "个结果";
+                node.appendChild(li);
+                data = data.Items;
+                var keys = Object.keys(data);
+                for (var i = 0; i < keys.length; i++) {
+                    var key = keys[i];
+                    var value = data[key];
+                    li = document.createElement("li");
+                    li.classList.add("list-group-item");
+                    li.textContent = value.Name + " : " + value.ID;
+                    node.appendChild(li);
+                }
+            }, function (err) {
+                var li = document.createElement("li");
+                li.classList.add("list-group-item");
+                li.textContent = err;
+                node.appendChild(li);
+                console.log(err);
+            });
+        }
+
+    </script>
+</body>
+</html>

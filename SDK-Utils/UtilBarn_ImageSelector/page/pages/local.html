@@ -1,0 +1,53 @@
+<div id="FileSelectContainer" class="ic-file-container" ng-init="DataFunction.GetFunction('IC_Onload')()">
+    <div class="ic-table ic-bg">
+        <div class="ic-table-row ic-toolbar">
+            <div class="ic-flex">
+                <div class="ic-table-cell-toolbar">
+                    <image ng-src="{{DataFunction.GetImage('Options')}}" style="width: 20px; height:20px" ng-click="DataFunction.GetFunction('IC_ClickMoreOptions')()">
+                </div>
+                <div class="ic-table-cell-toolbar">
+                    <span class="a-btn-s" ng-click="DataFunction.GetFunction('IC_SetRectRatio')(1,1)">{{DataFunction.GetText("1:1")}}</span>
+                </div>
+                <div class="ic-table-cell-toolbar">
+                    <span class="a-btn-s" ng-click="DataFunction.GetFunction('IC_SetRectRatio')(0,0)">{{DataFunction.GetText("OriginImage")}}</span>
+                </div>
+                <div class="ic-table-cell-toolbar" style="width: 30%; flex-basis: 30%;">
+                    <span class="a-btn" ng-click="DataFunction.GetFunction('IC_ReselectImage')()">{{DataFunction.GetText("SelectImage")}}</span>
+                </div>
+                <!-- <div class="ic-table-cell-toolbar">
+                    <image ng-src="{{DataFunction.GetImage('Quit')}}" style="width: 20px; height:20px" ng-click="DataFunction.GetFunction('IC_Quit')()">
+                </div>
+                <div class="ic-table-cell-toolbar">
+                    <image ng-src="{{DataFunction.GetImage('SaveImage')}}" style="width: 20px; height:20px" ng-click="DataFunction.GetFunction('IC_SaveImage')()">
+                </div> -->
+            </div>
+        </div>
+        <div class="ic-table-row">
+            <div id="MoreOptionsDiv" class="moreoptions" style="display: none;">
+                <div style="padding-top: 20px;">
+                    <div class="ic-table" style="width: 100%; height: 27px;">
+                        <div class="table-cell-moreoptions">
+                            <span class="a-btn-s" ng-click="DataFunction.GetFunction('IC_SetRectRatio')(1,1)">{{DataFunction.GetText("1:1")}}</span>
+                        </div>
+                        <div class="table-cell-moreoptions">
+                            <span class="a-btn-s" ng-click="DataFunction.GetFunction('IC_SetRectRatio')(2,3)">{{DataFunction.GetText("2:3")}}</span>
+                        </div>
+                        <div class="table-cell-moreoptions">
+                            <span class="a-btn-s" ng-click="DataFunction.GetFunction('IC_SetRectRatio')(3,4)">{{DataFunction.GetText("3:4")}}</span>
+                        </div>
+                        <div class="table-cell-moreoptions">
+                            <span class="a-btn-s" ng-click="DataFunction.GetFunction('IC_SetCircleRatio')()">{{DataFunction.GetText("Circle")}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="h550" style="text-align: center;"><img id="ImageContainerTarget" /></div>
+        </div>
+    </div>
+    <div id="ImagePreviewContainer" style="display: none;"></div>
+    <!-- <input style="display: none;" type="file" id="takepicture" ng-change="DataFunction.GetFunction('IC_SelectImage(this)" ng-model="DataFunction.GetFunction('IC_ImageFile" accept="image/*"> -->
+    <input style="display: none;" type="file" id="takepicture" onchange="DataFunction.GetFunction('IC_SelectImage')(this)" accept="{{DataFunction.GetFunction('IC_GetAcceptFormats')()}}">
+</div>
+
+<!-- 下方按钮集 -->
+<div ng-include="'controls/bottombuttons.html'"></div>

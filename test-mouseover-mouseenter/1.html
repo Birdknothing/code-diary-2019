@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <script src="../my-min-library/react.min.js"></script>
-    <script src="../my-min-library/reactdom.min.js"></script>
-    <script src="../my-min-library/babel.min.js"></script>
+    <script src="../my-min-library/jquery.min.js"></script>
     <style>
       #app {
         height: 100px;
@@ -25,6 +23,9 @@
         })
         .on("mouseover", function() {
           console.log("over");
+        })
+        .on("mousemove", function() {
+          console.log("move");
         });
     </script>
   </body>

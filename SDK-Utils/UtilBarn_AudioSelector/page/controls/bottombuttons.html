@@ -1,0 +1,13 @@
+﻿<!-- 下方按钮集 -->
+<div class="BottomButtons">
+    <div class="SelectButton" ng-repeat="data in Datas[DataFunction.GetPage()].BottomButtons.Datas" ng-click="DataFunction.GetFunction(data.Name)()">
+        <div class="SelectButtonDiv">
+            <div class="Split">
+                <div ng-show="$index > 0"></div>
+            </div>
+            <div class="SelectButtonText">
+                <div>{{DataFunction.GetText(data.Name)}}</div>
+            </div>
+        </div>
+    </div>
+</div>

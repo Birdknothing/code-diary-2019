@@ -1,0 +1,279 @@
+﻿{
+  "Role": {
+    "Name": "Role",
+    "ComponentName": "UtilBarn角色组件",
+    "Description": "用于UtilBarn平台的角色组件,用于实现角色的管理",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "UtilBarn",
+        "Wiki": "UtilBarn通用组件"
+      },
+      {
+        "Name": "UtilBarn.Request",
+        "Wiki": "UtilBarn通用请求授权组件"
+      }
+    ],
+    "Datas": [
+      {
+        "Name": "ID",
+        "ChineseName": "游戏内的唯一ID",
+        "EnglishName": "Unique ID",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "GUID",
+        "ChineseName": "服务器上的唯一ID",
+        "EnglishName": "Unique ID On Server",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Name",
+        "ChineseName": "名称",
+        "EnglishName": "Name",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Avatar",
+        "ChineseName": "头像",
+        "EnglishName": "Avatar",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "Level",
+        "ChineseName": "经验",
+        "EnglishName": "Level",
+        "Type": "Int",
+        "Value": 0
+      },
+      {
+        "Name": "Experience",
+        "ChineseName": "经验",
+        "EnglishName": "Experience",
+        "Type": "Int",
+        "Value": 0
+      },
+      {
+        "Name": "HP",
+        "ChineseName": "血量",
+        "EnglishName": "HP",
+        "Type": "Int",
+        "Value": 1
+      },
+      {
+        "Name": "MP",
+        "ChineseName": "蓝量",
+        "EnglishName": "MP",
+        "Type": "Int",
+        "Value": 1
+      },
+      {
+        "Name": "Profession",
+        "ChineseName": "职业",
+        "EnglishName": "Profession",
+        "Type": "Text",
+        "Value": ""
+      }
+    ],
+    "Functions": [
+      {
+        "Name": "Get",
+        "ChineseName": "通过服务器获取角色数据",
+        "EnglishName": "Get data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Role"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Set",
+        "ChineseName": "通过服务器保存数据",
+        "EnglishName": "Save data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Role"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Delete",
+        "ChineseName": "通过服务器删除数据",
+        "EnglishName": "Delete data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ],
+    "StaticDatas": [
+      {
+        "Name": "Current",
+        "ChineseName": "当前实例",
+        "EnglishName": "Current Instance",
+        "Type": "Role",
+        "Value": null
+      },
+      {
+        "Name": "RoleList",
+        "ChineseName": "角色列表",
+        "EnglishName": "Role List",
+        "Type": "Array",
+        "ArrayType": {
+          "Type": "Role"
+        },
+        "Value": null
+      }
+    ],
+    "StaticFunctions": [
+      {
+        "Name": "GetList",
+        "ChineseName": "获取角色列表",
+        "EnglishName": "Get the list of roles",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Array",
+              "ArrayType": {
+                "Type": "Role"
+              }
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "New",
+        "ChineseName": "新建角色",
+        "EnglishName": "New Role",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Role"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Select",
+        "ChineseName": "选择角色",
+        "EnglishName": "Select Role",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "role",
+            "Type": "Role",
+            "Description": "角色",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  }
+}

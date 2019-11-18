@@ -1,0 +1,74 @@
+<!-- 上方搜索栏 -->
+<div class="oi_header">
+    <!-- 返回按钮 -->
+    <div class="oi_back" ng-click="DataFunction.GetFunction('ExitOnline')()">
+        <img ng-src="{{DataFunction.GetImage('Back')}}" />
+    </div>
+
+    <!-- 搜索栏 -->
+    <div class="oi_input_panel">
+        <div class="oi_bg">
+            <input id="oi_input" class="oi_input" type="text" placeholder="{{DataFunction.GetText('SearchInputPlaceholder')}}" ng-model="DataFunction.OnlineImage.Keyword" ng-blur="DataFunction.GetFunction('OI_OnInputBlur')()" />
+            <img class="oi_img" ng-src="{{DataFunction.GetImage('Search')}}" ng-click="DataFunction.GetFunction('OI_OnSearch')()" />
+        </div>
+    </div>
+    <ul id="oi_search_engine" class="oi_ul">
+        <li value="{{$index + 1}}" class="oi_li" style="background-image: url('{{DataFunction.GetImage(data.Name)}}'); display: {{DataFunction.GetFunction('OI_GetSearchEngineDisplay')($index)}}" ng-click="DataFunction.GetFunction('OI_OnSearchEngineClick')($index)"
+            ng-repeat="data in DataFunction.OnlineImage.SearchEngines" ng-repeatfinish="DataFunction.GetFunction('OI_OnNgReapeatSearchEngineFinished')()"></li>
+    </ul>
+    <img class="oi_search_index" ng-src="{{DataFunction.GetImage('SearchIndex')}}">
+</div>
+
+<!-- 内容区 -->
+<div class="oi_content" ng-init="DataFunction.GetFunction('OI_ScrollInit')()">
+    <!-- 一级标签栏 -->
+    <div class="oi_first_tab">
+        <div class="oi_tab_scroll">
+            <div class="oi_tab_bar">
+                <!-- <span resize-flag="262192" class="{{Datas.Online.FirstTab.Select === -1 ? 'active':'' }}" ng-click="DataFunction.GetFunction('OI_SelectFirstTab')(-1)">
+                    {{DataFunction.GetText('All')}}
+                </span> -->
+                <span class="{{Datas.Online.SearchEngines.Datas[DataFunction.OnlineImage.CurrentSearchEngineIndex].FirstTab.Select === $index ? 'active':'' }}" ng-click="DataFunction.GetFunction('OI_SelectFirstTab')($index)" ng-repeat="data in Datas.Online.SearchEngines.Datas[DataFunction.OnlineImage.CurrentSearchEngineIndex].FirstTab.Datas"
+                    ng-repeatfinish="DataFunction.GetFunction('OI_OnNgReapeatFirstTabFinished')()">
+                    {{DataFunction.GetText(data.Name)}}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜索队列 -->
+    <div class="oi_list">
+        <!-- <div class="oi_list_item" resize-flag="524312">
+            <div class="oi_item_frame" resize-flag="512">
+                <div class="oi_item_icon" ng-click="DataFunction.GetFunction('OI_OnSelectData')(DataFunction.OnlineImage.EmptyData)">
+                    <div class="oi_item_default" style="background-image: url('{{DataFunction.GetImage('EmptyImage')}}');"></div>
+                </div>
+                <div class="oi_item_select" resize-flag="262203">
+                    <div style="background-image: url('{{ data.Index && data.Index > -1 ? DataFunction.GetImage('SelectImage') : DataFunction.GetImage('UnselectImage')}}');">{{data.Index && data.Index > -1 ? data.Index : ''}}</div>
+                </div>
+            </div>
+        </div> -->
+        <div id="oi_list_item" name="oi_list_item" class="oi_list_item" style="{{DataFunction.ResizeStyleScale('width: {0}px; height: {1}px; flex-basis: {2}px;', 244, 244, 244)}}" ng-repeat="data in DataFunction.OnlineImage.ListDatas" ng-repeatfinish="DataFunction.GetFunction('OI_OnNgReapeatSearchListFinished')()">
+            <div name="oi_list_item" class="oi_item_frame" style="{{DataFunction.ResizeStyleScale('border-top-width:{0}px; border-left-width:{1}px;', 10, 10)}}">
+                <div class="oi_item_icon" style="line-height: {{DataFunction.ResizeStyleScale('{0}px', 234)}}" ng-click="DataFunction.GetFunction('OI_OnSelectData')(data)">
+                    <!-- <div class="{{DataFunction.GetFunction('OI_GetItemIconClass')(data, $index)}}" style="background-image: url('{{ data.Url || DataFunction.GetImage('LoadImage')}}');"></div> -->
+                    <img id="{{$index}}" onerror="DataFunction.GetFunction('OI_OnImageLoadError')(id)" class="{{DataFunction.GetFunction('OI_GetItemIconClass')(data, $index)}}" ng-src="{{ data.Url || DataFunction.GetImage('LoadImage')}}">
+                </div>
+                <div name="oi_list_item" class="oi_item_select" style="{{DataFunction.ResizeStyleScale('left:{0}px; top:{1}px; width:{2}px; height: {3}px; line-height: {4}px; font-size:{5}px;', 194, -224, 30, 30, 30, 18)}}">
+                    <div style="background-image: url('{{data.Index && data.Index > -1 ? DataFunction.GetImage('SelectImage') : DataFunction.GetImage('UnselectImage')}}');">{{data.Index && data.Index > -1 ? data.Index : ''}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="oi_no_list" ng-show="DataFunction.OnlineImage.IsSearchResult && DataFunction.OnlineImage.ListDatas.length === 0">
+            <div class="oi_no_list_image">
+                <img ng-src="{{DataFunction.GetImage('NoList')}}" />
+            </div>
+            <div class="oi_no_list_text">{{DataFunction.GetText('NoList')}}</div>
+        </div>
+    </div>
+</div>
+
+<!-- 下方按钮集 -->
+<div ng-include="'controls/bottombuttons.html'"></div>
+
+<div ng-init="DataFunction.GetFunction('OI_Onload')()"></div>

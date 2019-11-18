@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <title>UtilBarn 商城组件测试</title>
+
+    <link href="/libs/ThirdParty/bootstrap/css/bootstrap-3.0.3.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">商城组件测试</div>
+        <div class="panel-body">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="Init();">初始化商城</button>
+                    <button class="btn btn-default" type="button" onclick="com.Current.Set(success, error);">保存商城</button>
+                    <button class="btn btn-default" type="button" onclick="com.Current.Delete(success, error);">删除商城</button>
+                    <button class="btn btn-default" type="button" onclick="com.Current.CreateStore(function (data) { store = data; success(data); }, error);">新建商店</button>
+                    <button class="btn btn-default" type="button" onclick="GetJson();">获取Json</button>
+                    <button class="btn btn-default" type="button" onclick="com.OpenMall(success, error)">打开商城</button>
+                </span>
+            </div>
+        </div>
+        <div class="panel-heading">商城组件模块商店模块测试</div>
+        <div class="panel-body">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="store.Get(success, error);">获取商店</button>
+                    <button class="btn btn-default" type="button" onclick="store.Set(success, error);">保存商店</button>
+                    <button class="btn btn-default" type="button" onclick="store.Delete(success, error);">删除商店</button>
+                    <button class="btn btn-default" type="button" onclick="CreateCommodity();">创建商品</button>
+                </span>
+            </div>
+        </div>
+        <div class="panel-heading">商品</div>
+        <div class="panel-body">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="commodity.Get(success, error);">获取商品</button>
+                    <button class="btn btn-default" type="button" onclick="commodity.Set(success, error);">保存商品</button>
+                    <button class="btn btn-default" type="button" onclick="commodity.Delete(success, error);">删除商品</button>
+                    <button class="btn btn-default" type="button" onclick="Buy();">购买商品</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!--UtilBarn库-->
+    <script src="/libs/UtilBarn/js/UtilBarn.js" type="text/javascript"></script>
+    <script src="/libs/UtilBarn_Role/js/UtilBarn_Role.js" type="text/javascript"></script>
+    <script src="/libs/UtilBarn_Mall/js/UtilBarn_Mall.js" type="text/javascript"></script>
+    <script src="/libs/UtilBarn_FileSaver/js/UtilBarn_FileSaver.js" type="text/javascript"></script>
+    <script>
+        UtilBarn.GameId = "08689b40-2616-11e9-a994-8d998024f53f";
+        UtilBarn.PackageGuid = "af67bed3-e8db-4908-a4c9-23b56507fe84";
+        UtilBarn.Version = "1.00";
+        UtilBarn.Access = "1";
+        UtilBarn.Mode = "1";
+
+        var com = UtilBarn.Mall;
+
+        var store;
+
+        var commodity;
+
+        UtilBarn.Start();
+
+        function success(data) {
+            console.log(data);
+        }
+
+        function error(e) {
+            console.log(e);
+        }
+
+        var json = { "Mall": { "Enable": true, "ID": "9cff4e05-a4ab-4e7d-a0af-63b2e61ba350", "GUID": "79ca7be0-62d5-11e9-af50-4575e04374bc", "MallName": "商城", "MallIcon": "", "BackgroundImage": "", "OpenAudio": "", "CloseAudio": "", "MallAD": "", "PurchaseConfirmationPrompt": [], "PurchaseSuccessPrompt": [], "PurchaseFailurePrompt": [], "InsufficientBalancePrompt": [], "PurchaseLimitPrompt": [], "PurchaseButtonText": "", "TipBoxBackground": "", "CommodityDetailsBackground": "", "CommodityBottomFrame": "", "CloseButtonImage": "", "ButtonBottomFrame": "", "ButtonClickSound": "", "StoreList": [{ "ID": "7ad76182-858b-49cc-987b-9d95055ae6c5", "GUID": "82cc6460-62d5-11e9-af50-4575e04374bc", "StoreName": "New Store", "CommodityList": [{ "ID": "38fbc427-99a5-4f04-89fa-208afce713c0", "GUID": "86453770-62d5-11e9-a874-371622088c42", "Index": 0, "CommodityName": "New Commodity", "Image": "", "Description": "", "StartSaleTime": null, "EndSaleTime": null, "IsInventoryLimit": true, "InventoryLimit": 0, "IsPurchaseLimit": true, "PurchaseLimitType": 0, "PurchaseLimit": 0, "BindingProp": { "ID": "242050f9-1539-4ab3-a17d-72ebb3d664f8", "GUID": "c6f8af20-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": "", "StackLimit": 0, "Rarity": 0, "Duration": 0 }, "BindingPropCount": 1, "Price": { "Keys": [{ "ID": "4e84b383-af17-432a-8572-48feaf837a96", "GUID": 5, "Index": 1, "Name": "", "Icon": "", "Description": "", "Attribute": null }], "Values": [1] } }] }] } };
+
+        var propsjson = { "Props": [{ "ID": "242050f9-1539-4ab3-a17d-72ebb3d664f8", "GUID": "c6f8af20-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": null, "StackLimit": 1, "Rarity": 1, "Duration": 0 }, { "ID": "51b28d86-78a9-430c-936b-52bb48bac0ea", "GUID": "c6f8af21-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": null, "StackLimit": 1, "Rarity": 1, "Duration": 0 }, { "ID": "274e2c2f-d28d-4d69-a949-7961edd2a4ca", "GUID": "c6f8af22-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": null, "StackLimit": 1, "Rarity": 1, "Duration": 0 }, { "ID": "5482bc51-10fb-41cc-8dd3-ba9bacd849e8", "GUID": "c6f8af23-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": null, "StackLimit": 1, "Rarity": 1, "Duration": 0 }, { "ID": "2433d795-ce99-405d-9f71-049cd30ec110", "GUID": "c6f8af24-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": null, "StackLimit": 1, "Rarity": 1, "Duration": 0 }, { "ID": "0f699d44-f5f7-443a-b21d-1d274007aa72", "GUID": "c6f8af25-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": null, "StackLimit": 1, "Rarity": 1, "Duration": 0 }, { "ID": "b250c01d-a202-4d32-9581-e24a4c002c0f", "GUID": "c6f8af26-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": null, "StackLimit": 1, "Rarity": 1, "Duration": 0 }, { "ID": "10e605fc-d80d-4ce0-9b94-db7ac29071a6", "GUID": "c6f8af27-5c01-11e9-aa38-0d6bda25de7a", "Name": "", "Icon": "", "Description": "", "Attribute": null, "StackLimit": 1, "Rarity": 1, "Duration": 0 }] };
+
+        var currencyjson = { "Currencys": [{ "ID": "b976d979-640a-42f4-a6b2-a137c6225e38", "GUID": 2, "Name": "", "Icon": "", "Description": "", "Attribute": null }, { "ID": "1709b3e5-138c-4f93-93ae-be21576b2e1a", "GUID": 3, "Name": "", "Icon": "", "Description": "", "Attribute": null }, { "ID": "b6ce5724-6dd7-4d9b-bb71-cf95f328eb70", "GUID": 4, "Name": "", "Icon": "", "Description": "", "Attribute": null }, { "ID": "f4b9a887-b4db-404f-aeec-1f02eac88dfa", "GUID": 5, "Name": "", "Icon": "", "Description": "", "Attribute": null }, { "ID": "16172049-c865-4840-9354-4a65c4e8f921", "GUID": 6, "Name": "", "Icon": "", "Description": "", "Attribute": null }, { "ID": "aeaf717a-4679-4dfe-8987-21e8c92a442d", "GUID": 7, "Name": "", "Icon": "", "Description": "", "Attribute": null }] };
+
+        function Init() {
+            UtilBarn.Prop.Init(JSON.stringify(propsjson), function () {
+                console.log(UtilBarn.Prop.ServerList);
+                console.log(UtilBarn.Prop.PropList);
+                initRole();
+            });
+
+            function initRole() {
+                UtilBarn.Role.GetList(function () {
+                    if (!UtilBarn.Role.Current) {
+                        UtilBarn.Role.New(init, error);
+                    }
+                    else {
+                        init();
+                    }
+                }, function () {
+                    UtilBarn.Role.New(init, error);
+                });
+            }
+
+            function initCurrency() {
+                UtilBarn.Currency.Init(JSON.stringify(currencyjson), function () {
+                    console.log(UtilBarn.Currency.ServerList);
+                    console.log(UtilBarn.Currency.CurrencyList);
+                });
+            }
+
+            function init() {
+                initCurrency();
+
+                com.RoleID = UtilBarn.Role.Current.GUID;
+                com.Init(JSON.stringify(json), function () {
+                    console.log(UtilBarn.Mall.Current);
+                }, error);
+            }
+        }
+
+        function CreateCommodity() {
+            store.CreateCommodity(function (data) {
+                commodity = data;
+                data.Price.Set(UtilBarn.Currency.CurrencyList[0], 1);
+                data.BindingProp = UtilBarn.Prop.PropList[0];
+                data.IsPurchaseLimit = false;
+                data.InventoryLimit = 1000;
+                data.Set();
+                success(data);
+            }, error);
+        }
+
+        function Buy() {
+            if (!commodity.Price.Keys[0]) return;
+            var currency = commodity.Price.Keys[0];
+            commodity.Buy(currency, 1, success, error);
+        }
+
+        function GetJson() {
+            var json = com.GetJson();
+            console.log(json);
+            UtilBarn.FileSaver.SaveText(json, "Mall.json");
+        }
+
+    </script>
+</body>
+</html>
