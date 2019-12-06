@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script src="../my-min-library/react.dev.js"></script>
+        <script src="../my-min-library/reactdom.dev.js"></script>
+        <script src="../my-min-library/babel.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script src="./dist.js"></script>
+        <script type="text/babel">
+            const { IntlProvider, FormattedMessage } = ReactIntl;
+            const { Component } = React;
+            class App extends Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        name: "Eric",
+                        unreadCount: 1000
+                    };
+                }
+
+                render() {
+                    const { name, unreadCount } = this.state;
+
+                    return (
+                        <p>
+                            <FormattedMessage
+                                id="welcome"
+                                defaultMessage={`Hello {name}, you have {unreadCount, number} {unreadCount, plural,
+                      one {message}
+                      other {messages}
+                    }`}
+                                values={{ name: <b>{name}</b>, unreadCount }}
+                            />
+                        </p>
+                    );
+                }
+            }
+
+            ReactDOM.render(
+                <IntlProvider locale="cn">
+                    <App />
+                </IntlProvider>,
+                document.getElementById("app")
+            );
+        </script>
+    </body>
+</html>

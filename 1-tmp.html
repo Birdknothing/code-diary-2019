@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-        setInterval(()=>{
-            console.log(document.visibilityState);
-            
-        },1000)
-        </script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+            #test {
+                width: 100px;
+                height: 100px;
+                /* float: left; */
+                transform: rotate(90deg);
+                transform-origin: center;
+            }
+            .op {
+                transform: rotate(90deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="test">
+            <select name="a" id="b">
+                <option value="volvo" class="op" selected>Volvo</option>
+                <option value="volvo" class="op">Volvo</option>
+                <option value="volvo" class="op">Volvo</option>
+            </select>
+            123
+        </div>
+    </body>
 </html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script src="../my-min-library/react.dev.js"></script>
+        <script src="../my-min-library/reactdom.dev.js"></script>
+        <script src="../my-min-library/babel.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/babel">
+            const { PureComponent, useMemo, memo } = React;
+            // class C extends PureComponent {
+            //     state = {
+            //         x: { z: 1 }
+            //     };
+            //     static getDerivedStateFromProps(x, y) {
+            //         console.log({ x, y });
+            //         return null;
+            //     }
+            //     componentDidMount() {
+            //         setTimeout(() => {
+            //             this.setState({ x: { z: 1 } });
+            //         }, 1000);
+            //     }
+            //     // shouldComponentUpdate() {
+            //     //     console.log("here");
+            //     //     return true;
+            //     // }
+            //     render() {
+            //         console.log("render");
+            //         return <div>{this.state.x.toString()}</div>;
+            //     }
+            // }
+            const arr = [1];
+            // const C = memo(props => {
+            //     console.log("here");
+
+            //     return <div>{props.x.toString()}</div>;
+            // });
+            // console.log(React.version);
+            const M = props => <div>12</div>;
+            let trigger = 1;
+            const D = props => {
+                const W = useMemo(() => {
+                    console.log("hh");
+                    return M;
+                }, [trigger]);
+                console.log(W);
+
+                return (
+                    <div>
+                        <W />
+                    </div>
+                );
+            };
+            // const C = useMemo(props => <D {...props} />, [trigger]);
+
+            ReactDOM.render(<D />, app);
+            setTimeout(() => {
+                trigger = 2;
+                ReactDOM.render(<D />, app);
+            }, 1000);
+        </script>
+    </body>
+</html>

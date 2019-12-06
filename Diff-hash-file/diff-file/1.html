@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>比较两个String字符串找出不同，并将不同处高亮显示</title>
+    <link href="../../my-min-library/bootstrap.min.css" rel="stylesheet" />
+	<style type="text/css">   
+	textarea{
+		border:1;  
+		overflow:auto;
+		height:100%;
+		width:100%
+		}
+	input{
+		border:1;
+		overflow:auto;
+		height:99%;
+		width:96%
+		} 
+	</style> 
+    <script src="../../my-min-library/jquery.min.js"></script>
+	<script src="1.js"></script>
+</head>
+<body>
+<form>
+    <fieldset>
+        <div class="form-group">
+            <div class="col-sm-4">
+				<textarea  rows="2" cols="20" type="text" id="inpLeft" name="inpLeft">——我们要坚持开放、绿色、廉洁理念，不搞封闭排他的小圈子，把绿色作为底色，推动绿色基础设施建设、绿色投资、绿色金融，保护好我们赖以生存的共同家园，坚持一切合作都在阳光下运作，共同以零容忍态度打击腐败。我们发起了《廉洁丝绸之路北京倡议》，愿同各方共建风清气正的丝绸之路。</textarea>
+   
+            </div>
+            <div class="col-sm-2">
+				<input id="inpStartCompare" type="button" value="开始比较" οnclick="return startCompare();" />
+            </div>
+            <div class="col-sm-4">
+				<textarea  rows="2" cols="20" type="text" id="inpRight" name="inpRight">——我们要秉持共商共建共享原则，倡导多边主义，大家的事大家商量着办，推动各方各施所长、各尽所能，通过双边合作、三方合作、多边合作等各种形式，把大家的优势和潜能充分发挥出来，聚沙成塔、积水成渊。</textarea>
+			</div>
+        </div>
+    </fieldset> 
+	<br />
+	<div class="container">
+		<div id="show1" class="panel panel-primary"></div>
+		<div id="show2" class="panel panel-primary"></div>
+	</div>
+</form>
+</body>
+<script>
+        $(document).ready(function () {
+            //$("#inpStartCompare").click(function () {
+			//return startCompare();
+ 
+            //});
+        });
+        function startCompare() {
+            var a = $.trim($("#inpLeft").val());
+			var b = $.trim($("#inpRight").val());
+           
+            var result = getHighLightDifferent(a, b);
+            //getHighLightDifferent("1000", "10012");
+			
+			$("#show1").html(result[0]);
+			$("#show2").html(result[1]);
+			return false;
+        }
+</script>

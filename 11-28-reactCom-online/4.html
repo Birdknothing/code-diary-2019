@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <script src="../my-min-library/react.dev.js"></script>
+        <script src="../my-min-library/reactdom.dev.js"></script>
+        <script src="../my-min-library/babel.min.js"></script>
+        <script src="../my-min-library/jquery.min.js"></script>
+        <script src="../my-min-library/htm.js"></script>
+        <script src="https://unpkg.com/styled-components/dist/styled-components.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/babel">
+            const { Component, Suspense } = React;
+            const html = htm.bind(React.createElement);
+            const reactDom = html`
+                <div></div>
+            `;
+            const get = async api => {
+                const res = await $.ajax({ method: "GET", url: `http://192.168.211.46:3010${api}` });
+                let reactDom;
+                try {
+                    reactDom = eval(res);
+                } catch (error) {
+                    reactDom = html`
+                        <div>err</div>
+                    `;
+                } finally {
+                    console.log(JSON.stringify(reactDom, null, 3));
+                    // reactDom = html`
+                    //     <div>inner error</div>
+                    // `;
+                }
+                return {
+                    default: () => reactDom
+                };
+            };
+            // const C = React.lazy(() => get("/test"));
+            const C = props => {
+                const { test } = props;
+                return <div>{test}</div>;
+            };
+            class W extends Component {
+                render() {
+                    return html`
+                        <div>
+                            <${Suspense} fallback=${"loading..."}>
+                                <${C} />
+                            </${Suspense}>
+                        </div>`;
+                }
+            }
+            const test = 'test';
+            const D = props => <C {...props} test={test}/>
+            console.log(Reflect.ownKeys(React));
+            console.log(React.version);
+            console.log('16.12.0' > '16.8.5');
+            
+            ReactDOM.render(<D />, app);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script src="../my-min-library/react.dev.js"></script>
+        <script src="../my-min-library/reactdom.dev.js"></script>
+        <script src="../my-min-library/babel.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            logJson = obj => console.log(JSON.stringify(obj, null, 3));
+
+            logJson(Reflect.ownKeys(React));
+            logJson(React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED)
+        </script>
+    </body>
+</html>

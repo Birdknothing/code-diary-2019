@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+            #holder {
+                border: 10px dashed #ccc;
+                width: 300px;
+                height: 300px;
+            }
+            #holder.hover {
+                border: 10px dashed #333;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="holder"></div>
+        <!-- <script src="./node_modules/crypto-js/crypto-js.js"></script> -->
+        <script src="./2.js"></script>
+        <!-- <script type="text/javascript" src="path-to/bower_components/crypto-js/crypto-js.js"></script> -->
+
+        <script>
+            console.log(this);
+            
+            console.log(CryptoJS);
+            
+            var holder = document.getElementById("holder");
+            holder.ondragover = function() {
+                return false;
+            };
+            holder.ondragend = function() {
+                return false;
+            };
+            holder.ondrop = function(event) {
+                event.preventDefault();
+
+                var file = event.dataTransfer.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    var binary = event.target.result;
+                    var md5 = CryptoJS.MD5(binary).toString();
+                    console.log(md5);
+                };
+
+                reader.readAsBinaryString(file);
+            };
+        </script>
+    </body>
+</html>

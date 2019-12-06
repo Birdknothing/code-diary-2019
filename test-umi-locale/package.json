@@ -1,0 +1,10 @@
+{
+  "name": "test-umi-locale",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "react-intl": "^3.6.2",
+    "umi-plugin-locale": "^2.11.1"
+  }
+}

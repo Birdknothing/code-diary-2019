@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <script src="../my-min-library/react.dev.js"></script>
+        <script src="../my-min-library/reactdom.dev.js"></script>
+        <script src="../my-min-library/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/babel">
+            const { Component } = React;
+            class Son1 extends Component {
+                render() {
+                    console.log("Son1 cry");
+                    return <div>Father > Son1: newA</div>;
+                }
+            }
+            class Son2 extends Component {
+                state = { x: "newA" };
+                update() {
+                    this.setState({ x: "newB" });
+                }
+                render() {
+                    console.log("Son2 cry");
+                    return (
+                        <div>
+                            <button onClick={() => {this.update();}}>
+                                Son2 beat self
+                            </button>
+                            <br />
+                            Father > Son2: {this.props.x}
+                            <br />
+                            Son2 > Son2: {this.state.x}
+                        </div>
+                    );
+                }
+            }
+            class Father extends Component {
+                state = { x: "newA" };
+                update() {
+                    this.setState({ x: "newB" });
+                }
+                render() {
+                    return (
+                        <div>
+                            <button onClick={() => {this.update();}}>
+                                Father beat sons
+                            </button>
+                            <Son1 {...this.state} />
+                            <Son2 {...this.state} />
+                        </div>
+                    );
+                }
+            }
+            ReactDOM.render(<Father />, app);
+        </script>
+    </body>
+</html>
