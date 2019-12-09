@@ -48,17 +48,17 @@
 </body>
 <script>
         $(document).ready(function () {
-            //$("#inpStartCompare").click(function () {
-			//return startCompare();
+            $("#inpStartCompare").click(function () {
+			return startCompare();
  
-            //});
+            });
         });
         function startCompare() {
             var a = $.trim($("#inpLeft").val());
 			var b = $.trim($("#inpRight").val());
            
             var result = getHighLightDifferent(a, b);
-            //getHighLightDifferent("1000", "10012");
+            // var result = getHighLightDifferent("1000", "10012");
 			
 			$("#show1").html(result[0]);
 			$("#show2").html(result[1]);

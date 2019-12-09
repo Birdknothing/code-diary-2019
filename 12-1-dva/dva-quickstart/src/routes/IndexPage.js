@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import { connect } from 'dva';
 import {withRouter} from 'dva/router';
 import styles from './IndexPage.css';
-const Test = withRouter(connect()(class extends Component{
+const Test = connect()(class extends Component{
   render(){
     console.log('test',this.props);
     return (
@@ -13,7 +13,7 @@ const Test = withRouter(connect()(class extends Component{
       }}>push</button></div>
       )
     }
-}))
+})
 function IndexPage(props) {
   console.log(props);
   console.log(props.history.location === props.location);

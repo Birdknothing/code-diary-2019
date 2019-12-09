@@ -24,9 +24,9 @@
 
         <script>
             console.log(this);
-            
+
             console.log(CryptoJS);
-            
+
             var holder = document.getElementById("holder");
             holder.ondragover = function() {
                 return false;
@@ -48,6 +48,24 @@
 
                 reader.readAsBinaryString(file);
             };
+        </script>
+        <script>
+            (function(root, factory, undef) {
+                if (typeof exports === "object") {
+                    // CommonJS
+                    module.exports = { test: 1 };
+                } else if (typeof define === "function" && define.amd) {
+                    // AMD
+                    define([], factory);
+                } else {
+                    // Global (browser)
+                    root.test = factory({ test: 1 });
+                }
+            })(this, function(x) {
+                return x;
+            });
+            console.log(window.test);
+            
         </script>
     </body>
 </html>

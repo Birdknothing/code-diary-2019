@@ -12,7 +12,7 @@
     <body>
         <div id="app"></div>
         <script type="text/babel">
-            const { PureComponent, useMemo, memo } = React;
+            const { PureComponent, Component, useMemo, memo } = React;
             // class C extends PureComponent {
             //     state = {
             //         x: { z: 1 }
@@ -36,11 +36,20 @@
             //     }
             // }
             const arr = [1];
-            // const C = memo(props => {
-            //     console.log("here");
+            const C1 = props => {
+                console.log("hereC1");
 
-            //     return <div>{props.x.toString()}</div>;
-            // });
+                return <div>{props.x.toString()}</div>;
+            };
+            const C2 = memo(props => {
+                console.log("hereC");
+
+                return (
+                    <div>
+                        <C1 {...props} />
+                    </div>
+                );
+            });
             // console.log(React.version);
             const M = props => <div>12</div>;
             let trigger = 1;
@@ -57,12 +66,26 @@
                     </div>
                 );
             };
-            // const C = useMemo(props => <D {...props} />, [trigger]);
+            class N extends Component {
+                state = {
+                    y: 1
+                };
+                componentDidMount() {
+                    setTimeout(() => {
+                        this.setState({ y: 1 });
+                    }, 2000);
+                }
+                render() {
+                    const {y} = this.state;
+                    return <C x={y} />;
+                }
+            }
+            const C = useMemo(props => <D {...props} />, [trigger]);
 
-            ReactDOM.render(<D />, app);
+            ReactDOM.render(<C />, app);
             setTimeout(() => {
                 trigger = 2;
-                ReactDOM.render(<D />, app);
+                ReactDOM.render(<C x={1}/>, app);
             }, 1000);
         </script>
     </body>
