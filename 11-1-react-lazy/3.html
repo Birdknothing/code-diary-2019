@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script src="../my-min-library/react.min.js"></script>
+        <script src="../my-min-library/reactdom.min.js"></script>
+        <script src="../my-min-library/babel.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app1"></div>
+        <div id="app2"></div>
+        <button onclick="render()">click</button>
+        <script src="http://component.edbox-dev.101.com/libs/React_Coms/mobile.js?v=1575899063936"></script>
+        <script type="text/babel">
+            // <script>
+            // const { Component, Suspense } = React;
+            // let versionGT = function(React, target) {
+            //     console.log("here");
+            //     const targetVersion = target.split(".");
+            //     if (!React || targetVersion.length !== 3) {
+            //         return (versionGT = () => false)();
+            //     }
+            //     const runtimeVersion = React.version.split(".");
+            //     for (let typeNum in [0, 1, 2]) {
+            //         if ((targetVersion[typeNum] | 0) > (runtimeVersion[typeNum] | 0)) {
+            //             return (versionGT = () => false)();
+            //         }
+            //     }
+            //     return (versionGT = () => true)();
+            // };
+            // console.log(versionGT(React, "16.8.0"));
+            // console.log(versionGT(React, "16.8.0"));
+            function render (){
+
+                ReactDOM.render(<StatusLoading React={React} height={Math.random()*100} formatMessage={() => ""} />, app1);
+            }
+            const { StatusLoading } = window.Mobile_Coms;
+            // console.log(StatusLoading({src:'',React,formatMessage:()=>{}}));
+            
+render();
+
+            ReactDOM.render(<StatusLoading React={React} formatMessage={() => ""} />, app2);
+        </script>
+    </body>
+</html>

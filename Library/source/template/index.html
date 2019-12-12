@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title><%= htmlWebpackPlugin.options.title %></title>
+        <link rel="stylesheet" href="main.css" />
+    </head>
+    <body oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+    <!-- <body> -->
+        <div id="app"></div>
+        <script>
+            const serverPath = "";
+            const addScript = (src, svPath = serverPath) => {
+                src = svPath + src;
+                document.write('<script src="' + src + '" type="text/javascript"><\/script>');
+            };
+            addScript(`/libs/Edbox_Lobby/js/Edbox.js?v=${Date.now()}`);
+            addScript(`/libs/Edbox_PrivateAsset/js/Edbox_PrivateAsset.js?v=${Date.now()}`);
+            addScript(`/libs/React_Coms/mobile.js?v=${Date.now()}`, "http://component.edbox-dev.101.com");
+            // console.log("%c " + JSON.stringify(window.Mobile_Coms), "color:blue");
+            console.log(window.Mobile_Coms);
+        </script>
+        <!-- <script src="./react.min.js"></script>
+        <script src="./reactdom.min.js"></script>
+        <script src="./babel.min.js"></script>
+        <script type="text/babel">
+            const StatusLoading = window.Mobile_Coms.StatusLoading;
+            ReactDOM.render(<StatusLoading React={React} formatMessage={() => ""} />, test);
+        </script> -->
+    </body>
+</html>

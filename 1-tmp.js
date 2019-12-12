@@ -1,2 +1,3 @@
-console.log(5368709120/1024/1024/1024);
-console.log(1024*1024*1024);
+const a = [1,2,3]
+a.splice(1,1)
+console.log(a);

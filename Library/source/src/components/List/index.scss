@@ -1,0 +1,107 @@
+@import "@/pages/common.scss";
+$listBgColor: rgb(249, 249, 249);
+.list {
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: $listBgColor;
+    // 搜索框占位
+    .replaceSearch {
+        height: s(28px);
+    }
+    .listContainer {
+        width: s(718px);
+        margin: s(24px) auto;
+        height: calc(100vh - 32vw);
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+        .picLibList {
+            width: 100%;
+            font-size: 0;
+            .picBox {
+                position: relative;
+                width: 33.33%;
+                display: inline-block;
+                height: s(234px);
+                padding: s(2px);
+                overflow: hidden;
+                background-color: rgb(246, 246, 246);
+                // background-size: auto 100%;
+                // background-position: center center;
+                // background-clip: padding-box;
+                img {
+                    width: auto;
+                    height: s(234px);
+                    min-width: 100%;
+                    vertical-align: middle;
+                }
+                text-align: center;
+                .ctrlConfirm {
+                    display: none;
+                }
+                .ctrlConfirm + .chose img {
+                    display: none;
+                }
+                .ctrlConfirm:checked + .chose img {
+                    display: inline-block;
+                }
+                .ctrlConfirm:checked + .chose {
+                    border: none;
+                }
+                .chose {
+                    display: none;
+                    // svg {
+                    //     position: absolute;
+                    //     z-index: 801;
+                    //     @extend %common-center;
+                    //     visibility: hidden;
+                    //     width: s(50px);
+                    //     height: s(50px);
+                    // }
+                    // .tmpBgWhite {
+                    //     visibility: hidden;
+                    //     position: absolute;
+                    //     @extend %common-center;
+                    //     z-index: 800;
+                    //     width: s(45px);
+                    //     height: s(45px);
+                    //     background-color: #fff;
+                    //     border-radius: 50%;
+                    // }
+                    position: absolute;
+                    right: s(10px);
+                    top: s(10px);
+                    width: s(50px);
+                    height: s(50px);
+                    line-height: s(50px);
+                    border: 1px solid #fff;
+                    border-radius: 50%;
+                    background-color: rgba(0, 0, 0, 0.1);
+                    @extend %img-height;
+                }
+            }
+            .operateReplace {
+                height: 44vw;
+            }
+        }
+    }
+    // 无数据
+    .nodata {
+        height: 100%;
+        @extend %flex_center;
+        flex-direction: column;
+        img {
+            display: block;
+            width: s(400px);
+            height: auto;
+        }
+        .txt {
+            margin-top: s(20px);
+            width: s(450px);
+            word-break: break-all;
+            white-space: pre-wrap;
+            font-size: s(20px);
+            text-align: center;
+            line-height: s(40px);
+        }
+    }
+}
