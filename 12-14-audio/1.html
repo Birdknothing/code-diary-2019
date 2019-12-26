@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            #app {
+                font-size: 24px;
+                width: 50px;
+                /* white-space: pre-wrap; */
+            }
+            .fdiv {
+                font-size: 0;
+                width: 900px;
+                margin-left: -40px;
+            }
+            .sdiv {
+                display: inline-block;
+                height: 300px;
+                background-color: red;
+                background-clip: content-box;
+                padding: 20px 40px;
+                width: 33.33%;
+            }
+            .audio {
+                width: 600px;
+                height: 60px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <div class="fdiv">
+            <div class="sdiv"></div>
+            <div class="sdiv"></div>
+            <div class="sdiv"></div>
+            <div class="sdiv"></div>
+        </div> -->
+        <script></script>
+        <div>
+            <audio
+                controls
+                id="audio"
+                src="http://cdncs.101.com/v0.1/static/edu/esp/assets/31e6bde2-11da-41ec-bbe9-daf001d9b6c3.pkg/合成器 轻松 110拍.ogg"
+                preload="metadata"
+                ontimeupdate="timeupdate(event)"
+                onpause="ps()"
+                onplay="goplay()"
+                onload="getall(event)"
+                oncanplay="cangoplay(event)"
+                oncanplaythrough="cangoplaythrough(event)"
+                onloadeddata="loaded(event)"
+                onloadedmetadata="loadedmetadata(event)"
+                onended="endfk()"
+            >
+                <!-- onsuspend="suspend(event)" -->
+                no support
+            </audio>
+        </div>
+        <script>
+            // var myVid = document.getElementById("audio");
+            // console.log("duration  ", myVid);
+            // if (myVid != null) {
+            //     var duration;
+            //     myVid.load();
+            //     myVid.oncanplay = function() {
+            //         console.log("myVid.duration", myVid.duration);
+            //     };
+            // }
+
+            // audio.load();
+            // function loaded(e) {
+            //     console.log("loaded", e.timeStamp);
+            //     console.log("audio.duration", audio.duration);
+            // }
+            function getall(e) {
+                console.log("getal", e);
+                console.log("audio.duration", audio.duration);
+            }
+            function goplay(e) {
+                console.log("goplay");
+            }
+            function cangoplay(e) {
+                console.log("cangoplay", audio.duration);
+            }
+            function cangoplaythrough(e) {
+                console.log("cangoplaythrough", audio.duration);
+            }
+            function timeupdate(e) {
+                console.log("timeupdate", audio.currentTime);
+                console.log("audio.duration", audio.duration);
+            }
+            function suspend(e) {
+                console.log("suspend", e);
+            }
+            function loadedmetadata(e, x, y) {
+                console.log("loadedmetadata", e.timeStamp, x, y);
+            }
+            function endfk() {
+                console.log("ended");
+            }
+            // audio.play();
+            function ps(e) {
+                console.log("stop");
+            }
+            // audio.addEventListener(
+            //     "seeked",
+            //     function() {
+            //         setTimeout(function() {
+            //             audio.play();
+            //         }, 1000);
+            //     },
+            //     true
+            // );
+            // audio.currentTime = 65.0;
+            // setTimeout(() => {
+            //     audio.pause();
+            // }, 2000);
+           
+        </script>
+        <!-- <script>
+            app.innerHTML = JSON.stringify({ x: { y: { z: 1 } } }, null, 3);
+            console.log(app.innerHTML);
+            const a = app.innerHTML;
+            console.log(a.replace(/\n/g, "\\n").replace(/\r/g, "\\r"));
+        </script> -->
+    </body>
+</html>

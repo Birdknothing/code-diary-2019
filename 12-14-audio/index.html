@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <script src="/jq/jquery.dev.js"></script>
+
+        <style>
+            #app {
+                font-size: 24px;
+            }
+            .btn {
+                width: 100%;
+
+                height: 100px;
+                background-color: greenyellow;
+            }
+            .click {
+                width: 100%;
+                height: 100px;
+                background-color: blue;
+            }
+            .download {
+                width: 100%;
+                height: 100px;
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+        <div class="click" onclick="test()"></div>
+        <div class="btn" ontouchstart="location.reload()"></div>
+        <audio
+            controls
+            id="testaudio"
+            onerror="loaderr()"
+            src="http://m8.music.126.net/20191215183029/1ab3b41714f53fac01c6f4180fe5d4b1/ymusic/555b/0f58/0609/b1e0b087cb826dde13b21cbaa504f963.mp3"
+        ></audio>
+        <!-- <link rel="stylesheet" download="" /> -->
+        <div class="download" onclick="download()">
+            download
+        </div>
+        <!-- src="http://cdncs.101.cm/v0.1/static/edu/esp/assets/4e8fe3bf-0dc7-493e-a526-d9c288209780.pkg/test.ogg" -->
+        <script>
+            function log(str) {
+                document.getElementById("app").innerHTML += "<br/>" + str;
+            }
+            function download(url) {
+                url =
+                    "http://m8.music.126.net/20191215183029/1ab3b41714f53fac01c6f4180fe5d4b1/ymusic/555b/0f58/0609/b1e0b087cb826dde13b21cbaa504f963.mp3";
+                log(url);
+                fetch(url)
+                    .then(d => {
+                        //console.log(d);
+                        return d.blob();
+                    })
+                    .then(b => {
+                        log(b);
+                        var bURL = URL.createObjectURL(b);
+
+                        var link = document.createElement("a");
+                        link.href = bURL;
+                        let name = "rover" + url.substring(url.lastIndexOf("."), url.length);
+                        link.setAttribute("download", name);
+                        document.getElementsByTagName("body")[0].appendChild(link);
+                        // Firefox
+                        if (document.createEvent) {
+                            var event = document.createEvent("MouseEvents");
+                            event.initEvent("click", true, true);
+                            link.dispatchEvent(event);
+                        }
+                        // IE
+                        else if (link.click) {
+                            link.click();
+                        }
+                        link.parentNode.removeChild(link);
+                    });
+            }
+            function getDuration(src) {
+                const audio = document.createElement("audio");
+                // const audio = new Audio();
+                audio.src = src;
+                // audio.preload = "metadata";
+                // document.body.appendChild(audio);
+                log(audio.duration);
+                audio.oncanplay = function() {
+                    log("onload");
+                    log(audio.duration);
+                };
+                audio.onload = function() {
+                    log(audio.duration);
+                };
+                audio.onloadeddata = function() {
+                    log("metadata1");
+                    log(audio.duration);
+                };
+                audio.onloadedmetadata = function() {
+                    log("metadata2");
+                    log(audio.duration);
+                };
+            }
+            // testaudio1.play();
+
+            function loaderr(e) {
+                log(JSON.stringify($("#testaudio").get(0).error));
+            }
+            // setTimeout(() => {
+            //     location.reload();
+            // }, 1000);
+            log("test");
+            // const w = new Audio();
+            // w.addEventListener("loadedmetadata", function() {
+            //     log(w.duration);
+            // });
+            // w.src = "http://cdncs.101.com/v0.1/static/edu/esp/assets/31e6bde2-11da-41ec-bbe9-daf001d9b6c3.pkg/合成器%20轻松%20110拍.ogg";
+            // w.load();
+            function test() {
+                getDuration(
+                    "http://m7.music.126.net/20191215151039/eb2f0c91d81e8abd0ccdc9f7e8b9b477/ymusic/556b/0d73/cd02/723368b58e09810bbd48db8c1e1f2fbd.mp3"
+                );
+            }
+            // $("#testaudio").load(
+            //     "http://cdncs.101.com/v0.1/static/edu/esp/assets/31e6bde2-11da-41ec-bbe9-daf001d9b6c3.pkg/合成器%20轻松%20110拍.ogg",
+            //     function() {
+            //         // log($("#testaudio").duration);
+            //         log(document.getElementById("testaudio").duration);
+            //     }
+            // );
+            // getDuration("http://cdncs.101.com/v0.1/static/edu/esp/assets/31e6bde2-11da-41ec-bbe9-daf001d9b6c3.pkg/合成器 轻松 110拍.ogg");
+        </script>
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <!-- <script type="text/javascript">
+            var audio = $("#testaudio")[0];
+            document.addEventListener(
+                "WeixinJSBridgeReady",
+                function() {
+                    audio.play();
+                },
+                false
+            );
+            $(audio).on("canplay", function() {
+                alert(audio.duration);
+            });
+        </script> -->
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script src="./my-min-library/react.dev.js"></script>
+        <script src="./my-min-library/reactdom.dev.js"></script>
+        <script src="./my-min-library/babel.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/babel">
+            const { Component, Fragment } = React;
+            class Son extends Component {
+                state = {
+                    x: "start"
+                };
+                componentDidMount() {
+                    const { get } = this.props;
+                    console.log(this.props.get + " is mounted");
+
+                    if (get == "b") {
+                        this.setState({
+                            x: "b chaged"
+                        });
+                    }
+                    if (get == "c") {
+                        this.setState({
+                            x: "c chaged"
+                        });
+                    }
+                    if (get == "a") {
+                        this.setState({
+                            x: "a chaged"
+                        });
+                    }
+                }
+                render() {
+                    return <div>{this.state.x}</div>;
+                }
+            }
+            let arr = ["b", "c"];
+            setTimeout(() => {
+                // arr.unshift("a");
+                // arr = ["a"].concat(["b", "c"]);
+                arr = ["a", "b", "c"];
+                // arr = ["b", "c"].concat(["a"]);
+            }, 2000);
+            class Father extends Component {
+                componentDidMount() {
+                    setTimeout(() => {
+                        console.log(arr);
+
+                        this.setState({});
+                    }, 4000);
+                }
+                render() {
+                    return (
+                        <div>
+                            {arr.map((ele, i) => {
+                                return (
+                                    <Fragment key={"test" + i}>
+                                        {/*这里如果是<Fragment key={"test" + i}>那拿到的不一定是实际的ele，react拿key作为唯一标识来标记已渲染到浏览器中的元素，以便于在dom操作时直接通过和上次渲染形成的一组key来比较，并将新的计算出来的key来插位置*/}
+                                        <Son get={ele} />
+                                        <br />
+                                    </Fragment>
+                                );
+                            })}
+                        </div>
+                    );
+                }
+            }
+            ReactDOM.render(<Father />, app);
+        </script>
+    </body>
+</html>

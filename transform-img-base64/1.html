@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <!-- <script scr="./my-min-library/jquery.dev.js"></script> -->
+        <style>
+            #upload {
+                border: 10px dashed #ccc;
+                width: 300px;
+                height: 300px;
+            }
+            .result {
+                width: 500px;
+                white-space: pre-wrap;
+                word-break: break-all;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <script scr="../my-min-library/jquery.dev.js"></script> -->
+        <script src="../my-min-library/jquery.dev.js"></script>
+        <div
+            id="upload"
+            ondragover="event.preventDefault()"
+            ondragend="event.preventDefault()"
+            ondrop="dragImgToBase64(event);event.preventDefault()"
+        ></div>
+        <div class="result" id="result"></div>
+        <script>
+            function dragImgToBase64(e) {
+                const file = e.dataTransfer.files[0];
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function() {
+                    $("#result").html(reader.result);
+                };
+            }
+        </script>
+    </body>
+</html>

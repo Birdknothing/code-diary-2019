@@ -5,37 +5,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Document</title>
-        <style>
-            #test {
-                width: 100vw;
-                height: 100vh;
-                position: fixed;
-                left: 0;
-                top: 0;
-                /* float: left; */
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-            }
-            .father {
-                padding: 10px 20px;
-            }
-            .son {
-                background-color: black;
-                padding: 10px 20px;
-                font-size: 30px;
-                word-break: break-all;
-                color: #fff;
-                max-width: 300px;
-            }
-        </style>
     </head>
     <body>
-        <div id="test">
-            <div class="father">
-                <div class="son">1233qwe33333333333333333333333333333333333</div>
-            </div>
-        </div>
+        <script>
+            let liveTime = Date.now();
+            let count = 0;
+            const record = function() {
+                count++;
+                const tnow = Date.now();
+                console.log((tnow - liveTime) / count);
+                test();
+            };
+            const renderPromise = time =>
+                new Promise(res => {
+                    setTimeout(() => {
+                        const div = document.createElement("div");
+                        div.innerHTML = "test";
+                        document.body.appendChild(div);
+                        res();
+                    }, time);
+                });
+            const p1 = renderPromise(16);
+            function test() {
+                requestAnimationFrame(record);
+            }
+            test();
+        </script>
     </body>
 </html>
