@@ -5,31 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Document</title>
+        <!-- <script src="http://component.edbox-dev.101.com/libs/React/web.js?x=1"></script> -->
+        <script src="./1-tmp.js"></script>
+        <script src="./my-min-library/react.dev.js"></script>
+        <script src="./my-min-library/reactdom.dev.js"></script>
+        <script src="./my-min-library/babel.min.js"></script>
     </head>
     <body>
-        <script>
-            let liveTime = Date.now();
-            let count = 0;
-            const record = function() {
-                count++;
-                const tnow = Date.now();
-                console.log((tnow - liveTime) / count);
-                test();
-            };
-            const renderPromise = time =>
-                new Promise(res => {
-                    setTimeout(() => {
-                        const div = document.createElement("div");
-                        div.innerHTML = "test";
-                        document.body.appendChild(div);
-                        res();
-                    }, time);
-                });
-            const p1 = renderPromise(16);
-            function test() {
-                requestAnimationFrame(record);
-            }
-            test();
+        <div id="app"></div>
+        <script type="text/babel">
+            console.log(Web_Coms);
+            const StatusLoading = Web_Coms.StatusLoading;
+            ReactDOM.render(<StatusLoading noHint timeout={1000} React={React} formatMessage={() => "test"} />, app);
         </script>
     </body>
 </html>
