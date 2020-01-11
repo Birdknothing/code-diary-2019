@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script src="./my-min-library/jquery.dev.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const $board = $("<div></div>")
+                .css({ position: "fixed", right: 0, top: 0, width: "50%", height: "50%" })
+                .appendTo("body");
+            console.log = function(anyth) {
+                $board.append($board.html() + JSON.stringify(anyth) + "<br/>");
+            };
+        </script>
+        <script src="./1-tmp.js"></script>
+        <script>
+            Edbox.Message.Get(window.parent, com => {
+                com.Start();
+            });
+        </script>
+    </body>
+</html>

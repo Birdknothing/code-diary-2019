@@ -1,0 +1,289 @@
+
+= 基础配置 =
+
+{| class="wikitable" style="width:720px;"
+|-
+! scope="row" | 风格类型说明
+| 
+背包编辑
+
+|-
+! scope="row" | 类型（Type）
+| 
+Tab01
+
+|-
+! scope="row" | 风格类型关键字（Class）
+| 
+Backpack
+
+|-
+! scope="row" | 
+是否可编辑（Editable）
+
+| '''<span style="color:#e74c3c;">固定设置，此参数无效</span>'''
+|-
+! scope="row" | 
+子项模板（Template）
+
+| '''<span style="color:#e74c3c;">固定设置，此参数无效</span>'''
+|-
+! scope="row" | 
+关联的页面类型（PageType）
+
+| 
+'''<span style="color:#e74c3c;">固定设置，此参数无效</span>'''
+
+|-
+! scope="row" | 数据定义（Datas）
+| 
+'''<span style="color:#e74c3c;">固定数据结构，具体详见实例说明</span>'''
+
+|}
+
+&nbsp;
+
+&nbsp;
+
+= 拓展参数 =
+
+{| class="wikitable"
+|-
+! scope="col" style="width:100px;" | 拓展参数
+! scope="col" style="width:100px;" | 参数说明
+! scope="col" style="width:100px;" | 参数类型
+! scope="col" style="width:100px;" | 是否允许为空
+! scope="col" style="width:100px;" | 默认值
+! scope="col" style="width:100px;" | 说明
+! scope="col" style="width:100px;" | 配置示例
+|-
+| Resetable
+| 
+是否支持重置
+
+| Boolean
+| 是
+| false
+| 
+<span style="color:#e74c3c;">'''为false时隐藏重置按钮'''</span>
+
+<span style="color:#e74c3c;">'''为true时显示重置按钮，游戏需要实现重置方法'''</span>
+
+| 
+Resetable=false
+
+|-
+| 
+Width
+
+| 宽度
+| 
+Int
+
+| 是
+| 0
+| <span style="color:#e74c3c;">'''为0时不做限制，横向铺满'''</span>
+| Width=720
+|-
+| 
+Height
+
+| 高度
+| Int
+| 是
+| 0
+| <span style="color:#e74c3c;">'''为0时不做限制，纵向铺满'''</span>
+| Height=1080
+|}
+
+&nbsp;
+
+&nbsp;
+
+= 编辑和展示 =
+
+=== 入口 ===
+
+ {
+     "ID": "Datas_Backpack",                                    // ID:唯一ID，用于唯一标识对象，由游戏定义
+     "Name": "Backpack",                                        // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+     "ShowName": "登录选择背包编辑面",                            // ShowName:显示名称，由游戏定义
+     "Type": "Tab01",                                           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+     "Class": "Backpack",                                       // Class:登录页风格类型关键字,'''<span style="color:#e74c3c;">固定</span>'''
+     "Resetable": true,                                         // Resetable:是否支持重置，为true时显示重置按钮，游戏需要实现重置方法
+     "Datas": []
+ }
+
+&nbsp;
+
+&nbsp;
+
+=== 界面 ===
+
+ {
+     "ID": "Datas_Backpack_Config",                             // ID:唯一ID，用于唯一标识对象，由游戏定义
+     "Name": "Backpack_Layout",                                 // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+     "ShowName": "界面",                                        // ShowName:显示名称，由游戏定义
+     "Type": "Tab02",                                           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+     "Datas": [
+       {
+           "ID": "Datas_Backpack_Config_Layout",
+           "Name": "Backpack_Layout_Set",                       // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+           "ShowName": "界面",
+           "Type": "Tab02",                                     // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Datas": [
+                {
+                    "ID": "Datas_Backpack_Config_Bag_Enable",
+                    "Name": "Enable",                           // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+                    "ShowName": "是否启用背包",
+                    "Type": "Switch01",                         // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+                    "Value": true,
+                    "ReadOnly": false
+                },
+                {
+                    "ID": "Datas_Backpack_Config_Bag_Icon",
+                    "Name": "BagIcon",                          // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+                    "ShowName": "背包图标",
+                    "Type": "Image01",                          // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+                    "Value": ""
+                },
+                {
+                    "ID": "Datas_Backpack_Config_Bag_BackgroundImage",
+                    "Name": "BagBackgroundImage",               // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+                    "ShowName": "背包界面",
+                    "Type": "Image01",                          // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+                    "Value": ""
+                },
+                {
+                    "ID": "Datas_Backpack_Config_Grid_BackgroundImage",
+                    "Name": "GridBackgroundImage",              // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+                    "ShowName": "背包格子",
+                    "Type": "Image01",                          // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+                    "Value": ""
+                },
+                {
+                    "ID": "Datas_Backpack_Config_Bag_Title",
+                    "Name": "BagTitle",                         // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+                    "ShowName": "背包界面标题",
+                    "Type": "Text01",                           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+                    "Value": "背包",
+                    "Length": 60,
+                    "StyleEdit": true
+                },
+                {
+                    "ID": "Datas_Backpack_Config_Param",
+                    "Name": "BagParam",                         // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+                    "ShowName": "背包参数",
+                    "Type": "Tab03",                            // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+                    "Datas": [
+                        {
+                            "ID": "Datas_Backpack_Config_Grid_Num",
+                            "Name": "GridsNum",                 // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+                            "ShowName": "背包格子数",
+                            "Type": "Value02",                  // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+                            "MaxValue": 999,
+                            "Value": 100
+                        }
+                    ]
+                }
+            ]        
+       }
+    ]
+ }
+
+&nbsp;
+
+&nbsp;
+
+= 游戏物品类型配置 =
+
+    "StaticData": {
+        "ID": "StaticData",
+        "Name": "StaticData",
+        "Type": "StaticData",
+        "ShowName": "静态数据",
+        "GameItems": [                                  // 背包物品标识，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                {
+                        "TypeId": "xxxx",               // String类型，'''<span style="color:#e74c3c;">属性名固定，值唯一性,不可修改 </span>'''(包含GameId)
+                        "ItemName": "默认飞刀",          // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "ItemLevel": 0,                 // Number类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "Price": 0,                     // Number类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "EdPrice": 0,                   // Number类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "HeroLevel": 0,                 // Number类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "FreezeDuration": 0,            // Number类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "Sex": 0,                       // Number类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "ProfessionTypeId": 0,          // Number类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "Props": {                      // 游戏自定义属性，序列化后长度小于512，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                            "Speed": 100.0,
+                            "IsOri": true
+                        },
+                        "ResourceId": 0,                // Number类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "ItemDesc": "desc desc",        // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "ResGuid": "",                  // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "IconGuid": "3272ab61-0f44-44cd-94df-46e5870b8155",    // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "MaxNum": 0,                    // Number类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "NameKey": "",                  // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "DescKey": "",                  // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "IconUrl": "",                  // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "Rarity": 0,                    // Number类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "Duration": 0                   // Number类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                 }
+            ]
+     }
+
+&nbsp;
+
+= 流程 =
+
+== 基础配置 ==
+
+①Tab01设置Name="Backpack"且 Class="Backpack"时，开启背包。
+
+②'''<span style="color:#e74c3c;">固定设置</span>'''，Tab01设置PageType、Editable、Template无效，<span style="color:#e74c3c;">'''Datas数据结构固定'''</span>。
+
+③游戏物品类型配置不需配置项数字类型属性设置 <span style="color:#e74c3c;">'''0'''</span> ，字符串类型设置 <span style="color:#e74c3c;">""</span>
+
+&nbsp;
+
+== 页面功能说明 ==
+
+{| class="wikitable" style="width:1080px;"
+|-
+! scope="col" | 页面类型
+! scope="col" | 页面说明
+! scope="col" | 页面部署
+|-
+| style="text-align: center;" | 背包展示页
+| style="text-align: center;" | 编辑与展示共用此页
+| style="text-align: center;" | coms/Backpack/index.html
+|}
+
+&nbsp;
+
+== 编辑 ==
+
+①启动背包编辑页面时，编辑区铺满，渲染区隐藏但不会关闭
+
+②调用Edbox.Backpack.InitEdit(dom)，dom为渲染区dom元素，页面渲染完成回发Backpack_Show消息自动显示
+
+③编辑器数据修改时广播修改的数据，编辑页接收消息展示修改
+
+④保存时，自动转入StaticData的Backpack参数下保存背包模板，<span style="color:#e74c3c;">'''此步由SDK自动完成'''</span>
+
+&nbsp;
+
+== 商城获取物品类型 ==
+
+①游戏端手动编辑（新增）物品类型，更改配置文件
+
+②SDK根据游戏配置包，先调用编辑物品类型接口，保存所有配置包修改的物品类型，再返回获取的物品类型列表
+
+&nbsp;
+
+== 展示 ==
+
+①调用Edbox.Backpack.InitDisplay(dom)，默认全屏展示，可配置父级dom元素
+
+&nbsp;
+
+[[Category:Edbox游戏编辑器]]

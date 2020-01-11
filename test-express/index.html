@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script src="/my-min-library/jquery.dev.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        参数用逗号隔开<br />
+        get api: <input type="text" id="api" value="/abc/efg" /><br />
+        get param<input type="text" id="param" value="x=1" /><br />
+        <button onclick="sendGet()">get 请求</button><br />
+        post api: <input type="text" id="api2" value="/abc" /><br />
+        post param<input type="text" id="param2" value="x=1,y=2" /><br />
+        <button onclick="sendPost()">post 请求</button>
+        <script>
+            function sendGet() {
+                $.ajax({
+                    method: "GET",
+                    url: $("#api").val() + "?" + $("#param").val()
+                }).done(msg => {
+                    console.log(msg);
+                });
+            }
+            function sendPost() {
+                const data = $("#param2")
+                    .val()
+                    .split(",")
+                    .reduce((acc, ele) => {
+                        const [key, val] = ele.split("=");
+                        acc[key] = val;
+                        return acc;
+                    }, {});
+                console.log(data);
+
+                $.ajax({
+                    method: "POST",
+                    url: $("#api2").val(),
+                    data
+                }).done(msg => {
+                    console.log("post  get msg :", msg);
+                });
+            }
+        </script>
+    </body>
+</html>

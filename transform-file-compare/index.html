@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <script src="/my-min-library/Crypto.js"></script>
+        <script src="/my-min-library/jquery.dev.js"></script>
+        <script src="../my-min-library/Crypto.js"></script>
+        <script src="../my-min-library/jquery.dev.js"></script>
+        <style>
+            .holder {
+                width: 300px;
+                border: 10px dashed #ccc;
+                height: 300px;
+                float: left;
+            }
+            .website {
+                margin-left: 50px;
+                width: 900px;
+                height: 300px;
+                float: left;
+            }
+            .url {
+                width: 100%;
+                height: 60px;
+                margin-top: 20px;
+            }
+            .live {
+                font-size: 24px;
+                color: red;
+            }
+            .clear {
+                display: table;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        已有 <span class="live" id="live">0</span> 个文件准备用来比较<br />
+        <div class="holder" ondragover="return false;" ondragend="return false;" ondrop="handle(event)"></div>
+        <div class="website">
+            网址一：<input type="text" class="url" id="url1" onchange="getUrlFile('url1')" /><br />
+            网址二：<input type="text" class="url" id="url2" onchange="getUrlFile('url2')" />
+        </div>
+        <div class="clear"></div>
+        <span class="result" id="file1"></span><br />
+        <span class="result" id="file2"></span><br />
+        <span class="live" id="result"></span><br />
+        <button style="width: 100px;height: 40px;" onclick="clearAll()">clear</button>
+        <div>d41d8cd98f00b204e9800998ecf8427e</div>
+        <script>
+            // 所有文件存储区
+            let targets = [];
+            let handleAll = true;
+            async function handle(e) {
+                e.preventDefault();
+                const files = e.dataTransfer.files;
+                [].forEach.call(files, file => {
+                    targets.push(file);
+                    updateNumOfFiles();
+                });
+                if (targets.length === 2) {
+                    await process();
+                }
+            }
+            function getMd5(file) {
+                if (file.constructor.name === "File") {
+                    return new Promise(res => {
+                        const reader1 = new FileReader();
+                        reader1.readAsBinaryString(file);
+                        reader1.onload = function() {
+                            const str = reader1.result;
+                            console.log("DropFiel if crlf lf:");
+                            console.log(str.indexOf("\r\n"));
+                            console.log(str.indexOf("\n"));
+                            res(CryptoJS.MD5(str).toString());
+                        };
+                    });
+                }
+                if (typeof file === "string") {
+                    const reader = new FileReader();
+                    reader.readAsBinaryString(new File([file], ""));
+                    return new Promise(res => {
+                        reader.onload = function() {
+                            res(CryptoJS.MD5(reader.result).toString());
+                        };
+                    });
+                }
+                console.log("Md5 cant handle if Blob && String");
+                return Promise.resolve("");
+            }
+            function updateNumOfFiles() {
+                if (targets.length > 2) {
+                    targets.length = 0;
+                    $(".result").html("");
+                    $(".live").html("");
+                }
+                $("#live").html(targets.length);
+            }
+
+            async function process() {
+                if (!handleAll) {
+                    return;
+                }
+                handleAll = false;
+                let i = 0;
+                for await (md5 of targets.map(getMd5)) {
+                    $("#file" + ++i).html(md5);
+                }
+                $("#result").html($("#file1").html() === $("#file2").html() ? "相同" : "不同");
+                handleAll = true;
+                return;
+            }
+
+            function clearAll() {
+                $(".result").html("");
+                $(".live").html("");
+                $(".url").val("");
+                $("#live").html(0);
+                targets.length = 0;
+            }
+
+            function getUrlFile(id) {
+                const url = $("#" + id).val();
+                let adr = url;
+                if (url.slice(0, 4) === "http") {
+                    alert("here");
+                    adr = "/getstr" + "?url=" + encodeURI(url);
+                }
+                // const xhr = new XMLHttpRequest();
+                // xhr.onreadystatechange = async function() {
+                //     if (xhr.readyState == "4") {
+                //         {
+                //             // targets.push(new File([xhr.responseText], "mobile1.js"));
+                //             console.log("request file if crlf lf:");
+                //             console.log(xhr.responseText.indexOf("\r\n"));
+                //             console.log(xhr.responseText.indexOf("\n"));
+                //             console.log('1111111111111111111111111111111111111');
+                //             console.log(xhr.responseText);
+                //             targets.push(xhr.responseText);
+                //             updateNumOfFiles();
+                //             if (targets.length === 2) {
+                //                 await process();
+                //             }
+                //         }
+                //     }
+                // };
+                // xhr.open("GET", adr);
+                // xhr.send();
+                $.ajax({
+                    method: "GET",
+                    url: adr
+                    // responseType: "blob"
+                }).done(async data => {
+                    // console.log(data.indexOf("\r\n"));
+                    // const reader = new FileReader();
+                    // reader.readAsBinaryString(data);
+                    // reader.onload = async function() {
+                    targets.push(data);
+                    console.log(data);
+
+                    updateNumOfFiles();
+                    if (targets.length === 2) {
+                        await process();
+                    }
+                    // };
+                });
+            }
+        </script>
+    </body>
+</html>

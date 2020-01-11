@@ -1,22 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Document</title>
-        <!-- <script src="http://component.edbox-dev.101.com/libs/React/web.js?x=1"></script> -->
-        <script src="./1-tmp.js"></script>
-        <script src="./my-min-library/react.dev.js"></script>
-        <script src="./my-min-library/reactdom.dev.js"></script>
-        <script src="./my-min-library/babel.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+        <meta name="renderer" content="webkit|ie-comp|ie-stand" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+        <link rel="stylesheet" href="./1-tmp.css" />
+        <title>edbox-loading</title>
     </head>
+
     <body>
-        <div id="app"></div>
-        <script type="text/babel">
-            console.log(Web_Coms);
-            const StatusLoading = Web_Coms.StatusLoading;
-            ReactDOM.render(<StatusLoading noHint timeout={1000} React={React} formatMessage={() => "test"} />, app);
-        </script>
+        <div id="loadingBg">
+            <div class="reloadBtn">
+                <img
+                    src="
+                data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA39pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4MzEyODI2Ny1hMzFmLTcyNGQtOGZkYy1iNGUwZDM4NzdhZGQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RTJEMkNFQzUzM0E1MTFFQUFDRDZBMDMxNjUyMEU5QzYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RTJEMkNFQzQzM0E1MTFFQUFDRDZBMDMxNjUyMEU5QzYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjI5N2EyZjE3LThmZGMtNzY0YS1iMWFmLTM1MmU0NGU4ODdmNyIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjA0ZjhlMzBkLTIwMjktZDQ0OS04ODgwLTVmNjlmZWEzYjhiYSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PlD0c0YAAAGNSURBVHjapNTLK0RhGMfxM9MJEVlQLlHIwkqKBUZyWRC5xM5GaE6WLjUbO9m4ZmfS5A9QGoVZKCW3jaJmZ0WzMLmliJLb99Vz6jVNOTOe+nQuved33vOc9xyX1+s14lQVelCHMrhxhWPs4MAe6Pf7f7aumKA8TGNEjl8RwQcKkSXntzGFc+Qgw9RCKrCFUhxhCft4wCeyUYsJdKAJnRhGi6nNRN2lBD7MxnncR4TEJOawjndk2kHzEqIGLBh/lxp/izXVHtyroGoM4NBhSD7GkYIn6ZupgvpkwIzhrCpl5no9q6B6tSMNdlJ78CBVOxc1pTcRmaaTetNvaq8jtxy7jH+WCrqMWWxJlSnL3iO9CiV4fa5lWcVsz9SMgnLSl8REVnGKchV0gg00YiyBkEF0S+MjdrPV93OHRVgOQoYQkDc9ypt7sYNUw7twgxVsohXp2sVpaJbvKyBrr5eQsN1su9QjNmBZQpVrWWNfKEKBjN2Vpwjrb02vC7SjDf2okQWrgqLyhwjKz+1XfQswAO53WvUxLMdWAAAAAElFTkSuQmCC"
+                    alt=""
+                />
+                <div class="hint">
+                    重新加载
+                </div>
+            </div>
+        </div>
+        <div class="dialog" style="display: none; z-index: 9999;" id="dialog">
+            <div class="bg"></div>
+            <div class="model">
+                <div class="header">是否重新加载游戏？</div>
+                <span class="close" id="close">✕</span>
+                <div class="dialog-main">
+                    <p id="dialog-p">游戏加载失败，请稍后重试</p>
+                </div>
+                <div class="handler">
+                    <span class="red" id="retry">重试</span>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

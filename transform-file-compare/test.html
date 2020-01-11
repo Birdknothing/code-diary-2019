@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <script src="/my-min-library/jquery.dev.js"></script>
+        <script src="/my-min-library/Crypto.js"></script>
+        <script src="/my-min-library/jquery.dev.js"></script>
+        <script src="../my-min-library/Crypto.js"></script>
+        <script src="../my-min-library/jquery.dev.js"></script>
+    </head>
+    <body>
+        <input type="file" onchange="handleFile(event)" />
+        <script>
+            // const str = `！$%*!)@*#_+#@+$(&&^@!@%(#@123con(!function`;
+            const str = `$！%*!)@*#_+#@+$(&&^@!@%(#@123con(!function`;
+            const reader1 = new FileReader();
+            const reader2 = new FileReader();
+            const cp = (str, mode) =>
+                new Promise(res => {
+                    reader1.readAsBinaryString(new File([str], ""));
+                    reader1.onload = function() {
+                        const stres = reader1.result;
+                        const result = CryptoJS.MD5(reader1.result).toString();
+                        res([result, stres]);
+                    };
+                });
+            const cp2 = str =>
+                new Promise(res => {
+                    res([CryptoJS.MD5(str).toString(), str]);
+                });
+            // const cp2 = str =>
+            //     new Promise(res => {
+            //         res(CryptoJS.MD5(str).toString());
+            //     });
+            (async () => {
+                const [a1, a1str] = await cp(str);
+                const [a2, a2str] = await cp2(str);
+                console.log(a1, a2);
+                console.log(a1 === a2);
+                console.log(a1str, a2str);
+                console.log(a1str === a2str);
+            })();
+        </script>
+    </body>
+</html>
