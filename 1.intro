@@ -1,0 +1,328 @@
+
+NODE(1)                   BSD General Commands Manual                  NODE(1)
+
+NNAAMMEE
+     nnooddee -- server-side JavaScript runtime
+
+SSYYNNOOPPSSIISS
+     nnooddee [_o_p_t_i_o_n_s] [_v_8_-_o_p_t_i_o_n_s] [--ee _s_t_r_i_n_g | _s_c_r_i_p_t_._j_s | --] [----]
+          [_a_r_g_u_m_e_n_t_s _._._.]
+     nnooddee iinnssppeecctt [--ee _s_t_r_i_n_g | _s_c_r_i_p_t_._j_s | -- | _<_h_o_s_t_>_:_<_p_o_r_t_>] _._._.
+     nnooddee [----vv88--ooppttiioonnss]
+
+DDEESSCCRRIIPPTTIIOONN
+     Node.js is a set of libraries for JavaScript which allows it to be used
+     outside of the browser.  It is primarily focused on creating simple,
+     easy-to-build network clients and servers.
+
+     Execute nnooddee without arguments to start a REPL.
+
+OOPPTTIIOONNSS
+     --       Alias for stdin, analogous to the use of - in other command-line
+             utilities.  The executed script is read from stdin, and remaining
+             arguments are passed to the script.
+
+     ----      Indicate the end of command-line options.  Pass the rest of the
+             arguments to the script.
+
+             If no script filename or eval/print script is supplied prior to
+             this, then the next argument will be used as a script filename.
+
+     ----aabboorrtt--oonn--uunnccaauugghhtt--eexxcceeppttiioonn
+             Aborting instead of exiting causes a core file to be generated
+             for analysis.
+
+     ----ccoommpplleettiioonn--bbaasshh
+             Print source-able bash completion script for Node.js.
+
+     ----eennaabbllee--ffiippss
+             Enable FIPS-compliant crypto at startup.  Requires Node.js to be
+             built with ..//ccoonnffiigguurree ----ooppeennssssll--ffiippss.
+
+     ----eexxppeerriimmeennttaall--mmoodduulleess
+             Enable experimental ES module support and caching modules.
+
+     ----eexxppeerriimmeennttaall--rreeppll--aawwaaiitt
+             Enable experimental top-level aawwaaiitt keyword support in REPL.
+
+     ----eexxppeerriimmeennttaall--vvmm--mmoodduulleess
+             Enable experimental ES module support in VM module.
+
+     ----eexxppeerriimmeennttaall--wwoorrkkeerr
+             Enable experimental worker threads using worker_threads module.
+
+     ----ffoorrccee--ffiippss
+             Force FIPS-compliant crypto on startup (Cannot be disabled from
+             script code).  Same requirements as ----eennaabbllee--ffiippss.
+
+     ----hhttttpp--ppaarrsseerr=_l_i_b_r_a_r_y
+             Chooses an HTTP parser library. Available values are llllhhttttpp or
+             lleeggaaccyy.
+
+     ----iiccuu--ddaattaa--ddiirr=_f_i_l_e
+             Specify ICU data load path.  Overrides NODE_ICU_DATA.
+
+     ----iinnssppeecctt--bbrrkk=_[_h_o_s_t_:_]_p_o_r_t
+             Activate inspector on _h_o_s_t_:_p_o_r_t and break at start of user
+             script.
+
+     ----iinnssppeecctt--ppoorrtt=_[_h_o_s_t_:_]_p_o_r_t
+             Set the _h_o_s_t_:_p_o_r_t to be used when the inspector is activated.
+
+     ----iinnssppeecctt=_[_h_o_s_t_:_]_p_o_r_t
+             Activate inspector on _h_o_s_t_:_p_o_r_t.  Default is 112277..00..00..11::99222299.
+
+             V8 Inspector integration allows attaching Chrome DevTools and
+             IDEs to Node.js instances for debugging and profiling.  It uses
+             the Chrome DevTools Protocol.
+
+     ----llooaaddeerr=_f_i_l_e
+             Specify the _f_i_l_e as a custom loader, to load
+             ----eexxppeerriimmeennttaall--mmoodduulleess.
+
+     ----mmaaxx--hhttttpp--hheeaaddeerr--ssiizzee=_s_i_z_e
+             Specify the maximum size of HTTP headers in bytes. Defaults to
+             8KB.
+
+     ----nnaappii--mmoodduulleess
+             This option is a no-op.  It is kept for compatibility.
+
+     ----nnoo--ddeepprreeccaattiioonn
+             Silence deprecation warnings.
+
+     ----nnoo--ffoorrccee--aassyynncc--hhooookkss--cchheecckkss
+             Disable runtime checks for `async_hooks`.  These will still be
+             enabled dynamically when `async_hooks` is enabled.
+
+     ----nnoo--wwaarrnniinnggss
+             Silence all process warnings (including deprecations).
+
+     ----ooppeennssssll--ccoonnffiigg=_f_i_l_e
+             Load an OpenSSL configuration file on startup.  Among other uses,
+             this can be used to enable FIPS-compliant crypto if Node.js is
+             built with ..//ccoonnffiigguurree ----ooppeennssssll--ffiippss.
+
+     ----ppeennddiinngg--ddeepprreeccaattiioonn
+             Emit pending deprecation warnings.
+
+     ----pprreesseerrvvee--ssyymmlliinnkkss
+             Instructs the module loader to preserve symbolic links when
+             resolving and caching modules other than the main module.
+
+     ----pprreesseerrvvee--ssyymmlliinnkkss--mmaaiinn
+             Instructs the module loader to preserve symbolic links when
+             resolving and caching the main module.
+
+     ----pprrooff  Generate V8 profiler output.
+
+     ----pprrooff--pprroocceessss
+             Process V8 profiler output generated using the V8 option ----pprrooff.
+
+     ----rreeddiirreecctt--wwaarrnniinnggss=_f_i_l_e
+             Write process warnings to the given _f_i_l_e instead of printing to
+             stderr.
+
+     ----tthhrrooww--ddeepprreeccaattiioonn
+             Throw errors for deprecations.
+
+     ----ttiittllee=_t_i_t_l_e
+             Specify process.title on startup.
+
+     ----ttllss--cciipphheerr--lliisstt=_l_i_s_t
+             Specify an alternative default TLS cipher list.  Requires Node.js
+             to be built with crypto support. (Default)
+
+     ----ttrraaccee--ddeepprreeccaattiioonn
+             Print stack traces for deprecations.
+
+     ----ttrraaccee--eevveenntt--ccaatteeggoorriieess _c_a_t_e_g_o_r_i_e_s
+             A comma-separated list of categories that should be traced when
+             trace event tracing is enabled using ----ttrraaccee--eevveennttss--eennaabblleedd.
+
+     ----ttrraaccee--eevveenntt--ffiillee--ppaatttteerrnn _p_a_t_t_e_r_n
+             Template string specifying the filepath for the trace event data,
+             it supports $${{rroottaattiioonn}} and $${{ppiidd}}.
+
+     ----ttrraaccee--eevveennttss--eennaabblleedd
+             Enable the collection of trace event tracing information.
+
+     ----ttrraaccee--ssyynncc--iioo
+             Print a stack trace whenever synchronous I/O is detected after
+             the first turn of the event loop.
+
+     ----ttrraaccee--wwaarrnniinnggss
+             Print stack traces for process warnings (including deprecations).
+
+     ----ttrraacckk--hheeaapp--oobbjjeeccttss
+             Track heap object allocations for heap snapshots.
+
+     ----uussee--bbuunnddlleedd--ccaa, ----uussee--ooppeennssssll--ccaa
+             Use bundled Mozilla CA store as supplied by current Node.js ver-
+             sion or use OpenSSL's default CA store.  The default store is
+             selectable at build-time.
+
+             The bundled CA store, as supplied by Node.js, is a snapshot of
+             Mozilla CA store that is fixed at release time.  It is identical
+             on all supported platforms.
+
+             Using OpenSSL store allows for external modifications of the
+             store.  For most Linux and BSD distributions, this store is main-
+             tained by the distribution maintainers and system administrators.
+             OpenSSL CA store location is dependent on configuration of the
+             OpenSSL library but this can be altered at runtime using environ-
+             ment variables.
+
+             See SSL_CERT_DIR and SSL_CERT_FILE.
+
+     ----vv88--ooppttiioonnss
+             Print V8 command-line options.
+
+     ----vv88--ppooooll--ssiizzee=_n_u_m
+             Set V8's thread pool size which will be used to allocate back-
+             ground jobs.  If set to 0 then V8 will choose an appropriate size
+             of the thread pool based on the number of online processors.  If
+             the value provided is larger than V8's maximum, then the largest
+             value will be chosen.
+
+     ----zzeerroo--ffiillll--bbuuffffeerrss
+             Automatically zero-fills all newly allocated Buffer and Slow-
+             Buffer instances.
+
+     --cc, ----cchheecckk
+             Check the script's syntax without executing it.  Exits with an
+             error code if script is invalid.
+
+     --ee, ----eevvaall _s_t_r_i_n_g
+             Evaluate _s_t_r_i_n_g as JavaScript.
+
+     --hh, ----hheellpp
+             Print command-line options.  The output of this option is less
+             detailed than this document.
+
+     --ii, ----iinntteerraaccttiivvee
+             Open the REPL even if stdin does not appear to be a terminal.
+
+     --pp, ----pprriinntt _s_t_r_i_n_g
+             Identical to --ee, but prints the result.
+
+     --rr, ----rreeqquuiirree _m_o_d_u_l_e
+             Preload the specified _m_o_d_u_l_e at startup.  Follows `require()`'s
+             module resolution rules.  _m_o_d_u_l_e may be either a path to a file,
+             or a Node.js module name.
+
+     --vv, ----vveerrssiioonn
+             Print node's version.
+
+EENNVVIIRROONNMMEENNTT
+     NODE_DEBUG _m_o_d_u_l_e_s_._._.
+             Comma-separated list of core modules that should print debug
+             information.
+
+     NODE_DEBUG_NATIVE _m_o_d_u_l_e_s_._._.
+             Comma-separated list of C++ core modules that should print debug
+             information.
+
+     NODE_DISABLE_COLORS
+             When set to _1, colors will not be used in the REPL.
+
+     NODE_EXTRA_CA_CERTS _f_i_l_e
+             When set, the well-known ``root'' CAs (like VeriSign) will be
+             extended with the extra certificates in _f_i_l_e.  The file should
+             consist of one or more trusted certificates in PEM format.
+
+             If _f_i_l_e is missing or misformatted, a message will be emitted
+             once using pprroocceessss..eemmiittWWaarrnniinngg(()), but any errors are otherwise
+             ignored.
+
+             This environment variable is ignored when `node` runs as setuid
+             root or has Linux file capabilities set.
+
+     NODE_ICU_DATA _f_i_l_e
+             Data path for ICU (Intl object) data.  Will extend linked-in data
+             when compiled with small-icu support.
+
+     NODE_NO_WARNINGS
+             When set to _1, process warnings are silenced.
+
+     NODE_OPTIONS _o_p_t_i_o_n_s_._._.
+             A space-separated list of command-line _o_p_t_i_o_n_s, which are inter-
+             preted as if they had been specified on the command-line before
+             the actual command (so they can be overridden).  Node.js will
+             exit with an error if an option that is not allowed in the envi-
+             ronment is used, such as ----pprriinntt or a script file.
+
+     NODE_PATH _d_i_r_e_c_t_o_r_i_e_s_._._.
+             A colon-separated list of _d_i_r_e_c_t_o_r_i_e_s prefixed to the module
+             search path.
+
+     NODE_PENDING_DEPRECATION
+             When set to _1, emit pending deprecation warnings.
+
+     NODE_PRESERVE_SYMLINKS
+             When set to _1, the module loader preserves symbolic links when
+             resolving and caching modules.
+
+     NODE_REDIRECT_WARNINGS _f_i_l_e
+             Write process warnings to the given _f_i_l_e instead of printing to
+             stderr.  Equivalent to passing ----rreeddiirreecctt--wwaarrnniinnggss _f_i_l_e on com-
+             mand-line.
+
+     NODE_REPL_HISTORY _f_i_l_e
+             Path to the _f_i_l_e used to store persistent REPL history.  The
+             default path is ~~//..nnooddee__rreeppll__hhiissttoorryy, which is overridden by this
+             variable.  Setting the value to an empty string ("" or " ") will
+             disable persistent REPL history.
+
+     NODE_TLS_REJECT_UNAUTHORIZED
+             When set to _0, TLS certificate validation is disabled.
+
+     NODE_V8_COVERAGE _d_i_r
+             When set, Node.js writes JavaScript code coverage information to
+             _d_i_r.
+
+     OPENSSL_CONF _f_i_l_e
+             Load an OpenSSL configuration file on startup.  Among other uses,
+             this can be used to enable FIPS-compliant crypto if Node.js is
+             built with ..//ccoonnffiigguurree ----ooppeennssssll--ffiippss.
+
+             If the ----ooppeennssssll--ccoonnffiigg command-line option is used, this envi-
+             ronment variable is ignored.
+
+     SSL_CERT_DIR _d_i_r
+             If ----uussee--ooppeennssssll--ccaa is enabled, this overrides and sets OpenSSL's
+             directory containing trusted certificates.
+
+     SSL_CERT_FILE _f_i_l_e
+             If ----uussee--ooppeennssssll--ccaa is enabled, this overrides and sets OpenSSL's
+             file containing trusted certificates.
+
+     UV_THREADPOOL_SIZE _s_i_z_e
+             Sets the number of threads used in libuv's threadpool to _s_i_z_e.
+
+BBUUGGSS
+     Bugs are tracked in GitHub Issues: hhttttppss::////ggiitthhuubb..ccoomm//nnooddeejjss//nnooddee//iissssuueess
+
+CCOOPPYYRRIIGGHHTT
+     Copyright Node.js contributors.  Node.js is available under the MIT
+     license.
+
+     Node.js also includes external libraries that are available under a vari-
+     ety of licenses.  See hhttttppss::////ggiitthhuubb..ccoomm//nnooddeejjss//nnooddee//bblloobb//mmaasstteerr//LLIICCEENNSSEE
+     for the full license text.
+
+SSEEEE AALLSSOO
+     Website: hhttttppss::////nnooddeejjss..oorrgg//
+
+     Documentation: hhttttppss::////nnooddeejjss..oorrgg//aappii//
+
+     GitHub repository & Issue Tracker: hhttttppss::////ggiitthhuubb..ccoomm//nnooddeejjss//nnooddee
+
+     IRC (general questions): cchhaatt..ffrreeeennooddee..nneett ##nnooddee..jjss (unofficial)
+
+     IRC (Node.js core development): cchhaatt..ffrreeeennooddee..nneett ##nnooddee--ddeevv
+
+AAUUTTHHOORRSS
+     Written and maintained by 1000+ contributors:
+     hhttttppss::////ggiitthhuubb..ccoomm//nnooddeejjss//nnooddee//bblloobb//mmaasstteerr//AAUUTTHHOORRSS
+
+                               February 3, 2020
