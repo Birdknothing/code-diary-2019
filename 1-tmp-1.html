@@ -1,37 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <script src="./my-min-library/jquery.dev.js"></script>
-        <title>Document</title>
-    </head>
-    <body>
-        事件名: <input type="text" id="ename" /><br />
-        数据：<input type="text" value='{ x: 1," y":2,z:" test", d :0}' id="data" /><br />
-        <button onclick="send()">发出事件</button>
-        <script>
-            const $board = $("<div></div>")
-                .css({ position: "fixed", right: 0, top: 0, width: "50%", height: "50%" })
-                .appendTo("body");
-            console.log = function(anyth) {
-                $board.append($board.html() + JSON.stringify(anyth) + "<br/>");
-            };
-        </script>
-        <script src="./1-tmp.js"></script>
-        <script>
-            Edbox.Message.Get(window.parent, com => {
-                com.Start();
-            });
-            function send() {
-                const str = data.value
-                    .replace(/[\n\r\s]/g, "")
-                    .replace(/(?<=[,{}])([^"']+)(?=\:)/g, '"$1"')
-                    .replace(/'/g, '"');
-                console.log(str);
-                Edbox.Message.Broadcast(ename.value, { Type: ename.value, Datas: JSON.parse(str) });
-            }
-        </script>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="./1-rf.js"></script> -->
+    <link rel="preload" href="./1-rf.js" as="script" />
+    <!--IE 地址栏前的图标-->
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="1-test.js"></script>
+    <button onclick="test()">加载脚本</button>
+    <script>
+        function test() {
+            const s = document.createElement('script')
+            s.src = './1-rf.js';
+            document.body.appendChild(s);
+        }
+        // test();
+        window.onload = function () {
+            console.log('onload');
+
+        }
+    </script>
+</body>
+
 </html>

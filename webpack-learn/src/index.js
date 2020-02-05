@@ -11,7 +11,7 @@ const m = new Promise((res) => {
 })
 test.log();
 function getJQ() {
-  return import(/* webpackChunkName: "async11" */'./async.js').then(({ default: _ }) => {
+  return import(/* webpackPrefetch: true */'./async.js').then(({ default: _ }) => {
     _.test();
   })
 }

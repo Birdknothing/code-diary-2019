@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+const { ProvidePlugin } = require('webpack');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -52,7 +52,7 @@ module.exports = {
         },
         default: {
           priority: -20,
-          name:'tt'
+          name: 'tt'
         }
       }
     }
@@ -75,13 +75,17 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "./main.css"
+      filename: "[name].[contenthash].css"
     }),
-    new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin(),
+    new ProvidePlugin({
+      $: path.resolve(path.join(__dirname, 'src/jq.js'))
+    })
+
   ],
   output: {
     filename: '[name].[contenthash].js',
-    chunkFilename:'[name].[contenthash].js',
+    chunkFilename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist')
   }
 }
