@@ -1,3 +1,3 @@
-const a = '1'
+const aa = 'test111'
 const f = console.log;
-export { a, f }
+export {aa,f}
