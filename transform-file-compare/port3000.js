@@ -13,9 +13,8 @@ app.get("/getstr", (req, resp) => {
     }
     const url = req.query.url;
     superagent.get(url).end(async (err, res) => {
-        if (!res.text) {
-            console.log("no text");
-        }
+        // if (!res.text) {
+        // }
         if (res.body) {
             resp.send(res.body.toString());
         }

@@ -100,7 +100,7 @@ Height
 
 &nbsp;
 
-= 编辑和展示 =
+= 游戏包配置 =
 
 === 入口 ===
 
@@ -118,7 +118,7 @@ Height
 
 &nbsp;
 
-=== 界面 ===
+=== 界面配置 ===
 
  {
      "ID": "Datas_Backpack_Config",                             // ID:唯一ID，用于唯一标识对象，由游戏定义
@@ -134,8 +134,9 @@ Height
             "Datas": [
                 {
                     "ID": "Datas_Backpack_Config_Bag_Enable",
-                    "Name": "Enable",                           // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+                    "Name": "EnableBag",                        // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
                     "ShowName": "是否启用背包",
+                    "Class": "EnableBag",                       // Class:标识，'''<span style="color:#e74c3c;">固定</span>'''
                     "Type": "Switch01",                         // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
                     "Value": true,
                     "ReadOnly": false
@@ -165,6 +166,7 @@ Height
                     "ID": "Datas_Backpack_Config_Bag_Title",
                     "Name": "BagTitle",                         // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
                     "ShowName": "背包界面标题",
+                    "Class": "BagTitle",                        // Class:标识，'''<span style="color:#e74c3c;">固定</span>'''
                     "Type": "Text01",                           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
                     "Value": "背包",
                     "Length": 60,
@@ -180,6 +182,7 @@ Height
                             "ID": "Datas_Backpack_Config_Grid_Num",
                             "Name": "GridsNum",                 // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
                             "ShowName": "背包格子数",
+                            "Class": "GridsNum",                // Class:标识，'''<span style="color:#e74c3c;">固定</span>'''
                             "Type": "Value02",                  // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
                             "MaxValue": 999,
                             "Value": 100
@@ -190,6 +193,8 @@ Height
        }
     ]
  }
+
+&nbsp;
 
 &nbsp;
 
@@ -221,7 +226,7 @@ Height
                         "ItemDesc": "desc desc",        // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
                         "ResGuid": "",                  // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
                         "IconGuid": "3272ab61-0f44-44cd-94df-46e5870b8155",    // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
-                        "MaxNum": 0,                    // Number类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
+                        "MaxNum": 1,                    // Number类型，'''<span style="color:#e74c3c;">正值，属性名固定</span>'''
                         "NameKey": "",                  // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
                         "DescKey": "",                  // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
                         "IconUrl": "",                  // String类型，'''<span style="color:#e74c3c;">属性名固定</span>'''
@@ -237,11 +242,28 @@ Height
 
 == 基础配置 ==
 
-①Tab01设置Name="Backpack"且 Class="Backpack"时，开启背包。
+ ①Tab01设置Name="Backpack"且 Class="Backpack"时，识别背包。
+ ②'''<span style="color:#e74c3c;">固定设置</span>'''，Tab01设置PageType、Editable、Template无效，<span style="color:#e74c3c;">'''Datas数据结构固定'''</span>。
+ ③游戏物品类型配置不需配置项数字类型除 <span style="color:#e74c3c;">'''MaxNum'''</span> 属性外值设置 <span style="color:#e74c3c;">'''0'''</span> ，字符串类型设置 <span style="color:#e74c3c;">""</span>
 
-②'''<span style="color:#e74c3c;">固定设置</span>'''，Tab01设置PageType、Editable、Template无效，<span style="color:#e74c3c;">'''Datas数据结构固定'''</span>。
+&nbsp;
 
-③游戏物品类型配置不需配置项数字类型属性设置 <span style="color:#e74c3c;">'''0'''</span> ，字符串类型设置 <span style="color:#e74c3c;">""</span>
+=== 显示页面 ===
+
+ ①父页面调用 Edbox.Backpack.Show()，若子页面已加载完，页面显示。
+ ②子页面上传消息 Type:"Backpack_Show"，若子页面已加载完，页面显示。
+
+&nbsp;
+
+=== 隐藏页面 ===
+
+ ①子页面上传消息 Type:"Backpack_Hide"，子页面隐藏。
+
+&nbsp;
+
+=== 移除页面 ===
+
+ ①子页面上传消息 Type:"Backpack_Close"，子页面从父页面移除，再次显示需要重新初始化。
 
 &nbsp;
 
@@ -253,36 +275,121 @@ Height
 ! scope="col" | 页面说明
 ! scope="col" | 页面部署
 |-
-| style="text-align: center;" | 背包展示页
-| style="text-align: center;" | 编辑与展示共用此页
+| style="text-align: center;" | 编辑器背包页
+| style="text-align: center;" | 用于编辑器编辑样式
+| style="text-align: center;" | coms/Backpack/index.html
+|-
+| style="text-align: center;" | 游戏展示页（试玩等未发布场景）
+| style="text-align: center;" | 用于展示背包和物品类型
+| style="text-align: center;" | coms/Backpack/index.html
+|-
+| style="text-align: center;" | 游戏背包页
+| style="text-align: center;" | 展示背包个人物品和使用等
 | style="text-align: center;" | coms/Backpack/index.html
 |}
 
 &nbsp;
 
-== 编辑 ==
+== 编辑器背包页 ==
 
-①启动背包编辑页面时，编辑区铺满，渲染区隐藏但不会关闭
+=== 初始化显示页面 ===
 
-②调用Edbox.Backpack.InitEdit(dom)，dom为渲染区dom元素，页面渲染完成回发Backpack_Show消息自动显示
+父页面：
 
-③编辑器数据修改时广播修改的数据，编辑页接收消息展示修改
+ Edbox.Backpack.InitEdit("", function() {Edbox.Backpack.Show();});
 
-④保存时，自动转入StaticData的Backpack参数下保存背包模板，<span style="color:#e74c3c;">'''此步由SDK自动完成'''</span>
+子页面：
+ 
+ ①收到消息：{Type："Lang",Datas: Edbox.Language}
+ ②收到消息：{Type："Init_Edit",Datas: StaticData.Backpack},用于展示背包，编辑样式
+
+注意：
+
+ ①启动背包编辑页面时，编辑区铺满，渲染区隐藏但不会关闭
+ ②调用Edbox.Backpack.InitEdit(dom,success,error)时，dom为渲染区dom元素，传空字符串默认占全屏
+ ③父页面修改时广播修改的数据，子页面收到消息 {Type:"Update",Datas:[]} 根据Name和Class等固定标识更新页面
+ ④保存时，自动转入StaticData的Backpack参数下保存背包模板，<span style="color:#e74c3c;">'''此步由SDK自动完成'''</span>
 
 &nbsp;
 
-== 商城获取物品类型 ==
+== 游戏展示页 ==
 
-①游戏端手动编辑（新增）物品类型，更改配置文件
+=== 初始化显示页面 ===
 
-②SDK根据游戏配置包，先调用编辑物品类型接口，保存所有配置包修改的物品类型，再返回获取的物品类型列表
+父页面：
+
+ Edbox.Backpack.InitDisplay("", function() {Edbox.Backpack.Show();});
+
+子页面：
+ 
+ ①收到消息：{Type："Lang",Datas: Edbox.Language}
+ ②收到消息：{Type："Init_Display",Datas: {DisplayConfig：StaticData.Backpack,GameItems:StaticData.GameItems},展示背包和物品类型
+
+注意：
+
+ ①用于试玩和个人库等场景，只展示游戏包配置的物品类型
+ ②调用Edbox.Backpack.InitDisplay(dom,success,error)时，dom为渲染区dom元素，传空字符串默认占全屏
 
 &nbsp;
 
-== 展示 ==
+== 游戏背包页 ==
 
-①调用Edbox.Backpack.InitDisplay(dom)，默认全屏展示，可配置父级dom元素
+=== 初始化显示页面 ===
+
+父页面：
+
+ Edbox.Backpack.Init("", function() {Edbox.Backpack.Show();});
+
+子页面：
+ 
+ ①收到消息：{Type："Lang",Datas: Edbox.Language}
+ ②收到消息：{Type："Init_Game",Datas: StaticData.Backpack},用于展示背包
+ ③收到消息：{Type："Game_Datas",Datas: {}},用于展示用户个人物品列表
+
+注意：
+
+ ①用于发布后的游戏，初始化过程中将保存物品类型后台
+ ②调用Edbox.Backpack.Init(dom,success,error)时，dom为渲染区dom元素，传空字符串默认占全屏
+
+&nbsp;
+
+=== 商城获取物品类型 ===
+
+Edbox.Backpack.GetItemTypes(success,error)
+
+注意：
+
+ ①商城获取物品类型需要在游戏初始化后进行
+
+&nbsp;
+
+=== 获得个人物品 ===
+
+父页面：
+
+ ①调用Edbox.Backpack.AddBagItem(type_id,num,success,error),需要物品的类型id和物品数量
+ ②收到mqtt消息新增物品，下发消息
+
+子页面：
+
+ 收到消息{Type:"Backpack_Modify_Item",[]},渲染新增物品
+
+&nbsp;
+
+=== 使用个人物品 ===
+
+子页面：
+
+ 上传消息：
+    {Type:"Backpack_Use_Item",Datas:[tag]},需要使用物品的位置
+ 收到消息：
+    ①{Type:"Backpack_Modify_Item",[]},背包位置物品减少
+    ②{Type:"Backpack_Del_Item",[]},背包位置物品为空
+
+
+父页面：
+
+ 收到mqtt消息使用物品，下发消息
 
 &nbsp;
 
