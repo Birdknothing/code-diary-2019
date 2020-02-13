@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./my-min-library/jquery.min.js"></script>
+  </head>
+  <body>
+    <iframe src="./1-tmp-1.html" frameborder="0"></iframe>
+    <script>
+      const mkHandler = (msg) => ({ data }) => {
+        console.log(data,msg);
+      };
+      const m1 = mkHandler('m1');
+      const m2 = mkHandler('m2');
+      window.addEventListener("message",m1);
+      window.addEventListener("message",m2);
+      172.31.193.69
+    </script>bUb7Ng9l
+    1537235339
+    cn9k49
+  </body>
+</html>
