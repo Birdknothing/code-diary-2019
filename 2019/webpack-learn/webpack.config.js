@@ -7,7 +7,6 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 const WorkboxPlugin = require("workbox-webpack-plugin");
 const isProduction = process.env.mode === 'production';
-console.log(process.env.mode);
 
 module.exports = {
   mode: isProduction ? "production" : "development",
@@ -19,8 +18,6 @@ module.exports = {
     contentBase: "./dist",
     historyApiFallback: true,
     port: 8686,
-    // hot: true,
-    // hotOnly: true
   },
   module: {
     rules: [
@@ -75,17 +72,6 @@ module.exports = {
         }
       }
     }
-    //     // default:{
-    //     //   minChunks:2
-    //     // }
-    //     // }
-    //     // cacheGroups: {
-    //     //   commons: {
-    //     //     name: "commons",
-    //     //     chunks: "initial"
-    //     //   }
-    //   }
-    // }
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -96,7 +82,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].[hash].css"
     }),
-    // new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin(),
     new ProvidePlugin({
       $: path.resolve(path.join(__dirname, "src/jq.js"))
     }),
