@@ -1,0 +1,114 @@
+@import "@/pages/common.scss";
+$fontPageTxtDark: rgb(17, 17, 17);
+$fontPageTxtLight: rgb(153, 153, 153);
+$fontPageBgColor: rgb(246, 246, 246);
+$fontPageBarGray: rgb(204, 204, 204);
+$fontPageListShadow: 0 5px 9px 1px rgba(0, 0, 0, 0.1);
+.libsList {
+    box-shadow: 0 500px 0px 0px $fontPageBgColor;
+    .listBox {
+        border-top: s(1px) solid rgba(0, 0, 0, 0.1);
+        background-color: $fontPageBgColor;
+        padding-top: s(38px);
+        height: calc(100vh - 12vw);
+        .list {
+            box-shadow: $fontPageListShadow;
+            background-color: #fff;
+            @extend %flex;
+            flex-direction: column;
+            width: 100%;
+            .listItem {
+                @extend %flex;
+                justify-content: space-between;
+                // 左右留白
+                padding: 0 s(40px);
+                height: s(120px);
+                width: 100%;
+            }
+            .left {
+                position: relative;
+                width: s(80px);
+                height: s(80px);
+                border-radius: s(10px);
+                background-color: rgb(249, 249, 249);
+                .pic {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    margin: auto;
+                    width: s(40px);
+                    height: s(40px);
+                    @extend %img-width;
+                }
+            }
+            .middle {
+                @extend %flex_between;
+                flex-direction: column;
+                // padding-top: s(20px);
+                width: s(530px);
+                height: s(70px);
+                padding-top: s(10px);
+                .txt {
+                    position: relative;
+                    height: s(24px);
+                    width: 100%;
+                    .t1 {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: s(240px);
+                        color: $fontPageTxtDark;
+
+                        // solution=-1
+                        height: s(70px);
+                        line-height: s(70px);
+                        width: s(480px);
+                        transform: scale(0.5);
+                        transform-origin: left bottom;
+                        font-size: s(68px);
+
+                        // @extend %singleEllip;
+                        text-align: left;
+                    }
+                    .t2 {
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        color: $fontPageTxtLight;
+
+                        // solution=-1
+                        height: s(50px);
+                        line-height: s(50px);
+                        // width: s(480px);
+                        width: s(520px);
+                        transform: scale(0.5);
+                        transform-origin: right bottom;
+                        font-size: s(48px);
+                        white-space: nowrap;
+                        text-align: right;
+                        // @extend %singleEllip;
+                    }
+                }
+                .bar {
+                    height: s(10px);
+                    width: 100%;
+                    background-color: $fontPageBarGray;
+                    border-radius: s(5px);
+                    .live {
+                        border-radius: s(5px);
+                        background-color: $themeColor;
+                        height: 100%;
+                    }
+                }
+            }
+            .right {
+                width: s(20px);
+                height: s(20px);
+                @extend %v-middle;
+                @extend %img-height;
+            }
+        }
+    }
+}

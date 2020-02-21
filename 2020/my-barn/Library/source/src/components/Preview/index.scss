@@ -1,0 +1,17 @@
+@import "@/pages/common.scss";
+$previewBgColor: rgb(39, 39, 39);
+.preview {
+    width: 100vw;
+    height: calc(100vh - 12vw);
+    background-color: $previewBgColor;
+    @extend %flex_center;
+    flex-direction: column;
+    .pic {
+        @extend %flex_center;
+        height: s(700px);
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
+}

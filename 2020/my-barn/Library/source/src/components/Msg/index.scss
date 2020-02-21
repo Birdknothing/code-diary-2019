@@ -1,0 +1,43 @@
+@import "@/pages/common.scss";
+$msgBgColor: rgba(0, 0, 0, 0.8);
+// .msgModal {
+//     position: fixed;
+//     z-index: 999;
+//     left: 0;
+//     top: 0;
+//     height: 100vh;
+//     width: 100vw;
+//     @extend %flex_center;
+.alertBox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+
+    opacity: 1;
+    // right: 0;
+    // bottom: 0;
+    border-radius: s(8px);
+    padding: s(24px) s(45px);
+    @extend %flex_center;
+    background-color: $msgBgColor;
+    .heart {
+        width: s(50px);
+        height: s(50px);
+        @extend %img-height;
+    }
+    .txt {
+        color: #fff;
+        text-align: center;
+        font-size: s(34px);
+        padding: 0 s(20px);
+        min-width: s(385px);
+        max-width: s(505px);
+        word-break: break-word;
+        white-space: wrap;
+    }
+    transition: opacity 2s ease-in-out;
+}
+// }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Edbox</title>
+    <link href="./css/main.css" rel="stylesheet"></head>
+    <body oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+        <div id="app"></div>
+        <script>
+            var scriptAdder = {
+                serverPath: "",
+                addScript: function(src, svPath) {
+                    src = (svPath || this.serverPath) + src;
+                    document.write('<script src="' + src + "?v=" + new Date().getTime() + '" type="text/javascript"><\/script>');
+                }
+            };
+            scriptAdder.addScript("/libs/Edbox_Lobby/js/Edbox.js");
+            scriptAdder.addScript("/libs/Edbox_PrivateAsset/js/Edbox_PrivateAsset.js");
+            scriptAdder.addScript("/libs/React/mobile.js");
+        </script>
+    <script type="text/javascript" src="./js/main.js"></script></body>
+</html>

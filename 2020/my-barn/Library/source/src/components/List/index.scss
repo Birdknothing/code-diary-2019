@@ -1,0 +1,318 @@
+@import "@/pages/common.scss";
+$listBgColor: rgb(249, 249, 249);
+// 音频库字体
+$audioFont1Chosed: s(34px); // 歌名
+$audioFont1: s(32px); // 歌名
+$audioFont2: s(18px); // 时间
+$listWidth: s(705px); // 列表宽度
+$colorUnableDel: rgba(0,0,0,.2);
+
+.list {
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: $listBgColor;
+    box-shadow: 0 200px 0px 0px $listBgColor;
+    // 搜索框占位
+    .replaceSearch {
+        height: s(28px);
+    }
+    .listContainer {
+        // width: s(718px);
+        width: 100%;
+        margin: s(24px) auto;
+        // padding: s(10px) 0;
+        height: calc(100vh - 35vw);
+        overflow: scroll;
+        // overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        .picLibList {
+            width: $listWidth;
+            margin: 0 auto;
+            font-size: 0;
+            .picBox {
+                position: relative;
+                width: 33.33%;
+                display: inline-block;
+                height: s(234px);
+                padding: s(2px);
+                overflow: hidden;
+                background-color: rgb(246, 246, 246);
+                // background-size: auto 100%;
+                // background-position: center center;
+                // background-clip: padding-box;
+                .lineup {
+                    position: absolute;
+                    height: s(32px);
+                    width: s(32px);
+                    background-color: rgba(0, 0, 0, 0.2);
+                    img {
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                    }
+                    right: s(16px);
+                    bottom: s(16px);
+                }
+
+                .loading {
+                    position: absolute;
+                    width: s(32px);
+                    height: s(32px);
+                    background-color: rgba(0, 0, 0, 0.4);
+                    box-shadow: 0 0 1px 100px rgba(0, 0, 0, 0.4);
+                    right: s(16px);
+                    bottom: s(16px);
+                    img {
+                        position: absolute;
+                        animation: rotate 1s linear infinite;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .fail {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    @extend %flex_center;
+                    width: 100%;
+                    height: 100%;
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+
+                .imgBox {
+                    position: relative;
+                    margin: 0 auto;
+                    width: calc(100% - 0.133vw);
+                    height: 100%;
+                    overflow: hidden;
+                    background-position: center;
+                    background-size: cover;
+                    // img {
+                    //     // width: auto;
+                    //     // height: s(234px);
+                    //     min-width: 100%;
+                    //     min-height: 100%;
+                    //     vertical-align: middle;
+                    //     position: absolute;
+                    //     left: 50%;
+                    //     top:50%;
+                    //     transform: translate3d(-50%, -50%, 0);
+                    // }
+                }
+                .ctrlConfirm {
+                    display: none;
+                }
+                .ctrlConfirm + .chose img {
+                    display: none;
+                }
+                .ctrlConfirm:checked + .chose img {
+                    display: inline-block;
+                }
+                .ctrlConfirm:checked + .chose {
+                    border: none;
+                }
+                .chose {
+                    display: none;
+                    touch-action: none;
+                    position: absolute;
+                    right: s(10px);
+                    top: s(10px);
+                    width: s(50px);
+                    height: s(50px);
+                    line-height: s(50px);
+                    border: 1px solid #fff;
+                    border-radius: 50%;
+                    background-color: rgba(0, 0, 0, 0.1);
+                    @extend %img-height;
+                }
+            }
+        }
+        // 音频图片公用
+        .operateReplace {
+            height: 15vw;
+        }
+        // 音频用
+        .playerReplace {
+            height: 22vw;
+        }
+        .audioLibList {
+            width: $listWidth;
+            margin: 0 auto;
+            @extend %flex;
+            flex-direction: column;
+            padding: 0 s(20px);
+            .audioBoxContainer {
+                width: 100%;
+            }
+            .audioBox {
+                position: relative;
+                @extend %flex_center;
+                align-items: flex-start;
+                text-align: left;
+                flex-direction: column;
+                height: s(120px);
+                padding: 0;
+                width: 100%;
+            }
+            .audio_ctrl_single {
+                display: none;
+            }
+            .ctrlConfirm {
+                display: none;
+            }
+            .ctrlConfirm:checked + div .chose img:first-child {
+                opacity: 1;
+            }
+            .ctrlConfirm:checked + div .chose img:nth-child(2) {
+                opacity: 0;
+            }
+            .audio_ctrl_single:checked + input + .audioBox {
+                font-size: $audioFont1Chosed;
+                .title {
+                    color: $themeColor;
+                }
+            }
+            // .ctrlConfirm_audio:checked + .audioBox {
+            //     font-size: $audioFont1Chosed;
+            //     color: $themeColor;
+            // }
+
+            .title {
+                height: s(40px);
+                width: s(550px);
+                line-height: s(40px);
+                font-size: $audioFont1;
+                @extend %singleEllip;
+            }
+            .time {
+                margin-top: s(10px);
+                width: s(550px);
+                height: s(40px);
+                line-height: s(40px);
+                font-size: $audioFont2;
+                color: rgb(173, 173, 173);
+            }
+            // 多选模式
+            .chose {
+                touch-action: none;
+                position: absolute;
+                right: s(10px);
+                top: s(10px);
+                width: s(50px);
+                height: s(50px);
+                line-height: s(50px);
+                border: 1px solid #fff;
+                border-radius: 50%;
+                background-color: rgba(0, 0, 0, 0.1);
+                @extend %img-height;
+                img {
+                    position: absolute;
+                }
+                img:first-child {
+                    opacity: 0;
+                }
+            }
+            // 播放模式
+            .rightBox {
+                position: absolute;
+                @extend %flex_center;
+                width: s(40px);
+                height: s(120px);
+                right: 0;
+                top: 0;
+            }
+            .dots {
+                position: absolute;
+                width: 100%;
+                height: s(80px);
+            }
+            .status {
+                position: absolute;
+                @extend %flex_center;
+                width: s(32px);
+                height: 100%;
+                left: s(-50px);
+                top: 0;
+
+                img {
+                    position: absolute;
+                    width: s(32px);
+                    height: s(32px);
+                }
+                img:last-child {
+                    animation: rotate 1s linear infinite;
+                }
+            }
+            .dotsBox {
+                position: absolute;
+                @extend %flex_center;
+                justify-content: space-between;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                .reload {
+                    @extend %flex_center;
+                    @extend %img-height;
+                    height: s(32px);
+                }
+            }
+            .dot {
+                width: 4px;
+                height: 4px;
+                border-radius: 2px;
+                // width: s(10px);
+                // height: s(10px);
+                // border-radius: 50%;
+                background-color: rgb(17, 17, 17);
+            }
+            .ctrlDel {
+                display: none;
+            }
+            .ctrlDel:checked + .del {
+                display: flex;
+            }
+            %delbtn{
+                display: none;
+                position: absolute;
+                color: #fff;
+                @extend %flex_center;
+                
+                left: s(-50px);
+                font-size: s(32px);
+                top: 0;
+                width: s(140px);
+                height: 100%;
+            }
+            .del {
+                @extend %delbtn;
+                background-color: $themeColor;
+            }
+        }
+    }
+    // 无数据
+    .nodata {
+        height: 100%;
+        @extend %flex_center;
+        flex-direction: column;
+        font-size: s(26px);
+        img {
+            display: block;
+            width: s(400px);
+            height: auto;
+        }
+        .txt {
+            margin-top: s(60px);
+            width: s(450px);
+            word-break: break-word;
+            white-space: pre-wrap;
+            font-size: s(20px);
+            text-align: center;
+            line-height: s(40px);
+        }
+    }
+}

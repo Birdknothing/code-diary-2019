@@ -1,0 +1,124 @@
+@import "@/pages/common.scss";
+$operateBorderBottom: 1px solid rgba(0, 0, 0, 0.1);
+$operateBigFont: s(28px);
+$operateSmallFont: s(24px);
+$operateBigColor: rgb(103, 103, 103);
+$operateSmallColor: rgb(17, 17, 17);
+$operateIconBgLightColor: rgb(246, 246, 246);
+$operateIconBgDarkColor: rgb(102, 102, 102);
+$operateBoxShadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
+.operate {
+    position: fixed;
+    z-index: 808;
+    left: 0;
+    bottom: 0;
+    // height: s(340px);
+    background-color: #fff;
+    // border-radius: s(20px) s(20px) 0 0;
+    width: 100%;
+    transform: translate3d(0, 46vw, 0);
+    transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+    .title {
+        padding: 0 s(40px);
+        @extend %flex_between;
+        height: s(76px);
+        width: 100%;
+        border-bottom: $operateBorderBottom;
+        .txt {
+            font-size: $operateBigFont;
+            color: $operateBigColor;
+        }
+        .del {
+            height: 100%;
+            width: s(40px);
+            @extend %flex;
+            justify-content: flex-end;
+            line-height: s(20px);
+            img {
+                width: s(20px);
+                height: s(20px);
+            }
+        }
+        .manager {
+            @extend %flex_center;
+            .icon {
+                width: s(30px);
+                height: s(30px);
+            }
+            .manageTxt {
+                font-size: s(18px);
+            }
+        }
+    }
+    .opItems {
+        padding: s(30px) s(40px) s(50px) s(40px);
+        height: s(264px);
+        @extend %flex;
+    }
+    .opItemsLower {
+        // padding: s(30px) s(40px) s(50px) s(40px);
+        height: s(110px);
+        @extend %flex_center;
+    }
+    .opItemLower {
+        width: 50%;
+        height: 100%;
+        @extend %flex;
+        flex-direction: column;
+        .pic {
+            @extend %flex_center;
+            flex-direction: column;
+            height: s(45px);
+            margin-top: s(16px);
+            img {
+                height: s(45px);
+                width: auto;
+            }
+        }
+        .txt {
+            @extend %flex_center;
+            margin-top: s(10px);
+            height: s(40px);
+            margin-top: s(10px);
+            font-size: $operateSmallFont;
+        }
+    }
+    .opItem {
+        @extend %flex;
+        flex-direction: column;
+        width: s(160px);
+        height: s(176px);
+        .pic {
+            @extend %flex_center;
+            width: s(130px);
+            height: s(130px);
+            background-color: $operateIconBgLightColor;
+            border-radius: s(20px);
+        }
+        .icon {
+            @extend %flex_center;
+            border-radius: 50%;
+            width: s(55px);
+            height: s(55px);
+            background-color: $operateIconBgDarkColor;
+            .iconBox {
+                width: s(30px);
+                @extend %flex_center;
+                height: s(30px);
+                line-height: s(30px);
+                @extend %img-height;
+            }
+        }
+        .txt {
+            height: s(46px);
+            line-height: s(46px);
+            width: s(160px);
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-size: $operateSmallFont;
+            color: $operateSmallColor;
+            text-align: center;
+            // @extend %singleEllip;
+        }
+    }
+}

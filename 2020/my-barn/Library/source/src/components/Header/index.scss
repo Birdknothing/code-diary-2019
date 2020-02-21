@@ -1,0 +1,151 @@
+@import "@/pages/common.scss";
+$tabButtonBgColor: rgb(244, 244, 244);
+$textAloneColor: rgb(153, 153, 153);
+$fontPageTxtDark: rgb(17, 17, 17);
+.headerPlace {
+    height: s(90px);
+}
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: s(90px);
+    background-color: #fff;
+    @extend %flex_center;
+    // 第一块
+    .leftArrow {
+        position: absolute;
+        // left: s(20px);
+        left: 0;
+        height: 100%;
+        width: s(60px);
+        vertical-align: middle;
+        @extend %flex_center;
+        img {
+            width: s(20px);
+            height: auto;
+        }
+    }
+    // 第二块
+    // 标题
+    .title {
+        width: 80%;
+        height: s(90px);
+        line-height: s(90px);
+        font-size: s(34px);
+        font-weight: bold;
+        text-align: center;
+        color: $fontPageTxtDark;
+        @extend %singleEllip;
+    }
+    // tab按钮
+    .tabButton {
+        @extend %flex_between;
+        position: relative;
+        width: s(420px);
+        padding: 0 s(10px);
+        height: s(80px);
+        background-color: $tabButtonBgColor;
+        border-radius: s(40px);
+        .txtBox {
+            @extend %flex_center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            width: s(400px);
+            height: 100%;
+            font-size: s(30px);
+            line-height: s(80px);
+            color: $textAloneColor;
+            .ctrlSlide {
+                display: none;
+            }
+            .ctrlSlide:checked + .txt {
+                color: #fff;
+            }
+            .txt {
+                text-align: center;
+                color: $textAloneColor;
+                // style-width
+                width: 50%;
+                height: 100%;
+                @extend %singleEllip;
+            }
+        }
+        // 滑动
+        @each $index in 0, 1 {
+            [data-toggle="#{$index}"] + .slideBox {
+                transform: translate3d(#{percentage($index)}, 0, 0);
+                // transform: translate(#{percentage($index)});
+            }
+        }
+        .slideBox {
+            // style-width
+            width: 50%;
+            height: s(60px);
+            background-color: $themeColor;
+            border-radius: s(40px);
+            transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+        }
+    }
+    // 第三块
+    // icons
+    .iconsBox {
+        @extend %flex;
+        justify-content: space-between;
+        position: absolute;
+        right: s(20px);
+        width: s(120px);
+        height: 100%;
+    }
+    // .searchIcon {
+    //     width: s(40px);
+    //     height: s(40px);
+    // }
+    .upload {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: rotate(90deg);
+        opacity: 0;
+    }
+    .addPicIcon {
+        position: relative;
+        height: 100%;
+        width: s(60px);
+        @extend %flex_center;
+        line-height: s(40px);
+        input {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0) rotate(90deg);
+            transform-origin: center;
+        }
+        img {
+            height: s(40px);
+            width: s(40px);
+        }
+    }
+    .multiChose {
+        width: s(60px);
+        height: 100%;
+        @extend %flex_center;
+        line-height: s(40px);
+        img {
+            height: s(40px);
+            width: s(40px);
+        }
+    }
+    // 确认图标
+    .confirm {
+        position: absolute;
+        right: s(40px);
+        width: s(44px);
+        line-height: s(44px);
+        height: s(44px);
+        @extend %img-height;
+    }
+}

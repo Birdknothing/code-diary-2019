@@ -1,0 +1,89 @@
+@import "@/pages/common.scss";
+$audioPlayerFont1: s(34px);
+$audioplayerFont2: s(24px);
+$audioBgColor: rgb(246, 246, 246);
+$audioGradientStart: rgb(207, 1, 0);
+$audioGradientEnd: rgb(255, 0, 90);
+$audioPlayBarGray: rgb(204, 204, 204);
+.audioPlayer {
+    position: fixed;
+    z-index: 806;
+    left: 0;
+    bottom: 0;
+    height: s(180px);
+    background-color: #fff;
+    border-radius: s(20px) s(20px) 0 0;
+    width: 100%;
+    transform: translate3d(0, 46vw, 0);
+    transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+    padding: s(40px);
+    .player {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+    .title {
+        height: s(40px);
+        width: s(550px);
+        line-height: s(40px);
+        font-size: $audioPlayerFont1;
+        @extend %singleEllip;
+    }
+    .playBar {
+        position: absolute;
+        @extend %flex;
+        bottom: 0;
+        height: s(40px);
+        width: 100%;
+        margin-top: s(20px);
+        // line-height: s(40px);
+        font-size: $audioplayerFont2;
+        .bar {
+            width: s(420px);
+            height: s(10px);
+            border-radius: s(5px);
+            background-color: $audioPlayBarGray;
+        }
+        .colorBar {
+            width: 0;
+            border-radius: s(5px);
+            height: 100%;
+            background-image: linear-gradient(to right, $audioGradientStart, $audioGradientEnd);
+        }
+        .ctrl {
+            position: absolute;
+            background-color: #fff;
+            top: 50%;
+            transform: translateY(-50%);
+            left: s(-17px);
+            width: s(34px);
+            height: s(34px);
+            border-radius: 50%;
+            border: 1px solid $themeColor;
+        }
+        .clock {
+            width: s(150px);
+            @extend %singleEllip;
+            margin-left: s(18px);
+        }
+    }
+    .btnBox {
+        position: absolute;
+        @extend %flex_center;
+        width: s(60px);
+        height: 100%;
+        right: s(40px);
+        top: 0;
+    }
+    .btn {
+        @extend %flex_center;
+        width: s(60px);
+        height: s(60px);
+        border-radius: 50%;
+        background-color: $audioBgColor;
+        img {
+            width: s(18px);
+            height: auto;
+        }
+    }
+}
