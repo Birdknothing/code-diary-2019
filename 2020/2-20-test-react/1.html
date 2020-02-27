@@ -14,73 +14,54 @@
     <script type="text/babel">
       const a = Array.from({ length: 40 }).map((x, i) => "a" + i);
       const b = Array.from({ length: 40 }).map((x, i) => "b" + i);
-      console.log(a);
 
       const { Component } = React;
-      const reRender = () => {
-        ReactDOM.render(<M data={b} />, app);
-      };
-      const x = {
-        switch: true
-      };
+      // const reRender = () => {
+      //   ReactDOM.render(<M data={b} />, app);
+      // };
+      // const x = {
+      //   switch: true
+      // };
       class M extends Component {
-        reset(i) {
-          if (i === undefined) return;
-          this.props.data.splice(i, 1);
-
-          if (x.switch) {
-            x.switch = false;
-            this.setState({});
-          }
+        state = {
+          x: "1",
+          y: "2"
+        };
+        componentDidMount() {
+          setTimeout(() => {
+            this.setState({ x: "3" });
+          }, 2000);
         }
         render() {
-          console.log(a);
-          if (x.switch) {
-            this.reset();
-          }
-          const { data } = this.props;
+          const { x, y } = this.state;
+          console.log("M render");
           return (
             <ul>
-              {data.map((val, i) => {
-                return (
-                  <li key={"he"}>
-                    {
-                      <N
-                        val={val}
-                        which={i + ""}
-                        tell={this.reset.bind(this)}
-                      />
-                    }{" "}
-                  </li>
-                );
-              })}
+              {<N val={x} />}
+              {<N val={y} />}{" "}
             </ul>
           );
         }
       }
       class N extends Component {
+        // shouldComponentUpdate(x) {
+        //   return this.props.val !== x.val;
+        // }
         render() {
-          const { val, tell, which } = this.props;
+          console.log("N render");
+          const { val } = this.props;
           return (
             <p>
               {val}
-              <span
-                onClick={() => {
-                  x.switch = true;
-                  tell(which);
-                  // this.setState({})
-                }}
-              >
-                del
-              </span>
+              <span>del</span>
             </p>
           );
         }
       }
-      ReactDOM.render(<M data={a} />, app);
-      setTimeout(() => {
-        reRender();
-      }, 1000);
+      ReactDOM.render(<M />, app);
+      // setTimeout(() => {
+      //   reRender();
+      // }, 1000);
     </script>
   </body>
 </html>

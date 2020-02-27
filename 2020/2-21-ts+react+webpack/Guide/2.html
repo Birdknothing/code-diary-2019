@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    * {
+  padding: 0;
+  margin: 0; }
+
+* {
+  box-sizing: border-box; }
+
+.sideNav, .lineAndPic {
+  display: flex;
+  flex-direction: column; }
+
+.sideNav .navBox, .iframeDiv .modal {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+body {
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  color: #2c3e50; }
+
+a {
+  text-decoration: none;
+  color: #177edc; }
+
+version {
+  background-color: rgba(27, 31, 35, 0.05);
+  border-radius: 3px; }
+
+.sideNav .ctrlNav:checked + .navBox {
+  background-color: #177edc;
+  color: white; }
+
+header {
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  height: 35px;
+  z-index: 999;
+  font-size: 22px;
+  color: #2c3e50;
+  text-align: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  background-color: white;
+  border-bottom: 1px solid #eaecef; }
+
+.sideNav {
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 35px;
+  width: 20%;
+  height: 1000px;
+  padding: 10px 5px; }
+  .sideNav .ctrlNav {
+    display: none; }
+  .sideNav .navBox {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    height: 60px; }
+
+.content {
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  right: 0;
+  top: 35px;
+  width: 80%;
+  height: 1000px;
+  padding: 20px 20px;
+  background-color: rgba(128, 128, 128, 0.1); }
+
+.lineAndPic {
+  align-items: flex-start; }
+  .lineAndPic .line {
+    color: blue; }
+  .lineAndPic img {
+    display: block;
+    margin-top: 20px; }
+
+.multiline {
+  font-size: 16px;
+  line-height: 32px; }
+
+h2 {
+  margin-bottom: 10px; }
+
+p {
+  margin-bottom: 5px; }
+
+.codeDiv {
+  margin: 20px 0;
+  color: white;
+  background-color: #282c34;
+  border-radius: 6px;
+  padding: 10px 15px; }
+
+.codeLine .yellow {
+  color: #f08d49; }
+
+.quoteDiv {
+  color: #999;
+  border-left: 0.25rem solid #dfe2e5;
+  font-size: 18px;
+  padding: 10px 15px;
+  margin: 20px 0; }
+
+.iframeDiv {
+  position: relative;
+  height: 100%; }
+  .iframeDiv .modal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+    background-color: white; }
+  .iframeDiv .iframePage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9; }
+
+.dnone {
+  display: none; }
+
+.ctrlAnimate ~ .sideNav {
+  left: 0; }
+
+.ctrlAnimate:checked ~ .sideNav {
+  left: -20%; }
+
+.ctrlAnimate ~ header {
+  top: 0; }
+
+.ctrlAnimate:checked ~ header {
+  top: -35px; }
+
+.ctrlAnimate ~ .content {
+  top: 35px;
+  width: 80%; }
+
+.ctrlAnimate:checked ~ .content {
+  top: 0;
+  width: 100%; }
+
+.upctrl, .leftctrl, .downctrl {
+  z-index: 999; }
+
+.upctrl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 20%;
+  width: 100%; }
+
+.leftctrl {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 20%;
+  height: 100%; }
+
+.downctrl {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 80%;
+  height: 80%; }
+
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" class="ctrlAnimate dnone" />
+    <header>Webpack+TS+React</header>
+    <div class="sideNav"></div>
+    <div class="content"></div>
+    <script>
+      // const navDomTmp = '<div class="navBox">$title<div class="pulldown"></div></div>';
+
+      // Object.prototype.needProp = function(prop) {
+      //   if (this[prop] === undefined) {
+      //     console.error(JSON.stringify(this) + " needs " + prop);
+      //   }
+      // };
+
+      // 配置
+      const packageJSON = {
+        name: "webpack+ts+react",
+        version: "1.0.0",
+        private: true,
+        description: "",
+        main: "index.js",
+        scripts: {
+          dev:
+            'npx concurrently "cross-env mode=development webpack --config webpack.config.js" "webpack-dev-server --open"',
+          build: "npx cross-env mode=production webpack --config webpack.config.js"
+        },
+        keywords: [],
+        author: "",
+        license: "ISC",
+        devDependencies: {
+          "@babel/core": "^7.7.5",
+          "@babel/preset-env": "^7.7.6",
+          autoprefixer: "^9.7.3",
+          "babel-loader": "^8.0.6",
+          "clean-webpack-plugin": "^3.0.0",
+          concurrently: "^5.1.0",
+          "cross-env": "^7.0.0",
+          "css-loader": "^3.4.2",
+          eslint: "^6.8.0",
+          "file-loader": "^5.0.2",
+          "html-webpack-plugin": "^3.2.0",
+          "mini-css-extract-plugin": "^0.9.0",
+          "node-sass": "^4.13.0",
+          "postcss-loader": "^3.0.0",
+          prettier: "^1.19.1",
+          "react-router-dom": "^5.1.2",
+          "sass-loader": "^8.0.0",
+          "url-loader": "^3.0.0",
+          webpack: "^4.41.5",
+          "webpack-bundle-analyzer": "^3.6.0",
+          "webpack-cli": "^3.3.10",
+          "webpack-dev-server": "^3.10.3",
+          "workbox-webpack-plugin": "^5.0.0"
+        },
+        dependencies: {
+          "@babel/polyfill": "^7.7.0",
+          "@babel/preset-react": "^7.8.3",
+          react: "^16.12.0",
+          "react-dom": "^16.12.0"
+        }
+      };
+
+      // 基础方法
+      const replaceStr = (str, origin, target) => {
+        return str.replace(new RegExp("\\$" + origin, "g"), target);
+      };
+
+      // const fillLineDom = (words = "") =>
+
+      //   replaceStr(lineDomTmp, "words", words);
+      // const fillTitleDom = (title = "", hsize = "h1") =>
+      //   replaceStr(replaceStr(titleDomTmp, "hsize", hsize), "title", title);
+
+      // const fillCodeLineDom = (code = "") =>
+      //   replaceStr(codeLineTmp, "code", code);
+      // const fillCodeDivDom = (content = "") =>
+      //   replaceStr(codeDivTmp, "content", content);
+
+      // const fillLineDom = (words = "") =>
+      //   Tmp.of("line")
+      //     .fill("words", words)
+      //     .get();
+      // const fillTitleDom = (title = "", hsize = "h1") =>
+      //   Tmp.of("title")
+      //     .fill("hsize", hsize)
+      //     .fill("title", title)
+      //     .get();
+
+      // const fillCodeLineDom = (code = "") =>
+      //   Tmp.of("codeLine")
+      //     .fill("code", code)
+      //     .get();
+      // const fillCodeDivDom = (content = "") =>
+      //   Tmp.of("codeBlock")
+      //     .fill("content", content)
+      //     .get();
+
+      // config中类型对应的生成模版的方法
+      const libMap = new Map([
+        ["title_p", "fillMultilineDom"],
+        ["code", "mkCodeAreaDom"],
+        ["quote", "mkQuoteDom"],
+        ["iframe", "mkIframe"]
+      ]);
+
+      // 上层方法
+      const mkDomLibs = {
+        mkIframe(config) {
+          const { src } = config;
+          return Tmp.of("iframePage")
+            .fill("src", src)
+            .get();
+        },
+
+        mkQuoteDom(config) {
+          const lines = Tmp.customize("", "");
+          const { content = [] } = config;
+          content.forEach(line =>
+            lines.tail(Tmp.of("quoteLine").fill("code", line))
+          );
+          return Tmp.of("quoteBlock")
+            .fill("content", lines)
+            .get();
+        },
+        fillMultilineDom: config => {
+          const result = Tmp.customize("", "");
+          const {
+            title: [hsize, title],
+            content = []
+          } = config;
+          if (title) {
+            result.tail(
+              Tmp.of("title")
+                .fill("hsize", hsize)
+                .fill("title", title)
+            );
+          }
+          content.forEach(line =>
+            result.tail(Tmp.of("line").fill("words", line))
+          );
+          return result.get();
+        },
+        mkCodeAreaDom(config) {
+          const lines = Tmp.customize("", "");
+          const { content = [] } = config;
+          content.forEach(line =>
+            lines.tail(Tmp.of("codeLine").fill("code", line))
+          );
+          return Tmp.of("codeBlock")
+            .fill("content", lines)
+            .get();
+        }
+      };
+
+      // 模版区
+      class Tmp {
+        constructor(tmp, name) {
+          this._tmp = tmp + "";
+          this._name = name + "";
+        }
+        fill(tmp, content) {
+          if (this._tmp.indexOf("$" + tmp) === -1) {
+            console.error("no match " + tmp + " in tmplt to replace");
+            return this;
+          }
+          let repstr = "";
+          if (typeof content === "string") {
+            repstr = content;
+          }
+          if (content.constructor.name === "Tmp") {
+            repstr = content.get();
+          }
+          this._tmp = this._tmp.replace(new RegExp("\\$" + tmp, "g"), repstr);
+          return this;
+        }
+        static customize(tmp, type) {
+          return new Tmp(tmp, type);
+        }
+        static of(tmp) {
+          switch (tmp) {
+            case "quoteBlock":
+              return new Tmp(
+                '<blockquote class="quoteDiv">$content</blockquote>',
+                tmp
+              );
+            case "iframePage":
+              return new Tmp(
+                `<div class="iframeDiv"><div class="modal">正在加载。。。</div><iframe src="$src" width="100%" onload="event.target.previousElementSibling.style.display='none'" height="100%" class="iframePage" frameborder="0"></iframe></div>`,
+                tmp
+              );
+            case "quoteLine":
+              return new Tmp('<p class="quoteLine">$code</p>', tmp);
+            case "codeBlock":
+              return new Tmp('<pre class="codeDiv">$content</pre>', tmp);
+            case "codeLine":
+              return new Tmp('<p class="codeLine">$code</p>', tmp);
+            case "title":
+              return new Tmp("<$hsize>$title</$hsize>", tmp);
+            case "line":
+              return new Tmp('<p class="line">$words</p>', tmp);
+            case "navBlock":
+              return new Tmp(
+                `<input type="radio" class="ctrlNav" name="ctrlNav"><div data-route="$route" class="navBox">$title</div>`,
+                tmp
+              );
+
+            default:
+              console.error("tmplt name " + tmp + " not exists");
+              return new Tmp("", "");
+          }
+        }
+        // 追加模版字符串
+        tail(target) {
+          if (typeof target === "string") {
+            this._tmp = this._tmp + target;
+            return this;
+          }
+          if (target.constructor.name === "Tmp") {
+            this._tmp += target.get();
+            this._name += " " + target._name;
+          }
+          return this;
+        }
+        get() {
+          // if (/\$[^$]/.test(this._tmp)) {
+          //   console.log(/\$[^\$]/g.test(this._tmp));
+          //   console.error("template " + this._name + " not complete");
+          // }
+          return this._tmp;
+        }
+      }
+
+      // const codeDivTmp = Tmp.of('<div class="codeDiv">$content</div>');
+      // const codeLineTmp = Tmp.of('<p class="codeLine">$code</p>');
+
+      // const lineDomTmp = Tmp.of('<p class="line">$words</p>');
+
+      // const titleDomTmp = Tmp.of("<$hsize>$title</$hsize>");
+
+      // const navDomTmp = Tmp.of(
+      //   `<input type="radio" class="ctrlNav" name="ctrlNav"><div data-route="$route" class="navBox">$title</div>`
+      // );
+
+      const mkDomByConfig = config => {
+        const libName = libMap.get(config.type);
+        if (!libName) {
+          return;
+        }
+        return mkDomLibs[libName](config);
+      };
+
+      // 页面内容
+      // 404
+      const page_nopage = [
+        {
+          type: "title_p",
+          title: ["h1", "404"],
+          content: ["sorry,", "source is not found"]
+        }
+      ];
+      // webpack
+      const page_webpack = [
+        {
+          type: "iframe",
+          src: "https://webpack.js.org/"
+        }
+      ];
+      // react
+      const page_react = [
+        {
+          type: "iframe",
+          src: "https://react.docschina.org/"
+        }
+      ];
+      // typescript
+      const page_ts = [
+        {
+          type: "iframe",
+          src: "http://www.typescriptlang.org/"
+        }
+      ];
+      // Sass
+      const page_sass = [
+        {
+          type: "iframe",
+          src: "https://www.sass.hk/"
+        }
+      ];
+
+      // 快速上手
+      const page_guide = [
+        {
+          type: "title_p",
+          title: [
+            "h2",
+            '安装<a href="http://www.nodejs.cn" target="_blank">node</a>'
+          ],
+          content: [
+            "安装node版本大于<version>8.0.0</version>，默认自带包管理工具npm",
+            "将node添加至用户变量或全局变量"
+          ]
+        },
+        {
+          type: "code",
+          content: [
+            '$ <span class="yellow">node</span> -v',
+            '$ <span class="yellow">npx</span> -v',
+            "v10.16.3  v6.13.7"
+          ]
+        },
+        { type: "quote", content: ["npx可以防止安装的包升级为全局变量"] },
+        {
+          type: "title_p",
+          title: ["h2", "创建目录结构"],
+          content: [
+            "src目录用来存储开发模式代码，dist用来存储打包后的代码",
+            "以linux系统为例创建模版html和入口页index.tsx，以及配置文件webpack.config.js,package.json,tsconfig.json"
+          ]
+        },
+        {
+          type: "code",
+          content: [
+            '$ <span class="yellow">mkdir</span> dist src src/components template',
+            '$ <span class="yellow">touch</span> package.json webpack.config.js template/index.html src/index.tsx tsconfig.json'
+          ]
+        },
+        {
+          type: "title_p",
+          title: [],
+          content: ["可用的package.json示例："]
+        },
+        {
+          type: "code",
+          content: [JSON.stringify(packageJSON, null, 3)]
+        },
+        {
+          type: "title_p",
+          title: [],
+          content: ["在同级目录下使用npm或yarn安装配置包"]
+        },
+        {
+          type: "code",
+          content: ['$ <span class="yellow">npm</span> install','$ <span class="yellow">yarn</span>']
+        },
+        {
+          type: "title_p",
+          title: [],
+          content: ["可用的webpack.config.js示例配置和tsconfig.json配置都可在相应官网找到","通过package.json内scripts内的脚本配置可以快速选择启动模式是开发（浏览器热更新），或者是生产模式（打包到dist目录）："]
+        },
+        {
+          type: "code",
+          content: ['$ <span class="yellow">npm</span> run dev','$ <span class="yellow">npm</span> run build']
+        }
+      ];
+
+      // 路由名配置
+      const routeConfig = {
+        guide: "guide",
+        env: "env",
+        nopage: "nopage",
+        webpack: "webpack",
+        ts: "ts",
+        react: "react",
+        sass: "sass"
+      };
+
+      const navConfig = [
+        {
+          route: routeConfig.guide,
+          title: "快速上手"
+        },
+        { route: routeConfig.webpack, title: "Webpack" },
+        { route: routeConfig.react, title: "React" },
+        { route: routeConfig.ts, title: "TypeScript" },
+        { route: routeConfig.sass, title: "Sass" }
+      ];
+      // 路由
+      const router = {
+        list: {
+          [routeConfig.nopage]: page_nopage,
+          [routeConfig.webpack]: page_webpack,
+          [routeConfig.ts]: page_ts,
+          [routeConfig.react]: page_react,
+          [routeConfig.guide]: page_guide,
+          [routeConfig.sass]: page_sass
+        },
+        mkdom(ct) {
+          return ct.map(mkDomByConfig).join("");
+        },
+        tab(hash) {
+          if (!router.list[hash]) {
+            router.tab("nopage");
+            return;
+          }
+          // 内容页
+          $(".content").html(router.mkdom(router.list[hash]));
+
+          // 地址栏
+          location.hash = "#" + hash;
+
+          // 导航栏
+          $(`[data-route=${hash}]`)
+            .prev()
+            .click();
+        }
+      };
+      const tabContentByRoute = () => {
+        console.log(location.hash);
+      };
+      // 侧边栏
+      $(".sideNav").html(
+        navConfig
+          .map(obj => {
+            let navTmp = Tmp.of("navBlock");
+
+            Object.entries(obj).forEach(([key, val]) => {
+              navTmp = navTmp.fill(key, val);
+            });
+            return navTmp.get();
+          })
+          .join("")
+      );
+
+      // 事件
+      $("body").on("click mouseenter", ".navBox", function() {
+        const $this = $(this);
+        $this.prev().click();
+        router.tab($this.attr("data-route"));
+      });
+      $(function() {
+        // 初始化事件
+        $(".ctrlNav:first-child").click();
+      });
+      $(function() {
+        // 根据路由初始化页面
+        if (location.hash) {
+          const hash = location.hash.split("#")[1];
+          router.tab(hash);
+        }
+      });
+      setTimeout(() => {
+        $(".ctrlAnimate").attr("checked", true);
+      }, 1000);
+      // const cWidth = document.documentElement.clientWidth;
+      // const cHeight = document.documentElement.clientHeight;
+      const cWidth = window.innerWidth;
+      const cHeight = window.innerHeight;
+      $(document).on("mousemove", function(e) {
+        if (e.pageX / cWidth > 0.5 || e.pageY / cHeight > 0.8) {
+          $(".ctrlAnimate").attr("checked", true);
+        } else {
+          $(".ctrlAnimate").attr("checked", false);
+        }
+      });
+      $(".content").on("mouseenter", function(e) {
+        $(".ctrlAnimate").attr("checked", false);
+      });
+    </script>
+  </body>
+</html>

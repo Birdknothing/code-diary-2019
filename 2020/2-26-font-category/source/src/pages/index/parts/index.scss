@@ -1,0 +1,253 @@
+@import "@/common.scss";
+$colorBlue: #0084ff;
+$ts1: all 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+
+.sideBar {
+  width: u(200px);
+  height: 100%;
+  border-radius: 5px;
+  margin-right: u(30px);
+  border: 1px solid gray;
+  @extend %flex_column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  .icon {
+    margin-top: u(100px);
+    border-radius: 50%;
+    width: u(90px);
+    height: u(90px);
+    @extend %flex;
+    svg {
+      height: 100%;
+    }
+  }
+  .name {
+    margin-top: u(10px);
+    transform: scale(0.6);
+    transform-origin: center;
+  }
+  %btnBr {
+    border-radius: 5px;
+    font-size: u(14px);
+    width: u(130px);
+    height: u(25px);
+    // background-image: linear-gradient(to top, gray, white);
+    // background: url(require("@/assets/ancient.png")) center center;
+    @extend %flex;
+    justify-content: space-between;
+    padding: 0 u(20px);
+    white-space: nowrap;
+    svg {
+      height: 100%;
+    }
+  }
+  .create {
+    // font-size: u(16px);
+    @extend %btnBr;
+    margin-top: u(80px);
+    height: u(35px);
+  }
+  .myWork {
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.3);
+    }
+    @extend %btnBr;
+    margin-top: u(30px);
+  }
+  .onlineWork {
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.3);
+    }
+    @extend %btnBr;
+    margin-top: u(20px);
+  }
+  .font1 {
+    margin-left: 2px;
+  }
+}
+.main {
+  width: u(1100px);
+  height: 100%;
+  @extend %flex_column;
+  justify-content: flex-start;
+}
+.scrollPic {
+  height: u(260px);
+  width: 100%;
+  .title {
+    height: u(20px);
+    font-size: u(14px);
+    line-height: u(20px);
+  }
+  .scroll {
+    height: u(240px);
+    overflow: hidden;
+  }
+}
+.listArea {
+  .titleMain {
+    position: relative;
+    height: u(20px);
+    font-size: u(14px);
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+  margin-top: u(100px);
+  height: u(520px);
+  width: 100%;
+  @extend %flex_column;
+}
+.listHead {
+  height: u(80px);
+  width: 100%;
+  @extend %flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: u(10px);
+  .tagArea {
+    .ctrlTag {
+      display: none;
+    }
+    .ctrlTag:checked + span {
+      color: $colorBlue;
+    }
+    font-size: u(14px);
+    white-space: nowrap;
+    width: u(200px);
+    height: u(60px);
+    .tagLine {
+      cursor: pointer;
+      &:hover {
+        color: $colorBlue;
+      }
+    }
+  }
+  // 搜索框
+  .searchBox {
+    width: u(200px);
+    height: u(26px);
+  }
+}
+.listBody {
+  position: relative;
+  height: u(440px);
+  width: 100%;
+  .list {
+    left: u(-10px);
+    position: absolute;
+    width: u(1120px);
+    z-index: 11;
+    height: 100%;
+    overflow: scroll;
+  }
+}
+.listBoxContainer {
+  position: relative;
+  width: u(224px);
+  height: u(230px);
+  display: inline-block;
+}
+.listBox {
+  left: u(10px);
+  position: absolute;
+  padding: u(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 2px;
+  &:hover .slide .info {
+    top: u(-30px);
+  }
+  &:hover .picBox .modal {
+    visibility: visible;
+  }
+  width: u(200px);
+  height: u(180px);
+  @extend %flex_column;
+  .picBox {
+    height: u(110px);
+    position: relative;
+    %absCommon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      @extend %flex;
+    }
+    .videoCut {
+      @extend %absCommon;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      z-index: 7;
+    }
+    .modal {
+      transition: $ts1;
+      visibility: hidden;
+      @extend %absCommon;
+      z-index: 8;
+      background-color: rgba(0, 0, 0, 0.2);
+      .icon {
+        width: u(40px);
+        height: u(40px);
+      }
+    }
+  }
+  .slide {
+    position: relative;
+    height: u(30px);
+    .info {
+      transition: $ts1;
+      position: absolute;
+      z-index: 9;
+      height: 100%;
+      font-size: u(16px);
+      width: 100%;
+      top: 0;
+      .title {
+        background-color: white;
+        height: u(30px);
+        line-height: u(30px);
+      }
+      .content {
+        background-color: white;
+        line-height: u(30px);
+      }
+    }
+  }
+  .belong {
+    background-color: white;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    height: u(40px);
+    @extend %flex;
+    justify-content: flex-start;
+    z-index: 10;
+    .icon {
+      z-index: 10;
+      width: u(20px);
+      height: u(20px);
+    }
+    .to {
+      z-index: 10;
+      height: 100%;
+      line-height: u(40px);
+      width: u(100px);
+      overflow: hidden;
+      text-emphasis: ellipsis;
+      white-space: nowrap;
+      transform-origin: left center;
+      transform: scale(0.8);
+    }
+  }
+}

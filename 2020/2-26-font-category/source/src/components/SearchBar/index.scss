@@ -1,0 +1,55 @@
+@import "@/common.scss";
+$searchBarShadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.main {
+  width: 100%;
+  height: 100%;
+  // @extend %flex_center;
+  .searchBar {
+    background-color: #fff;
+    position: relative;
+    height: s(60px);
+    border-radius: s(30px);
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  .searchIcon {
+    position: absolute;
+    width: s(40px);
+    height: s(40px);
+    left: s(40px);
+    @extend %v-middle;
+    @extend %img-width;
+  }
+// s为再/2，u为/1
+  .inputArea {
+    position: absolute;
+    height: s(60px);
+    width: u(150px);
+    left: s(80px);
+    line-height: s(60px);
+    font-size: 0;
+    vertical-align: middle;
+    input {
+      outline: none;
+      font-size: u(14px);
+      border: none;
+      vertical-align: middle;
+      width: 100%;
+    }
+  }
+  .cancelBox {
+    position: absolute;
+    width: s(40px);
+    height: s(40px);
+    right: s(20px);
+    @extend %v-middle;
+    @extend %img-width;
+    // line-height: s(40px);
+    // font-size: s(40px);
+    // background-color: rgb(204, 204, 204);
+    // border-radius: 50%;
+    // top: 50%;
+    // transform: translateY(-50%) rotate(45deg);
+    // transform-origin: center center;
+  }
+}

@@ -1,0 +1,7 @@
+@import "@/common.scss";
+.basic {
+  height: u(890px);
+  padding: 10px;
+  @extend %flex;
+  justify-content: flex-start;
+}
