@@ -1,0 +1,69 @@
+Web站点简易搭建流程
+
+1.0  安装node
+
+        项目网盘地址：\\192.168.19.243\share\upload\AI课件开发环境\
+        安装包：node-v12.16.1-x64.msi（window下双击运行）
+
+1.1  添加全局变量
+
+  1.1.0 windows键+R输入cmd打开shell窗口
+  1.1.1 输入命令 where node
+  1.1.2 鼠标左键+shift键选中 node.exe 所在目录位置并复制，一般为 C:\Program Files\nodejs
+
+  1.1.3 鼠标在我的电脑上右键选择属性，选择高级系统设置，选择环境变量
+  1.1.3 选择第一个窗口内用户变量选中PATH行，点击窗口下方的编辑按钮
+  1.1.4 按下End键，移到文本末尾，输入英文字符的分号';',ctrl+v将上一步复制的目录位置粘贴至此，点击确定
+
+1.2 安装yarn
+
+  1.2.0 上一步的node.exe所在目录下同时升级为全局变量的还有 npm 和 npx 两个命令
+        /**
+         * npm是node默认的包管理工具，npx可以运行npm下载的包
+         * 这里选择使用更快更优的包管理工具 yarn
+         */
+  1.2.1  重复 1.1.0, 输入命令 npm i -g yarn ,i 是 install 的简写,g 是 global 的缩写
+  1.2.2  继续输入 yarn -v,可以查看 yarn 的版本号，如果有版本号显示，说明安装成功
+
+
+
+2.0  安装Express
+
+  2.0.0  打开任一空目录的资源管理器，shift键按住不放，空白处点击鼠标右键，选择“在此处打开命令窗口“
+  2.0.1  输入命令 yarn init -y，创建 package.json 文件，可取消 -y，不简化创建文件流程
+         /**
+          * 此json文件主要用来管理下载包的版本
+          * 在json文件内添加 “private”:true ，防止项目被 npm 检索到
+          */
+  2.0.2  继续在命令行输入 yarn add express
+         /**
+          * express是一个基于node.js的web应用开发框架：https://www.expressjs.com.cn
+          * 将会自动mkdir名为node_modules的文件夹用于专门存放下载的包，自动往上寻找package.json    所在目录并在此级目录创建
+          */
+
+2.1  创建app.js
+
+  2.1.0   继续在命令行输入 touch app.js ，或右键创建 app.js 文件
+  2.1.1   编辑文件，键入下列内容:
+
+          // require 为 commonjs 规范的包引入方式，参数非路径，则默认逐级往上寻找 node_modules 内的包
+          const express = require("express");
+
+          // 建立服务
+          const app = express();
+
+          // 可自定义服务需要监听的端口号
+          app.listen(3000);
+
+          // app.use第一个参数不传默认为“/”，示例路由为libs，支持自定义，支持正则，支持虚拟目录
+          // express.static 参数支持相对路径和绝对路径，绝对路径要用windows的分隔符“\\"
+          app.use("/libs", express.static("E:\\git-client\\Edbox_Client\\H5SDK\\libs")); 
+
+2.2 启动服务
+
+   2.2.0  在app.js所在目录下，打开资源管理器，重复2.0.0，输入命令 node app.js
+   2.2.1  控制台无报错，则说明服务启动成功，浏览器输入 http://localhost:3000/libs/[name].[ext]        可访问磁盘目录 E:\\git-client\\Edbox_Client\\H5SDK\\libs 下的资源
+
+
+
+AI课件

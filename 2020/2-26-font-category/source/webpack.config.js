@@ -36,6 +36,7 @@ module.exports = {
     host: "192.168.31.218",
     contentBase: "./dist",
     hot: true,
+    overlay:true,
     proxy: {
       "/mock/": "http://localhost:3000/mock/"
     },

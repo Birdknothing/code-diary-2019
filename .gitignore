@@ -62,8 +62,16 @@ typings/
 
 *.jpg
 *.png
+*.gif
+*.svg
 *.css
 *.psd
+*.woff
+*.woff2
+*.eot
+*.ttf
+.DS_Store
+
 
 # what to ignore
 test-gitpush/2/22.js
