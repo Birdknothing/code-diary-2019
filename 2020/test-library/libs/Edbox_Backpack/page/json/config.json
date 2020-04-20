@@ -1,0 +1,262 @@
+{
+  "Datas": [
+    {
+      "Name": "BaseInfo",
+      "ChineseName": "基础信息设置",
+      "EnglishName": "Basic Information Settings",
+      "Icon": "fa-info-circle",
+      "Datas": [
+        {
+          "Name": "GameName",
+          "ChineseName": "游戏名称",
+          "EnglishName": "Game Name",
+          "Value": "音频选取组件",
+          "ChineseValue": "音频选取组件",
+          "EnglishValue": "Audio Selection Component",
+          "Type": "Text"
+        },
+        {
+          "Name": "Description",
+          "ChineseName": "游戏简介",
+          "EnglishName": "Game Description",
+          "Value": "音频选取组件",
+          "ChineseValue": "音频选取组件",
+          "EnglishValue": "Audio Selection Component",
+          "Type": "LongText"
+        }
+      ]
+    },
+    {
+      "Name": "Images",
+      "ChineseName": "图片设置",
+      "EnglishName": "Picture Settings",
+      "Icon": "fa-image",
+      "Datas": [
+        {
+          "Name": "Mask",
+          "ChineseName": "背景遮罩",
+          "EnglishName": "Background Mask",
+          "Value": "img/mask.png",
+          "ChineseValue": "img/mask.png",
+          "EnglishValue": "img/mask.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagDialogBg",
+          "ChineseName": "BagDialogBg",
+          "EnglishName": "BagDialogBg",
+          "Value": "img/bag-tip.png",
+          "ChineseValue": "img/bag-tip.png",
+          "EnglishValue": "img/bag-tip.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagBgTopLeft",
+          "ChineseName": "BagBgTopLeft",
+          "EnglishName": "BagBgTopLeft",
+          "Value": "img/bag_tl.png",
+          "ChineseValue": "img/bag_tl.png",
+          "EnglishValue": "img/bag_tl.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagBgTopMiddle",
+          "ChineseName": "BagBgTopMiddle",
+          "EnglishName": "BagBgTopMiddle",
+          "Value": "img/bag_tm.png",
+          "ChineseValue": "img/bag_tm.png",
+          "EnglishValue": "img/bag_tm.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagBgTopRight",
+          "ChineseName": "BagBgTopRight",
+          "EnglishName": "BagBgTopRight",
+          "Value": "img/bag_tr.png",
+          "ChineseValue": "img/bag_tr.png",
+          "EnglishValue": "img/bag_tr.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagBgLeft",
+          "ChineseName": "BagBgLeft",
+          "EnglishName": "BagBgLeft",
+          "Value": "img/bag_l.png",
+          "ChineseValue": "img/bag_l.png",
+          "EnglishValue": "img/bag_l.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagBgMiddle",
+          "ChineseName": "BagBgMiddle",
+          "EnglishName": "BagBgMiddle",
+          "Value": "img/bag_m.png",
+          "ChineseValue": "img/bag_m.png",
+          "EnglishValue": "img/bag_m.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagBgRight",
+          "ChineseName": "BagBgRight",
+          "EnglishName": "BagBgRight",
+          "Value": "img/bag_r.png",
+          "ChineseValue": "img/bag_r.png",
+          "EnglishValue": "img/bag_r.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagBgBottomLeft",
+          "ChineseName": "BagBgBottomLeft",
+          "EnglishName": "BagBgBottomLeft",
+          "Value": "img/bag_bl.png",
+          "ChineseValue": "img/bag_bl.png",
+          "EnglishValue": "img/bag_bl.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagBgBottomMiddle",
+          "ChineseName": "BagBgBottomMiddle",
+          "EnglishName": "BagBgBottomMiddle",
+          "Value": "img/bag_bm.png",
+          "ChineseValue": "img/bag_bm.png",
+          "EnglishValue": "img/bag_bm.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagBgBottomRight",
+          "ChineseName": "BagBgBottomRight",
+          "EnglishName": "BagBgBottomRight",
+          "Value": "img/bag_br.png",
+          "ChineseValue": "img/bag_br.png",
+          "EnglishValue": "img/bag_br.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagTitleBg",
+          "ChineseName": "BagTitleBg",
+          "EnglishName": "BagTitleBg",
+          "Value": "img/title-bag-cn.png",
+          "ChineseValue": "img/title-bag-cn.png",
+          "EnglishValue": "img/title-bag.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BottomFrameBg",
+          "ChineseName": "BottomFrameBg",
+          "EnglishName": "BottomFrameBg",
+          "Value": "img/bag-capacity.png",
+          "ChineseValue": "img/bag-capacity.png",
+          "EnglishValue": "img/bag-capacity.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagSmallButtonBg",
+          "ChineseName": "BagSmallButtonBg",
+          "EnglishName": "BagSmallButtonBg",
+          "Value": "img/btn-small.png",
+          "ChineseValue": "img/btn-small.png",
+          "EnglishValue": "img/btn-small.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "BagItemBg",
+          "ChineseName": "BagItemBg",
+          "EnglishName": "BagItemBg",
+          "Value": "img/bag-item.png",
+          "ChineseValue": "img/bag-item.png",
+          "EnglishValue": "img/bag-item.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ScrollBarBgBottom",
+          "ChineseName": "ScrollBarBgBottom",
+          "EnglishName": "ScrollBarBgBottom",
+          "Value": "img/scroll-bottom.png",
+          "ChineseValue": "img/scroll-bottom.png",
+          "EnglishValue": "img/scroll-bottom.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ScrollbarHandle",
+          "ChineseName": "ScrollbarHandle",
+          "EnglishName": "ScrollbarHandle",
+          "Value": "img/scroll-bar.png",
+          "ChineseValue": "img/scroll-bar.png",
+          "EnglishValue": "img/scroll-bar.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ScrollbarLine",
+          "ChineseName": "ScrollbarLine",
+          "EnglishName": "ScrollbarLine",
+          "Value": "img/scroll-line.png",
+          "ChineseValue": "img/scroll-line.png",
+          "EnglishValue": "img/scroll-line.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ScrollBarBgMiddle",
+          "ChineseName": "ScrollBarBgMiddle",
+          "EnglishName": "ScrollBarBgMiddle",
+          "Value": "img/scroll-main.png",
+          "ChineseValue": "img/scroll-main.png",
+          "EnglishValue": "img/scroll-main.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ScrollBarBgTop",
+          "ChineseName": "ScrollBarBgTop",
+          "EnglishName": "ScrollBarBgTop",
+          "Value": "img/scroll-top.png",
+          "ChineseValue": "img/scroll-top.png",
+          "EnglishValue": "img/scroll-top.png",
+          "Type": "Image"
+        }
+      ]
+    },
+    {
+      "Name": "Texts",
+      "ChineseName": "文本设置",
+      "EnglishName": "Text Settings",
+      "Icon": "fa-file-text",
+      "Datas": [
+        {
+          "Name": "Cancel",
+          "ChineseName": "取消按钮文本",
+          "EnglishName": "Cancel Button Text",
+          "Value": "取消",
+          "ChineseValue": "取消",
+          "EnglishValue": "Cancel",
+          "Type": "Text"
+        },
+        {
+          "Name": "OK",
+          "ChineseName": "确认按钮文本",
+          "EnglishName": "OK Button Text",
+          "Value": "确认",
+          "ChineseValue": "确认",
+          "EnglishValue": "OK",
+          "Type": "Text"
+        },
+        {
+          "Name": "Capacity",
+          "ChineseName": "容量",
+          "EnglishName": "Capacity",
+          "Value": "容量",
+          "ChineseValue": "容量",
+          "EnglishValue": "Capacity",
+          "Type": "Text"
+        },
+        {
+          "Name": "Use",
+          "ChineseName": "使用",
+          "EnglishName": "Use",
+          "Value": "使用",
+          "ChineseValue": "使用",
+          "EnglishValue": "Use",
+          "Type": "Text"
+        }
+      ]
+    }
+  ]
+}

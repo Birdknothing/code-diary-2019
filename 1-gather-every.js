@@ -13,12 +13,24 @@
  * ememt,snippet在vscode的应用
  * tabBtn scss编程
  * 滚动到底的节流
+ * electron 安装问题
  */
-案例;
+作业指导书;
 /**
- * Array.from({length:1}).fill({})
- * Array.from({length:1}).map(()=>({}))
+ * mkTimeCheck修饰 已做
+ * Edbox.Load方法按需加载 已做
+ * Msg弹窗
+ * 时间戳缓存vs文件hash值缓存
+ * saveAs问题
+ * phantomjs
+ * taro
+ * electron mac 安装问题
  */
+
+ 
+ /**
+  * 
+  */
 
 /**
  * 两周内两份创新：1.后期可以拓展为移动端也可以唤起的控制台，所有代码都是打包后自动删除的。可开关的，每次f12去找接口请求，点击response查看数据，准备做一个只有开发模式才会显示的悬浮框，能够在页面上，鼠标滑到对应的接口菜单页，就会自动显示返回的json数据，接口请求的次数，提高工作效率。

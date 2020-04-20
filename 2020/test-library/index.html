@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0,user-scalable=no"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            #app {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body
+        style="width:100vw;height:100vh;overflow:hidden;"
+    >
+        <script>
+        //   console.log(document.getElementsByTagName("head")[0].appendChild((function(){var script=document.createElement("script");script.async=true;script.src="//cache.amap.com/h5/static/common/vconsole.min.js";return script;})()));
+
+            window.Edbox = {
+                Load() {
+                    const script = document.createElement("script");
+                    script.src = "/index.js";
+                    document.body.appendChild(script);
+                    script.id = "index"
+                    script.onload = function() {
+                        Edbox.Library.Init();
+                    };
+                }
+            };
+        </script>
+        <div id="app" ontouchstart="test()">个人库入口</div>
+        <!-- <script src="http://component.edbox-beta-cn.101.com/libs/Edbox_Lobby/js/Edbox.js"></script> -->
+        <!-- <script src="./index.js"></script> -->
+        <script>
+            function test() {
+              
+              if (Edbox && Edbox.Library) {
+                Edbox.Library.Show();
+                return;
+              }
+              Edbox.Load("Library", function() {});
+              console.log(document.getElementById("index"));
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,107 @@
+<div id="FileSelectContainer" style="display: none">
+    <!-- style="display: none" -->
+    <input id="text2picture" type="file" style="display: none" accept="{{DataFunction.GetFunction('T2I_GetAcceptFormats')()}}" onchange="DataFunction.GetFunction('T2I_OnSelectImage')(this)"></input>
+</div>
+
+<div id="edit_text" class="et_main_panel" style="display: none">
+    <div id="et_top_tool_panel" class="et_top_tool_panel" resize-flag="16">
+        <span class="et_top_tool_span" style="width: 12.5%; flex-basis: 12.5%;">           
+            <span class="et_top_tool_button" resize-flag="32" style="color: #434343; text-align: left; padding-left: 24%;" ng-click="DataFunction.GetFunction('T2I_OnCancelETBtnClick')()">{{DataFunction.GetText("Cancel")}}</span>
+        </span>
+        <span class="et_top_tool_span" style="width: 75%; flex-basis: 75%;">
+            <span class="et_top_tool_title" resize-flag="32">{{DataFunction.GetText("Title")}}</span>
+        </span>
+        <span class="et_top_tool_span" style="width: 12.5%; flex-basis: 12.5%;">
+            <span class="et_top_tool_button" resize-flag="32" style="color: #169BD5; text-align: right; padding-right: 24%;" ng-click="DataFunction.GetFunction('T2I_OnConfirmETBtnClick')()">{{DataFunction.GetText("OK")}}</span>
+        </span>
+    </div>
+    <div id="et_body">
+        <div class="et_body_panel" resize-flag="2">
+            <div id="et_body_textarea" class="et_body_textarea" contentEditable="true" tabindex="0" autofocus="true" ng-init="DataFunction.GetFunction('T2I_UpdateTextareaFontStyle')()" ng-change="DataFunction.GetFunction('T2I_OnTextareaChanged')()" ng-model="DataFunction.Text2Image.innerText"
+                ng-keydown="DataFunction.GetFunction('T2I_OnTextareaChanged')()" ng-keyup="DataFunction.GetFunction('T2I_OnTextareaChanged')()" ng-click="DataFunction.GetFunction('T2I_OnTextareaClick')()"></div>
+            <!-- <div id="et_body_textarea" class="et_body_textarea" contentEditable="true" tabindex="0" autofocus="true" ng-init="DataFunction.GetFunction('T2I_UpdateTextareaFontStyle()" onchange="DataFunction.GetFunction('T2I_OnTextareaChanged()" ng-keydown="DataFunction.GetFunction('T2I_OnTextareaChanged()"
+                ng-keyup="DataFunction.GetFunction('T2I_OnTextareaChanged()" ng-click="DataFunction.GetFunction('T2I_OnTextareaClick()"></div> -->
+        </div>
+    </div>
+    <div id="et_bottom_panel" class="et_bottom_panel" resize-flag="16">
+        <div id="et_bottom_menu_panel" class="et_bottom_menu_panel" resize-flag="16">
+            <span id="{{'menu_radio' + ($index + 1)}}" class="et_bottom_radio" ng-repeat="data in DataFunction.Text2Image.BottomRadioDatas" ng-repeatfinish="DataFunction.GetFunction('T2I_OnNgReapeatBottomRadioFinished')()" ng-click="DataFunction.GetFunction('T2I_OnBottomMenuRadioClick')($index)">
+                <span class="et_bottom_radio_span">
+                    <!-- <span class="et_bottom_radio_img_frame"> -->
+                        <img id="{{'menu_radio_img' + ($index + 1)}}" name="menu_radio_imgs" class="et_bottom_radio_img" resize-flag="24" ng-src="{{DataFunction.GetImage(data.Text)}}"></img>
+                    <!-- </span> -->
+            <span id="{{'menu_radio_title' + ($index + 1)}}" name="image_bottom_radio_text" class="et_bottom_radio_title" resize-flag="32">{{DataFunction.GetText(data.Text)}}</span>
+            </span>
+            </span>
+        </div>
+        <div id="et_style_panel" class="et_font_menu_panel" resize-flag="80" style="display: none">
+            <div id="et_font_style_menu" class="et_font_style_menu_panel" resize-flag="16">
+                <span id="{{'et_font_style_span' + ($index + 1)}}" class="et_font_style_span" resize-flag="128" style="{{'flex: ' + data.Flex}}" ng-repeat="data in DataFunction.Text2Image.FontStyleMenuDatas" ng-repeatfinish="DataFunction.GetFunction('T2I_OnNgReapeatFontStyleFinished')()">
+                    <div id="{{DataFunction.GetFunction('T2I_GetStylePanelMenuId')('span', data.Text, $index)}}" class="et_typesetting_div" style="{{'flex: ' + data2.Flex}}" ng-click="DataFunction.GetFunction('T2I_OnToggleStylePanelRadio')(data.Text, data2.Text)" ng-repeat="data2 in data.Datas">
+                        <img id="{{DataFunction.GetFunction('T2I_GetStylePanelMenuId')('img', data.Text, $index)}}" class="et_typesetting_img" resize-flag="24" ng-src="{{DataFunction.GetImage(data2.Text)}}"></img>
+                        <div id="{{DataFunction.GetFunction('T2I_GetStylePanelMenuId')('title', data.Text, $index)}}" class="et_typesetting_title" resize-flag="32">{{DataFunction.GetText(data2.Text)}}</div>
+                    </div>
+                </span>
+            </div>
+            <div id="et_font_size_menu" class="et_font_size_menu_panel" resize-flag="180">{{DataFunction.GetText("FontSize")}}
+                <div id="ex_font_size_scroll_panel" class="ex_font_size_scroll_panel" resize-flag="1552">
+                    <div id="ex_font_size_scroll_grid" class="ex_font_size_scroll_grid" resize-flag="16">
+                        <span id="{{'ex_font_size_scroll_span' + ($index + 10)}}" class="ex_font_size_scroll_span" resize-flag="16" ng-click="DataFunction.GetFunction('T2I_OnToggleStylePanelFontSize')($index + 10)" ng-repeat="data in DataFunction.Text2Image.FontSizeDatas" ng-repeatfinish="DataFunction.GetFunction('T2I_OnNgReapeatFontSizeFinished')()">
+                            <span id="{{'ex_font_size_scroll_title' + ($index + 10)}}" class="ex_font_size_scroll_title" resize-flag="32">{{$index + 10}}</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div id="et_font_color_menu" class="et_font_color_menu_panel" resize-flag="180">{{DataFunction.GetText("FontColor")}}
+                <div id="ex_font_color_panel" class="ex_font_color_panel">
+                    <span id="{{'ex_font_color_span' + ($index + 1)}}" class="ex_font_color_span" resize-flag="512" style="{{'background-color: ' + data}}" ng-click="DataFunction.GetFunction('T2I_OnToggleStylePanelFontColor')($index)" ng-repeat="data in DataFunction.Text2Image.RGBs"
+                        ng-repeatfinish="DataFunction.GetFunction('T2I_OnNgReapeatFontColorFinished')()"></span>
+                </div>
+            </div>
+        </div>
+        <div id="et_font_panel" class="et_font_menu_panel" resize-flag="80" style="display: none">
+            <div id="ex_font_scroll_panel" class="ex_font_scroll_panel">
+                <div id="ex_font_scroll_grid" class="ex_font_scroll_grid">
+                    <!-- <div id="ex_font_scroll_div1" name="ex_font_scroll_divs" class="ex_font_scroll_div" ng-click="DataFunction.GetFunction('T2I_OnToggleFontRadio(0)">
+                        <div id="ex_font_scroll_title1" name="image_font_text" class="ex_font_scroll_title" style="{{'font-family: ' + DataFunction.GetFunction('T2I_RootFontFamily}}">{{DataFunction.GetText("DefaultFont")}}</div>
+                    </div> -->
+                    <div id="{{'ex_font_scroll_div' + ($index + 1)}}" class="ex_font_scroll_div" resize-flag="16" ng-click="DataFunction.GetFunction('T2I_OnToggleFontRadio')($index + 1)" ng-repeat="data in DataFunction.Text2Image.SystemFonts" ng-repeatfinish="DataFunction.GetFunction('T2I_OnNgReapeatFontFinished')()">
+                        <div id="{{'ex_font_scroll_title' + ($index + 1)}}" name="image_font_text" class="ex_font_scroll_title" resize-flag="32" style="{{'font-family: ' + data.FontFamily}}">{{data.Font}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="convert_text_image" style="display: none">
+    <div id="background" class="t2i_background">
+        <div id="canvas_body">
+            <canvas id="{{data.Id}}" class="t2i_canvas" ng-repeat="data in DataFunction.Text2Image.CanvasDatas"></canvas>
+            <img id="T2IImageContainerTarget" style="width: 100%; height: 100%;"></img>
+        </div>
+        <div id="tool_panel" class="t2i_tool_panel" resize-flag="16">
+            <input id="bg_button" type="image" class="t2i_tool_button" resize-flag="27" ng-src="{{DataFunction.GetImage('BackgroundBtn')}}" ng-click="DataFunction.GetFunction('T2I_OnBackgroundBtnClick')()"></input>
+            <div id="option_panel" class="t2i_option_panel" resize-flag="18" style="visibility: visible;">
+                <img id="option_pointer" class="t2i_pointer_img" resize-flag="25" ng-src="{{DataFunction.GetImage('Pointer')}}"></img>
+                <div id="option_inner_panel" class="t2i_option_inner_panel" resize-flag="1040">
+                    <div id="option_scroll_panel" style="width: 100%; height: 100%">
+                        <img id="{{DataFunction.GetFunction('T2I_GetRGBRadioImgId')($index)}}" name="tool_radio_imgs" class="{{DataFunction.GetFunction('T2I_GetRGBRadioImgClass')($index)}}" resize-flag="538" style="{{DataFunction.GetFunction('T2I_GetRGBRadioImgStyle')($index, data.RGB)}}"
+                            ng-src="{{DataFunction.GetFunction('T2I_GetRGBRadioImgUrl')($index)}}" ng-repeat="data in DataFunction.Text2Image.RGBRadioDatas" ng-repeatfinish="DataFunction.GetFunction('T2I_OnNgReapeatRGBRadioFinished')()" ng-click="DataFunction.GetFunction('T2I_OnToolRadioClick')($index + 1)"></img>
+                    </div>
+                    <div>
+                        <img id="alpha_slider_img" class="t2i_alhpa_slider_img" resize-flag="18" ng-src="{{DataFunction.GetImage('AlphaSlider')}}"></img>
+                        <div id="alpha_slider" class="t2i_alhpa_slider" resize-flag="18" ng-click="DataFunction.GetFunction('T2I_OnAlphaSliderClick')()"></div>
+                        <img id="alpha_slider_thumb" class="t2i_alhpa_slider_thumb" resize-flag="18" ng-src="{{DataFunction.GetImage('AlphaSliderThumb')}}"></img>
+                    </div>
+                </div>
+            </div>
+            <div id="bottom_panel">
+                <button id="cancel_btn" class="t2i_bottom_button" resize-flag="48" style="left:0; background-image: url({{DataFunction.GetImage('CancelBtn')}});" ng-click="DataFunction.GetFunction('T2I_OnCancelT2IBtnClick')()">{{DataFunction.GetText("Cancel")}}</button>
+                <button id="confirm_btn" class="t2i_bottom_button" resize-flag="48" style="right:0; background-image: url({{DataFunction.GetImage('ConfirmBtn')}});" ng-click="DataFunction.GetFunction('T2I_OnConfirmT2IBtnClick')()">{{DataFunction.GetText("OK")}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-init="DataFunction.GetFunction('T2I_Onload')()"></div>

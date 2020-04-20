@@ -1,0 +1,189 @@
+
+= 通用加载 =
+
+pc端引用
+ 
+ <script type="text/javascript" src="/libs/React/web.js?v=1584961629307"></script>
+
+移动端引用
+
+ <script type="text/javascript" src="/libs/React/mobile.js?v=1584961629307"></script>
+
+&nbsp;
+
+= 使用组件 =
+
+== 无进度加载组件 ==
+
+=== 定义组件 ===
+
+pc端
+
+ import React from 'react';
+ import { formatMessage } from 'umi/locale';
+ const Com = (window.Web_Coms || {}).StatusLoading || (() => ‘‘);
+ const StatusLoading = props => <Com {...props} React={React} formatMessage={formatMessage} />;
+ export default StatusLoading;
+
+移动端
+
+ import React from 'react';
+ import { formatMessage } from 'umi/locale';
+ const Com = (window.Mobile_Coms || {}).StatusLoading || (() => ‘‘);
+ const StatusLoading = props => <Com {...props} React={React} formatMessage={formatMessage} />;
+ export default StatusLoading;
+
+&nbsp;
+
+=== 使用组件 ===
+
+ import StatusLoading from "@/components/StatusLoading";
+ ReactDOM.render(<StatusLoading React={React} formatMessage={() => "test"} noHint  pageTab />, document.getElementById("app"));
+
+&nbsp;
+
+=== props参数 ===
+
+{| class="wikitable" width="900"
+|-
+! scope="col" | 参数
+! scope="col" width="150" | 是否必填
+! scope="col" | 数据类型
+! scope="col" width="100" | 默认值
+! scope="col" width="600" | 说明
+|-
+| style="text-align: center" | 
+src
+
+| style="text-align: center" | 否
+| style="text-align: center" | string
+| style="text-align: center" | &nbsp;
+| style="text-align: center" | 
+传值，为图片链接，作为显示该图片的懒加载组件
+
+不传值，作为无进度加载组件
+
+|-
+| style="text-align: center" | 
+scale
+
+| style="text-align: center" | 否
+| style="text-align: center" | number
+| style="text-align: center" | &nbsp;
+| style="text-align: center" | 加载动效缩放比例
+|-
+| style="text-align: center" | 
+reload
+
+| style="text-align: center" | 否
+| style="text-align: center" | Function
+| style="text-align: center" | &nbsp;
+| style="text-align: center" | 点击重新加载触发的函数
+|-
+| style="text-align: center" | 
+timeout
+
+| style="text-align: center" | 否
+| style="text-align: center" | number
+| style="text-align: center" | 60000
+| style="text-align: center" | 加载多少毫秒后显示重新加载
+|-
+| style="text-align: center" | 
+pageTab
+
+| style="text-align: center" | 否
+| style="text-align: center" | boolean
+| style="text-align: center" | &nbsp;
+| style="text-align: center" | 组件根据父元素高度居中
+|-
+| style="text-align: center" | 
+touchTrigger
+
+（仅移动端）
+
+| style="text-align: center" | 否
+| style="text-align: center" | boolean
+| style="text-align: center" | true
+| style="text-align: center" | 加载超时触摸是否触发重新加载
+|-
+| style="text-align: center" | 
+slideUp
+
+（仅移动端）
+
+| style="text-align: center" | 否
+| style="text-align: center" | boolean
+| style="text-align: center" | &nbsp;
+| style="text-align: center" | 组件高度为100像素
+|-
+| style="text-align: center" | 
+height
+
+| style="text-align: center" | 否
+| style="text-align: center" | number
+| style="text-align: center" | &nbsp;
+| style="text-align: center" | 自定义组件高度，像素
+|-
+| style="text-align: center" | 
+backgroundColor
+
+| style="text-align: center" | 否
+| style="text-align: center" | string
+| style="text-align: center" | #fff
+| style="text-align: center" | 组件背景色，默认白色
+|-
+| style="text-align: center" | 
+noHint
+
+| style="text-align: center" | 否
+| style="text-align: center" | boolean
+| style="text-align: center" | false
+| style="text-align: center" | 
+是否显示超时重新加载
+
+传入true将无超时重新加载提示
+
+|-
+| style="text-align: center" | 
+React
+
+| style="text-align: center" | 是
+| style="text-align: center" | object
+| style="text-align: center" | &nbsp;
+| style="text-align: center" | 页面全局React对象，React版本必须大于16.8.0
+|-
+| style="text-align: center" | 
+formatMessage
+
+| style="text-align: center" | 是
+| style="text-align: center" | 
+(obj:&nbsp;{&nbsp;id:&nbsp;string&nbsp;})
+
+&nbsp;=>&nbsp;string
+
+| style="text-align: center" | &nbsp;
+| style="text-align: center" | 
+组件将提供对应的消息id
+
+传入的函数根据id返回对应消息
+
+|}
+
+&nbsp;
+
+=== 消息id ===
+
+pc端
+
+ load_hint_word：     无点击效果的超时提示文案；
+ reload_click_word：  可点击带下划线的重新加载文案；
+
+移动端
+
+ load_hint_word：     提示正在加载的文案；
+ page_reload_word：   居上的重新加载页面文案；
+ slide_reload_word：  居下的重新加载页面文案；
+
+&nbsp;
+
+[[Category:Edbox通用UI组件(React)]

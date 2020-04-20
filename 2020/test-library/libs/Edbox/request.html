@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script src="/libs/Edbox/js/Edbox.js" type="text/javascript"></script>
+    <!--Jquery库-->
+    <script src="/libs/ThirdParty/jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <!--CryptoJS库-->
+    <script src="/libs/CryptoJS/CryptoJS.js" type="text/javascript"></script>
+    <!--Edbox请求授权组件-->
+    <script src="/libs/Edbox_Request/js/Edbox_Request.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // 登录启动
+        Edbox.Start(function () {
+            var data = "id=10&player_id=" + Edbox.EbUserId + "&page=" + 1 + "&size=" + 20;
+            var url = "/v0.1/api/rank/rank/actions/get_list";
+            Edbox.Request.Get(Edbox.GetHost('MMO'), url, data, function (ans) {
+                // 成功回调
+                console.log(ans);
+            }, function (err) {
+                // 溢出回调
+                console.log(err);
+            });
+        });
+    </script>
+</body>
+</html>

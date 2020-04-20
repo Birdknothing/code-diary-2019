@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script src="../../my-min-library/three.dev.js"></script>
+        <script>
+            const scene = new THREE.Scene();
+            const getRadio = (parm = false) =>
+                parm
+                    ? [window.innerWidth, window.innerHeight]
+                    : window.innerWidth / window.innerHeight;
+            const camera = new THREE.PerspectiveCamera(
+                75,
+                getRadio(),
+                0.1,
+                1000
+            );
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+
+            renderer.setSize(...getRadio(true));
+            document.body.appendChild(renderer.domElement);
+
+            const mkObj = () => {
+                const geometry = new THREE.BoxGeometry(2, 2, 2);
+                const texture = new THREE.TextureLoader().load("./crate.jpg");
+                const material = new THREE.MeshBasicMaterial({ map: texture });
+                const cube = new THREE.Mesh(geometry, material);
+                return cube;
+            };
+            const cube = mkObj();
+            scene.add(cube);
+            camera.position.z = 5;
+            const render = () => {
+                cube.rotation.x += 0.01;
+                cube.rotation.y += 0.01;
+                renderer.render(scene, camera);
+                requestAnimationFrame(render);
+            };
+            render();
+        </script>
+    </body>
+</html>

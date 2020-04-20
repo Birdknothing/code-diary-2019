@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script crossorigin src='https://unpkg.com/react@16/umd/react.production.min.js'></script>
-    <script crossorigin src='https://unpkg.com/react-dom@16/umd/react-dom.production.min.js'></script>
-    <script src='https://unpkg.com/@babel/standalone/babel.min.js'></script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script
+            crossorigin
+            src="https://unpkg.com/react@16/umd/react.production.min.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+        ></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <title>Document</title>
-  </head>
-  <body>
-    <div id="test"></div>
-    <script type="text/babel">
-      const Test = function(props) {
-        return (
-          <div>
-            {props.children}
-            {props.left}
-            {props.right}
-          </div>
-        );
-      };
-      const C1 = function() {
-        return <div>component C1</div>;
-      };
-      ReactDOM.render(<Test left={() => <div>test</div>} right={<C1 />} />, test);
-    </script>
-  </body>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="test"></div>
+        <script type="text/babel">
+            const Test = function(props) {
+                const { x, y, setState } = props;
+                let renderItem = item => (obj.x = item);
+                const mkRender = f => (...args) => f(...args) && setState({});
+                renderItem = mkRender(renderItem);
+
+                return (
+                    <div>
+                        <input
+                            type="text"
+                            onKeyDown={e =>
+                                e.keyCode === 13 &&
+                                renderItem(e.currentTarget.value)
+                            }
+                        />
+                        <div>{x}</div>
+                    </div>
+                );
+            };
+            const injectData = data => props => <Test {...data} {...props} />;
+            const obj = { x: "test", y: 2 };
+            const DTest = injectData(obj);
+            const C1 = function() {
+                return <div>component C1</div>;
+            };
+            const render = () =>
+                ReactDOM.render(<DTest setState={render} />, test);
+            render();
+        </script>
+    </body>
 </html>

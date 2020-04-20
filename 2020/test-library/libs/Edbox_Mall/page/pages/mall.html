@@ -1,0 +1,87 @@
+
+<img  ng-src="{{DataFunction.GetImage('MallMask')}}" class="shop-bg-box">
+<div class="Header">
+    <!-- 标签 -->
+    <div class="Store">
+        <img ng-src="{{DataFunction.GetImage('StoreTitle')}}" />
+    </div>
+
+    <!-- 返回按钮 -->
+    <div class="Money">
+        <div class="MoneyBackground">
+            <div class="top-diamon-bg white-130font" style="background-image: url({{DataFunction.GetImage('TopDiamondBg')}});"><span>300</span></div>
+			<span class="or-span">or</span>
+			<div class="top-coin-bg  white-130font" style="background-image: url({{DataFunction.GetImage('TopCoinBg')}});"><span>1.7w</span></div>
+        </div>
+    </div>
+	
+    <!-- 关闭按钮 -->
+    <div class="Close">
+        <img ng-src="{{DataFunction.GetImage('Close')}}" ng-click="DataFunction.Shop.Close()"/>
+    </div>
+</div>
+
+<div class="notice-box">
+	<div class="notice-bg" style="background-image: url({{DataFunction.GetImage('ShopNoticeBg')}});">
+		<em class="notice-icon" style="background-image: url({{DataFunction.GetImage('ShopNoticeAudioIcon')}});"></em>
+		<div class="notice-bar">
+			<marquee><span class="notice-content">{{ DataFunction.Shop.GetMallAdText()}}</span></marquee>
+		</div>
+	</div>
+</div>
+
+<!-- 内容区 -->
+<div class="Content" ng-init="DataFunction.ScrollInit()">
+    <!-- 二级标签栏 -->
+    <div class="SecondTab">
+        <div class="TabScroll">
+            <div class="TabBar">
+                <span ng-repeat="data in DataFunction.Shop.GetStores()" ng-click="DataFunction.Shop.SelectStore($index)" class="{{DataFunction.Shop.StoreSelect === $index ? 'shop-toolbar yellow-130font':'shop-toolbar blue-130font' }}" style="background-image: url({{DataFunction.Shop.StoreSelect === $index ? DataFunction.GetImage('ShopToolbarSelectBg'):DataFunction.GetImage('ShopToolbarUnSelectBg') }});">
+                    {{data.StoreName}}
+                </span>
+            </div>
+			<div class="shop-toolbar-bottom" style="background-image: url({{DataFunction.GetImage('ShopToolbarBottomBg')}}); width : {{DataFunction.Shop.GetStores().length * 109}}px"></div>
+        </div>
+    </div>
+
+    <div id="ShopItems" class="shop-items">
+		<div id="ShopItemsBgs" class="shop-items-bg">
+			<div class="shop-bg-tl" style="background-image: url({{DataFunction.GetImage('ShopBgTopLeft')}});"></div>
+			<div class="shop-bg-tm" style="background-image: url({{DataFunction.GetImage('ShopBgTopMiddle')}});"></div>
+			<div class="shop-bg-tr" style="background-image: url({{DataFunction.GetImage('ShopBgTopRight')}});"></div>
+			<div class="shop-bg-l" style="background-image: url({{DataFunction.GetImage('ShopBgLeft')}});"></div>
+			<div class="shop-bg-m" style="background-image: url({{DataFunction.GetImage('ShopBgMiddle')}});"></div>
+			<div class="shop-bg-r" style="background-image: url({{DataFunction.GetImage('ShopBgRight')}});"></div>
+			<div class="shop-bg-bl" style="background-image: url({{DataFunction.GetImage('ShopBgBottomLeft')}});"></div>
+			<div class="shop-bg-bm" style="background-image: url({{DataFunction.GetImage('ShopBgBottomMiddle')}});"></div>
+			<div class="shop-bg-br" style="background-image: url({{DataFunction.GetImage('ShopBgBottomRight')}});"></div>
+		</div>
+		<div id="ShopViewPortBox" class="shop-view-port-box">
+			<div id="ShopViewPort" class="shop-view-port" ng-touchstart="DataFunction.Shop.PageTouchStart(event)" ng-touchmove="DataFunction.Shop.PageTouchMove(event)">
+				<div class="shop-view-port-item" ng-repeat="data in DataFunction.Shop.ListDatas">
+					<div class="shop-item-bg" style="background-image: url({{DataFunction.GetImage('ShopItemBg')}});">
+						<span class="shop-item-title white-130font">{{data.CommodityName}}</span>
+						<div class="shop-item-lefttime white-60font">
+							<i class="time-icon" style="background-image: url({{DataFunction.GetImage('ShopTimeIcon')}});"></i>{{DataFunction.Shop.GetRemainTime(data.EndSaleTime)}}
+						</div>
+						<img ng-src="{{data.ImgSource}}" class="shop-item-img"/>
+						<div class="shop-item-price">
+							<div class="white-80font"><i class="diamond-icon" style="background-image: url({{DataFunction.GetImage('ShopDiamondIcon')}});"></i>{{DataFunction.Shop.GetDiamonPrice(data.Price)}}</div>
+							<div class="white-80font"><i class="coin-icon" style="background-image: url({{DataFunction.GetImage('ShopCoinIcon')}});"></i>{{DataFunction.Shop.GetCoinPrice(data.Price)}}</div>
+						</div>
+						<div class="shop-item-buy"><a href="javascript:void(0);" data="{{data.GUID}}" style="background-image: url({{DataFunction.GetImage('ShopSmallButtonBg')}});">BUY</a></div>
+					</div>
+				</div>
+				<div style="display: none; float: left; width: 100%; height: 50px; clear: both;"></div>
+			</div>
+		</div>
+		<div id="ShopScrollView" class="shop-scrollbar">
+			<div class="scrollbar-bg-top" style="background-image: url({{DataFunction.GetImage('ShopScrollbarBgTop')}});"></div>
+			<div id="ShopScrollbar" class="scrollbar-bg-middle" style="background-image: url({{DataFunction.GetImage('ShopScrollbarBgMiddle')}});">
+				<div class="scrollbar-line" style="background-image: url({{DataFunction.GetImage('ShopScrollbarBgLine')}});"></div>
+				<div id="ShopScrollbarHandle" class="scrollbar-handle" style="background-image: url({{DataFunction.GetImage('ShopScrollbarBgHandle')}});" ng-touchstart="DataFunction.Shop.ScrollbarStart(event)" ng-touchmove="DataFunction.Shop.ScrollbarMove(event)"></div>
+			</div>
+			<div class="scrollbar-bg-bottom" style="background-image: url({{DataFunction.GetImage('ShopScrollbarBgBottom')}});"></div>
+		</div>
+    </div>
+</div>

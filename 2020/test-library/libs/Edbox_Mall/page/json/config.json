@@ -1,0 +1,753 @@
+{
+  "Datas": [
+    {
+      "Name": "BaseInfo",
+      "ChineseName": "基础信息设置",
+      "EnglishName": "Basic Information Settings",
+      "Icon": "fa-info-circle",
+      "Datas": [
+        {
+          "Name": "GameName",
+          "ChineseName": "游戏名称",
+          "EnglishName": "Game Name",
+          "Value": "音频选取组件",
+          "ChineseValue": "音频选取组件",
+          "EnglishValue": "Audio Selection Component",
+          "Type": "Text"
+        },
+        {
+          "Name": "Description",
+          "ChineseName": "游戏简介",
+          "EnglishName": "Game Description",
+          "Value": "音频选取组件",
+          "ChineseValue": "音频选取组件",
+          "EnglishValue": "Audio Selection Component",
+          "Type": "LongText"
+        },
+        {
+          "Name": "CoverImage",
+          "ChineseName": "游戏封面图片",
+          "EnglishName": "Game Cover Image",
+          "Value": "img/app.png",
+          "ChineseValue": "img/app.png",
+          "EnglishValue": "img/app.png",
+          "Type": "Image"
+        }
+      ]
+    },
+    {
+      "Name": "Images",
+      "ChineseName": "图片设置",
+      "EnglishName": "Picture Settings",
+      "Icon": "fa-image",
+      "Datas": [
+        {
+          "Name": "Online",
+          "ChineseName": "在线音频按钮图片",
+          "EnglishName": "Online Audio Button Image",
+          "Value": "img/online.png",
+          "ChineseValue": "img/online.png",
+          "EnglishValue": "img/online.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Record",
+          "ChineseName": "录制音频按钮图片",
+          "EnglishName": "Record Audio Button Image",
+          "Value": "img/record.png",
+          "ChineseValue": "img/record.png",
+          "EnglishValue": "img/record.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Local",
+          "ChineseName": "本地音频按钮图片",
+          "EnglishName": "Local Audio Button Image",
+          "Value": "img/local.png",
+          "ChineseValue": "img/local.png",
+          "EnglishValue": "img/local.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "DiamondBg",
+          "ChineseName": "钻石数量背景图",
+          "EnglishName": "Diamond Background",
+          "Value": "img/diamond-bg.png",
+          "ChineseValue": "img/diamond-bg.png",
+          "EnglishValue": "img/diamond-bg.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "CoinBg",
+          "ChineseName": "金币数量背景图",
+          "EnglishName": "Coin Background",
+          "Value": "img/coin-bg.png",
+          "ChineseValue": "img/coin-bg.png",
+          "EnglishValue": "img/coin-bg.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "StoreTitle",
+          "ChineseName": "Store标签图片",
+          "EnglishName": "Store Title Image",
+          "Value": "img/title-shop.png",
+          "ChineseValue": "img/title-shop.png",
+          "EnglishValue": "img/title-shop.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "MallMask",
+          "ChineseName": "商城背景蒙板",
+          "EnglishName": "Mall Mask",
+          "Value": "img/shop-detail-mask.png",
+          "ChineseValue": "img/shop-detail-mask.png",
+          "EnglishValue": "img/shop-detail-mask.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Close",
+          "ChineseName": "关闭按钮图片",
+          "EnglishName": "Close Button Image",
+          "Value": "img/close.png",
+          "ChineseValue": "img/close.png",
+          "EnglishValue": "img/close.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Back",
+          "ChineseName": "返回按钮图片",
+          "EnglishName": "Back Button Image",
+          "Value": "img/shop-back.png",
+          "ChineseValue": "img/shop-back.png",
+          "EnglishValue": "img/shop-back.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "PullUp",
+          "ChineseName": "上拉按钮图片",
+          "EnglishName": "Pull Up Button Image",
+          "Value": "img/pullup.png",
+          "ChineseValue": "img/pullup.png",
+          "EnglishValue": "img/pullup.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "PullDown",
+          "ChineseName": "下拉按钮图片",
+          "EnglishName": "Drop Down Button Image",
+          "Value": "img/pulldown.png",
+          "ChineseValue": "img/pulldown.png",
+          "EnglishValue": "img/pulldown.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Time",
+          "ChineseName": "时间标识图片",
+          "EnglishName": "Time Mark Image",
+          "Value": "img/time.png",
+          "ChineseValue": "img/time.png",
+          "EnglishValue": "img/time.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "NoSound",
+          "ChineseName": "无声音标识图片",
+          "EnglishName": "No Sound Mark Image",
+          "Value": "img/nosound.png",
+          "ChineseValue": "img/nosound.png",
+          "EnglishValue": "img/nosound.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "NoSound_Idle",
+          "ChineseName": "无声音标识无色图片",
+          "EnglishName": "No Sound Mark Idle Image",
+          "Value": "img/nosound_idle.png",
+          "ChineseValue": "img/nosound_idle.png",
+          "EnglishValue": "img/nosound_idle.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Play",
+          "ChineseName": "播放按钮图片",
+          "EnglishName": "Play Button Image",
+          "Value": "img/play.png",
+          "ChineseValue": "img/play.png",
+          "EnglishValue": "img/play.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Play_Idle",
+          "ChineseName": "播放按钮无色图片",
+          "EnglishName": "Play Button Idle Image",
+          "Value": "img/play_idle.png",
+          "ChineseValue": "img/play_idle.png",
+          "EnglishValue": "img/play_idle.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Pause",
+          "ChineseName": "暂停按钮图片",
+          "EnglishName": "Pause Button Image",
+          "Value": "img/pause.png",
+          "ChineseValue": "img/pause.png",
+          "EnglishValue": "img/pause.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Pause_Idle",
+          "ChineseName": "暂停按钮无色图片",
+          "EnglishName": "Pause Button Idle Image",
+          "Value": "img/pause_idle.png",
+          "ChineseValue": "img/pause_idle.png",
+          "EnglishValue": "img/pause_idle.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Record_Download",
+          "ChineseName": "下载按钮图片",
+          "EnglishName": "Download Button Image",
+          "Value": "img/download.png",
+          "ChineseValue": "img/download.png",
+          "EnglishValue": "img/download.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Record_Play",
+          "ChineseName": "播放按钮图片",
+          "EnglishName": "Play Button Image",
+          "Value": "img/record_play.png",
+          "ChineseValue": "img/record_play.png",
+          "EnglishValue": "img/record_play.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Record_Play_Stop",
+          "ChineseName": "停止按钮图片",
+          "EnglishName": "Stop Button Image",
+          "Value": "img/record_stop.png",
+          "ChineseValue": "img/record_stop.png",
+          "EnglishValue": "img/record_stop.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Record_Start",
+          "ChineseName": "录音开始按钮图片",
+          "EnglishName": "Recording Start Button Image",
+          "Value": "img/record_start.png",
+          "ChineseValue": "img/record_start.png",
+          "EnglishValue": "img/record_start.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Record_Start_Stop",
+          "ChineseName": "录音中按钮图片",
+          "EnglishName": "Recording Button Image",
+          "Value": "img/record_stop.png",
+          "ChineseValue": "img/record_stop.png",
+          "EnglishValue": "img/record_stop.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "Record_Re_record",
+          "ChineseName": "重录按钮图片",
+          "EnglishName": "Re-record Button Image",
+          "Value": "img/record_re_record.png",
+          "ChineseValue": "img/record_re_record.png",
+          "EnglishValue": "img/record_re_record.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "TopDiamondBg",
+          "ChineseName": "TopDiamondBg",
+          "EnglishName": "TopDiamondBg",
+          "Value": "img/diamond-bg.png",
+          "ChineseValue": "img/diamond-bg.png",
+          "EnglishValue": "img/diamond-bg.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "TopCoinBg",
+          "ChineseName": "TopCoinBg",
+          "EnglishName": "TopCoinBg",
+          "Value": "img/coin-bg.png",
+          "ChineseValue": "img/coin-bg.png",
+          "EnglishValue": "img/coin-bg.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopNoticeBg",
+          "ChineseName": "ShopNoticeBg",
+          "EnglishName": "ShopNoticeBg",
+          "Value": "img/notice-bg.png",
+          "ChineseValue": "img/notice-bg.png",
+          "EnglishValue": "img/notice-bg.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopNoticeAudioIcon",
+          "ChineseName": "ShopNoticeAudioIcon",
+          "EnglishName": "ShopNoticeAudioIcon",
+          "Value": "img/notice-audio.png",
+          "ChineseValue": "img/notice-audio.png",
+          "EnglishValue": "img/notice-audio.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopToolbarSelectBg",
+          "ChineseName": "ShopToolbarSelectBg",
+          "EnglishName": "ShopToolbarSelectBg",
+          "Value": "img/shop-tab.png",
+          "ChineseValue": "img/shop-tab.png",
+          "EnglishValue": "img/shop-tab.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopToolbarUnSelectBg",
+          "ChineseName": "ShopToolbarUnSelectBg",
+          "EnglishName": "ShopToolbarUnSelectBg",
+          "Value": "img/shop-tab-unselect.png",
+          "ChineseValue": "img/shop-tab-unselect.png",
+          "EnglishValue": "img/shop-tab-unselect.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopToolbarBottomBg",
+          "ChineseName": "ShopToolbarBottomBg",
+          "EnglishName": "ShopToolbarBottomBg",
+          "Value": "img/shop-tab-bg.png",
+          "ChineseValue": "img/shop-tab-bg.png",
+          "EnglishValue": "img/shop-tab-bg.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopBgTopLeft",
+          "ChineseName": "ShopBgTopLeft",
+          "EnglishName": "ShopBgTopLeft",
+          "Value": "img/shop-bg-tl.png",
+          "ChineseValue": "img/shop-bg-tl.png",
+          "EnglishValue": "img/shop-bg-tl.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopBgTopMiddle",
+          "ChineseName": "ShopBgTopMiddle",
+          "EnglishName": "ShopBgTopMiddle",
+          "Value": "img/shop-bg-tm.png",
+          "ChineseValue": "img/shop-bg-tm.png",
+          "EnglishValue": "img/shop-bg-tm.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopBgTopRight",
+          "ChineseName": "ShopBgTopRight",
+          "EnglishName": "ShopBgTopRight",
+          "Value": "img/shop-bg-tr.png",
+          "ChineseValue": "img/shop-bg-tr.png",
+          "EnglishValue": "img/shop-bg-tr.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopBgLeft",
+          "ChineseName": "ShopBgLeft",
+          "EnglishName": "ShopBgLeft",
+          "Value": "img/shop-bg-l.png",
+          "ChineseValue": "img/shop-bg-l.png",
+          "EnglishValue": "img/shop-bg-l.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopBgMiddle",
+          "ChineseName": "ShopBgMiddle",
+          "EnglishName": "ShopBgMiddle",
+          "Value": "img/shop-bg-m.png",
+          "ChineseValue": "img/shop-bg-m.png",
+          "EnglishValue": "img/shop-bg-m.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopBgRight",
+          "ChineseName": "ShopBgRight",
+          "EnglishName": "ShopBgRight",
+          "Value": "img/shop-bg-r.png",
+          "ChineseValue": "img/shop-bg-r.png",
+          "EnglishValue": "img/shop-bg-r.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopBgBottomLeft",
+          "ChineseName": "ShopBgBottomLeft",
+          "EnglishName": "ShopBgBottomLeft",
+          "Value": "img/shop-bg-bl.png",
+          "ChineseValue": "img/shop-bg-bl.png",
+          "EnglishValue": "img/shop-bg-bl.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopBgBottomMiddle",
+          "ChineseName": "ShopBgBottomMiddle",
+          "EnglishName": "ShopBgBottomMiddle",
+          "Value": "img/shop-bg-bm.png",
+          "ChineseValue": "img/shop-bg-bm.png",
+          "EnglishValue": "img/shop-bg-bm.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopBgBottomRight",
+          "ChineseName": "ShopBgBottomRight",
+          "EnglishName": "ShopBgBottomRight",
+          "Value": "img/shop-bg-br.png",
+          "ChineseValue": "img/shop-bg-br.png",
+          "EnglishValue": "img/shop-bg-br.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopItemBg",
+          "ChineseName": "ShopItemBg",
+          "EnglishName": "ShopItemBg",
+          "Value": "img/shop-item.png",
+          "ChineseValue": "img/shop-item.png",
+          "EnglishValue": "img/shop-item.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopTimeIcon",
+          "ChineseName": "ShopTimeIcon",
+          "EnglishName": "ShopTimeIcon",
+          "Value": "img/time-icon.png",
+          "ChineseValue": "img/time-icon.png",
+          "EnglishValue": "img/time-icon.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopDiamondIcon",
+          "ChineseName": "ShopDiamondIcon",
+          "EnglishName": "ShopDiamondIcon",
+          "Value": "img/diamond.png",
+          "ChineseValue": "img/diamond.png",
+          "EnglishValue": "img/diamond.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopCoinIcon",
+          "ChineseName": "ShopCoinIcon",
+          "EnglishName": "ShopCoinIcon",
+          "Value": "img/coin.png",
+          "ChineseValue": "img/coin.png",
+          "EnglishValue": "img/coin.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopSmallButtonBg",
+          "ChineseName": "ShopSmallButtonBg",
+          "EnglishName": "ShopSmallButtonBg",
+          "Value": "img/btn-small.png",
+          "ChineseValue": "img/btn-small.png",
+          "EnglishValue": "img/btn-small.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopLargeButtonBg",
+          "ChineseName": "ShopLargeButtonBg",
+          "EnglishName": "ShopLargeButtonBg",
+          "Value": "img/btn-large.png",
+          "ChineseValue": "img/btn-large.png",
+          "EnglishValue": "img/btn-large.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopScrollbarBgTop",
+          "ChineseName": "ShopScrollbarBgTop",
+          "EnglishName": "ShopScrollbarBgTop",
+          "Value": "img/scroll-top.png",
+          "ChineseValue": "img/scroll-top.png",
+          "EnglishValue": "img/scroll-top.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopScrollbarBgMiddle",
+          "ChineseName": "ShopScrollbarBgMiddle",
+          "EnglishName": "ShopScrollbarBgMiddle",
+          "Value": "img/scroll-main.png",
+          "ChineseValue": "img/scroll-main.png",
+          "EnglishValue": "img/scroll-main.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopScrollbarBgBottom",
+          "ChineseName": "ShopScrollbarBgBottom",
+          "EnglishName": "ShopScrollbarBgBottom",
+          "Value": "img/scroll-bottom.png",
+          "ChineseValue": "img/scroll-bottom.png",
+          "EnglishValue": "img/scroll-bottom.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopScrollbarBgLine",
+          "ChineseName": "ShopScrollbarBgLine",
+          "EnglishName": "ShopScrollbarBgLine",
+          "Value": "img/scroll-line.png",
+          "ChineseValue": "img/scroll-line.png",
+          "EnglishValue": "img/scroll-line.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopScrollbarBgHandle",
+          "ChineseName": "ShopScrollbarBgHandle",
+          "EnglishName": "ShopScrollbarBgHandle",
+          "Value": "img/scroll-bar.png",
+          "ChineseValue": "img/scroll-bar.png",
+          "EnglishValue": "img/scroll-bar.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopBuyDialogMask",
+          "ChineseName": "ShopBuyDialogMask",
+          "EnglishName": "ShopBuyDialogMask",
+          "Value": "img/shop-detail-mask.png",
+          "ChineseValue": "img/shop-detail-mask.png",
+          "EnglishValue": "img/shop-detail-mask.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopBuyDialogBg",
+          "ChineseName": "ShopBuyDialogBg",
+          "EnglishName": "ShopBuyDialogBg",
+          "Value": "img/shop-tip.png",
+          "ChineseValue": "img/shop-tip.png",
+          "EnglishValue": "img/shop-tip.png",
+          "Type": "Image"
+        },
+        {
+          "Name": "ShopDetailBoxMask",
+          "ChineseName": "ShopDetailBoxMask",
+          "EnglishName": "ShopDetailBoxMask",
+          "Value": "img/shop-detail-bg.png",
+          "ChineseValue": "img/shop-detail-bg.png",
+          "EnglishValue": "img/shop-detail-bg.png",
+          "Type": "Image"
+        }
+      ]
+    },
+    {
+      "Name": "Texts",
+      "ChineseName": "文本设置",
+      "EnglishName": "Text Settings",
+      "Icon": "fa-file-text",
+      "Datas": [
+        {
+          "Name": "Cancel",
+          "ChineseName": "取消按钮文本",
+          "EnglishName": "Cancel Button Text",
+          "Value": "取消",
+          "ChineseValue": "取消",
+          "EnglishValue": "Cancel",
+          "Type": "Text"
+        },
+        {
+          "Name": "OK",
+          "ChineseName": "确认按钮文本",
+          "EnglishName": "OK Button Text",
+          "Value": "确认",
+          "ChineseValue": "确认",
+          "EnglishValue": "OK",
+          "Type": "Text"
+        },
+        {
+          "Name": "Reset",
+          "ChineseName": "重置按钮文本",
+          "EnglishName": "Reset Button Text",
+          "Value": "重置",
+          "ChineseValue": "重置",
+          "EnglishValue": "Reset",
+          "Type": "Text"
+        },
+        {
+          "Name": "Online",
+          "ChineseName": "在线音频按钮文本",
+          "EnglishName": "Online Audio Button Text",
+          "Value": "在线音频",
+          "ChineseValue": "在线音频",
+          "EnglishValue": "Online Audio",
+          "Type": "Text"
+        },
+        {
+          "Name": "Record",
+          "ChineseName": "录制音频按钮文本",
+          "EnglishName": "Record Audio Button Text",
+          "Value": "录制音频",
+          "ChineseValue": "录制音频",
+          "EnglishValue": "Record Audio",
+          "Type": "Text"
+        },
+        {
+          "Name": "Local",
+          "ChineseName": "本地音频按钮文本",
+          "EnglishName": "Local Audio Button Text",
+          "Value": "本地音频",
+          "ChineseValue": "本地音频",
+          "EnglishValue": "Local Audio",
+          "Type": "Text"
+        },
+        {
+          "Name": "Music",
+          "ChineseName": "音乐按钮文本",
+          "EnglishName": "Music Button Text",
+          "Value": "音乐",
+          "ChineseValue": "音乐",
+          "EnglishValue": "Music",
+          "Type": "Text"
+        },
+        {
+          "Name": "SoundEffect",
+          "ChineseName": "音效按钮文本",
+          "EnglishName": "Sound Effect Button Text",
+          "Value": "音效",
+          "ChineseValue": "音效",
+          "EnglishValue": "Effect",
+          "Type": "Text"
+        },
+        {
+          "Name": "SearchInputPlaceholder",
+          "ChineseName": "搜索栏输入框提示文本",
+          "EnglishName": "Search Bar Input Box Prompt Text",
+          "Value": "输入关键字",
+          "ChineseValue": "输入关键字",
+          "EnglishValue": "Enter Keywords",
+          "Type": "Text"
+        },
+        {
+          "Name": "Recommend",
+          "ChineseName": "标签栏推荐标签",
+          "EnglishName": "Tab Bar Recommend Tab",
+          "Value": "推荐",
+          "ChineseValue": "推荐",
+          "EnglishValue": "Recommend",
+          "Type": "Text"
+        },
+        {
+          "Name": "All",
+          "ChineseName": "标签栏全部标签",
+          "EnglishName": "Tab Bar All Tab",
+          "Value": "全部",
+          "ChineseValue": "全部",
+          "EnglishValue": "All",
+          "Type": "Text"
+        },
+        {
+          "Name": "NoSound",
+          "ChineseName": "无声音文本",
+          "EnglishName": "No Sound Text",
+          "Value": "无声音",
+          "ChineseValue": "无声音",
+          "EnglishValue": "No Sound",
+          "Type": "Text"
+        },
+        {
+          "Name": "Record_Play",
+          "ChineseName": "播放按钮文本",
+          "EnglishName": "Play Button Text",
+          "Value": "播放",
+          "ChineseValue": "播放",
+          "EnglishValue": "Play",
+          "Type": "Text"
+        },
+        {
+          "Name": "Record_Play_Stop",
+          "ChineseName": "停止按钮文本",
+          "EnglishName": "Stop Button Text",
+          "Value": "停止",
+          "ChineseValue": "停止",
+          "EnglishValue": "Stop",
+          "Type": "Text"
+        },
+        {
+          "Name": "Record_Start",
+          "ChineseName": "录音开始按钮文本",
+          "EnglishName": "Recording Start Button Text",
+          "Value": "录音",
+          "ChineseValue": "录音",
+          "EnglishValue": "Record",
+          "Type": "Text"
+        },
+        {
+          "Name": "Record_Start_Stop",
+          "ChineseName": "录音停止按钮文本",
+          "EnglishName": "Recording Stop Button Text",
+          "Value": "录音中",
+          "ChineseValue": "录音中",
+          "EnglishValue": "Recording",
+          "Type": "Text"
+        },
+        {
+          "Name": "Record_Re_record",
+          "ChineseName": "重录按钮文本",
+          "EnglishName": "Re-record Button Text",
+          "Value": "重录",
+          "ChineseValue": "重录",
+          "EnglishValue": "Re-record",
+          "Type": "Text"
+        }
+      ]
+    }
+  ],
+  "Shop": {
+    "Name": "Shop",
+    "ChineseName": "在线模块",
+    "EnglishName": "Shop Module",
+    "Datas": [
+      {
+        "Name": "FirstTab",
+        "ChineseName": "一级标签栏",
+        "EnglishName": "First Level Tab Bar",
+        "Datas": [
+          {
+            "Name": "Music",
+            "ChineseName": "音乐",
+            "EnglishName": "Music",
+            "Type": "Tab",
+            "Guid": "5453684a-9db1-4647-ab51-083681d0c6dc"
+          },
+          {
+            "Name": "SoundEffect",
+            "ChineseName": "音效",
+            "EnglishName": "Sound Effect",
+            "Type": "Tab",
+            "Guid": "d73778f2-ce04-4fc2-b7a6-bc5c24f1586f"
+          }
+        ]
+      },
+      {
+        "Name": "SecondTab",
+        "ChineseName": "二级标签栏",
+        "EnglishName": "Second Level Tab Bar",
+        "Datas": []
+      },
+      {
+        "Name": "ThirdTab",
+        "ChineseName": "三级标签栏",
+        "EnglishName": "Third Level Tab Bar",
+        "Datas": []
+      },
+      {
+        "Name": "BottomButtons",
+        "ChineseName": "下方按钮集",
+        "EnglishName": "Bottom Buttons",
+        "Datas": [
+          {
+            "Name": "Cancel",
+            "ChineseName": "取消按钮",
+            "EnglishName": "Cancel Button",
+            "Type": "Button"
+          },
+          {
+            "Name": "OK",
+            "ChineseName": "确认按钮",
+            "EnglishName": "OK Button",
+            "Type": "Button"
+          }
+        ]
+      }
+    ]
+  }
+}

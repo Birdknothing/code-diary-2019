@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <title>Edbox 经济组件测试</title>
+
+    <link href="/libs/ThirdParty/bootstrap/css/bootstrap-3.0.3.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">经济组件测试</div>
+        <div class="panel-body">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="Init();">初始化</button>
+                    <button class="btn btn-default" type="button" onclick="console.log(com.CurrencyList);">货币列表</button>
+                    <button class="btn btn-default" type="button" onclick="GainCurrency();">获得5个货币</button>
+                    <button class="btn btn-default" type="button" onclick="UseCurrency();">使用5个货币</button>
+                </span>
+            </div>
+        </div>
+        <div class="panel-heading">货币模块测试</div>
+        <div class="panel-body">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="InitCurrency();">初始化货币列表</button>
+                    <button class="btn btn-default" type="button" onclick="console.log(currency.GetList());">获取货币列表</button>
+                    <button class="btn btn-default" type="button" onclick="currency.New(null, success, error);">新建货币</button>
+                    <button class="btn btn-default" type="button" onclick="Delete();">删除货币</button>
+                    <button class="btn btn-default" type="button" onclick="currency.SaveList(success, error);">保存货币列表</button>
+                    <button class="btn btn-default" type="button" onclick="GetJson();">获取Json</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!--Edbox库-->
+    <script src="/libs/Edbox/js/Edbox.js" type="text/javascript"></script>
+    <script src="/libs/Edbox/js/Edbox.Ext.js" type="text/javascript"></script>
+    <script src="/libs/Edbox_Role/js/Edbox_Role.js" type="text/javascript"></script>
+    <script src="/libs/Edbox_Economic/js/Edbox_Economic.js" type="text/javascript"></script>
+    <script src="/libs/Edbox_FileSaver/js/Edbox_FileSaver.js" type="text/javascript"></script>
+    <script>
+        Edbox.GameId = "08689b40-2616-11e9-a994-8d998024f53f";
+        Edbox.PackageGuid = "af67bed3-e8db-4908-a4c9-23b56507fe84";
+        Edbox.Version = "1.00";
+        Edbox.Access = "1";
+        Edbox.Mode = "1";
+
+        var com = Edbox.Economic;
+        var currency = Edbox.Currency;
+
+        Edbox.Start();
+
+        function success(data) {
+            console.log(data);
+        }
+
+        function error(e) {
+            console.log(e);
+        }
+
+        var json = { "Currencys": [{ "ID": "4e84b383-af17-432a-8572-48feaf837a96", "GUID": 5, "Index": 1, "Name": "aaa", "Icon": "", "Description": "", "Attribute": null }, { "ID": "43459982-5caa-4d75-ba1a-819a2c013dbf", "GUID": 6, "Index": 2, "Name": "", "Icon": "", "Description": "", "Attribute": null }, { "ID": "43ef587c-f91f-46f6-8365-cf885d22ca92", "GUID": 7, "Index": 3, "Name": "", "Icon": "", "Description": "", "Attribute": null }] };
+        function Init() {
+            Edbox.Role.GetList(function () {
+                if (!Edbox.Role.Current) {
+                    Edbox.Role.New(init, error);
+                }
+                else {
+                    init();
+                }
+            }, function () {
+                Edbox.Role.New(init, error);
+            });
+
+            function init() {
+                com.RoleID = Edbox.Role.Current.GUID;
+                com.Init(JSON.stringify(json), function () {
+                    console.log(currency.ServerList);
+                    console.log(currency.CurrencyList);
+                    console.log(com.CurrencyList);
+                });
+            }
+        }
+
+        function InitCurrency() {
+            currency.Init(JSON.stringify(json), function () {
+                console.log(currency.ServerList);
+                console.log(currency.CurrencyList);
+            });
+        }
+
+        function GainCurrency() {
+            com.GainCurrency(currency.CurrencyList[0], 5, success, error);
+        }
+
+        function UseCurrency() {
+            com.UseCurrency(currency.CurrencyList[0], 5, success, error);
+        }
+
+        function Delete() {
+            if (Edbox.Currency.CurrencyList.length === 0) return;
+            Edbox.Currency.CurrencyList[0].Delete(success, error);
+        };
+
+        function GetJson() {
+            var json = currency.GetJson();
+            console.log(json);
+            Edbox.FileSaver.SaveText(json, "Currency.json");
+        }
+
+    </script>
+</body>
+</html>

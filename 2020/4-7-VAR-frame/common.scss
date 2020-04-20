@@ -1,0 +1,79 @@
+%themeColor {
+    background: #00b4db; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #0083b0,
+        #00b4db
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #0083b0,
+        #00b4db
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+%cmBasic {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+%btnHover {
+    cursor: pointer;
+    &:hover {
+        @extend %themeColor;
+        color: #fff;
+    }
+}
+%cmBtn {
+    @extend %cmBasic;
+    @extend %btnHover;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+* {
+    user-select: none;
+    margin: 0;
+    padding: 0;
+}
+input {
+    outline: none;
+    @extend %cmBasic;
+}
+
+// component
+.items {
+    display: flex;
+    margin: 0 auto;
+    width: 200px;
+    align-items: center;
+    flex-direction: column;
+    @extend %cmBasic;
+    padding: 5px 10px;
+}
+.addBox,
+.changeTitle {
+    @extend .items;
+    flex-direction: row;
+}
+.item {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+.txt {
+    width: 50px;
+    border-bottom: 1px solid #ddd;
+}
+.del {
+    @extend %cmBtn;
+}
+.add,
+.change {
+    @extend .del;
+    white-space: nowrap;
+}

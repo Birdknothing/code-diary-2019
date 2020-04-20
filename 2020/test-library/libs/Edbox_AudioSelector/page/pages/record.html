@@ -1,0 +1,53 @@
+﻿<!-- 上方菜单 -->
+<div class="Header">
+    <div class="Back" ng-click="DataFunction.GetFunction('Back')()">
+        <img ng-src="{{DataFunction.GetImage('Back')}}" />
+    </div>
+    <div class="Title">
+        {{DataFunction.GetText('Record')}}
+    </div>
+    <div class="Download" ng-click="DataFunction.GetFunction('Record_Download')()">
+        <img ng-src="{{DataFunction.GetImage('Record_Download')}}" />
+    </div>
+</div>
+
+<!-- 录音功能区 -->
+<div class="Content">
+    <div class="RecordView"></div>
+    <div class="RecordTime">{{DataFunction.Record.GetTime()}}</div>
+    <div class="RecordButtons">
+        <div class="Button" ng-show="DataFunction.Record.State!=='Playing'" ng-click="DataFunction.GetFunction('Record_Play')()">
+            <div class="Image Small">
+                <img ng-src="{{DataFunction.GetImage('Record_Play')}}" />
+            </div>
+            <div class="Text">{{DataFunction.GetText('Record_Play')}}</div>
+        </div>
+        <div class="Button" ng-show="DataFunction.Record.State==='Playing'" ng-click="DataFunction.GetFunction('Record_Play_Stop')()">
+            <div class="Image Small">
+                <img ng-src="{{DataFunction.GetImage('Record_Play_Stop')}}" />
+            </div>
+            <div class="Text">{{DataFunction.GetText('Record_Play_Stop')}}</div>
+        </div>
+        <div class="Button" ng-show="DataFunction.Record.State!=='Recording'" ng-click="DataFunction.GetFunction('Record_Start')()">
+            <div class="Image">
+                <img ng-src="{{DataFunction.GetImage('Record_Start')}}" />
+            </div>
+            <div class="Text">{{DataFunction.GetText('Record_Start')}}</div>
+        </div>
+        <div class="Button" ng-show="DataFunction.Record.State==='Recording'" ng-click="DataFunction.GetFunction('Record_Start_Stop')()">
+            <div class="Image">
+                <img ng-src="{{DataFunction.GetImage('Record_Start_Stop')}}" />
+            </div>
+            <div class="Text">{{DataFunction.GetText('Record_Start_Stop')}}</div>
+        </div>
+        <div class="Button" ng-click="DataFunction.GetFunction('Record_Re_record')()">
+            <div class="Image Small">
+                <img ng-src="{{DataFunction.GetImage('Record_Re_record')}}" />
+            </div>
+            <div class="Text">{{DataFunction.GetText('Record_Re_record')}}</div>
+        </div>
+    </div>
+</div>
+
+<!-- 下方按钮集 -->
+<div ng-include="'controls/bottombuttons.html'"></div>

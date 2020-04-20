@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script src="//cache.amap.com/h5/static/common/vconsole.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- <audio src="./girl.mp3" id="audio" autoplay controls>
+            Your browser does not support the
+        </audio>
+        <div id="test">click me to play</div> -->
+        <script>
+            // console.log(document.getElementsByTagName("head")[0].appendChild((function(){var script=document.createElement("script");script.async=true;script.src="//cache.amap.com/h5/static/common/vconsole.min.js";return script;})()));
+            // audio.ondurationchange = function(){
+            //   console.log(audio.duration);
+            // }
+            function getDuration(src, callback) {
+                let audioExm = document.createElement("audio");
+                function preTouch() {
+                    console.log("touched");
+                    audioExm.onloadedmetadata = function() {
+                        const div = document.createElement("div");
+                        div.innerHTML = audioExm.duration;
+                        document.body.appendChild(div)
+                        callback(audioExm.duration);
+                        document.body.removeChild(audioExm);
+                    };
+                    const player = audioExm.play();
+                    if (player.then) {
+                        player.then(function() {}).catch(function() {});
+                    }
+                    document.documentElement.removeEventListener(
+                        "click",
+                        preTouch
+                    );
+                }
+                audioExm.src = src;
+                audioExm.muted = true;
+                document.body.appendChild(audioExm);
+                document.documentElement.addEventListener("click", preTouch);
+            }
+            getDuration("./girl.mp3",console.log);
+            getDuration("./test.mp3",console.log);
+            document.body.click()
+            function getDuration1(url, callback) {
+                var audio = document.createElement("audio");
+                document.body.appendChild(audio);
+                audio.src = url;
+                // audio.load();
+                audio.play();
+                var srcLoaded = function() {
+                    console.log("fuck you");
+
+                    callback(audio.duration);
+                };
+                audio.onloadedmetadata = srcLoaded;
+                audio.oncanplay = srcLoaded;
+                // audio.onload = srcLoaded;
+                // audio.onloadeddata = srcLoaded;
+                audio.ondurationchange = srcLoaded;
+                // console.log("duration" in audio);
+                // audio.oncanplay = function() {
+                //     console.log("canplay");
+                //     console.log(audio.duration);
+                //     audio.play();
+                // };
+                // audio.volume = 0;
+                // // 绑定歌曲进度变化事件
+                // audio.addEventListener("timeupdate", () => {}); // 更新进度
+                // audio.addEventListener("play", () => {}); // 开始播放了
+                // audio.addEventListener("pause", () => {}); // 暂停
+                // audio.addEventListener("error", () => {});
+                // audio.addEventListener("loadeddata", srcLoaded);
+                // audio.addEventListener("timeupdate", function() {
+                //     console.log(audio.duration);
+                // });
+                // audio
+                //     .play()
+                //     .then()
+                //     .catch(err => {
+                //         console.log("err", err);
+                //     });
+            }
+            // setInterval(() => {
+            //   console.log(audio.duration);
+            // }, 1000);
+
+            setTimeout(() => {
+                getDuration1("./girl.mp3", console.log);
+            }, 4000);
+            // getDuration("http://192.168.31.99:3012/test-2.ogg",console.log)
+        </script>
+    </body>
+</html>

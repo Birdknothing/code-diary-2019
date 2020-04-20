@@ -1,0 +1,311 @@
+﻿{
+  "Editor": {
+    "Name": "Editor",
+    "ComponentName": "Edbox编辑器通用组件",
+    "Description": "用于Edbox平台的编辑器基础服务框架,拓展Edbox Html5编辑器接入平台的方法",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "Edbox",
+        "Wiki": "Edbox通用组件"
+      }
+    ],
+    "Datas": [],
+    "Functions": [],
+    "StaticDatas": [
+      {
+        "Name": "GameId",
+        "ChineseName": "Edbox上的游戏id",
+        "EnglishName": "Game id on Edbox",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Version",
+        "ChineseName": "Edbox平台上的游戏版本",
+        "EnglishName": "Game version on the Edbox platform",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "PackageGuid",
+        "ChineseName": "package包在NDR上的GUID",
+        "EnglishName": "Package package GUID on NDR",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Access",
+        "ChineseName": "访问类型  1-模板 2-个人库 3-体验库",
+        "EnglishName": "Access Type 1 - Template 2 - Personal Library 3 - Experience Library",
+        "Type": "Int",
+        "Value": 2
+      },
+      {
+        "Name": "Mode",
+        "ChineseName": "访问模式 0-显示需求 1-试玩需求 2-分享需求 3-编辑 4-体验区游戏",
+        "EnglishName": "Access Mode 0-Display Requirements 1-Trial Needs 2-Share Requirements 3-Edit 4-Experience Zone Game",
+        "Type": "Int",
+        "Value": 1
+      },
+      {
+        "Name": "GameName",
+        "ChineseName": "游戏名称",
+        "EnglishName": "Game name",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Description",
+        "ChineseName": "游戏简介",
+        "EnglishName": "Game description",
+        "Type": "LongText",
+        "Value": ""
+      },
+      {
+        "Name": "CoverImage",
+        "ChineseName": "封面图片",
+        "EnglishName": "Cover Image",
+        "Type": "Image",
+        "Value": ""
+      }
+    ],
+    "StaticFunctions": [
+      {
+        "Name": "GetGameBaseConfigJson",
+        "ChineseName": "获取GameBaseConfig.json",
+        "EnglishName": "Get GameBaseConfig.json",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "datas",
+            "Type": "Object",
+            "Description": "完整数据",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "LongText",
+          "Description": "GameBaseConfig.json的内容"
+        }
+      },
+      {
+        "Name": "GetAssetConfigJson",
+        "ChineseName": "获取AssetConfig.json",
+        "EnglishName": "Get AssetConfig.json",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "datas",
+            "Type": "Object",
+            "Description": "完整数据",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "LongText",
+          "Description": "AssetConfig.json的内容"
+        }
+      },
+      {
+        "Name": "GetTextConfigJson",
+        "ChineseName": "获取TextConfig.json",
+        "EnglishName": "Get GameBaseConfig.json",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "datas",
+            "Type": "Object",
+            "Description": "完整数据",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "LongText",
+          "Description": "TextConfig.json的内容"
+        }
+      },
+      {
+        "Name": "GetPackageBlob",
+        "ChineseName": "获取PackageZip",
+        "EnglishName": "Get PackageZip",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "datas",
+            "Type": "Object",
+            "Description": "完整数据",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调,带Object类型参数Blob",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Save",
+        "ChineseName": "保存",
+        "EnglishName": "Save",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "datas",
+            "Type": "Object",
+            "Description": "完整数据",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "String"
+            },
+            "Description": "成功回调,带String类型新GameID",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "SaveAs",
+        "ChineseName": "另保存",
+        "EnglishName": "Save as",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "datas",
+            "Type": "Object",
+            "Description": "完整数据",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "String"
+            },
+            "Description": "成功回调,带String类型新GameID",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Play",
+        "ChineseName": "试玩",
+        "EnglishName": "Play",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "datas",
+            "Type": "Object",
+            "Description": "完整数据",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "LoadDatas",
+        "ChineseName": "读取Package数据包的数据到Datas对象中",
+        "EnglishName": "Read the data of the Package packet into the Datas object",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "datas",
+            "Type": "Object",
+            "Description": "Datas对象",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调，带参数Datas对象",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GotoHomePage",
+        "ChineseName": "返回主页",
+        "EnglishName": "Back to the homepage",
+        "Type": "Function",
+        "Keys": [],
+        "Return": null
+      }
+    ]
+  }
+}

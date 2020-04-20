@@ -1,0 +1,18 @@
+@import "../../styles.scss";
+.main {
+  width: 100%;
+  @extend %flex_bt;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 20px;
+  span {
+    height: 100%;
+  }
+  border: 1px solid #ddd;
+}
+.del {
+  display: inline-block;
+  @extend %commonBtn;
+  border: 1px solid #ddd;
+  color: red;
+}

@@ -76,3 +76,4 @@ typings/
 # what to ignore
 test-gitpush/2/22.js
 src/*
+libs/*

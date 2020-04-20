@@ -1,0 +1,11 @@
+{
+  "name": "test-superagent",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "jszip": "^3.2.2",
+    "superagent": "^5.2.2",
+    "superagent-charset": "^1.2.0"
+  }
+}

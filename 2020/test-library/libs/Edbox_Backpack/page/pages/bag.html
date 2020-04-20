@@ -1,0 +1,82 @@
+<!-- 背景 -->
+<div class="Mask" style="background-image:url('{{DataFunction.GetImage('Mask')}}')"></div>
+
+<!-- 内容区 -->
+<div class="Content">
+    <div class="ScrollPanel">
+        <!-- 背景 -->
+        <div class="bag-items-bg">
+            <div class="bag-bg-tl" style="background-image: url({{DataFunction.GetImage('BagBgTopLeft')}});"></div>
+            <div class="bag-bg-tm" style="background-image: url({{DataFunction.GetImage('BagBgTopMiddle')}});"></div>
+            <div class="bag-bg-tr" style="background-image: url({{DataFunction.GetImage('BagBgTopRight')}});" ng-click="Datas.Functions.Close();"></div>
+            <div class="bag-bg-l" style="background-image: url({{DataFunction.GetImage('BagBgLeft')}});"></div>
+            <div class="bag-bg-m" style="background-image: url({{DataFunction.GetImage('BagBgMiddle')}});"></div>
+            <div class="bag-bg-r" style="background-image: url({{DataFunction.GetImage('BagBgRight')}});"></div>
+            <div class="bag-bg-bl" style="background-image: url({{DataFunction.GetImage('BagBgBottomLeft')}});"></div>
+            <div class="bag-bg-bm" style="background-image: url({{DataFunction.GetImage('BagBgBottomMiddle')}});"></div>
+            <div class="bag-bg-br" style="background-image: url({{DataFunction.GetImage('BagBgBottomRight')}});"></div>
+        </div>
+
+        <!-- 标题 -->
+        <div class="BagTitle" style="background-image: url({{DataFunction.GetImage('BagTitleBg')}});"></div>
+
+        <!-- 物品 -->
+        <div class="ScrollViewPort" style="left:{{DataFunction.Bag.GetLeft()}}px;width:calc(100% - {{DataFunction.Bag.GetLeft() * 2}}px);">
+            <div class="ScrollLayer">
+                <div class="ScrollGrid">
+                    <div class="BagItem" ng-repeat="data in DataFunction.Datas.PropList">
+                        <div class="BagFrame" style="background-image: url({{DataFunction.GetImage('BagItemBg')}});" ng-click="DataFunction.Bag.ShowItemDetail(data)">
+                            <div ng-if="DataFunction.Bag.CurrentData.BindProp">
+                                <img ng-src="{{DataFunction.Bag.CurrentData.BindProp.IconURL}}" class="BagIcon" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="BagItem" ng-repeat="data in DataFunction.Bag.EmptyDatas">
+                        <div class="BagFrame" style="background-image: url({{DataFunction.GetImage('BagItemBg')}});">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 滑动条 -->
+        <div class="ScrollBar" ng-init="DataFunction.Bag.ScrollInit()">
+            <div class="ScrollBarBgTop" style="background-image: url({{DataFunction.GetImage('ScrollBarBgTop')}});"></div>
+            <div class="ScrollBarBgMiddle" style="background-image: url({{DataFunction.GetImage('ScrollBarBgMiddle')}});">
+                <div class="ScrollbarLine" style="background-image: url({{DataFunction.GetImage('ScrollbarLine')}});">
+                    <div class="ScrollbarHandle" style="background-image: url({{DataFunction.GetImage('ScrollbarHandle')}});" ng-TouchStart="DataFunction.Bag.ScrollbarStart(event)" ng-TouchMove="DataFunction.Bag.ScrollbarMove(event)"></div>
+                </div>
+            </div>
+            <div class="ScrollBarBgBottom" style="background-image: url({{DataFunction.GetImage('ScrollBarBgBottom')}});"></div>
+        </div>
+
+        <!-- 容量 -->
+        <div class="BottomFrame" style="background-image: url({{DataFunction.GetImage('BottomFrameBg')}});">
+            <div name="BagText" class="Capacity">{{ DataFunction.GetText('Capacity') }}</div>
+            <div name="BagText" class="Page">{{ DataFunction.Datas.PropList.length }}</div>
+            <div name="BagText" class="TotalPage">&nbsp;/&nbsp;{{ DataFunction.Datas.Total }}</div>
+        </div>
+    </div>
+
+    <!-- 提示模块 -->
+    <div class="BagTipBox" style="display: none;">
+        <div class="Mask" style="background-image:url('{{DataFunction.GetImage('Mask')}}')" ng-click="DataFunction.Bag.HideItemDetail()"></div>
+        <div class="BagTip" style="background-image: url({{DataFunction.GetImage('BagDialogBg')}});">
+            <div class="BagTipTopFrame">
+                <span class="BagTipFrame">
+                    <img ng-src="{{DataFunction.Bag.CurrentData.BindProp.IconURL}}" class="BagTipIcon" />
+                </span>
+                <div class="BagTipNameFrame">
+                    <div class="BagTipName">{{DataFunction.Bag.CurrentData.BindProp.Name}}</div>
+                </div>
+            </div>
+            <div class="BagTipMiddleFrame">
+                <div class="BagTipDesc">{{DataFunction.Bag.CurrentData.BindProp.Description}}</div>
+            </div>
+            <div class="BagTipBottomFrame">
+                <div class="BagTipUseBtn" style="background-image: url({{DataFunction.GetImage('BagSmallButtonBg')}});" ng-click="DataFunction.Bag.UseProp()">{{ DataFunction.GetText('Use') }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+

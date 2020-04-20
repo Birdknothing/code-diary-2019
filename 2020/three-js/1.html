@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+            body {
+                margin: 0;
+            }
+            canvas {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="../../my-min-library/three.dev.js"></script>
+        <script>
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(
+                75,
+                window.innerWidth / window.innerHeight,
+                0.1,
+                1000
+            );
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+
+            
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            const geometry = new THREE.BoxGeometry(2, 2, 2);
+            const texture = new THREE.TextureLoader().load("./crate.jpg");
+            const material = new THREE.MeshBasicMaterial({ map: texture });
+            const cube = new THREE.Mesh(geometry, material);
+                    
+            scene.add(cube);
+            camera.position.z = 5;
+            const animate = () => {
+                cube.rotation.x += 0.01;
+                cube.rotation.y += 0.01;
+                requestAnimationFrame(animate);
+                renderer.render(scene, camera);
+            };
+            animate();
+            const resizeAdjust = function() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            };
+            window.addEventListener("resize",resizeAdjust)
+        </script>
+    </body>
+</html>

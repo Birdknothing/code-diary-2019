@@ -1,67 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <script src="../../my-min-library/react.min.js"></script>
-    <script src="../../my-min-library/reactdom.min.js"></script>
-    <script src="../../my-min-library/babel.min.js"></script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="text/babel">
-      const a = Array.from({ length: 40 }).map((x, i) => "a" + i);
-      const b = Array.from({ length: 40 }).map((x, i) => "b" + i);
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <script src="../../my-min-library/react.min.js"></script>
+        <script src="../../my-min-library/reactdom.min.js"></script>
+        <script src="../../my-min-library/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/babel">
+            const a = Array.from({ length: 40 }).map((x, i) => "a" + i);
+            const b = Array.from({ length: 40 }).map((x, i) => "b" + i);
 
-      const { Component } = React;
-      // const reRender = () => {
-      //   ReactDOM.render(<M data={b} />, app);
-      // };
-      // const x = {
-      //   switch: true
-      // };
-      class M extends Component {
-        state = {
-          x: "1",
-          y: "2"
-        };
-        componentDidMount() {
-          setTimeout(() => {
-            this.setState({ x: "3" });
-          }, 2000);
-        }
-        render() {
-          const { x, y } = this.state;
-          console.log("M render");
-          return (
-            <ul>
-              {<N val={x} />}
-              {<N val={y} />}{" "}
-            </ul>
-          );
-        }
-      }
-      class N extends Component {
-        // shouldComponentUpdate(x) {
-        //   return this.props.val !== x.val;
-        // }
-        render() {
-          console.log("N render");
-          const { val } = this.props;
-          return (
-            <p>
-              {val}
-              <span>del</span>
-            </p>
-          );
-        }
-      }
-      ReactDOM.render(<M />, app);
-      // setTimeout(() => {
-      //   reRender();
-      // }, 1000);
-    </script>
-  </body>
+            const { Component } = React;
+            // const reRender = () => {
+            //   ReactDOM.render(<M data={b} />, app);
+            // };
+            // const x = {
+            //   switch: true
+            // };
+            class M extends Component {
+                state = {
+                    x: "1",
+                    y: "2"
+                };
+                componentDidMount() {
+                    setTimeout(() => {
+                        this.setState({ x: "3" });
+                    }, 2000);
+                }
+                render() {
+                    const { x, y } = this.state;
+                    console.log("M render");
+                    return (
+                        <ul>
+                            {<N val={x} />}
+                            {<N val={y} />}{" "}
+                        </ul>
+                    );
+                }
+            }
+            class N extends Component {
+                // shouldComponentUpdate(x) {
+                //   return this.props.val !== x.val;
+                // }
+                render() {
+                    console.log("N render");
+                    const { val } = this.props;
+                    return (
+                        <p>
+                            {val}
+                            <span>del</span>
+                        </p>
+                    );
+                }
+            }
+            const mm = {
+                x: 1
+            };
+            const W = props => {
+                const { msg } = props;
+                return <div>{msg.x}</div>;
+            };
+            setTimeout(() => {
+                mm.x = 2;
+                ReactDOM.render(<W msg={mm} />, app);
+            }, 2000);
+            ReactDOM.render(<W msg={mm} />, app);
+            // setTimeout(() => {
+            //   reRender();
+            // }, 1000);
+        </script>
+    </body>
 </html>
