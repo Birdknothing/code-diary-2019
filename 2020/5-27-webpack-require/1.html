@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const userInfo = "xxx";
+            window.userInfo = "xxx";
+            (function() {
+                console.time('t');
+                eval("window = null;console.log(userInfo)");
+                const m = new Function("window = null;console.log(userInfo)");
+                m();
+                console.timeEnd('t')
+                // console.log(document);
+            })();
+        </script>
+    </body>
+</html>

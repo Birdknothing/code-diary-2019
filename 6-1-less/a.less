@@ -1,0 +1,118 @@
+// 样式（单套）
+
+// 电子课本
+.ebook() {
+}
+// xxx
+
+// 响应式
+.phone(@style) {
+    @media (max-width: 768px) {
+        @style();
+    }
+}
+.pad(@style) {
+    @media (min-width: 768px) {
+        @style();
+    }
+}
+
+// .pc(@style) {
+//     @media (min-width: 1280px) {
+//         @style();
+//     }
+// }
+
+// 等比缩放
+@screenWidth: 750px;
+// .u(@prop,@px) {
+//     @var: @px / @screenWidth * 100;
+//     @{prop}: unit(@var, vw);
+// }
+
+// .fs(@px) {
+//     .u(font-size, @px);
+// }
+// .w(@px) {
+//     .u(width, @px);
+// }
+// .h(@px) {
+//     .u(height, @px);
+// }
+// // 2或4,无3
+// // .p(@a,@b) {
+// //     .pm2() {
+// //         padding: @a @b;
+// //     }
+// //     .pm2();
+// //     // .pm4() when (ispixel(@c)) {
+// //     //     padding: @a @b @c @d;
+// //     // }
+// //     // .pm4();
+// // }
+// // .p(@a,@b,@c,@d) {
+// //     .pm4() when (ispixel(@c)) {
+// //         padding: @a @b @c @d;
+// //     }
+// //     .pm4();
+// // }
+// .p(@rest...) {
+//     padding: @arguments;
+// }
+// .m(@rest...) {
+//     .pm2() when not (ispixel(@c)) {
+//         padding: @a @b;
+//     }
+//     .pm2();
+//     .pm4() when (ispixel(@c)) {
+//         padding: @a @b @c @d;
+//     }
+//     .pm4();
+// }
+// .br(@px) {
+//     .u(border-radius,@px);
+// }
+
+// .test {
+//     // .u(font-size,16px);
+//     .h(100px);
+//     .w(200px);
+//     .p(20px,40px,30px);
+//     line-height: 1.2;
+//     border: 1px solid black;
+// }
+
+.p(@rest...) {
+    @len: length(@arguments);
+    @args: @arguments;
+    .padt(@count, @args) when (@count < @len + 1) {
+        padding+_: unit(extract(@args, @count) / @screenWidth * 100, vw);
+        .padt((@count + 1), @args);
+    }
+    .padt(1, @args);
+}
+.bd(@px,@rest...) {
+    border+_: unit(@px / @screenWidth * 100, vw);
+    border+_: @rest;
+}
+.bdrds(@px) {
+    .tmp(@px) when (ispixel(@px)) {
+        border-radius+_: unit(@px / @screenWidth * 100, vw);
+    }
+    .tmp(@px);
+}
+.cm(@style) {
+    .eb & {
+        @style();
+    }   
+}
+.test2 {
+    .p(10px,20px,30px);
+    .bd(1px,solid,green);
+    .bdrds(20px);
+    .test3 {
+        .cm({
+            color: white;
+        });
+    }
+}

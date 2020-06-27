@@ -1,10 +1,5 @@
-const a= 1;
-
-// testline--
-const x = 1;
-// --testline
-const b = 2;
-
-// testline--
-const y = 2;
-// --testline
+(async () => {
+    await new Promise((res) => {
+        setTimeout(res, 2000, "hello");
+    });
+})();

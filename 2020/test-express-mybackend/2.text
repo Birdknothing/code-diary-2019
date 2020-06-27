@@ -1,0 +1,5 @@
+React官方用来管理数据状态的库有 Redux，其基本原理是用户 dispatch 一个 action ，state 通过用户实现定义好的 reducer 变更对应的全部或部分 state，最后通过绑定 setState 反馈到 View 视图层，实现视图更新。
+
+国内类似的解决方案有阿里的 dva.js，阿里的 Umi 的框架也是采用自家的状态库，将同步操作放入 reducers 直接更新，异步操作放入 effects 用 Generator 来实现异步操作，同步和异步操作的组合更新采用 yield + put 的方式实现。
+
+这里采用非工程化的方式演示 React 的状态管理，保留 jsx 的语法，采用 @babel/standalone 实现非 node 环境的 React 语法编译。

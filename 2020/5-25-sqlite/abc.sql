@@ -1,0 +1,12 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+ANALYZE sqlite_master;
+CREATE TABLE test(pid integer primary key autoincrement,pname varchar(20));
+INSERT INTO test VALUES(1,'peter');
+INSERT INTO test VALUES(2,'jack');
+INSERT INTO test VALUES(3,'jay');
+INSERT INTO test VALUES(4,'may');
+INSERT INTO test VALUES(5,'nothing');
+DELETE FROM sqlite_sequence;
+INSERT INTO sqlite_sequence VALUES('test',5);
+COMMIT;

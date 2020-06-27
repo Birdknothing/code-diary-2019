@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="text" id="file">
+        <script>
+            (function() {
+                var imageWidth = 32,
+                    imageHeight = 32,
+                    imageGap = 2,
+                    maxWidth = 200,
+                    imageURLs = [],
+                    spriteType = "fixedSize",
+                    fileDom = document.getElementById("file"),
+                    maxWidthDom = document.getElementById("maxWidth"),
+                    imageWidthDom = document.getElementById("width"),
+                    imageHeightDom = document.getElementById("height"),
+                    downloadDom = document.getElementById("download");
+
+                fileDom.addEventListener("change", function() {
+                    let len = this.files.length;
+                    for (let i = 0; i < len; i++) {
+                        let url = getObjectURL(this.files[i]);
+                        imageURLs.push(url);
+                    }
+                });
+                maxWidthDom.addEventListener("change", function() {
+                    maxWidth = parseFloat(this.value);
+                    if (maxWidth < imageWidth) {
+                        this.value = maxWidth = imageWidth;
+                    }
+                });
+                imageWidthDom.addEventListener("change", function() {
+                    imageWidth = parseFloat(this.value);
+                    if (maxWidth < imageWidth) {
+                        this.value = imageWidth = maxWidth;
+                    }
+                });
+                imageHeightDom.addEventListener("change", function() {
+                    imageHeight = parseFloat(this.value);
+                });
+                downloadDom.addEventListener("click", function() {
+                    downloadSprite();
+                });
+
+                function downloadSprite() {
+                    let spriteWidth = 0,
+                        spriteHeight = 0,
+                        spriteInfo = [];
+                    if (spriteType == "fixedSize") {
+                        let lineWidth = 0;
+                        spriteHeight = imageHeight;
+
+                        imageURLs.forEach((url) => {
+                            if (lineWidth + imageWidth <= maxWidth) {
+                                setFixedSizeImageInfo(
+                                    url,
+                                    lineWidth,
+                                    spriteHeight - imageHeight
+                                );
+                                lineWidth += imageGap + imageWidth;
+                            } else {
+                                // 换行
+                                setFixedSizeImageInfo(
+                                    url,
+                                    0,
+                                    spriteHeight + imageGap
+                                );
+                                spriteHeight += imageHeight + imageGap;
+                                spriteWidth = lineWidth - imageGap;
+
+                                lineWidth = imageWidth + imageGap;
+                            }
+                        });
+                    }
+
+                    let canvas = document.createElement("canvas"),
+                        wrap = document.createElement("div"),
+                        fragment = document.createDocumentFragment(),
+                        info = document.createElement("p"),
+                        note1 = document.createElement("p"),
+                        note2 = document.createElement("p");
+
+                    note1.innerText = "生成的sprite图如下：";
+                    note2.innerText =
+                        "点击下方图片获取各个图片在sprite图中位置和大小信息";
+                    canvas.width = spriteWidth;
+                    canvas.height = spriteHeight;
+                    // document.body.appendChild(canvas);
+                    let ctx = canvas.getContext("2d");
+
+                    wrap.style.width = spriteWidth + "px";
+                    wrap.style.height = spriteHeight + "px";
+                    wrap.style.position = "relative";
+                    document.body.appendChild(note1);
+                    document.body.appendChild(canvas);
+                    document.body.appendChild(note2);
+                    document.body.appendChild(wrap);
+                    document.body.appendChild(info);
+
+                    let len = imageURLs.length,
+                        count = 0;
+                    spriteInfo.forEach((item, index) => {
+                        createImage(item.image, item.x, item.y);
+                        wrap.appendChild(fragment);
+
+                        wrap.addEventListener("click", function(ev) {
+                            let tar = ev.target;
+                            info.innerHTML =
+                                "x:" +
+                                tar.offsetLeft +
+                                " y:" +
+                                tar.offsetTop +
+                                " width:" +
+                                tar.width +
+                                " height:" +
+                                tar.height;
+                        });
+                        item.image.onload = function() {
+                            ctx.drawImage(
+                                item.image,
+                                item.x,
+                                item.y,
+                                imageWidth,
+                                imageHeight
+                            );
+                            count++;
+                            if (count == len - 1) {
+                                let dataURL = canvas.toDataURL(),
+                                    a = document.createElement("a"),
+                                    ev = new MouseEvent("click");
+                                a.download = "sprite";
+                                a.href = dataURL;
+                                a.dispatchEvent(ev);
+                            }
+                        };
+                    });
+
+                    function createImage(image, x, y) {
+                        image.style.position = "absolute";
+                        image.style.left = x + "px";
+                        image.style.top = y + "px";
+                        fragment.appendChild(image);
+                    }
+
+                    function setFixedSizeImageInfo(url, x, y) {
+                        var img = new Image();
+                        img.src = url;
+                        img.width = imageWidth;
+                        img.height = imageHeight;
+                        spriteInfo.push({
+                            image: img,
+                            x: x,
+                            y: y,
+                        });
+                    }
+                }
+
+                    function getObjectURL(file) {
+                        var url = null;
+                        if (window.createObjcectURL != undefined) {
+                            url = window.createOjcectURL(file);
+                        } else if (window.URL != undefined) {
+                            url = window.URL.createObjectURL(file);
+                        } else if (window.webkitURL != undefined) {
+                            url = window.webkitURL.createObjectURL(file);
+                        }
+                        return url;
+                    }
+            })();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <audio src="test.mp3" id="audio" autoplay></audio>
+        音量：<input type="range" id="volume" min="0" max="2" value="1" step="0.01">
+        <button
+            onclick="play(event)"
+            data-play="false"
+            role="switch"
+            aria-checked="false"
+            id="btn"
+        >
+            <span>play/pause</span>
+        </button>
+        <script>
+            const AudioContext =
+                window.AudioContext || window.webkitAudioContext;
+            const audioContext = new AudioContext();
+            const dom = document.getElementById("audio");
+            const track = audioContext.createMediaElementSource(dom);
+            const btn = document.getElementById("btn");
+            const vol = document.getElementById("volume")
+            const play = (e) => {
+                console.log(audioContext);
+                if (audioContext.state === "suspended") {
+                    audioContext.resume();
+                }
+                console.log(btn.dataset.play);
+                if (btn.dataset.play === "false") {
+                    console.log('here');
+                    dom.play();
+                    btn.dataset.play = "true";
+                } else if (btn.dataset.play === "true") {
+                    dom.pause();
+                    btn.dataset.play = "false";
+                }
+            };
+            dom.onended = function(params) {
+                document.getElementById("btn").dataset.play = "false";
+            };
+            const gainNode = audioContext.createGain();
+            vol.oninput = function(){
+                gainNode.gain.value = this.value;
+            }
+            track.connect(gainNode).connect(audioContext.destination);
+        </script>
+    </body>
+</html>

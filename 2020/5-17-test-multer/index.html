@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="/my-min-library/jquery.min.js"></script>
+        <script src="/my-min-library/Crypto.js"></script>
+    </head>
+    <body>
+        <form action="/test/test" method="post" enctype="multipart/form-data">
+            <input type="text" name="test" id="nn" />
+            <input type="file" name="somefile" id="ff" />
+            <button type="submit">上传</button>
+        </form>
+        <button onclick="up()">upload</button>
+        <script>
+            const up = () => {
+                const fd = new FormData();
+                fd.set("test", nn.value);
+                fd.set("somefile", ff.files[0], ff.files[0].name);
+                $.ajax({
+                    type: "POST",
+                    url: "/test/test",
+                    data: fd,
+                    // processData: false,
+                    // 下面默认是 www-xxx那种，而不是 form-data
+                    contentType: false,
+                    success: (res) => {
+                        console.log(res);
+                    },
+                });
+                // $.post("/test", fd).done((res, err) => {
+                //     console.log(res);
+                // });
+            };
+        </script>
+    </body>
+</html>

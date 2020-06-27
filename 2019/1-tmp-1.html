@@ -5,21 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <style>
+      #app{
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-bottom: none;
+        border-top-color: #f00;
+      }
+    </style>
   </head>
   <body>
+    <div id="app"></div>
     <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("./sw.js")
-            .then(reg => {
-              console.log("reg success");
-            })
-            .catch(() => {
-              console.error("wrong");
-            });
-        });
-      }
+      
     </script>
   </body>
 </html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            [tabindex="-1"]:focus:not(:focus-visible) {
+                outline: 0 !important;
+            }
+            /* input{
+                outline: none;
+            } */
+        </style>
+    </head>
+    <body>
+        12<input  type="text">
+        23<input tabindex="-1" type="text">
+        45<input type="text">
+    </body>
+</html>

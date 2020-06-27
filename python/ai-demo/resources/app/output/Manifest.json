@@ -1,0 +1,6 @@
+{
+   "NpcResConfigPath": "NpcRes.json",
+   "QAConfigPath": [
+      "QA_1.json"
+   ]
+}

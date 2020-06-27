@@ -3,40 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Document</title>
-        <style>
-            .page {
-                position: relative;
-                display: flex;
-                width: 600px;
-                height: 600px;
-                justify-content: space-around;
-            }
-            .sample {
-                width: 200px;
-                height: 200px;
-                background-color: red;
-            }
-        </style>
     </head>
     <body>
-        <div class="page" id="test">
-            <div class="sample" id="s1">page1</div>
-            <div class="sample" id="s2">page2</div>
-        </div>
+        <div id="app" ondomsubtreemodified="console.log('hah')" contenteditable="true" type="text" tabindex="1">123</div>
         <script>
-            const config = {
-                a: ["page1", "page2"],
-                b: ["page3", "page4"]
-            };
-            const tab = arr => {
-                s1.innerHTML = arr[0];
-                s2.innerHTML = arr[1];
-            };
-            setTimeout(() => {
-                tab(config.b);
-            }, 2000);
+            document
+                .getElementById("app")
+                .addEventListener("DOMSubtreeModified", function () {
+                    console.log("here");
+                });
         </script>
     </body>
 </html>

@@ -13,7 +13,8 @@
  * ememt,snippet在vscode的应用
  * tabBtn scss编程
  * 滚动到底的节流
- * electron 安装问题
+ * electron 安装问题 yes
+ * 仿csrf跨域攻击
  */
 作业指导书;
 /**
