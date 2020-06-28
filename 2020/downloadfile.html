@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="" />
+    <title>Document</title>
+    <script src="/lib/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      const a = document.createElement("a");
+      a.download = "test.json";
+      const url =
+        "http://gcdncs.101.com/v0.1/static/edu_product/esp/assets/839cd605-3e16-48b8-8df2-49906b1c9864.pkg/TranscriptWithAssetsCode.json";
+      a.href = url;
+      document.body.appendChild(a);
+      const et = document.createEvent("HTMLEvents");
+      et.initEvent("click", false);
+      a.dispatchEvent(et);
+      $.ajax({
+        method: "GET",
+        url,
+        responseType: "blob",
+      }).done((res) => {
+        const data = res;
+        const url = window.URL.createObjectURL(
+          new Blob([JSON.stringify(data)], {
+            type: "application/x-www-form-urlencoded",
+          })
+        );
+        const link = document.createElement("a");
+        link.style.display = "none";
+        link.href = url;
+        link.setAttribute("download", "test.json");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,359 @@
+{
+                            "ID": "Datas_Login_Layout_IconImage_Edbox",
+                            "Name": "IconImage_Edbox",
+                            "ShowName": "101图标",
+                            "Type": "Image01",
+                            "Value": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/17af7aba-e04c-45c2-8831-cb3dfb8825bc.pkg/login-101_d6f998d3-ac16-40e5-a083-d1b006a501fd.png"
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconName_Edbox",
+                            "Name": "IconName_Edbox",
+                            "ShowName": "101名称",
+                            "Type": "Text01",
+                            "Value": "101",
+                            "ReadOnly": false,
+                            "StyleEdit": true,
+                            "Style": {
+                                "fontFamily": {
+                                    "id": 0,
+                                    "name": "A Galega"
+                                },
+                                "fontSize": {
+                                    "size": 12,
+                                    "startNum": 8,
+                                    "endNum": 72
+                                },
+                                "fontColor": "#000",
+                                "fontStyle": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "underline": false
+                                },
+                                "align": "center"
+                            },
+                            "Property": {
+                                "FontFamily": true,
+                                "Align": true
+                            }
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconImage_99U",
+                            "Name": "IconImage_99U",
+                            "ShowName": "99U图标",
+                            "Type": "Image01",
+                            "Value": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/6dec0d1a-2c7e-4d55-934b-ddb905f2e939.pkg/login-nd_f44b6896-688b-4968-835b-44ff85059a1a.png"
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconName_99U",
+                            "Name": "IconName_99U",
+                            "ShowName": "99U名称",
+                            "Type": "Text01",
+                            "Value": "99U",
+                            "ReadOnly": false,
+                            "StyleEdit": true,
+                            "Style": {
+                                "fontFamily": {
+                                    "id": 0,
+                                    "name": "A Galega"
+                                },
+                                "fontSize": {
+                                    "size": 12,
+                                    "startNum": 8,
+                                    "endNum": 72
+                                },
+                                "fontColor": "#000",
+                                "fontStyle": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "underline": false
+                                },
+                                "align": "center"
+                            },
+                            "Property": {
+                                "FontFamily": false,
+                                "Align": true
+                            }
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconImage_Edmodo",
+                            "Name": "IconImage_Edmodo",
+                            "ShowName": "Edmodo图标",
+                            "Type": "Image01",
+                            "Value": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/56420437-5705-43ef-9b15-3830f65ec578.pkg/login-edmd_f00ac392-e621-49f8-9466-20ebc02c3dfa.png"
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconName_Edmodo",
+                            "Name": "IconName_Edmodo",
+                            "ShowName": "Edmodo名称",
+                            "Type": "Text01",
+                            "Value": "Edmodo",
+                            "ReadOnly": false,
+                            "StyleEdit": true,
+                            "Style": {
+                                "fontFamily": {
+                                    "id": 0,
+                                    "name": "A Galega"
+                                },
+                                "fontSize": {
+                                    "size": 12,
+                                    "startNum": 8,
+                                    "endNum": 72
+                                },
+                                "fontColor": "#000",
+                                "fontStyle": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "underline": false
+                                },
+                                "align": "center"
+                            },
+                            "Property": {
+                                "FontFamily": false,
+                                "Align": true
+                            }
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconImage_Facebook",
+                            "Name": "IconImage_Facebook",
+                            "ShowName": "Facebook图标",
+                            "Type": "Image01",
+                            "Value": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/5adfe358-bbc4-4c1c-9efa-0dfd5566c853.pkg/login-fb_7294689b-2919-40ef-a24a-f03c8849b2ef.png"
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconName_Facebook",
+                            "Name": "IconName_Facebook",
+                            "ShowName": "Facebook名称",
+                            "Type": "Text01",
+                            "Value": "Facebook",
+                            "ReadOnly": false,
+                            "StyleEdit": true,
+                            "Style": {
+                                "fontFamily": {
+                                    "id": 0,
+                                    "name": "A Galega"
+                                },
+                                "fontSize": {
+                                    "size": 12,
+                                    "startNum": 8,
+                                    "endNum": 72
+                                },
+                                "fontColor": "#000",
+                                "fontStyle": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "underline": false
+                                },
+                                "align": "center"
+                            },
+                            "Property": {
+                                "FontFamily": false,
+                                "Align": true
+                            }
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconImage_Weixin",
+                            "Name": "IconImage_Weixin",
+                            "ShowName": "微信图标",
+                            "Type": "Image01",
+                            "Value": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/22407dc8-0738-4dea-b298-fba0ae5fd4da.pkg/login-wx_b7a69ebe-ef90-4222-8fa6-1a60f54b71a5.png"
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconName_Weixin",
+                            "Name": "IconName_Weixin",
+                            "ShowName": "微信名称",
+                            "Type": "Text01",
+                            "Value": "微信名称",
+                            "ReadOnly": false,
+                            "StyleEdit": true,
+                            "Style": {
+                                "fontFamily": {
+                                    "id": 0,
+                                    "name": "A Galega"
+                                },
+                                "fontSize": {
+                                    "size": 12,
+                                    "startNum": 8,
+                                    "endNum": 72
+                                },
+                                "fontColor": "#000",
+                                "fontStyle": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "underline": false
+                                },
+                                "align": "center"
+                            },
+                            "Property": {
+                                "FontFamily": false,
+                                "Align": true
+                            }
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconImage_Google",
+                            "Name": "IconImage_Google",
+                            "ShowName": "Google图标",
+                            "Type": "Image01",
+                            "Value": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/c3969d81-096d-4e1e-9cb4-1b302baf5cf7.pkg/login-gg_55107a14-146e-402a-ac29-8b8cfaa2e1eb.png"
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconName_Google",
+                            "Name": "IconName_Google",
+                            "ShowName": "Google名称",
+                            "Type": "Text01",
+                            "Value": "Google",
+                            "ReadOnly": false,
+                            "StyleEdit": true,
+                            "Style": {
+                                "fontFamily": {
+                                    "id": 0,
+                                    "name": "A Galega"
+                                },
+                                "fontSize": {
+                                    "size": 12,
+                                    "startNum": 8,
+                                    "endNum": 72
+                                },
+                                "fontColor": "#000",
+                                "fontStyle": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "underline": false
+                                },
+                                "align": "center"
+                            },
+                            "Property": {
+                                "FontFamily": false,
+                                "Align": true
+                            }
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconImage_Guest",
+                            "Name": "IconImage_Guest",
+                            "ShowName": "游客登录",
+                            "Type": "Image01",
+                            "Value": "http://cdncs.101.com/v0.1/static/edu/App/cf7ce674-9dde-4bb3-8f54-1f1ab4f2bcf0/assets/17af7aba-e04c-45c2-8831-cb3dfb8825bc.pkg/login-101_d6f998d3-ac16-40e5-a083-d1b006a501fd.png"
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_IconName_Guest",
+                            "Name": "IconName_Guest",
+                            "ShowName": "游客登录名称",
+                            "Type": "Text01",
+                            "Value": "Guest",
+                            "ReadOnly": false,
+                            "StyleEdit": true,
+                            "Style": {
+                                "fontFamily": {
+                                    "id": 0,
+                                    "name": "A Galega"
+                                },
+                                "fontSize": {
+                                    "size": 12,
+                                    "startNum": 8,
+                                    "endNum": 72
+                                },
+                                "fontColor": "#000",
+                                "fontStyle": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "underline": false
+                                },
+                                "align": "center"
+                            },
+                            "Property": {
+                                "FontFamily": false,
+                                "Align": true
+                            }
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_Agreement",
+                            "Name": "Agreement",
+                            "ShowName": "用户协议",
+                            "Type": "Text01",
+                            "Value": "用户协议",
+                            "ReadOnly": false,
+                            "StyleEdit": true,
+                            "Style": {
+                                "fontFamily": {
+                                    "id": 0,
+                                    "name": "A Galega"
+                                },
+                                "fontSize": {
+                                    "size": 12,
+                                    "startNum": 8,
+                                    "endNum": 72
+                                },
+                                "fontColor": "#000",
+                                "fontStyle": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "underline": false
+                                },
+                                "align": "center"
+                            },
+                            "Property": {
+                                "FontFamily": false,
+                                "Align": true
+                            }
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_Policy",
+                            "Name": "Policy",
+                            "ShowName": "隐私政策",
+                            "Type": "Text01",
+                            "Value": "隐私政策",
+                            "ReadOnly": false,
+                            "StyleEdit": true,
+                            "Style": {
+                                "fontFamily": {
+                                    "id": 0,
+                                    "name": "A Galega"
+                                },
+                                "fontSize": {
+                                    "size": 12,
+                                    "startNum": 8,
+                                    "endNum": 72
+                                },
+                                "fontColor": "#000",
+                                "fontStyle": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "underline": false
+                                },
+                                "align": "center"
+                            },
+                            "Property": {
+                                "FontFamily": false,
+                                "Align": true
+                            }
+                        },
+                        {
+                            "ID": "Datas_Login_Layout_Manual",
+                            "Name": "Manual",
+                            "ShowName": "用户手册",
+                            "Type": "Text01",
+                            "Value": "用户手册",
+                            "ReadOnly": false,
+                            "StyleEdit": true,
+                            "Style": {
+                                "fontFamily": {
+                                    "id": 0,
+                                    "name": "A Galega"
+                                },
+                                "fontSize": {
+                                    "size": 12,
+                                    "startNum": 8,
+                                    "endNum": 72
+                                },
+                                "fontColor": "#000",
+                                "fontStyle": {
+                                    "bold": false,
+                                    "italic": false,
+                                    "underline": false
+                                },
+                                "align": "center"
+                            },
+                            "Property": {
+                                "FontFamily": false,
+                                "Align": true
+                            }
+                        }

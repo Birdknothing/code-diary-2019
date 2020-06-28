@@ -1,0 +1,10 @@
+{
+  "name": "vue2.0",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@vue/cli": "^4.4.4",
+    "@vue/cli-service": "^4.4.4"
+  }
+}

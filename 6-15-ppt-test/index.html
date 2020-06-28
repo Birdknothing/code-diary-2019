@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- <iframe src="http://localhost:3016/test.ppt" width="400" height="400" frameborder="0"></iframe> -->
+        <script src="/library/jquery.min.js"></script>
+        <script src="./media.js"></script>
+        <div id="test"></div>
+        <script>
+            function addMedia(url) {
+                $("#test").media({
+                    width: "400px",
+                    height: "400px",
+                    autoplay: true,
+                    src: url,
+                });
+            }
+            addMedia("./test.pdf");
+        </script>
+    </body>
+</html>

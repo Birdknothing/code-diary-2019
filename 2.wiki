@@ -1,0 +1,633 @@
+
+= 基础配置 =
+
+{| class="wikitable" style="width:720px;"
+|-
+! scope="row" | 风格类型说明
+| 
+登录选择编辑
+
+|-
+! scope="row" | 类型（Type）
+| 
+Tab01
+
+|-
+! scope="row" | 风格类型关键字（Class）
+| 
+Login
+
+|-
+! scope="row" | 
+是否可编辑（Editable）
+
+| '''<span style="color:#e74c3c;">固定设置，此参数无效</span>'''
+|-
+! scope="row" | 
+子项模板（Template）
+
+| '''<span style="color:#e74c3c;">固定设置，此参数无效</span>'''
+|-
+! scope="row" | 
+关联的页面类型（PageType）
+
+| 
+'''<span style="color:#e74c3c;">固定设置，此参数无效</span>'''
+
+|-
+! scope="row" | 数据定义（Datas）
+| 
+'''<span style="color:#e74c3c;">固定数据结构，具体详见实例说明</span>'''
+
+|}
+
+&nbsp;
+
+= 拓展参数 =
+
+{| class="wikitable"
+|-
+! scope="col" style="width:100px;" | 拓展参数
+! scope="col" style="width:100px;" | 参数说明
+! scope="col" style="width:100px;" | 参数类型
+! scope="col" style="width:100px;" | 是否允许为空
+! scope="col" style="width:100px;" | 默认值
+! scope="col" style="width:100px;" | 说明
+! scope="col" style="width:100px;" | 配置示例
+|-
+| Resetable
+| 
+是否支持重置
+
+| Boolean
+| 是
+| false
+| 
+<span style="color:#e74c3c;">'''为false时隐藏重置按钮'''</span>
+
+<span style="color:#e74c3c;">'''为true时显示重置按钮，游戏需要实现重置方法'''</span>
+
+| 
+Resetable=false
+
+|-
+| 
+Width
+
+| 宽度
+| 
+Int
+
+| 是
+| 0
+| <span style="color:#e74c3c;">'''为0时不做限制，横向铺满'''</span>
+| Width=720
+|-
+| 
+Height
+
+| 高度
+| Int
+| 是
+| 0
+| <span style="color:#e74c3c;">'''为0时不做限制，纵向铺满'''</span>
+| Height=1080
+|}
+
+&nbsp;
+
+= 登录方式对应表 =
+
+{| class="wikitable"
+|-
+! scope="col" width="200px" | 登录方式（mode）
+! scope="col" width="200px" | 对应参数
+|-
+| style="text-align: center;" | Edbox
+| style="text-align: center;" | Edbox
+|-
+| style="text-align: center;" | 99U
+| style="text-align: center;" | 99U
+|-
+| style="text-align: center;" | Edmodo
+| style="text-align: center;" | Edmodo
+|-
+| style="text-align: center;" | Google(谷歌)
+| style="text-align: center;" | Google
+|-
+| style="text-align: center;" | Twitter(推特)
+| style="text-align: center;" | Twitter
+|-
+| style="text-align: center;" | 微信
+| style="text-align: center;" | Weixin
+|}
+
+&nbsp;
+
+= 示例 =
+
+=== 入口示例 ===
+
+ {
+     "ID": "Datas_Login",            // ID:唯一ID，用于唯一标识对象，由游戏定义
+     "Name": "Login",                // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+     "ShowName": "登录选择页面",     // ShowName:显示名称，由游戏定义
+     "Type": "Tab01",                // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+     "Class": "Login",               // Class:登录页风格类型关键字,'''<span style="color:#e74c3c;">固定</span>'''
+     "Resetable": false,             // Resetable:是否支持重置，为true时显示重置按钮，游戏需要实现重置方法
+     "Datas": []
+ }
+
+&nbsp;
+
+=== 登录方式示例 ===
+
+ {
+     "ID": "Datas_Login_LoginMode",                  // ID:唯一ID，用于唯一标识对象，由游戏定义
+     "Name": "LoginMode",                            // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+     "ShowName": "登录方式",                         // ShowName:显示名称，由游戏定义
+     "Type": "Tab02",                                // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+     "Datas": [
+       {
+           "ID": "Datas_Login_LoginMode_Modes",
+           "Name": "Modes",                         // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+           "ShowName": "登录方式选择",
+           "Type": "Select04",                      // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+           "Value": [{"Name": "Edbox","ShowName": "Edbox","Image": "","ImageGUID": ""},{"Name": "99U","ShowName": "99U","Image": "","ImageGUID": ""},{"Name": "Edmodo","ShowName": "Edmodo","Image": "","ImageGUID": ""}],
+           "Key": ["Edbox","99U","Edmodo"],
+           "Items": [{"Name": "Edbox","ShowName": "Edbox","Image": "","ImageGUID": ""},{"Name": "99U","ShowName": "99U","Image": "","ImageGUID": ""},{"Name": "Edmodo","ShowName": "Edmodo","Image": "","ImageGUID": ""}],
+           "Keys": ["Edbox","99U","Edmodo"],
+           "IsRequired": true,                      // IsRequired：至少选一种登录方式，'''<span style="color:#e74c3c;">固定为true</span>'''
+           "ReadOnly": false
+       },
+    ]
+ }
+
+&nbsp;
+
+=== 界面设置示例 ===
+
+ {
+     "ID": "Datas_Login_Layout",                  // ID:唯一ID，用于唯一标识对象，由游戏定义
+     "Name": "Layout",                            // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+     "ShowName": "界面设置",                      // ShowName:显示名称，由游戏定义
+     "Type": "Tab02",                             // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+     "Datas": [
+       {
+           "ID": "Datas_Login_Layout_Background",
+           "Name": "Background",                  // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+           "ShowName": "背景图",
+           "Type": "Image01",                     // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+           "Value": ""
+       },
+       {
+           "ID": "Datas_Login_Layout_WindowBackground",
+           "Name": "WindowBackground",            // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+           "ShowName": "窗口背景图",
+           "Type": "Image01",                     // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+           "Value": ""
+       },
+       {
+           "ID": "Datas_Login_Layout_LeadingWords",
+           "Name": "LeadingWords",                // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+           "ShowName": "引导语",
+           "Type": "Text01",                      // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+           "Value": "",
+       },
+       {
+           "ID": "Datas_Login_Layout_LeadingIcon",
+           "Name": "LeadingIcon",                // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+           "ShowName": "引导图标",
+           "Type": "Image01",                    // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+           "Value": ""
+       },
+       {
+            "ID": "Datas_Login_Layout_IconImage_Edbox",
+            "Name": "IconImage_Edbox",          // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "101图标",
+            "Type": "Image01",          // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": ""
+        },
+        {
+            "ID": "Datas_Login_Layout_IconName_Edbox",
+            "Name": "IconName_Edbox",           // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "101名称",
+            "Type": "Text01",           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": "101",
+            "ReadOnly": false,
+            "StyleEdit": true,
+            "Style": {
+                "fontFamily": {
+                    "id": 0,
+                    "name": "A Galega"
+                },
+                "fontSize": {
+                    "size": 12,
+                    "startNum": 8,
+                    "endNum": 72
+                },
+                "fontColor": "#000",
+                "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                },
+                "align": "center"
+            },
+            "Property": {
+                "FontFamily": true,
+                "Align": true
+            }
+        },
+        {
+            "ID": "Datas_Login_Layout_IconImage_99U",
+            "Name": "IconImage_99U",            // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "99U图标",
+            "Type": "Image01",          // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": ""
+        },
+        {
+            "ID": "Datas_Login_Layout_IconName_99U",
+            "Name": "IconName_99U",         // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "99U名称",
+            "Type": "Text01",           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": "99U",
+            "ReadOnly": false,
+            "StyleEdit": true,
+            "Style": {
+                "fontFamily": {
+                    "id": 0,
+                    "name": "A Galega"
+                },
+                "fontSize": {
+                    "size": 12,
+                    "startNum": 8,
+                    "endNum": 72
+                },
+                "fontColor": "#000",
+                "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                },
+                "align": "center"
+            },
+            "Property": {
+                "FontFamily": false,
+                "Align": true
+            }
+        },
+        {
+            "ID": "Datas_Login_Layout_IconImage_Edmodo",
+            "Name": "IconImage_Edmodo",         // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "Edmodo图标",
+            "Type": "Image01",          // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": ""
+        },
+        {
+            "ID": "Datas_Login_Layout_IconName_Edmodo",
+            "Name": "IconName_Edmodo",          // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "Edmodo名称",
+            "Type": "Text01",           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": "Edmodo",
+            "ReadOnly": false,
+            "StyleEdit": true,
+            "Style": {
+                "fontFamily": {
+                    "id": 0,
+                    "name": "A Galega"
+                },
+                "fontSize": {
+                    "size": 12,
+                    "startNum": 8,
+                    "endNum": 72
+                },
+                "fontColor": "#000",
+                "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                },
+                "align": "center"
+            },
+            "Property": {
+                "FontFamily": false,
+                "Align": true
+            }
+        },
+        {
+            "ID": "Datas_Login_Layout_IconImage_Facebook",
+            "Name": "IconImage_Facebook",           // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "Facebook图标",
+            "Type": "Image01",          // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": ""
+        },
+        {
+            "ID": "Datas_Login_Layout_IconName_Facebook",
+            "Name": "IconName_Facebook",            // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "Facebook名称",
+            "Type": "Text01",           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": "Facebook",
+            "ReadOnly": false,
+            "StyleEdit": true,
+            "Style": {
+                "fontFamily": {
+                    "id": 0,
+                    "name": "A Galega"
+                },
+                "fontSize": {
+                    "size": 12,
+                    "startNum": 8,
+                    "endNum": 72
+                },
+                "fontColor": "#000",
+                "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                },
+                "align": "center"
+            },
+            "Property": {
+                "FontFamily": false,
+                "Align": true
+            }
+        },
+        {
+            "ID": "Datas_Login_Layout_IconImage_Weixin",
+            "Name": "IconImage_Weixin",         // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "微信图标",
+            "Type": "Image01",          // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": ""
+        },
+        {
+            "ID": "Datas_Login_Layout_IconName_Weixin",
+            "Name": "IconName_Weixin",          // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "微信名称",
+            "Type": "Text01",           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": "微信名称",
+            "ReadOnly": false,
+            "StyleEdit": true,
+            "Style": {
+                "fontFamily": {
+                    "id": 0,
+                    "name": "A Galega"
+                },
+                "fontSize": {
+                    "size": 12,
+                    "startNum": 8,
+                    "endNum": 72
+                },
+                "fontColor": "#000",
+                "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                },
+                "align": "center"
+            },
+            "Property": {
+                "FontFamily": false,
+                "Align": true
+            }
+        },
+        {
+            "ID": "Datas_Login_Layout_IconImage_Google",
+            "Name": "IconImage_Google",         // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "Google图标",
+            "Type": "Image01",          // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": ""
+        },
+        {
+            "ID": "Datas_Login_Layout_IconName_Google",
+            "Name": "IconName_Google",          // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "Google名称",
+            "Type": "Text01",           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": "Google",
+            "ReadOnly": false,
+            "StyleEdit": true,
+            "Style": {
+                "fontFamily": {
+                    "id": 0,
+                    "name": "A Galega"
+                },
+                "fontSize": {
+                    "size": 12,
+                    "startNum": 8,
+                    "endNum": 72
+                },
+                "fontColor": "#000",
+                "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                },
+                "align": "center"
+            },
+            "Property": {
+                "FontFamily": false,
+                "Align": true
+            }
+        },
+        {
+            "ID": "Datas_Login_Layout_IconImage_Guest",
+            "Name": "IconImage_Guest",          // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "游客登录",
+            "Type": "Image01",          // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": ""
+        },
+        {
+            "ID": "Datas_Login_Layout_IconName_Guest",
+            "Name": "IconName_Guest",           // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "游客登录名称",
+            "Type": "Text01",           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": "Guest",
+            "ReadOnly": false,
+            "StyleEdit": true,
+            "Style": {
+                "fontFamily": {
+                    "id": 0,
+                    "name": "A Galega"
+                },
+                "fontSize": {
+                    "size": 12,
+                    "startNum": 8,
+                    "endNum": 72
+                },
+                "fontColor": "#000",
+                "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                },
+                "align": "center"
+            },
+            "Property": {
+                "FontFamily": false,
+                "Align": true
+            }
+        },
+        {
+            "ID": "Datas_Login_Layout_Agreement",
+            "Name": "Agreement",            // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "用户协议",
+            "Type": "Text01",           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": "用户协议",
+            "ReadOnly": false,
+            "StyleEdit": true,
+            "Style": {
+                "fontFamily": {
+                    "id": 0,
+                    "name": "A Galega"
+                },
+                "fontSize": {
+                    "size": 12,
+                    "startNum": 8,
+                    "endNum": 72
+                },
+                "fontColor": "#000",
+                "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                },
+                "align": "center"
+            },
+            "Property": {
+                "FontFamily": false,
+                "Align": true
+            }
+        },
+        {
+            "ID": "Datas_Login_Layout_Policy",
+            "Name": "Policy",           // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "隐私政策",
+            "Type": "Text01",           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": "隐私政策",
+            "ReadOnly": false,
+            "StyleEdit": true,
+            "Style": {
+                "fontFamily": {
+                    "id": 0,
+                    "name": "A Galega"
+                },
+                "fontSize": {
+                    "size": 12,
+                    "startNum": 8,
+                    "endNum": 72
+                },
+                "fontColor": "#000",
+                "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                },
+                "align": "center"
+            },
+            "Property": {
+                "FontFamily": false,
+                "Align": true
+            }
+        },
+        {
+            "ID": "Datas_Login_Layout_Manual",
+            "Name": "Manual",           // Name:标识，'''<span style="color:#e74c3c;">固定</span>'''
+            "ShowName": "用户手册",
+            "Type": "Text01",           // Type:类型，'''<span style="color:#e74c3c;">固定</span>'''
+            "Value": "用户手册",
+            "ReadOnly": false,
+            "StyleEdit": true,
+            "Style": {
+                "fontFamily": {
+                    "id": 0,
+                    "name": "A Galega"
+                },
+                "fontSize": {
+                    "size": 12,
+                    "startNum": 8,
+                    "endNum": 72
+                },
+                "fontColor": "#000",
+                "fontStyle": {
+                    "bold": false,
+                    "italic": false,
+                    "underline": false
+                },
+                "align": "center"
+            },
+            "Property": {
+                "FontFamily": false,
+                "Align": true
+            }
+        }
+    ]
+ }
+
+&nbsp;
+
+= 交互流程 =
+
+=== 基础配置 ===
+
+①Tab01设置Name="Login"且 Class="Login"时，开启登录选择编辑模式。
+
+②'''<span style="color:#e74c3c;">固定设置</span>'''，Tab01设置PageType、Editable、Template无效，<span style="color:#e74c3c;">'''Datas数据结构固定'''</span>。
+
+&nbsp;
+
+=== 加载页类型说明 ===
+
+{| class="wikitable" style="width:1080px;"
+|-
+! scope="col" | 页面类型
+! scope="col" | 页面说明
+! scope="col" | 页面部署
+|-
+| 登录选择页
+| 
+游戏与编辑模式共用的登录选择页
+
+| coms/Login/index.html
+|}
+
+&nbsp;
+
+=== 编辑模式 ===
+
+①启动Login编辑页面时，编辑区铺满，渲染区隐藏但不会关闭
+
+②在原渲染区显示位置嵌入登录选择页单页，建立连接，发送初始化数据
+
+③数据修改时广播修改的数据
+
+④保存时，自动转入StaticData的Login参数下方便游戏模式登录选择页调用，<span style="color:#e74c3c;">'''此步由SDK自动完成'''</span>
+
+&nbsp;
+
+=== 游戏模式 ===
+
+①分享短链接跳转统一加载页
+
+②判断是否已登录：<span style="color:#e74c3c;">'''此步统一加载页完成'''</span>
+
+已登录时，进入正常加载页流程，流程结束
+
+未登录时，进入下一步
+
+③判断配置可选类型：<span style="color:#e74c3c;">'''此步统一加载页完成'''</span>
+
+如果只有一种可选类型，跳至第⑤步
+
+如果有多种可选，使用Iframe打开登录选择页单页，用户选择登录方式后进入下一步
+
+④登录选择页单页向父窗口（统一加载页）抛出"GoToLogin"消息,带参数，类型[String类型的选择的登录方式]，<span style="color:#e74c3c;">'''此步登录选择页完成'''</span>
+
+⑤父窗口（统一加载页）收到"GoToLogin"消息跳转登录页，携带参数mode，参数值为String类型的选择的登录方式 例如：mode=99U ，<span style="color:#e74c3c;">'''此步SDK完成'''</span>
+
+⑥登录页识别到mode参数，只显示单一的登录方式（例如：Edbox、99U），或直接进行对应的登录流程（例如：Facebook、Edmodo），<span style="color:#e74c3c;">'''此步登录页完成'''</span>
+
+⑦登录完成，返回统一加载页，回到第②步
+
+&nbsp;
+
+[[Category:Edbox游戏编辑器]]

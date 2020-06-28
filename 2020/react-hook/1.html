@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script src="../../my-min-library/react.min.js"></script>
+        <script src="../../my-min-library/reactdom.min.js"></script>
+        <script src="../../my-min-library/babel.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>同步队列</h2>
+        <div id="app1"></div>
+        <h2>异步队列</h2>
+        <div id="app2"></div>
+        <script type="text/babel" id="test">
+            const { useState, useEffect } = React;
+            const A = props => {
+                const { x } = props;
+                return <div>{x}</div>;
+            };
+            /**
+             *  状态
+             */
+            const mkReducer = libs => async (state, action) => {
+                const { type, payload } = action;
+                return await libs[type](state, payload);
+            };
+            const Equeue = type => ({
+                _arr: [],
+                type,
+                _map: new Map(),
+                isRunning() {
+                    return this[type + "Runnig"] === true;
+                },
+                running() {
+                    this[type + "Runnig"] = true;
+                },
+                isOver() {
+                    this[type + "Runnig"] = false;
+                },
+                syncRunnig: false,
+                asyncRunnig: false,
+                push(f, parm) {
+                    switch (this.type) {
+                        case "sync":
+                            this._map.set(f, parm);
+                            break;
+                        case "async":
+                            this._arr.push(f(parm));
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                async boot() {
+                    if (this.isRunning()) {
+                        return;
+                    }
+                    this.running();
+                    switch (this.type) {
+                        case "sync":
+                            for (let [f, parm] of this._map) {
+                                await f(parm);
+                                this._map.delete(f);
+                            }
+                            break;
+                        case "async":
+                            for (let pro of this._arr) {
+                                await pro;
+                            }
+                            this._arr.length = 0;
+                            break;
+                        default:
+                            break;
+                    }
+                    this.isOver();
+                }
+            });
+            const mkState = (defaultState, reducers) => {
+                const state = JSON.parse(JSON.stringify(defaultState));
+                let listeners = [];
+                const sq = Equeue("sync");
+                const asq = Equeue("async");
+                const getState = () => state;
+                let reducer = mkReducer(reducers);
+                const commonProcess = (eq, action) => {
+                    eq.push(async action => {
+                        await reducer(state, action);
+                        listeners.forEach(listener => listener());
+                        return;
+                    }, action);
+                    eq.boot();
+                };
+                const dispatchOneByOne = action => {
+                    commonProcess(sq, action);
+                };
+                const dispatchAllByShoot = action => {
+                    commonProcess(asq, action);
+                };
+                const subscribe = listener => {
+                    listeners.indexOf(listener) === -1 &&
+                        listeners.push(listener);
+                };
+                const connect = Com => props => <Com {...state} {...props} />;
+                return {
+                    dispatchOneByOne,
+                    dispatchAllByShoot,
+                    subscribe,
+                    connect,
+                    getState
+                };
+            };
+            const aState = { x: 0 };
+            const aLib = {
+                add(state, payload) {
+                    state.x += payload;
+                },
+                async asyncAdd(state, payload) {
+                    const num = await {
+                        then(cb) {
+                            setTimeout(() => {
+                                cb(payload);
+                            }, 2000);
+                        }
+                    };
+                    state.x += num;
+                }
+            };
+            const StateA = mkState(aState, aLib);
+            const StateB = mkState(aState, aLib);
+
+            const M = StateA.connect(A);
+            const N = StateB.connect(A);
+
+            const mount1 = () => ReactDOM.render(<M />, app1);
+            StateA.subscribe(mount1);
+            mount1();
+
+            const mount2 = () => ReactDOM.render(<N />, app2);
+            StateB.subscribe(mount2);
+            mount2();
+
+            StateA.dispatchOneByOne({ type: "add", payload: 5 });
+            StateA.dispatchOneByOne({ type: "asyncAdd", payload: 5 });
+            StateA.dispatchOneByOne({ type: "asyncAdd", payload: 5 });
+            StateA.dispatchOneByOne({ type: "add", payload: 5 });
+
+            StateB.dispatchAllByShoot({ type: "asyncAdd", payload: 5 });
+            StateB.dispatchAllByShoot({ type: "add", payload: 5 });
+            StateB.dispatchAllByShoot({ type: "asyncAdd", payload: 5 });
+            StateB.dispatchAllByShoot({ type: "add", payload: 5 });
+            
+        </script>
+    </body>
+</html>
