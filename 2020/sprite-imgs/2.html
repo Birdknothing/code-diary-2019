@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #divs {
+            }
+        </style>
+    </head>
+    <body>
+        宽：<input type="text" id="cf" value="66" /><br />
+        高：<input type="text" id="ch" value="66" /><br />
+        横向最多几张：<input type="text" id="maxcount" value="3" /><br />
+        <input type="file" id="file" multiple onchange="handle(event)" /><br />
+        <button onclick="downloadCanvas()">下载</button><input type="text" id="canvasBase64" placeholder="base64"> <br/>
+        预览：<br />
+        <canvas id="canvas"></canvas><br />
+        调整顺序：<br />
+        <div id="divs"></div>
+        <script>
+            const $id = (id) => document.getElementById(id);
+            const canvas = $id("canvas");
+            let ctx = null;
+            const config = {
+                width: 0,
+                height: 0,
+                maxcount: 0,
+                // 总宽
+                w: 0,
+                // 总高
+                h: 0,
+                imgs: [],
+                // 点击事件
+                from: null,
+                to: null,
+                handleClick(img, dom) {
+                    if (!this.from) {
+                        this.from = img;
+                        dom.style.backgroundColor = "rgba(0,0,0,.6)";
+                    } else if (!this.to) {
+                        this.to = img;
+                        exchangePos(this.from, this.to);
+                        // this.from &&
+                        //     (this.from.style.backgroundColor = "transparent");
+                        this.from = null;
+                        this.to = null;
+                        drawDivs();
+                    }
+                },
+            };
+
+            function handle(e) {
+                //config
+                config.width = +$id("cf").value;
+                config.height = +$id("ch").value;
+                config.maxcount = +$id("maxcount").value;
+                //
+                const files = e.target.files;
+                const len = files.length;
+                const maxHcount = Math.ceil(len / config.maxcount);
+                const picLeft = len % config.maxcount;
+                if (len < config.maxcount) {
+                    config.w += config.width * picLeft;
+                } else {
+                    config.w += config.width * config.maxcount;
+                }
+
+                for (let y = 0; y < maxHcount; y++) {
+                    config.h += config.height;
+                    for (let x = 0; x < config.maxcount; x++) {
+                        console.log("x", x, "y", y);
+                        console.log("mxhcount", maxHcount, "picLef", picLeft);
+
+                        if (y * config.maxcount + x >= len) {
+                            break;
+                        }
+                        const img = new Image();
+
+                        // 调整区
+
+                        const url = getObjectURL(
+                            e.target.files[x + y * config.maxcount]
+                        );
+                        img.src = url;
+                        const imgObj = { file: img, url, x, y };
+                        config.imgs.push(imgObj);
+                    }
+                }
+                drawDivs();
+                // $key canvas 注意事项
+                canvas.width = config.w;
+                canvas.height = config.h;
+                ctx = canvas.getContext("2d");
+                setTimeout(() => {
+                    drawCanvas();
+                }, 1000);
+            }
+            const drawDivs = () => {
+                const divs = $id("divs");
+                divs.innerHTML = "";
+                divs.style.width = config.w + "px";
+                divs.style.height = config.h + "px";
+                for (let img of config.imgs) {
+                    const url = img.url;
+                    const div = document.createElement("div");
+                    const pic = document.createElement("img");
+                    const hint = document.createElement("div");
+                    pic.src = url;
+                    div.style.display = "inline-block";
+                    div.style.width = config.width + "px";
+                    div.style.height = config.height + "px";
+                    hint.style.position = "absolute";
+                    hint.style.display = "none";
+                    div.appendChild(pic);
+                    div.appendChild(hint);
+                    // $key 点击, 坑 ，注意事项，不能用 addEventListener
+                    div.onclick = function() {
+                        config.handleClick(img, div);
+                    };
+                    div.onmouseenter = function() {
+                        div.children[1].innerHTML = `x:${img.x * config.width +
+                            "px"} y:${img.y * config.height + "px"}`;
+                        div.children[1].style.display = "block";
+                    };
+                    div.onmouseleave = function() {
+                        div.children[1].style.display = "none";
+                    };
+                    const divs = $id("divs");
+                    $id("divs").appendChild(div);
+                }
+            };
+            const drawCanvas = () => {
+                for (let img of config.imgs) {
+                    const { x, y } = img;
+                    ctx.drawImage(
+                        img.file,
+                        x * config.width,
+                        y * config.height
+                    );
+                }
+            };
+            const exchangePos = (from, to) => {
+                const { x: x0, y: y0 } = from;
+                const { x: x1, y: y1 } = to;
+                ctx.clearRect(
+                    x0 * config.width,
+                    y0 * config.height,
+                    config.width,
+                    config.height
+                );
+                ctx.drawImage(to.file, x0 * config.width, y0 * config.height);
+                ctx.clearRect(
+                    x1 * config.width,
+                    y1 * config.height,
+                    config.width,
+                    config.height
+                );
+                ctx.drawImage(from.file, x1 * config.width, y1 * config.height);
+                const fromIndex = config.imgs.indexOf(from);
+                const toIndex = config.imgs.indexOf(to);
+                config.imgs[fromIndex] = to;
+                config.imgs[toIndex] = from;
+                // $key 注意事项
+                to.x = x0;
+                to.y = y0;
+                from.x = x1;
+                from.y = y1;
+            };
+
+            const downloadCanvas = () => {
+                const url = canvas.toDataURL();
+                $id("canvasBase64").value = url;
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "test.png";
+                a.dispatchEvent(new MouseEvent("click"));
+            };
+            // img.onload = function() {
+            //     ctx.drawImage(img, 0, 0);
+            // };
+            function getObjectURL(file) {
+                var url = null;
+                if (window.createObjcectURL != undefined) {
+                    url = window.createOjcectURL(file);
+                } else if (window.URL != undefined) {
+                    url = window.URL.createObjectURL(file);
+                } else if (window.webkitURL != undefined) {
+                    url = window.webkitURL.createObjectURL(file);
+                }
+                return url;
+            }
+            // 画 div
+            // const drawDivs = () => {
+            //     const divs = $id("divs");
+            //     divs.style.width = config.w + "px";
+            //     divs.style.height = config.h + "px";
+            //     for (let img of config.files) {
+            //         const div = document.createElement("div");
+            //         const img = document.createElement("img");
+            //         img.src = getObjectURL(img.file);
+            //         div.style.display = "inline-block";
+            //         div.style.width = config.width + "px";
+            //         div.style.height = config.height + "px";
+            //     }
+            // };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+﻿{
+  "Search": {
+    "Name": "Search",
+    "ComponentName": "Edbox搜索组件",
+    "Description": "用于Edbox平台的搜索组件,用于实现谷歌百度等搜索资源",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "Edbox",
+        "Wiki": "Edbox通用组件"
+      }
+    ],
+    "Datas": [
+      {
+        "Name": "ID",
+        "ChineseName": "组件唯一ID",
+        "EnglishName": "Unique ID",
+        "Type": "Text",
+        "Value": ""
+      }
+    ],
+    "Functions": [],
+    "StaticDatas": [],
+    "StaticFunctions": [
+      {
+        "Name": "GetImageFromBaidu",
+        "ChineseName": "从百度获取图片",
+        "EnglishName": "Get Image From Baidu",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "Keyword",
+            "Type": "Text",
+            "Description": "关键字",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Array",
+              "ArrayType": {
+                "Type": "Object"
+              }
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            #app {
+                width: 600px;
+                height: 600px;
+                background-color: yellow;
+                position: relative;
+            }
+            .dotCommon {
+                cursor: pointer;
+                border-radius: 50%;
+                position: absolute;
+                height: 30px;
+                width: 30px;
+                background-color: green;
+            }
+            .dot1 {
+                left: 30px;
+                top: 30px;
+            }
+            .dot2 {
+                background-color: blue;
+                left: 180px;
+                top: 260px;
+            }
+            .dot .intro {
+                background-color: white;
+                position: absolute;
+                top: 50%;
+                left: 15px;
+                transform: translateY(-50%);
+                display: none;
+                width: 160px;
+                height: 110px;
+                opacity: 0;
+                overflow: scroll;
+                border-radius: 5px;
+                padding: 5px 10px;
+                font-size: 16px;
+                box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.5);
+                transition: all 0.6s linear;
+            }
+            .input {
+                display: none;
+            }
+
+            .ifShow:checked + .dot .intro {
+                display: block;
+                opacity: 0;
+            }
+            .dot .opac:checked + .intro {
+                display: block;
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+            // 配置
+            var config = {
+                dot1: { x: 30, y: 30, val: "this is a demo..".repeat(10) },
+                dot2: {
+                    x: 180,
+                    y: 260,
+                    val: "this is another demo..".repeat(10)
+                },
+                test: {
+                    x: 400,
+                    y: 100,
+                    val: "third demo".repeat(10)
+                }
+            };
+            
+            var template = function(cname) {
+                return (
+                    '<input type="checkbox" class="input ifShow" />\n    <div class="dot dotCommon ' +
+                    cname +
+                    '">\n     <input type="checkbox" class="input opac" />\n     <div class="intro"></div>\n</div>'
+                );
+            };
+            var animationDuring = 600;
+            var mkHover = function(dom, config) {
+                dom.children[1].innerHTML = config.val;
+                config.canenter = true;
+                dom.style.left = config.x + "px";
+                dom.style.top = config.y + "px";
+                dom.addEventListener("mouseenter", function(e) {
+                    if (!config.canenter) return;
+                    config.canenter = false;
+                    e.target.previousElementSibling.checked = true;
+                    setTimeout(function() {
+                        e.target.children[0].checked = true;
+                    }, 200);
+                    setTimeout(function() {
+                        config.canenter = true;
+                    }, animationDuring + 200);
+                });
+                dom.addEventListener("mouseleave", function(e) {
+                    e.target.children[0].checked = false;
+                    setTimeout(function() {
+                        e.target.previousElementSibling.checked = false;
+                    }, 1000);
+                });
+            };
+            var initUI = function() {
+                var content = "";
+                for (var key in config) {
+                    content += template(key);
+                }
+                document.getElementById("app").innerHTML += content;
+            };
+            initUI();
+            var init = function() {
+                for (var key in config) {
+                    var dom = document.getElementsByClassName(key)[0];
+                    mkHover(dom, config[key]);
+                }
+            };
+            init();
+        </script>
+    </body>
+</html>

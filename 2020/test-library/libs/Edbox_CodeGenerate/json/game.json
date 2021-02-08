@@ -1,0 +1,1085 @@
+﻿{
+  "Game": {
+    "Name": "Game",
+    "ComponentName": "Edbox游戏通用组件",
+    "Description": "用于Edbox平台的游戏基础服务框架,拓展Edbox Html5游戏接入平台的方法",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "Edbox",
+        "Wiki": "Edbox通用组件"
+      }
+    ],
+    "Datas": [],
+    "Functions": [],
+    "StaticDatas": [
+      {
+        "Name": "EbUserId",
+        "ChineseName": "Edbox平台用户id，用于获取平台角色信息",
+        "EnglishName": "Edbox platform user id for obtaining platform role information",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "UserName",
+        "ChineseName": "Edbox平台用户昵称",
+        "EnglishName": "Edbox platform user nickname",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "AccountId",
+        "ChineseName": "UC的用户id",
+        "EnglishName": "UC user id",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Avatar",
+        "ChineseName": "用户的头像",
+        "EnglishName": "User's avatar",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "GameId",
+        "ChineseName": "Edbox上的游戏id",
+        "EnglishName": "Game id on Edbox",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Version",
+        "ChineseName": "Edbox平台上的游戏版本",
+        "EnglishName": "Game version on the Edbox platform",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "PackageGuid",
+        "ChineseName": "package包在NDR上的GUID",
+        "EnglishName": "Package package GUID on NDR",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Access",
+        "ChineseName": "访问类型  1-模板 2-个人库 3-体验库",
+        "EnglishName": "Access Type 1 - Template 2 - Personal Library 3 - Experience Library",
+        "Type": "Int",
+        "Value": 2
+      },
+      {
+        "Name": "Mode",
+        "ChineseName": "访问模式 0-显示需求 1-试玩需求 2-分享需求 3-编辑 4-体验区游戏",
+        "EnglishName": "Access Mode 0-Display Requirements 1-Trial Needs 2-Share Requirements 3-Edit 4-Experience Zone Game",
+        "Type": "Int",
+        "Value": 1
+      },
+      {
+        "Name": "Area",
+        "ChineseName": "地区， 中国：CHN，美国：USA， 香港：HK",
+        "EnglishName": "Area, China: CHN, USA: USA, Hong Kong: HK",
+        "Type": "Text",
+        "Value": "CHN"
+      },
+      {
+        "Name": "Language",
+        "ChineseName": "语言，English,SimplifiedChinese,TraditionalChinese",
+        "EnglishName": "Language, English, SimplifiedChinese, Traditional Chinese",
+        "Type": "Text",
+        "Value": "SimplifiedChinese"
+      },
+      {
+        "Name": "IsLogin",
+        "ChineseName": "是否已经登录",
+        "EnglishName": "Is it logged in",
+        "Type": "Boolean",
+        "Value": false
+      },
+      {
+        "Name": "ServerKey",
+        "ChineseName": "服务器关键字，QA:QA提测(默认)、Dev:开发、Feature:特性测试、CN:国内、US:海外、HK:香港",
+        "EnglishName": "Server keyword, QA: QA test (default), Dev: development, Feature: feature test, CN: domestic, US: overseas, HK: Hong Kong",
+        "Type": "Text",
+        "Value": "CN"
+      }
+    ],
+    "StaticFunctions": [
+      {
+        "Name": "Start",
+        "ChineseName": "Edbox初始化启动",
+        "EnglishName": "Edbox initialization starts",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "callback",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Boolean"
+            },
+            "Description": "登录结束回调方法",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GotoEditor",
+        "ChineseName": "前往编辑器",
+        "EnglishName": "Go to the editor",
+        "Type": "Function",
+        "Keys": [],
+        "Return": null
+      },
+      {
+        "Name": "ShowSharePage",
+        "ChineseName": "打开分享及创作页面",
+        "EnglishName": "Open the sharing and authoring page",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "datas",
+            "Type": "Object",
+            "Description": "传给页面的数据",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  },
+  "Game.Backpack": {
+    "Name": "Game.Backpack",
+    "ComponentName": "Edbox游戏通用组件#背包模块",
+    "Description": "用于Edbox平台的游戏基础服务框架背包模块",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [],
+    "Datas": [],
+    "Functions": [],
+    "StaticDatas": [],
+    "StaticFunctions": [
+      {
+        "Name": "GetList",
+        "ChineseName": "获取背包中的所有道具",
+        "EnglishName": "Get all the items in the backpack",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Array",
+              "ArrayType": {
+                "Type": "BackpackProp"
+              }
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Open",
+        "ChineseName": "打开UI",
+        "EnglishName": "Open UI",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GainProp",
+        "ChineseName": "游戏内获得道具",
+        "EnglishName": "Get props in the game",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "prop",
+            "Type": "Prop",
+            "Description": "道具",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "count",
+            "Type": "Int",
+            "Description": "数量",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "UseProp",
+        "ChineseName": "使用道具",
+        "EnglishName": "Use props",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "prop",
+            "Type": "BackpackProp",
+            "Description": "背包中的道具",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "count",
+            "Type": "Int",
+            "Description": "数量",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "SetUsePropCallback",
+        "ChineseName": "设置使用道具回调",
+        "EnglishName": "Set use prop callback",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "callback",
+            "Type": "Function",
+            "FunctionType": [
+              {
+                "Type": "Prop"
+              },
+              {
+                "Type": "Int"
+              }
+            ],
+            "Description": "使用道具回调",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  },
+  "Game.Prop": {
+    "Name": "Game.Prop",
+    "ComponentName": "Edbox游戏通用组件#道具模块",
+    "Description": "用于Edbox平台的游戏基础服务框架道具模块",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [],
+    "Datas": [],
+    "Functions": [],
+    "StaticDatas": [],
+    "StaticFunctions": [
+      {
+        "Name": "GetList",
+        "ChineseName": "获取道具列表",
+        "EnglishName": "Get the list of items",
+        "Type": "Function",
+        "Keys": null,
+        "Return": {
+          "Type": "Array",
+          "ArrayType": {
+            "Type": "Prop"
+          },
+          "Description": "道具对象列表"
+        }
+      }
+    ]
+  },
+  "Game.Economic": {
+    "Name": "Game.Prop",
+    "ComponentName": "Edbox游戏通用组件#经济模块",
+    "Description": "用于Edbox平台的游戏基础服务框架经济模块",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [],
+    "Datas": [],
+    "Functions": [],
+    "StaticDatas": [],
+    "StaticFunctions": [
+      {
+        "Name": "GetCurrencyList",
+        "ChineseName": "获取货币列表",
+        "EnglishName": "Get the list of currency",
+        "Type": "Function",
+        "Keys": null,
+        "Return": {
+          "Type": "Array",
+          "ArrayType": {
+            "Type": "Currency"
+          },
+          "Description": "货币列表"
+        }
+      },
+      {
+        "Name": "GetCurrencyCount",
+        "ChineseName": "获取货币数量",
+        "EnglishName": "Get the amount of money",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "Currency",
+            "Type": "Currency",
+            "Description": "货币类型",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "Int",
+          "Description": "货币数量"
+        }
+      },
+      {
+        "Name": "GainCurrency",
+        "ChineseName": "游戏内获得货币",
+        "EnglishName": "Get currency in the game",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "Currency",
+            "Type": "Currency",
+            "Description": "货币类型",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "Count",
+            "Type": "Int",
+            "Description": "数量",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "UseCurrency",
+        "ChineseName": "游戏内使用货币",
+        "EnglishName": "Use currency in the game",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "Currency",
+            "Type": "Currency",
+            "Description": "货币类型",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "Count",
+            "Type": "Int",
+            "Description": "数量",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "SetUsePropCallback",
+        "ChineseName": "设置货币数量变化回调",
+        "EnglishName": "Set currency change callback",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "callback",
+            "Type": "Function",
+            "FunctionType": [
+              {
+                "Type": "Currency"
+              },
+              {
+                "Type": "Int"
+              }
+            ],
+            "Description": "货币数量变化回调",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  },
+  "Game.Mall": {
+    "Name": "Game.Mall",
+    "ComponentName": "Edbox游戏通用组件#商城模块",
+    "Description": "用于Edbox平台的游戏基础服务框架商城模块",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [],
+    "Datas": [],
+    "Functions": [],
+    "StaticDatas": [],
+    "StaticFunctions": [
+      {
+        "Name": "Open",
+        "ChineseName": "打开UI",
+        "EnglishName": "Open UI",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "SetBuyCallback",
+        "ChineseName": "设置购买回调",
+        "EnglishName": "Set buy callback",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "callback",
+            "Type": "Function",
+            "FunctionType": [
+              {
+                "Type": "Commodity"
+              },
+              {
+                "Type": "Int"
+              }
+            ],
+            "Description": "购买回调",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  },
+  "Game.Loading": {
+    "Name": "Game.Loading",
+    "ComponentName": "Edbox游戏通用组件#加载页模块",
+    "Description": "用于Edbox平台的游戏基础服务框架加载页模块",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [],
+    "Datas": [],
+    "Functions": [],
+    "StaticDatas": [],
+    "StaticFunctions": [
+      {
+        "Name": "Open",
+        "ChineseName": "打开UI",
+        "EnglishName": "Open UI",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Close",
+        "ChineseName": "关闭UI",
+        "EnglishName": "Close UI",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "SetProgress",
+        "ChineseName": "设置进度",
+        "EnglishName": "Set Progress",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "progress",
+            "Type": "Int",
+            "Description": "设置的进度百分比",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "tip",
+            "Type": "Text",
+            "Description": "提示内容",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  },
+  "Game.QRCode": {
+    "Name": "Game.QRCode",
+    "ComponentName": "Edbox游戏通用组件#二维码模块",
+    "Description": "用于Edbox平台的游戏基础服务框架二维码模块",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [],
+    "Datas": [],
+    "Functions": [],
+    "StaticDatas": [],
+    "StaticFunctions": [
+      {
+        "Name": "Create",
+        "ChineseName": "创建二维码",
+        "EnglishName": "Create a QR code",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "url",
+            "Type": "String",
+            "Description": "Url地址",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "String"
+            },
+            "Description": "成功回调,带String类型二维码Base64数据结果",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Download",
+        "ChineseName": "下载二维码",
+        "EnglishName": "Download a QR code",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "name",
+            "Type": "String",
+            "Description": "文件名称",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  },
+  "Game.Ranking": {
+    "Name": "Game.Ranking",
+    "ComponentName": "Edbox游戏通用组件#排行榜模块",
+    "Description": "用于Edbox平台的游戏基础服务框架排行榜模块",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [],
+    "Datas": [],
+    "Functions": [],
+    "StaticDatas": [],
+    "StaticFunctions": [
+      {
+        "Name": "Show",
+        "ChineseName": "显示排行榜界面",
+        "EnglishName": "Show leaderboard interface",
+        "Type": "Function",
+        "Keys": [],
+        "Return": null
+      },
+      {
+        "Name": "Get",
+        "ChineseName": "获取排行榜列表",
+        "EnglishName": "Get the list of leaderboards",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "page",
+            "Type": "Number",
+            "Description": "第几页列表",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "size",
+            "Type": "Number",
+            "Description": "每页几个数据",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Post",
+        "ChineseName": "提交玩家分数",
+        "EnglishName": "Submit player score",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "score",
+            "Type": "Number",
+            "Description": "玩家分数",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  },
+  "Game.Resource": {
+    "Name": "Game.Resource",
+    "ComponentName": "Edbox游戏通用组件#资源加载模块",
+    "Description": "用于Edbox平台的游戏基础服务框架资源加载模块",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [],
+    "Datas": [],
+    "Functions": [],
+    "StaticDatas": [],
+    "StaticFunctions": [
+      {
+        "Name": "GetAudio",
+        "ChineseName": "请求音频地址",
+        "EnglishName": "Request audio address",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "guid",
+            "Type": "String",
+            "Description": "资源服务器GUID",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "formats",
+            "Type": "Array",
+            "Description": "指定音频格式,例如[mp3、ogg] , 留空时获取源文件",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "async",
+            "Type": "Boolean",
+            "Description": "是否异步",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "String"
+            },
+            "Description": "成功回调,带参数URL:String",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GetImage",
+        "ChineseName": "请求图片地址",
+        "EnglishName": "Request image address",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "guid",
+            "Type": "String",
+            "Description": "资源服务器GUID",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "formats",
+            "Type": "Array",
+            "Description": "指定音频格式,例如[png、jpeg] , 留空时获取源文件",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "async",
+            "Type": "Boolean",
+            "Description": "是否异步",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "String"
+            },
+            "Description": "成功回调,带参数URL:String",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GetConfig",
+        "ChineseName": "获取配置",
+        "EnglishName": "Get configuration",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "name",
+            "Type": "String",
+            "Description": "配置名称",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调,带配置Json对象",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  }
+}

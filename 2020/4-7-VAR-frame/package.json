@@ -1,0 +1,11 @@
+{
+  "name": "4-7-VAR-frame",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/cli": "^9.1.0",
+    "@vue/cli": "^4.3.0",
+    "create-react-app": "^3.4.1"
+  }
+}

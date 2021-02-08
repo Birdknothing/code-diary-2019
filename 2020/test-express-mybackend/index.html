@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script src="/static/jquery.dev.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="text" id="content" />
+        <div>
+            <button
+                onclick="send(event.target.parentNode.previousElementSibling.value)"
+            >
+                test
+            </button>
+            <br/>
+            <button onclick="$.ajax({method:'GET',url:'/test'}).done(console.log)">send test</button>
+        </div>
+        <script>
+            
+            function send(val) {
+                console.log(val);
+                $.ajax({
+                    method: "GET",
+                    url: "/any?test=" + val
+                });
+            }
+            const getJson = () => {
+                $.ajax({
+                    method: "GET",
+                    url: "/config"
+                }).done((data) => {
+                    console.log(data);
+                });
+            };
+        </script>
+    </body>
+</html>

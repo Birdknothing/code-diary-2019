@@ -21,5 +21,5 @@ app.get("/getstr", (req, resp) => {
         // await writeFile("./test.text", res.body.toString());
     });
 });
-app.use("/my-min-library", express.static("../my-min-library"));
-// http://192.168.211.46:3000
+app.use("/my-min-library", express.static("/Users/shaofeibo/Desktop/code-diary/my-min-library"));
+// http://localhost:3000

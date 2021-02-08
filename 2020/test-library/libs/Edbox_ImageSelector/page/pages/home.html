@@ -1,0 +1,12 @@
+﻿<!-- 选择按钮集 -->
+<div class="Select">
+    <div class="SelectButton" ng-repeat="data in Datas.Home.SelectButtons.Datas" ng-click="DataFunction.GetFunction(data.Name)()">
+        <div class="Image">
+            <img style="width: 48px; height: 48px;" ng-src="{{DataFunction.GetImage(data.Name)}}" />
+        </div>
+        <div class="Text">{{DataFunction.GetText(data.Name)}}</div>
+    </div>
+</div>
+
+<!-- 下方按钮集 -->
+<div ng-include="'controls/bottombuttons.html'"></div>

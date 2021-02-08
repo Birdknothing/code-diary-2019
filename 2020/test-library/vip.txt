@@ -1,0 +1,50 @@
+
+导出权益接口说明：
+
+1、获取用户vip状态
+Edbox.Vip.GetUserVipStatus(data, success, error)
+
+返回说明：
+success
+{
+       "data":"NONVIP"
+}
+data说明： NONVIP 非VIP， VIP1 黄金VIP， VIP2 钻石VIP,  EXPIRED VIP过期
+
+2、个人库资源上传调整：
+个人库界面里的接口：
+Edbox.PrivateAsset.UploadPrivateAssetInfo
+
+入参不变
+
+返回参数调整：
+error返回的数据包含Code，提示Message字段中的信息。
+Code说明 ：
+'NONVIP' ：非VIP
+'EXPIRED' : VIP过期
+'VIP1CLOUDLIMIT' : 黄金VIP容量满
+'VIP2CLOUDLIMIT' ：钻石VIP容量满
+结构例实例：
+{
+	"code":'NONVIP',
+	"message":"您未开通vip，无法将该图片保存到个人库，是否开通vip？"
+}
+
+
+个人库外部 控件的上传接口：
+Edbox.PrivateAsset.UploadNDRAssetInfo， 入参与Edbox.PrivateAsset.UploadPrivateAssetInfo相同
+
+返回参数调整：
+如果success返回的数据包含Code， 且 Code为'NONVIP' 、 'EXPIRED' 、 'VIP1CLOUDLIMIT' 、 'VIP2CLOUDLIMIT' ， 则提示Message字段中的信息。
+Code说明 ：
+'NONVIP' ：非VIP
+'EXPIRED' : VIP过期
+'VIP1CLOUDLIMIT' : 黄金VIP容量满
+'VIP2CLOUDLIMIT' ：钻石VIP容量满
+结构例：
+{
+	"id":"ndrid",
+	"res_id":"个人库资源id"，
+	"Code":'NONVIP',
+	"Message":"您未开通vip，无法将该图片保存到个人库，是否开通vip？"
+}

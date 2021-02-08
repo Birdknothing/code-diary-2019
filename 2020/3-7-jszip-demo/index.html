@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script src="./jszip-utils.js"></script>
+        <script src="./saveAs.js"></script>
+        <script src="./jszip.min.js"></script>
+        <script>
+            function loadZip(data) {
+                JSZip.loadAsync(data).then(function(zip) {
+                    console.log(zip);
+
+                    var files = zip.files;
+                    console.log(files);
+
+                    // var assetFiles = new Array();
+
+                    // var fileObjArray = new Array();
+                    // var keys = Object.keys(files);
+                    // for (var i = 0; i < keys.length; i++) {
+                    //   var key = keys[i];
+                    //   //只有目录起始头为Assets或者Resources的文件列表， 以及跟目录下的文件才会被加入队列进行预加载
+                    //   if (
+                    //     (files[key].name.indexOf("Assets/") === 0 ||
+                    //       files[key].name.indexOf("Resources/") === 0) &&
+                    //     files[key].name.lastIndexOf("/") !== files[key].name.length - 1
+                    //   ) {
+                    //     assetFiles.push(files[key]);
+                    //   }
+                    // }
+
+                    // loadAsset(zip, fileObjArray, assetFiles, assetFiles.length);
+                });
+            }
+            // JSZipUtils.getBinaryContent("./test.zip", function(err, data) {
+            //   if (err) {
+            //     console.log(err);
+            //     return;
+            //   }
+            //   console.log(typeof data);
+
+            //   // loadZip(data);
+            // });
+            const zip = new JSZip();
+            const sub1 = zip.folder("sub");
+            const sub2 = sub1.folder("sub1");
+            zip.folder("sub").file("world.txt", "test2");
+            sub2.file("hello.txt", "test");
+            zip.generateAsync({ type: "blob" }).then(function(bin) {
+                saveAs(bin, "exm.zip");
+            });
+        </script>
+    </body>
+</html>

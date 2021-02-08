@@ -1,0 +1,9 @@
+{
+  "name": "test-react-hook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/standalone": "^7.9.5"
+  }
+}

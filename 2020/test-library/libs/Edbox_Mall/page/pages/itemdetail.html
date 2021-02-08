@@ -1,0 +1,56 @@
+<!-- <div class="detail-main">
+	<img src="http://cs.101.com/v0.1/static/cscommon/avatar/2046302425/2046302425.jpg" style="width:100%; height: 100%;">
+	
+</div> -->
+<div class="detail-bg-box" style="background-image: url({{DataFunction.GetImage('ShopDetailBoxMask')}});">
+	<img ng-src="{{DataFunction.Shop.CurCommodity.ImgSource}}" class="detail-bg">
+</div>
+<div class="Header">
+    <!-- 返回按钮 -->
+    <div class="Store">
+        <img ng-src="{{DataFunction.GetImage('StoreTitle')}}" />
+    </div>
+	
+    <!-- 关闭按钮 -->
+    <div class="Close">
+        <img ng-src="{{DataFunction.GetImage('Close')}}"  ng-click="DataFunction.Shop.ReturnToMall()"/>
+    </div>
+</div>
+
+<div class="Content">
+	<div class="itemdetail-img-box">
+		<img ng-src="{{DataFunction.Shop.CurCommodity.ImgSource}}" class="itemdetail-img"/>
+	</div>
+	<div class="itemdetail-descript-box">
+		<span class="itemdetail-name white-130font">{{DataFunction.Shop.CurCommodity.CommodityName}}</span>
+		<span class="itemdetail-descript">{{DataFunction.Shop.CurCommodity.Description}}</span>
+	</div>
+	<div class="itemdetail-price-box">
+		<div class="itemdetail-price">
+			<div class="white-130font "><i class="itemdetail-diamond-icon" style="background-image: url({{DataFunction.GetImage('ShopDiamondIcon')}});"></i>{{DataFunction.Shop.GetDiamonPrice(DataFunction.Shop.CurCommodity.Price)}}</div>
+			<div class="white-130font"><i class="itemdetail-coin-icon" style="background-image: url({{DataFunction.GetImage('ShopCoinIcon')}});"></i>{{DataFunction.Shop.GetCoinPrice(DataFunction.Shop.CurCommodity.Price)}}</div>
+		</div>
+		<div class="itemdetail-buy">
+			<a style="background-image: url({{DataFunction.GetImage('ShopLargeButtonBg')}});">BUY</a>
+		</div>
+	</div>
+	
+	
+	<div class="buy-dialog-box" style="display: none;" style="background-image: url({{DataFunction.GetImage('ShopBuyDialogMask')}});">
+		<div class="buy-dialog" style="background-image: url({{DataFunction.GetImage('ShopBuyDialogBg')}});">
+			<span class="buy-dialog-title">提示</span>
+			<div class="buy-tips-box">
+				<span class="buy-tips">你已达到物品购买上限，欢迎下次光临</span>
+			</div>
+			<div style="float: left; margin: 10px 30px; height: 50px; text-align: center;width: calc(100% - 60px);">
+				<div class="buy-sure-box">
+					<a class="buy-sure" style="background-image: url({{DataFunction.GetImage('ShopLargeButtonBg')}});">确定</a>
+				</div>
+				<div class="buy-recharge-box" style="display: none;">
+					<a class="buy-recharge" style="background-image: url({{DataFunction.GetImage('ShopLargeButtonBg')}});">充值</a>
+					<a class="buy-cancel" style="background-image: url({{DataFunction.GetImage('ShopLargeButtonBg')}});">取消</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

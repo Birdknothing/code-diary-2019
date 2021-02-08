@@ -1,0 +1,1 @@
+console.log("/* WEBPACK VAR INJECTION */(function(__dirname) {console.log(__dirname);\nconst path = __webpack_require__(/*! path */ \"path\");\n\nconst n = __webpack_require__(\"./test sync recursive\")(path.resolve(__dirname, \"2.js\")).w;\nmodule.exports = {\n    n,\n};\n\n/* WEBPACK VAR INJECTION */}.call(this, \"test\"))\n\n//# sourceURL=webpack:///./test/1.js?");

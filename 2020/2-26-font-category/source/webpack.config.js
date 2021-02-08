@@ -33,9 +33,10 @@ module.exports = {
   mode: isProduction ? "production" : "development",
   entry,
   devServer: {
-    host: "192.168.31.218",
+    host: "localhost",
     contentBase: "./dist",
     hot: true,
+    overlay:true,
     proxy: {
       "/mock/": "http://localhost:3000/mock/"
     },

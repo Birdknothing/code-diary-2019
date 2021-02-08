@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <title>Edbox 粘合层接口测试</title>
+
+    <link href="/libs/Bootstrap/css/bootstrap-3.0.3.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">Edbox 粘合层接口测试</div>
+        <div class="panel-body">
+            <div class="input-group">
+               <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetAppTags();">获得作品标签</button>
+                </span>
+               <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetElearningUrl();">Elearning</button>
+				</span>
+                <!-- <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetVersionLog();">获取日志</button>
+                </span>
+				<span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetLibUrl();">Lib</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetRecommandApps();">获取推荐列表</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="SearchExperienceApps();">获取体验列表</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetExperienceAppInfo();">获取作品详情</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="SearchCreateApps();">获取模板列表</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="AddPlayRecord();">添加最近游戏记录</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetPlayRecord();">获取最近游戏记录</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetAppTags();">获取作品标签</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetGameRecentUpdates();">获取作品历史</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetGameOriginalTpl();">获取作品模板</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetGameSameTpl();">获取作品推荐</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="CollectApp();">收藏作品</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="CancelCollectApp();">取消收藏</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetUserCollectApps();">获取收藏列表</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetImage();">图片测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetPublishCountDown();">获取发布倒计时</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetPublishOrigin();">获取发布页详情</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetProgress();">进度测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GameEditor();">编辑测试</button>
+                </span> -->
+                <!-- <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="CheckEbService();">基础服务程序测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetWebIMUrl();">WebIM测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="ExportApk();">导出APK测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="ExportExeGame();">导出ExeGame测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GamePlay();">播放测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetUserScoreInfo();">获取用户标签测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="SearchBaiduImage();">搜索百度图片</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="SearchGoogleImage();">搜索谷歌图片</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="OpenScreenShooter();">截图</button>
+                </span> -->
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="MqttTest();">MQTT测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="WalletInit();">支付初始化</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetWalletProductList();">获取商品列表</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetWalletChanelList();">获取渠道列表</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="PayOrder();">创建订单并且支付</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetBalance();">获取钱包余额</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetUserInfo();">获取用户信息</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetVipProtocol();">获取Vip协议</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetVipList();">获取Vip列表</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="BuyVip();">购买Vip</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="AudiohelpServerTest();">Audiohelp测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetImagePoints();">顶点测试</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="GetThesaurus();">词库测试</button>
+                </span>
+            </div>
+			<!-- <a id="BaseProgramDownload" href="" style="display: none;">下载客户端</a> -->
+        </div>
+    </div>
+	<canvas id="Canvas0"></canvas>
+	<canvas id="newCanvas"></canvas>
+	<canvas id="Canvas1"></canvas>
+
+    <script src="/libs/Edbox_Lobby/js/Edbox.js" type="text/javascript"></script>
+    <script src="/libs/Edbox_Lobby/js/Edbox_Lobby.js" type="text/javascript"></script>
+	<script src="/libs/Edbox/Api/MMO.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        Edbox.ServerKey = "Dev";
+        //Edbox.Host.MMO.Dev = "192.168.211.12:8081";
+        Edbox.Start();
+        // Edbox.Host.MMO.Dev = "192.168.212.62:8081";
+		Edbox.Lobby.Init();
+
+		var data = {"currentPage":1,"itemCount":3};
+		Edbox.Lobby.GetVersionLog(data,
+			function(result){
+				console.log(result);
+			},
+			function(e){
+				console.log(e);
+			}
+		);
+		data = {"currentPage":2,"itemCount":3};
+		Edbox.Lobby.GetVersionLog(data,
+			function(result){
+				console.log(result);
+			},
+			function(e){
+				console.log(e);
+			}
+		);
+
+		function GetElearningUrl(){
+			var data = Object;
+			Edbox.Lobby.GetElearningUrl(data,
+				function(data){
+					console.log(data);
+					window.open(data); 
+				},function(e){
+					console.log(e);
+				}
+			);
+        }
+
+        function GetVersionLog() {
+            var data = { "currentPage": 1, "itemCount": 10 };
+            Edbox.Lobby.GetVersionLog(data, function (data) {
+                console.log(data);
+            },
+                function (e) {
+                    console.log(e);
+                });
+        }
+
+		function GetLibUrl(){
+			var data = Object;
+			Edbox.Lobby.GetLibUrl(data,
+				function(data){
+					console.log(data);
+					window.open(data); 
+				},function(e){
+					console.log(e);
+				}
+			);
+		}
+
+		function ReportApp() {
+			var data = {"gameId":"f29fcc70-98a7-11e9-9aa3-2d04e19c2d12","playerId":Edbox.EbUserId,
+			"gameVersion":"1.02","reportContent":"游戏截图,游戏视频" ,"reportDesc":"1111111111111111111111111111"};
+			console.log(Edbox.EbUserId);
+			Edbox.Lobby.ReportApp(data,
+				function(data){
+					console.log(data);
+				},function(e){
+					console.log(e);
+				}
+			);
+		}
+
+		function GetTagsList() {
+			var data = '';
+			Edbox.Lobby.GetTagsList(data, function(apps){
+				console.log(apps);
+			}, function(error){
+				console.log("GetTagsList error:" + error)
+			});
+		}
+		
+		function GetRecommandApps() {
+			var data = new Object;
+			data.recommand_type = 1;
+			data.page = 1;
+			data.size = 12;
+			Edbox.Lobby.GetRecommandApps(data, function(apps){
+				console.log(apps);
+			}, function(error){
+				console.log("GetRecommandApps error:" + error)
+			});
+		}
+		
+		function GetPlayRecord(){
+			
+			Edbox.Lobby.GetPlayRecord('', function(apps){
+				console.log(apps);
+			}, function(error){
+				console.log("GetPlayRecord error:" + error)
+			});
+		}
+		
+		function AddPlayRecord(){
+			Edbox.Api.MMO.AddPlayRecord("a5181510-7d2d-11e9-b6a2-a5b59933a89d",
+				function(apps){
+					
+				},
+				function(e){
+					
+				}
+			);
+		}
+		
+		function SearchExperienceApps() {
+			var data = new Object;
+			data.word = 'T0001';
+			data.page = 1;
+			data.size = 12;
+			data.sorts = "!popular,releasetime";
+			data.type = "T0001";
+			Edbox.Lobby.SearchExperienceApps(data, function(apps){
+				console.log(apps);
+			}, function(error){
+				console.log("SearchExperienceApps error:" + error)
+			});
+		}
+		
+		function SearchCreateApps(){
+			var data = new Object;
+			data.word = '';
+			data.page = 1;
+			data.size = 50;
+			data.sorts = "!popular, releasetime";
+			Edbox.Lobby.SearchCreateApps(data, function(apps){
+				console.log(apps);
+			}, function(error){
+				console.log("SearchCreateApps error:" + error)
+			});
+		}
+		
+		function GetExperienceAppInfo() {
+			var data = new Object;
+			data.appid = '903fe540-5f5b-11e9-8e67-c371fc656ae9';
+			Edbox.Lobby.GetExperienceAppInfo(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("GetExperienceAppInfo error:" + error)
+			});
+		}
+		
+		function GetAppTags(){
+			var data = new Object;
+			data.appid = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			Edbox.Lobby.GetAppTags(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("GetAppTags error:" + error)
+			});
+		}
+		
+		function GetGameRecentUpdates() {
+			var data = new Object;
+			data.appid = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			Edbox.Lobby.GetGameRecentUpdates(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("GetGameRecentUpdates error:" + error)
+			});
+		}
+		
+		function GetGameOriginalTpl() {
+			var data = new Object;
+			data.appid = 'fb1ca120-9a41-11e9-aac5-63285734a164';
+			Edbox.Lobby.GetGameOriginalTpl(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("GetGameOriginalTpl error:" + error)
+			});
+		}
+		
+		function GetGameSameTpl() {
+			var data = new Object;
+			data.appid = '3762f3b0-6f1c-11e9-8cd9-6f81ef3cbc68';
+			Edbox.Lobby.GetGameSameTpl(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("GetGameSameTpl error:" + error)
+			});
+		}
+		
+		function GetImage() {
+			var data = new Object;
+			data.resourceId = "a12ecd4c-83db-4913-b079-a97fd67b257f";
+			Edbox.Lobby.GetImage(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("GetImage error:" + error)
+			});
+		}
+		
+		function CollectApp() {
+			var data = new Object;
+			data.appid = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			Edbox.Lobby.CollectApp(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("CollectApp error:" + error)
+			});
+		}
+		
+		function CancelCollectApp() {
+			var data = new Object;
+			data.appid = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			Edbox.Lobby.CancelCollectApp(data, function(app){
+				console.log(app);
+			}, function(error){
+				console.log("CancelCollectApp error:" + error)
+			});
+		}
+		
+		function GetUserCollectApps() {
+			var data = new Object;
+			data.page = 1;
+			data.size = 12;
+			Edbox.Lobby.GetUserCollectApps(data, function(apps){
+				console.log(apps);
+			}, function(error){
+				console.log("GetUserCollectApps error:" + error)
+			});
+		}
+		
+		function GamePlay(){
+			var data = new Object;
+			// data.taskId = Edbox.GetGUID();
+			data.taskId = 'a5181510-7d2d-11e9-b6a2-a5b59933a333';
+			data.appId = 'bc2258b0-ffd3-11e8-910b-d58021a6c605';
+			// data.appId = '9fe838a0-7d2c-11e9-8121-b7daed65fd6a';
+			data.playType = 3;
+			data.version = '';
+			Edbox.Lobby.OpenGamePlay(data, function(data){
+				console.log(data);
+			}, function(error){
+				console.log("GamePlay error:" + JSON.stringify(error))
+			});
+		}
+		
+		function GetProgress(){
+			var data = new Object;
+			data.taskId = 'a5181510-7d2d-11e9-b6a2-a5b59933a333';
+			Edbox.Lobby.GetProgress(data, function(data){
+				console.log(data);
+			}, function(error){
+				console.log(error)
+			});
+		}
+		
+		function GameEditor(){
+			var data = new Object;
+			data.taskId = Edbox.GetGUID();
+			data.appId = '481539d0-7bd2-11e9-bb27-fdf35f0ec2e7';
+			// data.appId = '594e4230-40b5-11e9-9640-8b7a33a6f7f0';
+			data.accessType = 1;
+			data.version = '1.00';
+			Edbox.Lobby.OpenGameEditor(data, function(data){
+				console.log(data);
+			}, function(error){
+				console.log("GamePlay error:" + JSON.stringify(error))
+			});
+		}
+		
+		function CheckEbService(){
+			Edbox.Lobby.CheckEbService("", function(data){
+				console.log("CheckEbService success, data :" + data)
+			}, function(error){
+				console.log("CheckEbService error:" + error)
+			})
+		}
+		
+		function GetPublishCountDown(){
+			Edbox.Lobby.GetPublishCountDown("" , function(data){
+				console.log(data);
+			}, function(error){
+				console.log("GetPublishCountDown error:" + error)
+			});
+		}
+		
+		function GetPublishOrigin(){
+			var data = new Object;
+			// data.appId = 'a5181510-7d2d-11e9-b6a2-a5b59933a89d';
+			// data.appId = '9fe838a0-7d2c-11e9-8121-b7daed65fd6a';
+			data.appId = '606d0050-4a0c-11e9-97fd-552b40cd9fe0';
+			// data.appId = '594e4230-40b5-11e9-9640-8b7a33a6f7f0';
+			Edbox.Lobby.GetPublishOrigin(data , function(data){
+				console.log(data);
+			}, function(error){
+				console.log("GetPublishOrigin error:" + error)
+			});
+		}
+		
+		function GetWebIMUrl(){
+			Edbox.Lobby.GetWebIMUrl("" , function(data){
+				console.log(data);
+			}, function(error){
+				console.log("GetWebIMUrl error:" + error);
+			});
+		}
+		
+		function ExportApk(){
+			var data = new Object;
+			data.taskId = Edbox.GetGUID();
+			data.appId = '903fe540-5f5b-11e9-8e67-c371fc656ae9';
+			// data.icon = '2870e7e7-78ea-438d-890c-6aa8c5429c69';
+			data.icon = '0f800cfc-c715-4bbd-8ed7-b95bdd832799';
+			data.accessType = 3;
+			data.gameName = '切水果041502';
+			Edbox.Lobby.ExportApk(data, function(data){
+				console.log("111 :" + data);
+			}, function(error){
+				console.log("111  ExportApk error:" + JSON.stringify(error))
+			});
+		}
+		
+		function ExportExeGame(){
+			var data = new Object;
+			data.taskId = Edbox.GetGUID();
+			data.appId = '903fe540-5f5b-11e9-8e67-c371fc656ae9';
+			data.icon = '2870e7e7-78ea-438d-890c-6aa8c5429c69';
+			data.accessType = 3;
+			data.gameName = '切水果041502';
+			Edbox.Lobby.ExportExeGame(data, function(data){
+				console.log("111 :" + data);
+			}, function(error){
+				console.log("111  ExportExeGame error:" + JSON.stringify(error))
+			});
+		}
+		
+		function GetUserScoreInfo(){
+			var data = new Object;
+			data.appId = '1b8423c0-af50-11e9-8771-c5785cee4240';
+			Edbox.Lobby.GetUserScoreInfo(data, function(data){
+				console.log("111 :" + data);
+			}, function(error){
+				console.log("111  GetUserScoreInfo error:" + JSON.stringify(error))
+			});
+		}
+		
+		function SearchBaiduImage(){
+			var data = new Object;
+			//随机guid
+			data.taskId = Edbox.GetGUID();
+			//搜索关键字
+			data.word = '可爱';
+			//页数
+			data.pageIndex = 1;
+			Edbox.EbService.SearchBaiduImage(data, function(data){
+				console.log("SearchBaiduImage :" + data);
+			}, function(error){
+				console.log("SearchBaiduImage error:" + JSON.stringify(error))
+			});
+		}
+		
+		function SearchGoogleImage(){
+			var data = new Object;
+			//随机guid
+			data.taskId = Edbox.GetGUID();
+			//搜索关键字
+			data.word = '可爱';
+			//页数
+			data.pageIndex = 1;
+			Edbox.EbService.SearchGoogleImage(data, function(data){
+				console.log("SearchGoogleImage :" + data);
+			}, function(error){
+				console.log("SearchGoogleImage error:" + JSON.stringify(error))
+			});
+		}
+		
+		function OpenScreenShooter(){
+			var data = new Object;
+			//随机guid
+			data.taskId = Edbox.GetGUID();
+			Edbox.EbService.OpenScreenShooter(data, function(data){
+				console.log("OpenScreenShooter :" + data);
+			}, function(error){
+				console.log("OpenScreenShooter error:" + JSON.stringify(error))
+			});
+		}
+		
+		function GetImagePoints(){
+			var w = 500;
+			var h = 500;
+			Edbox.ImageCollider.GetChainColiderPoints("demo.png", w, h, 0, function(points, img){
+				console.log(JSON.stringify(points));
+			}, function(err){
+				console.log(err);
+			});
+            
+            
+//             Edbox.ImageCollider.GetPolygonColiderPoints("demo.png", w, h, 0, function(points, img){
+//             	console.log(JSON.stringify(points));
+//             	var n0=document.getElementById("Canvas0");
+//             	n0.setAttribute("width",w);
+//             	n0.setAttribute("height",h);
+//             	var c0 = n0.getContext("2d");
+//             	c0.drawImage(img, 0, 0, w, h);
+//             	var nc=document.getElementById("newCanvas");
+//             	nc.setAttribute("width",w);
+//             	nc.setAttribute("height",h);
+//             	var c2 = nc.getContext("2d");
+//             	c2.drawImage(img, 0, 0, w, h);
+//             	for (var i = 0; i < points.length; i++) {
+//             		var ps = points[i];
+//             		for (var j = 0; j < ps.length; j++) {
+//             			c2.strokeStyle = "rgba(0, 0, 255, 0.5)";
+//             			c2.strokeRect(ps[j].x, ps[j].y, 1, 1);
+//             		}
+//             	}
+//             }, function(err){
+//             	console.log(err);
+//             });
+			
+// 			Edbox.ImageCollider.GetPolygonColiderPoints("demo.png", w, h, 100, function(points){
+// 				var nc=document.getElementById("newCanvas");
+// 				nc.setAttribute("width",w);
+// 				nc.setAttribute("height",h);
+// 				var c2 = nc.getContext("2d");
+// 				for (var i = 0; i < points.length; i++) {
+// 					c2.strokeStyle = "rgba(0, 0, 255, 0.5)";
+// 					c2.strokeRect(points[i].x, points[i].y, 1, 1);
+// 				}
+// 			}, function(err){
+// 				console.log(err);
+// 			});
+			
+			// GetPoints2(w, h);
+		}
+		
+		function GetPoints2(w, h){
+			var img = new Image();
+			img.onload = function () {
+				var c=document.getElementById("myCanvas");
+				c.setAttribute("width",w);
+				c.setAttribute("height",h);
+				var fullNc=document.getElementById("fullCanvas");
+				fullNc.setAttribute("width",w);
+				fullNc.setAttribute("height",h);
+				var tempNc=document.getElementById("tempCanvas");
+				tempNc.setAttribute("width",w);
+				tempNc.setAttribute("height",h);
+				var nc=document.getElementById("newCanvas");
+				nc.setAttribute("width",w);
+				nc.setAttribute("height",h);
+				var context = c.getContext("2d");
+				context.drawImage(this, 0, 0, w, h);
+				var fullC = fullNc.getContext("2d");
+				var tempC = tempNc.getContext("2d");
+				var c2 = nc.getContext("2d");
+				var count = 100;
+				var sw = w/count;
+				var sh = h/count;
+				var xPointMap = new Dictionary();
+				for (var i = 0; i < count + 1; i++) {
+					var isFirst = true;
+					for (var j = 0; j < count + 1; j++) {
+						var pointY = sh*i;
+						var pointX = sw*j;
+						var imageData = context.getImageData(pointX, pointY, 1, 1);
+						var pixel = imageData.data;
+						if(pixel[3] > 0){
+							fullC.strokeStyle = "rgba(0, 0, 255, 0.5)";
+							fullC.strokeRect(pointX, pointY, 1, 1);
+							var isNextEmpty = false;
+							if(j < count){
+								var nPointX = sw*(j+1);
+								var nImageData = context.getImageData(nPointX, pointY, 1, 1);
+								var nPixel = nImageData.data;
+								if(nPixel[3] === 0){
+									isNextEmpty = true;
+								}
+							}
+							if(i=== 0 || i === count || j === count || isFirst || isNextEmpty){
+								isFirst = false;
+								var point = new Object();
+								point.x = pointX;
+								point.y = pointY;
+								if (!xPointMap.ContainsKey(pointX)) {
+									var points = new Array();
+									points.push(point);
+								    xPointMap.Set(pointX, points);
+								}else{
+									var points = xPointMap.Get(pointX);
+									points.push(point);
+								}
+							}
+						}else{
+							isFirst = true;
+						}
+					}
+				}
+				
+// 				for (var i = 0; i < count + 1; i++) {
+// 					var isFirst = true;
+// 					for (var j = 0; j < count + 1; j++) {
+// 						var pointX = sw*i;
+// 						var pointY = sh*j;
+// 						var imageData = context.getImageData(pointX, pointY, 1, 1);
+// 						var pixel = imageData.data;
+// 						if(pixel[3] > 0){
+// 							var isNextEmpty = false;
+// 							if(j < count){
+// 								var nPointY = sh*(j+1);
+// 								var nImageData = context.getImageData(pointX, nPointY, 1, 1);
+// 								var nPixel = nImageData.data;
+// 								if(nPixel[3] === 0){
+// 									isNextEmpty = true;
+// 								}
+// 							}
+// 							if(i=== 0 || i === count || j === count || isFirst || isNextEmpty){
+// 								isFirst = false;
+// 								var point = new Object();
+// 								point.x = pointX;
+// 								point.y = pointY;
+// 								if (!xPointMap.ContainsKey(pointX)) {
+// 									var points = new Array();
+// 									points.push(point);
+// 								    xPointMap.Set(pointX, points);
+// 								}else{
+// 									var points = xPointMap.Get(pointX);
+// 									var isExist = false;
+// 									for (var k = 0; k < points.length; k++) {
+// 										if(points[k].x === pointX && points[k].y === pointY){
+// 											isExist = true;
+// 											continue;
+// 										}
+// 									}
+// 									if(!isExist){
+// 										points.push(point);
+// 									}
+// 								}
+// 							}
+// 						}else{
+// 							isFirst = true;
+// 						}
+// 					}
+// 				}
+				
+				for (var i = 0; i < xPointMap.Keys.length; i++) {
+					var key = xPointMap.Keys[i];
+					var points = xPointMap.Get(key);
+					for (var j = 0; j < points.length; j++) {
+						tempC.strokeStyle = "rgba(0, 0, 255, 0.5)";
+						tempC.strokeRect(points[j].x, points[j].y, 1, 1);
+					}
+				}
+				
+				var yPointMap = new Dictionary();
+				for (var i = 0; i < xPointMap.Keys.length; i++) {
+					var key = xPointMap.Keys[i];
+					var points = xPointMap.Get(key);
+					var isNextFirst = true;
+					for (var j = 0; j < points.length; j++) {
+						var py = points[j];
+						var isAdd = false;
+						if(j === points.length - 1){
+							isAdd = true;
+						}else{
+							var isContinuity = points[j + 1].y - py.y <= sh;
+							if(isNextFirst){
+								isNextFirst = !isContinuity;
+								isAdd = true;
+							}else if(!isContinuity){
+								isAdd = true;
+							}
+						}
+						
+						if(isAdd){
+							if (!yPointMap.ContainsKey(py.y)) {
+								var pArray = new Array();
+								pArray.push(py);
+							    yPointMap.Set(py.y, pArray);
+							}else{
+								var pArray = yPointMap.Get(py.y);
+								pArray.push(py);
+								if(py.y === 0 || py.y === 10 || py.y === 20){
+									console.log("pArray "+py.y+" : " + JSON.stringify(pArray));
+								}
+								sort(pArray);
+							    yPointMap.Set(py.y, pArray);
+								if(py.y === 0 || py.y === 10 || py.y === 20){
+									console.log("pArray2 "+py.y+" : " + JSON.stringify(pArray));
+								}
+							}
+						}
+					}
+				}
+// 				
+				var nPoints = new Array();
+				var removeKeys = new Array();
+				for (var i = 0; i < yPointMap.Keys.length; i++) {
+					var key = yPointMap.Keys[i];
+					var points = yPointMap.Get(key);
+					if(points.length%2 === 0){
+						var prevKey = key - sh;
+						var nextKey = key + sh;
+						if(yPointMap.ContainsKey(prevKey) && yPointMap.ContainsKey(nextKey)){
+							var prevPoints = yPointMap.Get(prevKey);
+							var nextPoints = yPointMap.Get(nextKey);
+							if(prevPoints.length === nextPoints.length && points.length === nextPoints.length){
+								var isSameScale = false;
+								for(var j = 0; j < prevPoints.length; j++){
+									if(j % 2 === 0){
+										var d1 = Math.abs(nextPoints[j].x - points[j].x);
+										var d2 = Math.abs(points[j].x - prevPoints[j].x);
+										var d3 = Math.abs(nextPoints[j+1].x - points[j+1].x);
+										var d4 = Math.abs(points[j+1].x - prevPoints[j+1].x);
+										var k1 = d1 - d2;
+										var k2 = d3 - d4;
+										if(d1 === 0 || d2 === 0 || d3 === 0 || d4 === 0 || 	k1 - sh === k2 || k1 === k2 || k1 + sh === k2){
+											isSameScale = true;
+											if(key === 10){
+												console.log("isSameScale = true");
+											}
+										}else{
+											if(key === 10){
+												console.log("isSameScale = false, break");
+											}
+											break;
+										}
+									}
+								}
+								
+								if(isSameScale){
+									removeKeys.push(key);
+								}
+							}
+						}
+					}else if(points.length === 1){
+						removeKeys.push(key);
+					}
+				}
+// 				
+				for (var i = 0; i < removeKeys.length; i++) {
+					yPointMap.Remove(removeKeys[i]);
+				}
+				
+				for (var i = 0; i < yPointMap.Keys.length; i++) {
+					var key = yPointMap.Keys[i];
+					var points = yPointMap.Get(key);
+					for (var j = 0; j < points.length; j++) {
+						nPoints.push(points[j]);
+					}
+				}
+ 				
+				for (var i = 0; i < nPoints.length; i++) {
+					var p = nPoints[i];
+					c2.strokeStyle = "rgba(0, 0, 255, 0.5)";
+					c2.strokeRect(p.x, p.y, 1, 1);
+					console.log("points " + i + " : " + p.x + " , " + p.y);
+				}
+// 				var imageData = context.getImageData(10, 10, 1, 1);
+// 				var pixel = imageData.data;
+// 				var r = pixel[0];
+// 				var g = pixel[1];
+// 				var b = pixel[2];
+// 				var a = pixel[3] / 255;
+// 				console.log("pixel : " + pixel)
+			};
+			img.src = "demo.png";
+		}
+		
+		function sort(arr){
+			for(var j=0;j<arr.length-1;j++){
+			//两两比较，如果前一个比后一个大，则交换位置。
+			   for(var i=0;i<arr.length-1-j;i++){
+					if(arr[i].x>arr[i+1].x){
+						var temp = arr[i];
+						arr[i] = arr[i+1];
+						arr[i+1] = temp;
+					}
+				} 
+			}
+		}
+		
+		function MqttTest(){
+			Edbox.Mqtt.init({
+			    id:'mqttjs_b69b4119',
+			    ip:'172.24.140.223',
+			    port:8083,
+			    userName:'admin',
+			    password:'public',
+			    success:function(){
+			        console.log("mqtt连接成功。");
+			    },
+			    error:function(){
+			        console.log("mqtt连接失败。");
+			    },
+			    connectLost:function(){
+			        console.log("mqtt连接丢失。");
+					Edbox.Mqtt.reconnect();
+			    },
+			    onMessage:function(message){
+			        console.log("mqtt消息:",message.payloadString);
+			    }
+			});
+		}
+		
+		function WalletInit(){
+            Edbox.SdpWallet.Init(function (data) {
+                //console.log(data);
+				console.log("SdpWallet init finish !");
+				GetWalletProductList();
+			});
+		}
+		
+		function GetWalletProductList(){
+			console.log("GetWalletProductList !");
+			Edbox.SdpWallet.GetProductList({page:1, count:10}, function(data){
+				console.log("data :" + JSON.stringify(data.data));
+			}, function(err){
+				
+			});
+		}
+		
+		function GetWalletChanelList(){
+            var ob = new Object();
+            Edbox.SdpWallet.GetPayChannelList(ob,function (data) {
+                console.log("data :" + JSON.stringify(data));
+			}, function(err){
+				
+			});
+        }
+
+        function PayOrder() {
+            var ob = new Object();
+            ob.pay_source = 3;
+            //ob.id = "5de61ec59b2bd3603a66da1f"; //US 0.16
+            ob.id = "5dede843b4410bff5bc235fd";//CN 0.01
+            ob.channel = Edbox.AppKey === "CN" ? "CHANNEL_ALIPAY_BANK" :"CHANNEL_PAYPAL_WEB";
+            Edbox.SdpWallet.PayOrderWithCreate(ob, function (data) {
+                console.log("data :" + JSON.stringify(data));
+            }, function (e) {
+                console.log("data :" + JSON.stringify(e));
+            });
+        }
+
+        function GetBalance() {
+            Edbox.SdpWallet.GetUserBalance(function (data) {
+                console.log(data);
+            }, function (e) {
+                console.log(e);
+            });
+        }
+        
+        function GetUserInfo(){
+            console.log('GetVipList :' + JSON.stringify(Edbox.UserVipInfo));
+            Edbox.Vip.VipExpireListen('', function(vip){
+                console.log('GetVipList :' + JSON.stringify(vip));
+            });
+        }
+        
+        function GetVipProtocol(){
+            Edbox.Vip.GetVipProtocol('', function(data){
+                console.log('GetVipList :' + JSON.stringify(data));
+            })
+        }
+        
+        function GetVipList(){
+            Edbox.Vip.GetList('', function(data){
+                console.log('GetVipList :' + JSON.stringify(data));
+            })
+        }
+        
+        function BuyVip(){
+            var data = new Object; 
+            data.item_id = 3;
+            data.quantity = 1;
+            data.payment_channel = 'CHANNEL_ALIPAY_BANK';
+            Edbox.Vip.CreateOrder(data, function(data){
+                console.log('GetVipList :' + JSON.stringify(data));
+            })
+        }
+        
+        function AudiohelpServerTest(){
+            Edbox.AudiohelpServer.Init();
+        }
+        
+        function GetThesaurus(){
+            var ob = new Object();
+            ob.guid = 'd791f812-3e3c-4e09-8d68-320644e03f72';
+            ob.key = '不';
+            Edbox.Thesaurus.Get(ob, function(data){
+                console.log('GetThesaurus :' + JSON.stringify(data));
+            }, function(e){
+                console.log(e);
+            });
+        }
+    </script>
+</body>
+</html>

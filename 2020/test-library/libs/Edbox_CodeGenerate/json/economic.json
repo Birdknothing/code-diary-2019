@@ -1,0 +1,606 @@
+{
+  "Economic": {
+    "Name": "Economic",
+    "ComponentName": "Edbox经济组件",
+    "Description": "用于Edbox平台的经济组件,用于实现经济系统中货币的管理",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "Edbox",
+        "Wiki": "Edbox通用组件"
+      },
+      {
+        "Name": "Edbox.Request",
+        "Wiki": "Edbox通用请求授权组件"
+      },
+      {
+        "Name": "Edbox.Currency",
+        "Wiki": "Edbox经济组件#货币模块"
+      }
+    ],
+    "Datas": [],
+    "Functions": [],
+    "StaticDatas": [
+      {
+        "Name": "CurrencyList",
+        "ChineseName": "货币列表",
+        "EnglishName": "Currency List",
+        "Type": "Map",
+        "MapType": [
+          {
+            "Type": "Currency"
+          },
+          {
+            "Type": "Int"
+          }
+        ],
+        "Value": null
+      },
+      {
+        "Name": "RoleID",
+        "ChineseName": "当前角色ID",
+        "EnglishName": "Current Role ID",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "ChangeCallBack",
+        "ChineseName": "货币数量变化回调",
+        "EnglishName": "Currency change callback",
+        "Type": "Function",
+        "FunctionType": [
+          {
+            "Type": "Currency"
+          },
+          {
+            "Type": "Int"
+          }
+        ],
+        "Value": null
+      }
+    ],
+    "StaticFunctions": [
+      {
+        "Name": "Init",
+        "ChineseName": "根据配置表Json数据获取配置表初始化",
+        "EnglishName": "According to the configuration table Json data acquisition configuration table initialization",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "data",
+            "Type": "Text",
+            "Description": "配置表Json数据",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GetCurrencyCount",
+        "ChineseName": "获取货币数量",
+        "EnglishName": "Get the amount of money",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "Currency",
+            "Type": "Currency",
+            "Description": "货币类型",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "Int",
+          "Description": "货币数量"
+        }
+      },
+      {
+        "Name": "GainCurrency",
+        "ChineseName": "游戏内获得货币",
+        "EnglishName": "Get currency in the game",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "Currency",
+            "Type": "Currency",
+            "Description": "货币类型",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "Count",
+            "Type": "Int",
+            "Description": "数量",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "UseCurrency",
+        "ChineseName": "游戏内使用货币",
+        "EnglishName": "Use currency in the game",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "Currency",
+            "Type": "Currency",
+            "Description": "货币类型",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "Count",
+            "Type": "Int",
+            "Description": "数量",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GainCurrencyByMall",
+        "ChineseName": "在商城获得货币",
+        "EnglishName": "Gain currency in the mall",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "Currency",
+            "Type": "Currency",
+            "Description": "货币类型",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "Count",
+            "Type": "Int",
+            "Description": "数量",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "UseCurrencyByMall",
+        "ChineseName": "在商城使用货币",
+        "EnglishName": "Use currency in the mall",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "Currency",
+            "Type": "Currency",
+            "Description": "货币类型",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "Count",
+            "Type": "Int",
+            "Description": "数量",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  },
+  "Currency": {
+    "Name": "Currency",
+    "ComponentName": "Edbox经济组件#货币模块",
+    "Description": "用于Edbox平台的经济组件,用于实现经济系统中货币的管理",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "Edbox",
+        "Wiki": "Edbox通用组件"
+      },
+      {
+        "Name": "Edbox.Request",
+        "Wiki": "Edbox通用请求授权组件"
+      }
+    ],
+    "Datas": [
+      {
+        "Name": "ID",
+        "ChineseName": "游戏内的唯一ID",
+        "EnglishName": "Unique ID",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "GUID",
+        "ChineseName": "服务器上的唯一ID",
+        "EnglishName": "Unique ID On Server",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Index",
+        "ChineseName": "服务器记录的货币类型(1-10)",
+        "EnglishName": "Currency type recorded by the server(1-10)",
+        "Type": "Int",
+        "Value": ""
+      },
+      {
+        "Name": "Name",
+        "ChineseName": "名称",
+        "EnglishName": "Name",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Icon",
+        "ChineseName": "图标",
+        "EnglishName": "Icon",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "Description",
+        "ChineseName": "描述",
+        "EnglishName": "Description",
+        "Type": "LongText",
+        "Value": ""
+      },
+      {
+        "Name": "Attribute",
+        "ChineseName": "属性",
+        "EnglishName": "Attribute",
+        "Type": "Json",
+        "Value": ""
+      }
+    ],
+    "Functions": [
+      {
+        "Name": "Get",
+        "ChineseName": "通过服务器验证配置表的数据",
+        "EnglishName": "Verify the data of the configuration table through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Currency"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Set",
+        "ChineseName": "通过服务器保存数据",
+        "EnglishName": "Save data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Currency"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Delete",
+        "ChineseName": "通过服务器删除数据",
+        "EnglishName": "Delete data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ],
+    "StaticDatas": [
+      {
+        "Name": "CurrencyList",
+        "ChineseName": "货币列表",
+        "EnglishName": "Currency List",
+        "Type": "Array",
+        "ArrayType": {
+          "Type": "Currency"
+        },
+        "Value": ""
+      }
+    ],
+    "StaticFunctions": [
+      {
+        "Name": "Init",
+        "ChineseName": "根据配置表Json数据获取配置表初始化",
+        "EnglishName": "According to the configuration table Json data acquisition configuration table initialization",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "data",
+            "Type": "Text",
+            "Description": "配置表Json数据",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GetByGUID",
+        "ChineseName": "获取货币根据货币GUID",
+        "EnglishName": "Get currency based on currency GUID",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "guid",
+            "Type": "Text",
+            "Description": "GUID值",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "Currency",
+          "Description": "货币对象"
+        }
+      },
+      {
+        "Name": "GetByID",
+        "ChineseName": "获取货币根据游戏内唯一ID",
+        "EnglishName": "Get currency based on in-game unique ID",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "id",
+            "Type": "Text",
+            "Description": "游戏内唯一ID",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "Currency",
+          "Description": "货币对象"
+        }
+      },
+      {
+        "Name": "GetByName",
+        "ChineseName": "获取货币根据货币名称",
+        "EnglishName": "Get currency based on item name",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "name",
+            "Type": "Text",
+            "Description": "货币名称",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "Currency",
+          "Description": "货币对象"
+        }
+      },
+      {
+        "Name": "GetList",
+        "ChineseName": "获取货币列表",
+        "EnglishName": "Get the list of currency",
+        "Type": "Function",
+        "Keys": null,
+        "Return": {
+          "Type": "Array",
+          "ArrayType": {
+            "Type": "Currency"
+          },
+          "Description": "货币列表"
+        }
+      },
+      {
+        "Name": "GetJson",
+        "ChineseName": "获取配置表Json",
+        "EnglishName": "Get the configuration table Json",
+        "Type": "Function",
+        "Keys": null,
+        "Return": {
+          "Type": "Text",
+          "Description": "配置表Json"
+        }
+      },
+      {
+        "Name": "New",
+        "ChineseName": "新建货币",
+        "EnglishName": "New Currency",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "obj",
+            "Type": "Object",
+            "Description": "货币初始配置",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Currency"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "SaveList",
+        "ChineseName": "保存货币列表",
+        "EnglishName": "Save Currency List",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Array",
+              "ArrayType": {
+                "Type": "Currency"
+              }
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  }
+}

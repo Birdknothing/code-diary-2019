@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Document</title>
+    <style>
+        .a{
+            display: flex;
+            width: 1000px;
+            justify-content: space-around;
+        }
+        .b{
+            width: 30px;
+            height: 30px;
+        }
+        .b:first-child{
+            background-color: red;
+            flex:1 1 50%;
+        }
+        .b:nth-child(2){
+            background-color: green;
+            flex:2;
+        }
+        .b:last-child{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="b">11</div>
+        <div class="b">22</div>
+        <div class="b">33</div>
+    </div>
+    <input type="range" onchange="(()=>{var t = document.getElementsByClassName('a')[0];t.style.width=10*this.value + 'px'})()">
+</body>
+</html>

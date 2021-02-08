@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet/less" href="./a.less" />
+    </head>
+    <body>
+        <script>
+            less = { env: 'development'};
+        </script>
+        <script src="./less.js"></script>
+        <script>
+            console.log(less);
+            less.watch();
+        </script>
+        <div class="test">
+            test
+        </div>
+
+        <ul>
+            <li>p1<button onclick="cg('p1')">cgcolor</button></li>
+            <li>p2<button onclick="cg('p2')">cgcolor</button></li>
+        </ul>
+        <script>
+            const cg = (cname) => {
+                const body = document.body;
+                body.classList.add(cname);
+            };
+        </script>
+    </body>
+</html>

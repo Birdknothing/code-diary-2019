@@ -4,14 +4,19 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <script src="../my-min-library/react.min.js"></script>
-        <script src="../my-min-library/reactdom.min.js"></script>
-        <script src="../my-min-library/babel.min.js"></script>
+        <script src="../../my-min-library/jquery.dev.js"></script>
+        <script src="../../my-min-library/react.min.js"></script>
+        <script src="../../my-min-library/reactdom.min.js"></script>
+        <script src="../../my-min-library/babel.min.js"></script>
         <title>Document</title>
     </head>
     <body>
         <div id="app"></div>
         <script type="text/babel">
+            const log = txt =>
+                $("<div></div>")
+                    .html(txt)
+                    .appendTo("body");
             const { Component, Suspense } = React;
             const C = React.lazy(
                 () =>
@@ -20,7 +25,9 @@
                             res({
                                 default: function() {
                                     return (
-                                        <div style={{ width: 100, height: 100 }}>
+                                        <div
+                                            style={{ width: 100, height: 100 }}
+                                        >
                                             <img src="./bg.jpg" />
                                         </div>
                                     );
@@ -29,18 +36,29 @@
                         }, 2000);
                     })
             );
+            const arr = ['ac','b','c']
             class W extends Component {
+                state:{
+                    dom:null
+                }
+                componentDidMount(){
+                    
+                }
+                clickItem(i,ele){
+                    console.log('herer');
+                    
+                    log(ele)
+                }
                 render() {
+                    const {evt} = this.props;
                     return (
-                        <div>
-                            <Suspense fallback={"loading..."}>
-                                <C />
-                            </Suspense>
+                        <div ref={el=>(this.state.dom = ele)}>
+                            {this.props.items.map((ele,i) => (<li >{ele}</li>))}
                         </div>
                     );
                 }
             }
-            ReactDOM.render(<W />, app);
+            ReactDOM.render(<W items={arr} evt={"onClick"} />, app);
         </script>
     </body>
 </html>

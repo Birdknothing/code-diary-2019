@@ -1,0 +1,548 @@
+{
+  "Datas": [
+    {
+      "ID": "Datas_BaseInfo",
+      "Name": "BaseInfo",
+      "ShowName": "BaseInfo Setting",
+      "Type": "Tab01",
+      "PageType": "FullPage",
+      "Datas": [
+        {
+          "ID": "Datas_BaseInfo_GameName",
+          "Name": "GameName",
+          "ShowName": "Game Name",
+          "Value": "Value",
+          "Type": "Text01"
+        },
+        {
+          "ID": "Datas_BaseInfo_Description",
+          "Name": "Description",
+          "ShowName": "Game Description",
+          "Value": "Value",
+          "Type": "Text02"
+        },
+        {
+          "ID": "Datas_BaseInfo_CoverImage",
+          "Name": "CoverImage",
+          "ShowName": "Cover Image",
+          "Value": "",
+          "GUID": "113c93d0-401e-11e9-909c-ab890e471017",
+          "Type": "Image01"
+        }
+      ]
+    },
+    {
+      "ID": "Datas_Test",
+      "Name": "Test",
+      "ShowName": "Test",
+      "Type": "Tab01",
+      "PageType": "FullPage",
+      "Datas": [
+        {
+          "ID": "Datas_Test_1",
+          "Name": "1",
+          "ShowName": "TabTest",
+          "Type": "Tab01",
+          "PageType": "FullPage",
+          "Datas": [
+            {
+              "ID": "Datas_Test_1_1",
+              "Name": "1",
+              "ShowName": "1",
+              "Type": "Tab01",
+              "PageType": "FullPage",
+              "Datas": [
+                {
+                  "ID": "Datas_Test_1_1_2",
+                  "Name": "2",
+                  "ShowName": "2",
+                  "Type": "Tab02",
+                  "Datas": [
+                    {
+                      "ID": "Datas_Test_1_1_2_3",
+                      "Name": "3",
+                      "ShowName": "3",
+                      "Type": "Tab03",
+                      "Datas": [
+                        {
+                          "ID": "Datas_Test_1_1_2_3_Key",
+                          "Name": "Key",
+                          "ShowName": "Key",
+                          "Value": "值",
+                          "Type": "Text01"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "ID": "Datas_Test_1_1_3",
+                  "Name": "3",
+                  "ShowName": "3",
+                  "Type": "Tab02",
+                  "Datas": [
+                    {
+                      "ID": "Datas_Test_1_1_3_Key",
+                      "Name": "Key",
+                      "ShowName": "Key",
+                      "Value": "值",
+                      "Type": "Text01"
+                    }
+                  ]
+                },
+                {
+                  "ID": "Datas_Test_1_1_4",
+                  "Name": "4",
+                  "ShowName": "4",
+                  "Type": "Tab02",
+                  "Datas": [
+                    {
+                      "ID": "Datas_Test_1_1_4_Key",
+                      "Name": "Key",
+                      "ShowName": "Key",
+                      "Value": "Key",
+                      "Type": "Text01"
+                    }
+                  ]
+                },
+                {
+                  "ID": "Datas_Test_1_1_5",
+                  "Name": "5",
+                  "ShowName": "5",
+                  "Type": "Tab02",
+                  "Datas": [
+                    {
+                      "ID": "Datas_Test_1_1_5_Key",
+                      "Name": "Key",
+                      "ShowName": "Key",
+                      "Value": "Key",
+                      "Type": "Text01"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ID": "Datas_Test_2",
+          "Name": "2",
+          "ShowName": "2",
+          "Type": "Tab01",
+          "PageType": "FullPage",
+          "Datas": [
+            {
+              "ID": "Datas_Test_2_Text01",
+              "Name": "Text01",
+              "ShowName": "Text01",
+              "Type": "Text01",
+              "Value": "Value",
+              "Length": 10,
+              "ReadOnly": false,
+              "StyleEdit": true,
+              "Style": {
+                "fontFamily": {
+                  "id": 0,
+                  "name": "A Galega"
+                },
+                "fontSize": {
+                  "size": 12,
+                  "startNum": 8,
+                  "endNum": 72
+                },
+                "fontColor": "#cf0100",
+                "fontStyle": {
+                  "bold": false,
+                  "italic": false,
+                  "underline": false
+                }
+              }
+            },
+            {
+              "ID": "Datas_Test_2_Text01_1",
+              "Name": "Text01_1",
+              "ShowName": "Text01_1",
+              "Type": "Text01",
+              "Value": "Value",
+              "Length": 10,
+              "ReadOnly": true,
+              "StyleEdit": false
+            },
+            {
+              "ID": "Datas_Test_2_Text01_2",
+              "Name": "Text01_2",
+              "ShowName": "Text01_2",
+              "Type": "Text01",
+              "Value": "0 - true - true",
+              "Length": 0,
+              "ReadOnly": true,
+              "StyleEdit": true
+            },
+            {
+              "ID": "Datas_Test_2_Text02",
+              "Name": "Text02",
+              "ShowName": "Text02",
+              "Type": "Text02",
+              "Value": "Text02"
+            },
+            {
+              "ID": "Datas_Test_2_Value02",
+              "Name": "Value02",
+              "ShowName": "Value02",
+              "Type": "Value02",
+              "MaxValue": 1000,
+              "MinValue": 1,
+              "Value": 100,
+              "ReadOnly": false,
+              "UnitText": "m/s"
+            },
+            {
+              "ID": "Datas_Test_2_Value03",
+              "Name": "Value03",
+              "ShowName": "Value03",
+              "Type": "Value03",
+              "Value": [ 0, 100 ],
+              "ReadOnly": false,
+              "UnitText": "m/s"
+            },
+            {
+              "ID": "Datas_Test_2_Image01",
+              "Name": "Image01",
+              "ShowName": "Image01",
+              "Type": "Image01",
+              "Value": "",
+              "GUID": "113c93d0-401e-11e9-909c-ab890e471017",
+              "Width": 256,
+              "Height": 256,
+              "ReadOnly": false,
+              "ImageType": [ "png" ]
+            },
+            {
+              "ID": "Datas_Test_2_Image02",
+              "Name": "Image02",
+              "ShowName": "Image02",
+              "Type": "Image02",
+              "Value": [ "", "" ],
+              "GUID": [ "113c93d0-401e-11e9-909c-ab890e471017", "113c93d0-401e-11e9-909c-ab890e471017" ],
+              "Width": 256,
+              "Height": 256,
+              "ReadOnly": false,
+              "ImageType": [ "png" ]
+            },
+            {
+              "ID": "Datas_Test_2_Audio01",
+              "Name": "Audio01",
+              "ShowName": "Audio01",
+              "Type": "Audio01",
+              "Value": "",
+              "GUID": "113c93d0-401e-11e9-909c-ab890e471017",
+              "ReadOnly": false,
+              "AudioType": [ "mp3" ]
+            },
+            {
+              "ID": "Datas_Test_2_Table01",
+              "Name": "Table01",
+              "ShowName": "Table01",
+              "Type": "Table01",
+              "Value": [
+                [
+                  {
+                    "title": "name",
+                    "dataIndex": "name",
+                    "width": "50%",
+                    "editable": true
+                  },
+                  {
+                    "title": "age",
+                    "dataIndex": "age",
+                    "width": "50%",
+                    "editable": true
+                  }
+                ],
+                [
+                  {
+                    "key": "key1",
+                    "name": "name1",
+                    "age": "1"
+                  },
+                  {
+                    "key": "key2",
+                    "name": "name2",
+                    "age": "2"
+                  }
+                ]
+              ],
+              "ReadOnly": false
+            },
+            {
+              "ID": "Datas_Test_2_Switch01",
+              "Name": "Switch01",
+              "ShowName": "开关",
+              "Type": "Switch01",
+              "Value": false,
+              "ReadOnly": false
+            },
+            {
+              "ID": "Datas_Test_2_Select01",
+              "Name": "Select01",
+              "ShowName": "Select01",
+              "Type": "Select01",
+              "Value": "1",
+              "ReadOnly": false,
+              "Items": [ "1", "2", "3" ]
+            },
+            {
+              "ID": "Datas_Test_2_Select02",
+              "Name": "Select02",
+              "ShowName": "Select02",
+              "Type": "Select02",
+              "Value": "1",
+              "ReadOnly": false,
+              "Items": [ "1", "2", "3" ]
+            },
+            {
+              "ID": "Datas_Test_2_Select03",
+              "Name": "Select03",
+              "ShowName": "Select03",
+              "Type": "Select03",
+              "Value": [ "1", "2" ],
+              "ReadOnly": false,
+              "Items": [ "1", "2", "3" ]
+            },
+            {
+              "ID": "Datas_Test_2_Color01",
+              "Name": "Color01",
+              "ShowName": "Color01",
+              "Type": "Color01",
+              "Value": "#FFFFFF",
+              "ReadOnly": false
+            }
+          ]
+        },
+        {
+          "ID": "Datas_Test_3",
+          "Name": "3",
+          "ShowName": "Datas_Test_3",
+          "Type": "Tab01",
+          "PageType": "FullPage",
+          "Datas": [
+            {
+              "ID": "Datas_Test_3_Value03",
+              "Name": "Value03",
+              "ShowName": "Value03",
+              "Type": "Value03",
+              "Value": [ 0, 100 ],
+              "ReadOnly": false,
+              "UnitText": "m/s"
+            }
+          ]
+        },
+        {
+          "ID": "Datas_Test_4",
+          "Name": "4",
+          "ShowName": "Datas_Test_4",
+          "Type": "Tab01",
+          "PageType": "FullPage",
+          "Datas": [
+            {
+              "ID": "Datas_Test_4_Image02",
+              "Name": "Image02",
+              "ShowName": "Datas_Test_4_Image02",
+              "Type": "Image02",
+              "Value": [ "", "" ],
+              "GUID": [ "113c93d0-401e-11e9-909c-ab890e471017", "113c93d0-401e-11e9-909c-ab890e471017" ],
+              "Width": 256,
+              "Height": 256,
+              "ReadOnly": false,
+              "ImageType": [ "png" ]
+            }
+          ]
+        },
+        {
+          "ID": "Datas_Test_5",
+          "Name": "5",
+          "ShowName": "Datas_Test_5",
+          "Type": "Tab01",
+          "PageType": "FullPage",
+          "Datas": [
+            {
+              "ID": "Datas_Test_5_Color01",
+              "Name": "Color01",
+              "ShowName": "Datas_Test_5_Color01",
+              "Type": "Color01",
+              "Value": "#FFFFFF",
+              "ReadOnly": false
+            }
+          ]
+        },
+        {
+          "ID": "Datas_Test_6",
+          "Name": "6",
+          "ShowName": "Datas_Test_6",
+          "Type": "Tab01",
+          "PageType": "FullPage",
+          "Datas": [
+            {
+              "ID": "Datas_Test_6_Switch01",
+              "Name": "Switch01",
+              "ShowName": "Switch01",
+              "Type": "Switch01",
+              "Value": false,
+              "ReadOnly": false
+            },
+            {
+              "ID": "Datas_Test_6_Select01",
+              "Name": "Select01",
+              "ShowName": "Select01",
+              "Type": "Select01",
+              "Value": "1",
+              "ReadOnly": false,
+              "Items": [ "1", "2", "3" ]
+            },
+            {
+              "ID": "Datas_Test_6_Select02",
+              "Name": "Select02",
+              "ShowName": "Select02",
+              "Type": "Select02",
+              "Value": "1",
+              "ReadOnly": false,
+              "Items": [ "1", "2", "3" ]
+            },
+            {
+              "ID": "Datas_Test_6_Select03",
+              "Name": "Select03",
+              "ShowName": "Select03",
+              "Type": "Select03",
+              "Value": [ "1", "2" ],
+              "ReadOnly": false,
+              "Items": [ "1", "2", "3" ]
+            }
+          ]
+        },
+        {
+          "ID": "Datas_Test_7",
+          "Name": "7",
+          "ShowName": "Datas_Test_7",
+          "Type": "Tab01",
+          "PageType": "FullPage",
+          "Datas": [
+            {
+              "ID": "Datas_Test_7_Value04",
+              "Name": "Value04",
+              "ShowName": "Value04",
+              "Type": "Value04",
+              "Value": 100.00,
+              "ReadOnly": false,
+              "UnitText": "m/s"
+            },
+            {
+              "ID": "Datas_Test_7_Value05",
+              "Name": "Value05",
+              "ShowName": "Value05",
+              "Type": "Value05",
+              "Value": [ 0.00, 100.00 ],
+              "ReadOnly": false,
+              "ToText": "-",
+              "UnitText": "m/s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ID": "Datas_Table",
+      "Name": "Table",
+      "ShowName": "Table",
+      "Type": "Tab01",
+      "PageType": "FullPage",
+      "Datas": [
+        {
+          "ID": "Datas_Test_2_Table01",
+          "Name": "Table01",
+          "ShowName": "Table01",
+          "Type": "Table01",
+          "Value": [
+            [
+              {
+                "title": "key1",
+                "dataIndex": "key1",
+                "editable": true
+              },
+              {
+                "title": "key2",
+                "dataIndex": "key2",
+                "editable": true
+              },
+              {
+                "title": "key3",
+                "dataIndex": "key3",
+                "editable": true
+              },
+              {
+                "title": "key4",
+                "dataIndex": "key4",
+                "editable": true
+              },
+              {
+                "title": "key5",
+                "dataIndex": "key5",
+                "editable": true
+              },
+              {
+                "title": "key6",
+                "dataIndex": "key6",
+                "editable": true
+              }
+            ],
+            [
+              {
+                "key": "key1",
+                "key1": "11",
+                "key2": "12",
+                "key3": "13",
+                "key4": "14",
+                "key5": "15",
+                "key6": "16"
+              },
+              {
+                "key": "key2",
+                "key1": "21",
+                "key2": "22",
+                "key3": "23",
+                "key4": "24",
+                "key5": "25",
+                "key6": "26"
+              },
+              {
+                "key": "key3",
+                "key1": "31",
+                "key2": "32",
+                "key3": "33",
+                "key4": "34",
+                "key5": "35",
+                "key6": "36"
+              },
+              {
+                "key": "key4",
+                "key1": "41",
+                "key2": "42",
+                "key3": "43",
+                "key4": "44",
+                "key5": "45",
+                "key6": "46"
+              }
+            ]
+          ],
+          "ReadOnly": false
+        }
+      ]
+    }
+  ],
+  "StaticData": {
+    "ID": "StaticData",
+    "Name": "StaticData",
+    "ShowName": "StaticData",
+    "Type": "StaticData",
+    "Datas": []
+  }
+}

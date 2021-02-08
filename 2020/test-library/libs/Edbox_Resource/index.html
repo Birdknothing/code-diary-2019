@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Edbox统一加载框架测试</title>
+</head>
+<body>
+    <script src="/libs/Edbox/js/Edbox.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var resource = Edbox.Resource;
+
+        function error(e) {
+            console.error(e);
+        }
+
+        // 加载资源包
+        resource.GetPackage("c21eaa8a-2688-4558-a5fe-6e910e5cffbf", function () {
+            resource.GetConfig("AssetConfig", function (data) {
+                console.log(data);
+            });
+            resource.GetConfig("GameBaseConfig", function (data) {
+                console.log(data);
+            });
+            resource.GetConfig("GameConfig", function (data) {
+                console.log(data);
+            });
+            resource.GetConfig("TxtConfig", function (data) {
+                console.log(data);
+            });
+        }, error);
+
+        // 加载图片
+        resource.GetImage("df3695d9-e0cf-4b8b-a683-d485611c6914", function (data) {
+            console.log(data);
+        });
+        resource.GetImage("df3695d9-e0cf-4b8b-a683-d485611c6914", function (data) {
+            console.log(data);
+        }, error, "png");
+        resource.GetImage("df3695d9-e0cf-4b8b-a683-d485611c6914", function (data) {
+            console.log(data);
+        }, error, "jpeg");
+
+        // 加载音频
+        resource.GetAudio("d476f5c2-4d67-440c-aa0a-180d08071547", function (data) {
+            console.log(data);
+        });
+        resource.GetAudio("d476f5c2-4d67-440c-aa0a-180d08071547", function (data) {
+            console.log(data);
+        }, error, "mp3");
+        resource.GetAudio("d476f5c2-4d67-440c-aa0a-180d08071547", function (data) {
+            console.log(data);
+        }, error, "ogg");
+
+        Edbox.PackageGuid = "4154433e-dcce-42c5-9f32-5bda0b6fd4aa";
+
+        var format = {
+            "Datas": [
+                {
+                    "ID": "Datas_Level_1_Level3_1",
+                    "ShowName": "关卡3_1",
+                    "Editable": true
+                },
+                {
+                    "ID": "Datas_Level_1_Level3_2",
+                    "ShowName": "关卡3_2",
+                    "Editable": true
+                },
+                {
+                    "ID": "Datas_Level_1_Level3_3",
+                    "ShowName": "关卡3_3",
+                    "Editable": true
+                }
+            ]
+        }
+
+        resource.LoadDatas(format, function (data) {
+            console.log(data);
+        }, error);
+
+    </script>
+</body>
+</html>

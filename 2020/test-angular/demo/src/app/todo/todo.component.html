@@ -1,0 +1,7 @@
+<input type="text" [(ngModel)]="itemToAdd"/>
+<button (click)="newItem(itemToAdd)">新增</button>
+<ul class="main">
+  <li *ngFor="let item of datas">
+    {{ item.name }}<span class="del" (click)="delItem(item)">删除</span>
+  </li>
+</ul>

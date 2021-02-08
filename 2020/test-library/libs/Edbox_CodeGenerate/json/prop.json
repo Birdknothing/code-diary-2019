@@ -1,0 +1,354 @@
+{
+  "Prop": {
+    "Name": "Prop",
+    "ComponentName": "Edbox道具组件",
+    "Description": "用于Edbox平台的道具组件,用于实现道具的管理",
+    "Author": "温荣泉(201901)",
+    "Versions": [
+      {
+        "Name": "0.0.0.1",
+        "Changes": [
+          "初始化组件"
+        ]
+      }
+    ],
+    "Depend": [
+      {
+        "Name": "Edbox",
+        "Wiki": "Edbox通用组件"
+      },
+      {
+        "Name": "Edbox.Request",
+        "Wiki": "Edbox通用请求授权组件"
+      }
+    ],
+    "Datas": [
+      {
+        "Name": "ID",
+        "ChineseName": "游戏内的唯一ID",
+        "EnglishName": "Unique ID",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "GUID",
+        "ChineseName": "服务器上的唯一ID",
+        "EnglishName": "Unique ID On Server",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Name",
+        "ChineseName": "名称",
+        "EnglishName": "Name",
+        "Type": "Text",
+        "Value": ""
+      },
+      {
+        "Name": "Icon",
+        "ChineseName": "图标",
+        "EnglishName": "Icon",
+        "Type": "Image",
+        "Value": ""
+      },
+      {
+        "Name": "Description",
+        "ChineseName": "描述",
+        "EnglishName": "Description",
+        "Type": "LongText",
+        "Value": ""
+      },
+      {
+        "Name": "Attribute",
+        "ChineseName": "属性",
+        "EnglishName": "Attribute",
+        "Type": "Json",
+        "Value": ""
+      },
+      {
+        "Name": "StackLimit",
+        "ChineseName": "叠加上限",
+        "EnglishName": "Stack Limit",
+        "Type": "Int",
+        "Value": 1
+      },
+      {
+        "Name": "Rarity",
+        "ChineseName": "稀有度",
+        "EnglishName": "Rarity",
+        "Type": "Int",
+        "Value": 1
+      },
+      {
+        "Name": "Duration",
+        "ChineseName": "持续时间",
+        "EnglishName": "Duration",
+        "Type": "Int",
+        "Value": 0
+      }
+    ],
+    "Functions": [
+      {
+        "Name": "Get",
+        "ChineseName": "通过服务器验证配置表的数据",
+        "EnglishName": "Verify the data of the configuration table through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Prop"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Set",
+        "ChineseName": "通过服务器保存数据",
+        "EnglishName": "Save data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Prop"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "Delete",
+        "ChineseName": "通过服务器删除数据",
+        "EnglishName": "Delete data through the server",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ],
+    "StaticDatas": [
+      {
+        "Name": "PropList",
+        "ChineseName": "道具列表",
+        "EnglishName": "Prop List",
+        "Type": "Array",
+        "ArrayType": {
+          "Type": "Prop"
+        },
+        "Value": null
+      }
+    ],
+    "StaticFunctions": [
+      {
+        "Name": "Init",
+        "ChineseName": "根据配置表Json数据获取配置表初始化道具表",
+        "EnglishName": "According to the configuration table Json data acquisition configuration table initialization props table",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "data",
+            "Type": "Text",
+            "Description": "配置表Json数据",
+            "AllowEmpty": false
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "GetByGUID",
+        "ChineseName": "获取道具根据道具GUID",
+        "EnglishName": "Get prop based on props GUID",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "guid",
+            "Type": "Text",
+            "Description": "GUID值",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "Prop",
+          "Description": "道具对象"
+        }
+      },
+      {
+        "Name": "GetByID",
+        "ChineseName": "获取道具根据游戏内唯一ID",
+        "EnglishName": "Get prop based on in-game unique ID",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "id",
+            "Type": "Text",
+            "Description": "游戏内唯一ID",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "Prop",
+          "Description": "道具对象"
+        }
+      },
+      {
+        "Name": "GetByName",
+        "ChineseName": "获取道具根据道具名称",
+        "EnglishName": "Get prop based on item name",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "name",
+            "Type": "Text",
+            "Description": "道具名称",
+            "AllowEmpty": false
+          }
+        ],
+        "Return": {
+          "Type": "Prop",
+          "Description": "道具对象"
+        }
+      },
+      {
+        "Name": "GetList",
+        "ChineseName": "获取道具列表",
+        "EnglishName": "Get the list of items",
+        "Type": "Function",
+        "Keys": null,
+        "Return": {
+          "Type": "Array",
+          "ArrayType": {
+            "Type": "Prop"
+          },
+          "Description": "道具对象列表"
+        }
+      },
+      {
+        "Name": "GetJson",
+        "ChineseName": "获取配置表Json",
+        "EnglishName": "Get the configuration table Json",
+        "Type": "Function",
+        "Keys": null,
+        "Return": {
+          "Type": "Text",
+          "Description": "配置表Json"
+        }
+      },
+      {
+        "Name": "New",
+        "ChineseName": "新建道具",
+        "EnglishName": "New prop",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "obj",
+            "Type": "Object",
+            "Description": "道具初始配置",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Prop"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      },
+      {
+        "Name": "SaveList",
+        "ChineseName": "保存道具列表",
+        "EnglishName": "Save Prop List",
+        "Type": "Function",
+        "Keys": [
+          {
+            "Name": "success",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "成功回调",
+            "AllowEmpty": true
+          },
+          {
+            "Name": "error",
+            "Type": "Function",
+            "FunctionType": {
+              "Type": "Object"
+            },
+            "Description": "出错回调",
+            "AllowEmpty": true
+          }
+        ],
+        "Return": null
+      }
+    ]
+  }
+}

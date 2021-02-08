@@ -1,0 +1,12 @@
+{
+  "name": "test-electron",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^8.2.1"
+  },
+  "scripts": {
+    "unzip":"electron-zip"
+  }
+}
